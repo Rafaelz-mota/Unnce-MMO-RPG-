@@ -1,0 +1,51 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+Recordings/
+
+# Gerados pela IDE
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+crashlytics-build.properties
+sysinfo.txt
+
+# Servidor .NET
+server/**/bin/
+server/**/obj/
+
+# Segredos e dados locais (nunca versionar)
+.env
+*.env
+appsettings.Production.json
+*.keystore
+*.jks
+secrets/
+
+# Sistema
+.DS_Store
+Thumbs.db
