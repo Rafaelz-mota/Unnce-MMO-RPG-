@@ -168,9 +168,15 @@ namespace Mmorpg.Core.Tests
             t.Step(1.1);
             Assert.AreEqual(UseSkillResult.Ok, t.Use(w, "guerreiro_golpe_poderoso", dummy));
 
+            // Silêncio só bloqueia habilidades marcadas como "silenceable" nos dados (magias).
+            // O Golpe Poderoso é físico e não é silenciável; o Raio Arcano é.
             t.Step(t.Data.Combat.GlobalCooldown + 0.1);
             Assert.IsTrue(t.World.ApplyStatus(dummy, w, t.Data.Statuses["silenced"], 1.0, 0, DamageType.Physical, "teste"));
-            Assert.AreEqual(UseSkillResult.Silenced, t.Use(w, "guerreiro_golpe_poderoso", dummy));
+            Assert.AreEqual(UseSkillResult.Ok, t.Use(w, "guerreiro_golpe_poderoso", dummy), "habilidade física não é silenciável");
+
+            Combatant m = t.Player("mago", 1, 0, 3);
+            Assert.IsTrue(t.World.ApplyStatus(dummy, m, t.Data.Statuses["silenced"], 1.0, 0, DamageType.Physical, "teste"));
+            Assert.AreEqual(UseSkillResult.Silenced, t.Use(m, "mago_raio_arcano", dummy));
         }
 
         [Test]
