@@ -49,3 +49,8 @@ secrets/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# CI local (dotnet)
+ci/**/bin/
+ci/**/obj/
+*.log

@@ -1,0 +1,41 @@
+name: Núcleo - validação de dados, compilação e testes
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar dados JSON (Python)
+        run: python3 -I tools/validate_data.py client/Assets/Resources/GameData
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Compilar o núcleo
+        run: |
+          set +e
+          dotnet build ci/Mmorpg.Core.csproj -c Release -nologo 2>&1 | tee build.log
+          status=${PIPESTATUS[0]}
+          grep -E ": error " build.log | sort -u | head -80 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
+          exit $status
+
+      - name: Rodar testes
+        run: |
+          set +e
+          export MMORPG_DATA_DIR="$GITHUB_WORKSPACE/client/Assets/Resources/GameData"
+          dotnet test ci/Mmorpg.Core.Tests.csproj -c Release -nologo --logger "console;verbosity=normal" 2>&1 | tee test.log
+          status=${PIPESTATUS[0]}
+          grep -E ": error " test.log | sort -u | head -80 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
+          grep -E "^\s+(Failed|Passed|Skipped) " test.log | sort -u | head -300 | while IFS= read -r l; do
+            case "$l" in *Failed*) echo "::error::${l:0:900}";; *) echo "::notice::${l:0:200}";; esac
+          done
+          grep -A12 -E "^\s+Failed " test.log | head -200 | while IFS= read -r l; do echo "::warning::${l:0:900}"; done
+          tail -8 test.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
+          exit $status
