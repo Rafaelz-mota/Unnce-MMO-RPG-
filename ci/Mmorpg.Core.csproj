@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Projeto SÓ para verificação automática (CI) e para quem quiser rodar 'dotnet test' fora do Unity.
+    Compila exatamente os mesmos arquivos do assembly Unity "Mmorpg.Core" (sem cópia).
+    O Unity continua usando client/Assets/Scripts/Core/Mmorpg.Core.asmdef.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>Mmorpg.Core</AssemblyName>
+    <RootNamespace>Mmorpg.Core</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../client/Assets/Scripts/Core/**/*.cs" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>
