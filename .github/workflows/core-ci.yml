@@ -28,7 +28,7 @@ jobs:
       - name: Compilar o núcleo
         run: |
           set +e
-          dotnet build ci/Mmorpg.Core.csproj -c Release -nologo 2>&1 | tee build.log
+          dotnet build ci/core/Mmorpg.Core.csproj -c Release -nologo 2>&1 | tee build.log
           status=${PIPESTATUS[0]}
           grep -E ": error " build.log | sort -u | head -80 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
           exit $status
@@ -37,7 +37,7 @@ jobs:
         run: |
           set +e
           export MMORPG_DATA_DIR="$GITHUB_WORKSPACE/client/Assets/Resources/GameData"
-          dotnet test ci/Mmorpg.Core.Tests.csproj -c Release -nologo --logger "console;verbosity=normal" 2>&1 | tee test.log
+          dotnet test ci/tests/Mmorpg.Core.Tests.csproj -c Release -nologo --logger "console;verbosity=normal" 2>&1 | tee test.log
           status=${PIPESTATUS[0]}
           grep -E ": error " test.log | sort -u | head -80 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
           tail -8 test.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done

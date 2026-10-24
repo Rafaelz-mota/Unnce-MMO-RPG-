@@ -13,11 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="../client/Assets/Tests/EditMode/**/*.cs" />
+    <Compile Include="../../client/Assets/Tests/EditMode/**/*.cs" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-    <ProjectReference Include="Mmorpg.Core.csproj" />
+    <ProjectReference Include="../core/Mmorpg.Core.csproj" />
   </ItemGroup>
 
 </Project>

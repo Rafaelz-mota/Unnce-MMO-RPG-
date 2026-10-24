@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="../client/Assets/Scripts/Core/**/*.cs" />
+    <Compile Include="../../client/Assets/Scripts/Core/**/*.cs" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
