@@ -2,8 +2,12 @@ name: Núcleo - validação de dados, compilação e testes
 
 on:
   push:
+    branches-ignore: [ci-report]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   core:
@@ -12,7 +16,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Validar dados JSON (Python)
-        run: python3 -I tools/validate_data.py client/Assets/Resources/GameData
+        run: |
+          set +e
+          python3 -I tools/validate_data.py client/Assets/Resources/GameData 2>&1 | tee validate.log
+          exit ${PIPESTATUS[0]}
 
       - uses: actions/setup-dotnet@v4
         with:
@@ -33,9 +40,26 @@ jobs:
           dotnet test ci/Mmorpg.Core.Tests.csproj -c Release -nologo --logger "console;verbosity=normal" 2>&1 | tee test.log
           status=${PIPESTATUS[0]}
           grep -E ": error " test.log | sort -u | head -80 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
-          grep -E "^\s+(Failed|Passed|Skipped) " test.log | sort -u | head -300 | while IFS= read -r l; do
-            case "$l" in *Failed*) echo "::error::${l:0:900}";; *) echo "::notice::${l:0:200}";; esac
-          done
-          grep -A12 -E "^\s+Failed " test.log | head -200 | while IFS= read -r l; do echo "::warning::${l:0:900}"; done
           tail -8 test.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
           exit $status
+
+      # Publica os logs numa branch própria para que possam ser lidos sem abrir a interface do GitHub.
+      - name: Publicar relatório na branch ci-report
+        if: always()
+        run: |
+          set +e
+          mkdir -p /tmp/report
+          cp validate.log build.log test.log /tmp/report/ 2>/dev/null
+          {
+            echo "commit=$GITHUB_SHA"
+            echo "run=$GITHUB_RUN_ID"
+            echo "data=$(date -u +%FT%TZ)"
+          } > /tmp/report/info.txt
+          cd /tmp/report
+          git init -q
+          git checkout -q -b ci-report
+          git config user.name "ci-report"
+          git config user.email "ci-report@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Relatório do CI para $GITHUB_SHA"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" ci-report
