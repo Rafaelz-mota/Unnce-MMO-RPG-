@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sets": [
+    {
+      "id": "cacador_lunar",
+      "name": "Armadura do Caçador Lunar",
+      "pieces": [
+        "capuz_do_cacador_lunar",
+        "peitoral_do_cacador_lunar",
+        "calcas_do_cacador_lunar",
+        "botas_do_cacador_lunar"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "stats": {
+            "moveSpeed": 0.3
+          },
+          "description": "Velocidade de movimento levemente maior."
+        },
+        {
+          "pieces": 3,
+          "stats": {
+            "critChance": 0.03
+          },
+          "description": "Chance crítica maior."
+        },
+        {
+          "pieces": 4,
+          "stats": {
+            "maxHp": 40,
+            "physDefense": 4
+          },
+          "description": "Vida e defesa maiores. (Efeito especial de mobilidade: pendente.)"
+        }
+      ]
+    }
+  ]
+}

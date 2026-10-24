@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "rarities": [
+    {
+      "id": "common",
+      "name": "Comum",
+      "order": 1,
+      "colorHex": "#BDBDBD",
+      "tag": "[C]",
+      "statBudgetMultiplier": 1.0,
+      "sellValueMultiplier": 1
+    },
+    {
+      "id": "rare",
+      "name": "Raro",
+      "order": 2,
+      "colorHex": "#4FC3F7",
+      "tag": "[R]",
+      "statBudgetMultiplier": 1.35,
+      "sellValueMultiplier": 3
+    },
+    {
+      "id": "epic",
+      "name": "Épico",
+      "order": 3,
+      "colorHex": "#BA68C8",
+      "tag": "[E]",
+      "statBudgetMultiplier": 1.8,
+      "sellValueMultiplier": 9
+    },
+    {
+      "id": "legendary",
+      "name": "Lendário",
+      "order": 4,
+      "colorHex": "#FFB74D",
+      "tag": "[L]",
+      "statBudgetMultiplier": 2.5,
+      "sellValueMultiplier": 30
+    },
+    {
+      "id": "unique",
+      "name": "Único",
+      "order": 5,
+      "colorHex": "#EF5350",
+      "tag": "[U]",
+      "statBudgetMultiplier": 3.2,
+      "sellValueMultiplier": 100
+    }
+  ]
+}

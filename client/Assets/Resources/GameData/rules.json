@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "maxLevel": 55,
+  "expectedClassCount": 24,
+  "classesPerFaction": 12,
+  "factions": [
+    {
+      "id": "concordia",
+      "name": "Concórdia do Alvorecer"
+    },
+    {
+      "id": "legiao",
+      "name": "Legião do Crepúsculo"
+    }
+  ],
+  "skillsPerClass": 9,
+  "freeSkillSlots": 5,
+  "paidSkillGoldCost": {
+    "6": 10000,
+    "7": 20000,
+    "8": 30000,
+    "9": 40000
+  },
+  "expectedRarityIds": [
+    "common",
+    "rare",
+    "epic",
+    "legendary",
+    "unique"
+  ],
+  "expectedMonsterCategoryIds": [
+    "common",
+    "uncommon",
+    "rare",
+    "elite",
+    "champion",
+    "legendary",
+    "unique"
+  ],
+  "bossCategoryId": "regionalBoss",
+  "expectedRegionCount": 8,
+  "regionalBossRespawnSeconds": 3600,
+  "equipmentSlots": [
+    "weapon",
+    "head",
+    "chest",
+    "legs",
+    "feet",
+    "accessory"
+  ],
+  "inventoryCapacity": 30,
+  "maxGold": 2000000000
+}

@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "common",
+      "name": "Comum",
+      "tag": "[Comum]",
+      "colorHex": "#BDBDBD",
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "xpMultiplier": 1.0,
+      "goldMultiplier": 1.0
+    },
+    {
+      "id": "uncommon",
+      "name": "Incomum",
+      "tag": "[Incomum]",
+      "colorHex": "#81C784",
+      "hpMultiplier": 1.4,
+      "damageMultiplier": 1.15,
+      "xpMultiplier": 1.6,
+      "goldMultiplier": 1.5
+    },
+    {
+      "id": "rare",
+      "name": "Raro",
+      "tag": "[Raro]",
+      "colorHex": "#4FC3F7",
+      "hpMultiplier": 2.5,
+      "damageMultiplier": 1.3,
+      "xpMultiplier": 3.5,
+      "goldMultiplier": 3.0
+    },
+    {
+      "id": "elite",
+      "name": "Elite",
+      "tag": "[Elite]",
+      "colorHex": "#BA68C8",
+      "hpMultiplier": 4.5,
+      "damageMultiplier": 1.5,
+      "xpMultiplier": 6.0,
+      "goldMultiplier": 5.0
+    },
+    {
+      "id": "champion",
+      "name": "Campeão",
+      "tag": "[Campeão]",
+      "colorHex": "#FF8A65",
+      "hpMultiplier": 6.0,
+      "damageMultiplier": 1.7,
+      "xpMultiplier": 8.0,
+      "goldMultiplier": 7.0
+    },
+    {
+      "id": "legendary",
+      "name": "Lendário",
+      "tag": "[Lendário]",
+      "colorHex": "#FFB74D",
+      "hpMultiplier": 18.0,
+      "damageMultiplier": 1.9,
+      "xpMultiplier": 40.0,
+      "goldMultiplier": 30.0
+    },
+    {
+      "id": "unique",
+      "name": "Único",
+      "tag": "[Único]",
+      "colorHex": "#EF5350",
+      "hpMultiplier": 25.0,
+      "damageMultiplier": 2.0,
+      "xpMultiplier": 60.0,
+      "goldMultiplier": 50.0
+    },
+    {
+      "id": "regionalBoss",
+      "name": "Chefe Regional",
+      "tag": "[Chefe]",
+      "colorHex": "#FFD54F",
+      "hpMultiplier": 16.0,
+      "damageMultiplier": 1.6,
+      "xpMultiplier": 30.0,
+      "goldMultiplier": 25.0
+    }
+  ],
+  "monsters": [
+    {
+      "id": "broto_ancestral",
+      "name": "Broto Ancestral",
+      "categoryId": "common",
+      "level": 1,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 8,
+      "leashRange": 22,
+      "moveSpeed": 3.0,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "broto_chicote"
+      ],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_broto_ancestral",
+      "scale": 0.9,
+      "description": "Planta animada pela energia fraca do Coração Primordial."
+    },
+    {
+      "id": "lobo_selvagem",
+      "name": "Lobo Selvagem",
+      "categoryId": "common",
+      "level": 2,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 10,
+      "leashRange": 25,
+      "moveSpeed": 5.2,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "lobo_mordida"
+      ],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_lobo_selvagem",
+      "scale": 1.0,
+      "description": ""
+    },
+    {
+      "id": "javali_do_vale",
+      "name": "Javali do Vale",
+      "categoryId": "common",
+      "level": 3,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 9,
+      "leashRange": 24,
+      "moveSpeed": 5.5,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "javali_cornada"
+      ],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_javali_do_vale",
+      "scale": 1.1,
+      "description": ""
+    },
+    {
+      "id": "lobo_cinzento",
+      "name": "Lobo Cinzento",
+      "categoryId": "uncommon",
+      "level": 4,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 11,
+      "leashRange": 26,
+      "moveSpeed": 5.6,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "lobo_cinzento_mordida_sangrenta",
+        "lobo_cinzento_mordida"
+      ],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_lobo_cinzento",
+      "scale": 1.15,
+      "description": ""
+    },
+    {
+      "id": "lobo_lunar_palido",
+      "name": "Lobo Lunar Pálido",
+      "categoryId": "rare",
+      "level": 5,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 13,
+      "leashRange": 28,
+      "moveSpeed": 6.0,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "lobo_lunar_salto",
+        "lobo_lunar_mordida"
+      ],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_lobo_lunar_palido",
+      "scale": 1.3,
+      "description": "Criatura rara que só caça em clareiras remotas."
+    },
+    {
+      "id": "sentinela_de_pedra_rachada",
+      "name": "Sentinela de Pedra Rachada",
+      "categoryId": "elite",
+      "level": 6,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 10,
+      "leashRange": 24,
+      "moveSpeed": 3.6,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "sentinela_pisada",
+        "sentinela_golpe"
+      ],
+      "phases": [],
+      "ccResist": {
+        "stun": 0.5,
+        "root": 0.5
+      },
+      "lootTableId": "loot_sentinela",
+      "scale": 1.8,
+      "description": ""
+    },
+    {
+      "id": "colosso_da_raiz",
+      "name": "Colosso da Raiz",
+      "categoryId": "regionalBoss",
+      "level": 7,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 16,
+      "leashRange": 40,
+      "moveSpeed": 4.0,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "boss_pancada_de_raiz",
+        "boss_estaca_radicular"
+      ],
+      "phases": [
+        {
+          "id": "fase1",
+          "hpBelowPercent": 100,
+          "skillIds": [
+            "boss_pancada_de_raiz",
+            "boss_estaca_radicular"
+          ],
+          "damageMultiplier": 1.0,
+          "cooldownMultiplier": 1.0,
+          "announcement": ""
+        },
+        {
+          "id": "fase2",
+          "hpBelowPercent": 50,
+          "skillIds": [
+            "boss_furia_da_seiva",
+            "boss_enraizar",
+            "boss_estaca_radicular",
+            "boss_pancada_de_raiz"
+          ],
+          "damageMultiplier": 1.2,
+          "cooldownMultiplier": 0.85,
+          "announcement": "A seiva ancestral desperta!"
+        }
+      ],
+      "ccResist": {
+        "stun": 0.0,
+        "root": 0.0,
+        "silence": 0.0,
+        "slow": 0.5
+      },
+      "lootTableId": "loot_colosso_da_raiz",
+      "scale": 3.2,
+      "description": "Guardião corrompido do Vale do Despertar, prisioneiro da própria raiz."
+    }
+  ]
+}

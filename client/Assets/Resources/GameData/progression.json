@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "maxLevel": 55,
+  "xpCurve": {
+    "a": 30,
+    "b": 1.6,
+    "c": 0
+  },
+  "monsterXp": {
+    "base": 8,
+    "perLevel": 4
+  },
+  "levelDifference": {
+    "freeRange": 2,
+    "penaltyPerLevel": 0.12,
+    "minFactor": 0.05,
+    "bonusPerLevel": 0.05,
+    "maxBonus": 1.25,
+    "lootCutoffLevels": 10
+  },
+  "goldMultiplier": 1.0,
+  "healFullOnLevelUp": true,
+  "contribution": {
+    "minShare": 0.1,
+    "healingWeight": 0.8
+  }
+}

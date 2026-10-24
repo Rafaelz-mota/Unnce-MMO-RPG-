@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "primary": [
+    {
+      "id": "strength",
+      "name": "Força"
+    },
+    {
+      "id": "intellect",
+      "name": "Intelecto"
+    },
+    {
+      "id": "agility",
+      "name": "Agilidade"
+    },
+    {
+      "id": "vitality",
+      "name": "Vitalidade"
+    },
+    {
+      "id": "spirit",
+      "name": "Espírito"
+    }
+  ],
+  "derived": [
+    {
+      "id": "maxHp",
+      "name": "Vida máxima",
+      "base": 40,
+      "perLevel": 10,
+      "perPrimary": {
+        "vitality": 8
+      }
+    },
+    {
+      "id": "maxMana",
+      "name": "Mana máxima",
+      "base": 20,
+      "perLevel": 3,
+      "perPrimary": {
+        "intellect": 6,
+        "spirit": 2
+      }
+    },
+    {
+      "id": "physAttack",
+      "name": "Ataque físico",
+      "base": 2,
+      "perLevel": 0.8,
+      "perPrimary": {
+        "strength": 0.8,
+        "agility": 0.25
+      }
+    },
+    {
+      "id": "magicAttack",
+      "name": "Ataque mágico",
+      "base": 2,
+      "perLevel": 0.8,
+      "perPrimary": {
+        "intellect": 0.9,
+        "spirit": 0.15
+      }
+    },
+    {
+      "id": "physDefense",
+      "name": "Defesa física",
+      "base": 2,
+      "perLevel": 0.9,
+      "perPrimary": {
+        "vitality": 0.35,
+        "strength": 0.15
+      }
+    },
+    {
+      "id": "magicResist",
+      "name": "Resistência mágica",
+      "base": 2,
+      "perLevel": 0.9,
+      "perPrimary": {
+        "spirit": 0.4,
+        "intellect": 0.1
+      }
+    },
+    {
+      "id": "critChance",
+      "name": "Chance crítica",
+      "base": 0.04,
+      "perLevel": 0,
+      "perPrimary": {
+        "agility": 0.0025
+      }
+    },
+    {
+      "id": "critMultiplier",
+      "name": "Dano crítico",
+      "base": 1.5,
+      "perLevel": 0,
+      "perPrimary": {}
+    },
+    {
+      "id": "moveSpeed",
+      "name": "Velocidade de movimento",
+      "base": 6.0,
+      "perLevel": 0,
+      "perPrimary": {}
+    },
+    {
+      "id": "hpRegen",
+      "name": "Regeneração de vida",
+      "base": 0.5,
+      "perLevel": 0.1,
+      "perPrimary": {
+        "vitality": 0.05
+      }
+    },
+    {
+      "id": "manaRegen",
+      "name": "Regeneração de mana",
+      "base": 1.0,
+      "perLevel": 0.15,
+      "perPrimary": {
+        "spirit": 0.12
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "mana",
+      "displayName": "Mana",
+      "maxStat": "maxMana",
+      "max": 0,
+      "regenStat": "manaRegen",
+      "regenPerSecond": 0,
+      "startFull": true,
+      "decayPerSecond": 0,
+      "decayDelaySeconds": 0,
+      "gainOnDealDamage": 0,
+      "gainOnTakeDamagePerPercent": 0
+    },
+    {
+      "id": "rage",
+      "displayName": "Fúria",
+      "maxStat": null,
+      "max": 100,
+      "regenStat": null,
+      "regenPerSecond": 0,
+      "startFull": false,
+      "decayPerSecond": 4,
+      "decayDelaySeconds": 5,
+      "gainOnDealDamage": 7,
+      "gainOnTakeDamagePerPercent": 0.6
+    },
+    {
+      "id": "energy",
+      "displayName": "Energia",
+      "maxStat": null,
+      "max": 100,
+      "regenStat": null,
+      "regenPerSecond": 12,
+      "startFull": true,
+      "decayPerSecond": 0,
+      "decayDelaySeconds": 0,
+      "gainOnDealDamage": 0,
+      "gainOnTakeDamagePerPercent": 0
+    }
+  ]
+}

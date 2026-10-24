@@ -1,0 +1,1495 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "id": "guerreiro_golpe_poderoso",
+      "name": "Golpe Poderoso",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 1,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.5,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 4,
+          "scaling": {
+            "physAttack": 0.9
+          }
+        }
+      ],
+      "description": "Um golpe pesado de arma.",
+      "animation": "anim_guerreiro_golpe_poderoso",
+      "vfx": "vfx_guerreiro_golpe_poderoso",
+      "sfx": "sfx_guerreiro_golpe_poderoso"
+    },
+    {
+      "id": "guerreiro_investida",
+      "name": "Investida",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 2,
+      "goldCost": 0,
+      "requiresLevel": 2,
+      "type": "mobility",
+      "targeting": "enemy",
+      "range": 14,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 12,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "dash",
+          "side": "self",
+          "dashDirection": "toward",
+          "dashDistance": 12
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "crippled",
+          "duration": 2.5,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Avança contra o alvo e o retarda.",
+      "animation": "anim_guerreiro_investida",
+      "vfx": "vfx_guerreiro_investida",
+      "sfx": "sfx_guerreiro_investida"
+    },
+    {
+      "id": "guerreiro_grito_de_guerra",
+      "name": "Grito de Guerra",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 3,
+      "goldCost": 0,
+      "requiresLevel": 3,
+      "type": "buff",
+      "targeting": "self",
+      "range": 0,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 25,
+      "castTime": 0,
+      "resourceCost": 20,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "war_cry",
+          "duration": 10,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Aumenta defesa e ataque por alguns segundos.",
+      "animation": "anim_guerreiro_grito_de_guerra",
+      "vfx": "vfx_guerreiro_grito_de_guerra",
+      "sfx": "sfx_guerreiro_grito_de_guerra"
+    },
+    {
+      "id": "guerreiro_golpe_giratorio",
+      "name": "Golpe Giratório",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 4,
+      "goldCost": 0,
+      "requiresLevel": 5,
+      "type": "damage",
+      "targeting": "selfArea",
+      "range": 0,
+      "radius": 4,
+      "maxTargets": 5,
+      "cooldown": 8,
+      "castTime": 0,
+      "resourceCost": 25,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 6,
+          "scaling": {
+            "physAttack": 0.7
+          }
+        }
+      ],
+      "description": "Gira a arma atingindo todos ao redor.",
+      "animation": "anim_guerreiro_golpe_giratorio",
+      "vfx": "vfx_guerreiro_golpe_giratorio",
+      "sfx": "sfx_guerreiro_golpe_giratorio"
+    },
+    {
+      "id": "guerreiro_impacto_atordoante",
+      "name": "Impacto Atordoante",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 5,
+      "goldCost": 0,
+      "requiresLevel": 7,
+      "type": "control",
+      "targeting": "enemy",
+      "range": 2.5,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 18,
+      "castTime": 0,
+      "resourceCost": 30,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 4,
+          "scaling": {
+            "physAttack": 0.5
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "stunned",
+          "duration": 1.5,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Um golpe que atordoa o alvo.",
+      "animation": "anim_guerreiro_impacto_atordoante",
+      "vfx": "vfx_guerreiro_impacto_atordoante",
+      "sfx": "sfx_guerreiro_impacto_atordoante"
+    },
+    {
+      "id": "guerreiro_muralha_de_aco",
+      "name": "Muralha de Aço",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 6,
+      "goldCost": 10000,
+      "requiresLevel": 10,
+      "type": "buff",
+      "targeting": "self",
+      "range": 0,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 45,
+      "castTime": 0,
+      "resourceCost": 35,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "shield",
+          "side": "self",
+          "statusId": "barrier",
+          "duration": 8,
+          "base": 20,
+          "scaling": {
+            "maxHp": 0.35
+          },
+          "chance": 1.0,
+          "damageType": "physical"
+        }
+      ],
+      "description": "Cria uma barreira de aço que absorve dano.",
+      "animation": "anim_guerreiro_muralha_de_aco",
+      "vfx": "vfx_guerreiro_muralha_de_aco",
+      "sfx": "sfx_guerreiro_muralha_de_aco"
+    },
+    {
+      "id": "mago_raio_arcano",
+      "name": "Raio Arcano",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 1,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 22,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 0.8,
+      "resourceCost": 6,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 5,
+          "scaling": {
+            "magicAttack": 0.95
+          }
+        }
+      ],
+      "description": "Dispara um raio de energia arcana.",
+      "animation": "anim_mago_raio_arcano",
+      "vfx": "vfx_mago_raio_arcano",
+      "sfx": "sfx_mago_raio_arcano"
+    },
+    {
+      "id": "mago_bola_de_fogo",
+      "name": "Bola de Fogo",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 2,
+      "goldCost": 0,
+      "requiresLevel": 2,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 24,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 6,
+      "castTime": 1.4,
+      "resourceCost": 18,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 12,
+          "scaling": {
+            "magicAttack": 1.5
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "burning",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 3,
+          "scaling": {
+            "magicAttack": 0.25
+          },
+          "damageType": "magic"
+        }
+      ],
+      "description": "Esfera flamejante que queima o alvo.",
+      "animation": "anim_mago_bola_de_fogo",
+      "vfx": "vfx_mago_bola_de_fogo",
+      "sfx": "sfx_mago_bola_de_fogo"
+    },
+    {
+      "id": "mago_nova_glacial",
+      "name": "Nova Glacial",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 3,
+      "goldCost": 0,
+      "requiresLevel": 3,
+      "type": "control",
+      "targeting": "selfArea",
+      "range": 0,
+      "radius": 5,
+      "maxTargets": 6,
+      "cooldown": 12,
+      "castTime": 0,
+      "resourceCost": 22,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 8,
+          "scaling": {
+            "magicAttack": 0.8
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "chilled",
+          "duration": 3,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Onda de gelo que retarda inimigos próximos.",
+      "animation": "anim_mago_nova_glacial",
+      "vfx": "vfx_mago_nova_glacial",
+      "sfx": "sfx_mago_nova_glacial"
+    },
+    {
+      "id": "mago_escudo_arcano",
+      "name": "Escudo Arcano",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 4,
+      "goldCost": 0,
+      "requiresLevel": 5,
+      "type": "buff",
+      "targeting": "self",
+      "range": 0,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 30,
+      "castTime": 0,
+      "resourceCost": 20,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "shield",
+          "side": "self",
+          "statusId": "barrier",
+          "duration": 10,
+          "base": 20,
+          "scaling": {
+            "magicAttack": 1.2
+          },
+          "chance": 1.0,
+          "damageType": "magic"
+        }
+      ],
+      "description": "Cria uma barreira de mana.",
+      "animation": "anim_mago_escudo_arcano",
+      "vfx": "vfx_mago_escudo_arcano",
+      "sfx": "sfx_mago_escudo_arcano"
+    },
+    {
+      "id": "mago_prisao_de_gelo",
+      "name": "Prisão de Gelo",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 5,
+      "goldCost": 0,
+      "requiresLevel": 7,
+      "type": "control",
+      "targeting": "enemy",
+      "range": 20,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 22,
+      "castTime": 0.6,
+      "resourceCost": 25,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.4
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "rooted",
+          "duration": 2,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Congela os pés do alvo no lugar.",
+      "animation": "anim_mago_prisao_de_gelo",
+      "vfx": "vfx_mago_prisao_de_gelo",
+      "sfx": "sfx_mago_prisao_de_gelo"
+    },
+    {
+      "id": "mago_tempestade_arcana",
+      "name": "Tempestade Arcana",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 6,
+      "goldCost": 10000,
+      "requiresLevel": 10,
+      "type": "damage",
+      "targeting": "ground",
+      "range": 24,
+      "radius": 5,
+      "maxTargets": 8,
+      "cooldown": 30,
+      "castTime": 2.0,
+      "resourceCost": 45,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 25,
+          "scaling": {
+            "magicAttack": 1.8
+          }
+        }
+      ],
+      "description": "Tempestade de energia sobre uma área marcada.",
+      "animation": "anim_mago_tempestade_arcana",
+      "vfx": "vfx_mago_tempestade_arcana",
+      "sfx": "sfx_mago_tempestade_arcana"
+    },
+    {
+      "id": "sacerdote_toque_de_luz",
+      "name": "Toque de Luz",
+      "ownerType": "class",
+      "ownerId": "sacerdote",
+      "slot": 1,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "heal",
+      "targeting": "ally",
+      "range": 20,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 1.0,
+      "resourceCost": 10,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "heal",
+          "side": "ally",
+          "base": 12,
+          "scaling": {
+            "magicAttack": 1.1
+          }
+        }
+      ],
+      "description": "Cura um aliado com luz.",
+      "animation": "anim_sacerdote_toque_de_luz",
+      "vfx": "vfx_sacerdote_toque_de_luz",
+      "sfx": "sfx_sacerdote_toque_de_luz"
+    },
+    {
+      "id": "sacerdote_raio_sagrado",
+      "name": "Raio Sagrado",
+      "ownerType": "class",
+      "ownerId": "sacerdote",
+      "slot": 2,
+      "goldCost": 0,
+      "requiresLevel": 2,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 20,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 0.8,
+      "resourceCost": 6,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 3,
+          "scaling": {
+            "magicAttack": 0.7
+          }
+        }
+      ],
+      "description": "Fere inimigos com luz sagrada.",
+      "animation": "anim_sacerdote_raio_sagrado",
+      "vfx": "vfx_sacerdote_raio_sagrado",
+      "sfx": "sfx_sacerdote_raio_sagrado"
+    },
+    {
+      "id": "sacerdote_nova_de_cura",
+      "name": "Nova de Cura",
+      "ownerType": "class",
+      "ownerId": "sacerdote",
+      "slot": 3,
+      "goldCost": 0,
+      "requiresLevel": 3,
+      "type": "heal",
+      "targeting": "selfArea",
+      "range": 0,
+      "radius": 8,
+      "maxTargets": 5,
+      "cooldown": 14,
+      "castTime": 0,
+      "resourceCost": 28,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "heal",
+          "side": "ally",
+          "base": 8,
+          "scaling": {
+            "magicAttack": 0.7
+          }
+        }
+      ],
+      "description": "Cura aliados próximos, priorizando os mais feridos.",
+      "animation": "anim_sacerdote_nova_de_cura",
+      "vfx": "vfx_sacerdote_nova_de_cura",
+      "sfx": "sfx_sacerdote_nova_de_cura"
+    },
+    {
+      "id": "sacerdote_regeneracao",
+      "name": "Regeneração Sagrada",
+      "ownerType": "class",
+      "ownerId": "sacerdote",
+      "slot": 4,
+      "goldCost": 0,
+      "requiresLevel": 5,
+      "type": "heal",
+      "targeting": "ally",
+      "range": 20,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 8,
+      "castTime": 0,
+      "resourceCost": 15,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "regrowth",
+          "duration": 10,
+          "chance": 1.0,
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.35
+          },
+          "damageType": "magic"
+        }
+      ],
+      "description": "Cura aliado ao longo do tempo.",
+      "animation": "anim_sacerdote_regeneracao",
+      "vfx": "vfx_sacerdote_regeneracao",
+      "sfx": "sfx_sacerdote_regeneracao"
+    },
+    {
+      "id": "sacerdote_barreira_sagrada",
+      "name": "Barreira Sagrada",
+      "ownerType": "class",
+      "ownerId": "sacerdote",
+      "slot": 5,
+      "goldCost": 0,
+      "requiresLevel": 7,
+      "type": "buff",
+      "targeting": "ally",
+      "range": 20,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 20,
+      "castTime": 0,
+      "resourceCost": 24,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "shield",
+          "side": "ally",
+          "statusId": "barrier",
+          "duration": 8,
+          "base": 15,
+          "scaling": {
+            "magicAttack": 1.0
+          },
+          "chance": 1.0,
+          "damageType": "magic"
+        }
+      ],
+      "description": "Protege um aliado com uma barreira.",
+      "animation": "anim_sacerdote_barreira_sagrada",
+      "vfx": "vfx_sacerdote_barreira_sagrada",
+      "sfx": "sfx_sacerdote_barreira_sagrada"
+    },
+    {
+      "id": "arqueiro_tiro_preciso",
+      "name": "Tiro Preciso",
+      "ownerType": "class",
+      "ownerId": "arqueiro",
+      "slot": 1,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 28,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 0,
+      "resourceCost": 8,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.9
+          }
+        }
+      ],
+      "description": "Flecha de longo alcance.",
+      "animation": "anim_arqueiro_tiro_preciso",
+      "vfx": "vfx_arqueiro_tiro_preciso",
+      "sfx": "sfx_arqueiro_tiro_preciso"
+    },
+    {
+      "id": "arqueiro_chuva_de_flechas",
+      "name": "Chuva de Flechas",
+      "ownerType": "class",
+      "ownerId": "arqueiro",
+      "slot": 2,
+      "goldCost": 0,
+      "requiresLevel": 3,
+      "type": "damage",
+      "targeting": "ground",
+      "range": 26,
+      "radius": 5,
+      "maxTargets": 6,
+      "cooldown": 10,
+      "castTime": 1.0,
+      "resourceCost": 30,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 6,
+          "scaling": {
+            "physAttack": 0.8
+          }
+        }
+      ],
+      "description": "Chuva de flechas sobre uma área.",
+      "animation": "anim_arqueiro_chuva_de_flechas",
+      "vfx": "vfx_arqueiro_chuva_de_flechas",
+      "sfx": "sfx_arqueiro_chuva_de_flechas"
+    },
+    {
+      "id": "arqueiro_tiro_enfraquecedor",
+      "name": "Tiro Enfraquecedor",
+      "ownerType": "class",
+      "ownerId": "arqueiro",
+      "slot": 3,
+      "goldCost": 0,
+      "requiresLevel": 4,
+      "type": "control",
+      "targeting": "enemy",
+      "range": 26,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 8,
+      "castTime": 0,
+      "resourceCost": 15,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.5
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "crippled",
+          "duration": 4,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Fere a perna do alvo, retardando-o.",
+      "animation": "anim_arqueiro_tiro_enfraquecedor",
+      "vfx": "vfx_arqueiro_tiro_enfraquecedor",
+      "sfx": "sfx_arqueiro_tiro_enfraquecedor"
+    },
+    {
+      "id": "arqueiro_salto_agil",
+      "name": "Salto Ágil",
+      "ownerType": "class",
+      "ownerId": "arqueiro",
+      "slot": 4,
+      "goldCost": 0,
+      "requiresLevel": 5,
+      "type": "mobility",
+      "targeting": "enemy",
+      "range": 30,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 14,
+      "castTime": 0,
+      "resourceCost": 10,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "dash",
+          "side": "self",
+          "dashDirection": "away",
+          "dashDistance": 9
+        }
+      ],
+      "description": "Salta para longe do alvo.",
+      "animation": "anim_arqueiro_salto_agil",
+      "vfx": "vfx_arqueiro_salto_agil",
+      "sfx": "sfx_arqueiro_salto_agil"
+    },
+    {
+      "id": "assassino_corte_rapido",
+      "name": "Corte Rápido",
+      "ownerType": "class",
+      "ownerId": "assassino",
+      "slot": 1,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.5,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 0,
+      "resourceCost": 8,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.9
+          }
+        }
+      ],
+      "description": "Golpe rápido de adaga.",
+      "animation": "anim_assassino_corte_rapido",
+      "vfx": "vfx_assassino_corte_rapido",
+      "sfx": "sfx_assassino_corte_rapido"
+    },
+    {
+      "id": "assassino_golpe_sangrento",
+      "name": "Golpe Sangrento",
+      "ownerType": "class",
+      "ownerId": "assassino",
+      "slot": 2,
+      "goldCost": 0,
+      "requiresLevel": 2,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.5,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 8,
+      "castTime": 0,
+      "resourceCost": 20,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 4,
+          "scaling": {
+            "physAttack": 0.7
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "bleeding",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.3
+          },
+          "damageType": "physical"
+        }
+      ],
+      "description": "Corte profundo que faz o alvo sangrar.",
+      "animation": "anim_assassino_golpe_sangrento",
+      "vfx": "vfx_assassino_golpe_sangrento",
+      "sfx": "sfx_assassino_golpe_sangrento"
+    },
+    {
+      "id": "assassino_passo_sombrio",
+      "name": "Passo Sombrio",
+      "ownerType": "class",
+      "ownerId": "assassino",
+      "slot": 3,
+      "goldCost": 0,
+      "requiresLevel": 3,
+      "type": "mobility",
+      "targeting": "enemy",
+      "range": 16,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 10,
+      "castTime": 0,
+      "resourceCost": 15,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "dash",
+          "side": "self",
+          "dashDirection": "toward",
+          "dashDistance": 14
+        }
+      ],
+      "description": "Avança nas sombras até o alvo.",
+      "animation": "anim_assassino_passo_sombrio",
+      "vfx": "vfx_assassino_passo_sombrio",
+      "sfx": "sfx_assassino_passo_sombrio"
+    },
+    {
+      "id": "bruxo_seta_sombria",
+      "name": "Seta Sombria",
+      "ownerType": "class",
+      "ownerId": "bruxo",
+      "slot": 1,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 22,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 0,
+      "castTime": 1.0,
+      "resourceCost": 6,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.95
+          }
+        }
+      ],
+      "description": "Projétil de energia sombria.",
+      "animation": "anim_bruxo_seta_sombria",
+      "vfx": "vfx_bruxo_seta_sombria",
+      "sfx": "sfx_bruxo_seta_sombria"
+    },
+    {
+      "id": "bruxo_corrupcao",
+      "name": "Corrupção",
+      "ownerType": "class",
+      "ownerId": "bruxo",
+      "slot": 2,
+      "goldCost": 0,
+      "requiresLevel": 2,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 22,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 4,
+      "castTime": 0,
+      "resourceCost": 14,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "corruption",
+          "duration": 12,
+          "chance": 1.0,
+          "base": 3,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
+        }
+      ],
+      "description": "Corrompe o alvo, causando dano ao longo do tempo.",
+      "animation": "anim_bruxo_corrupcao",
+      "vfx": "vfx_bruxo_corrupcao",
+      "sfx": "sfx_bruxo_corrupcao"
+    },
+    {
+      "id": "bruxo_drenar_vida",
+      "name": "Drenar Vida",
+      "ownerType": "class",
+      "ownerId": "bruxo",
+      "slot": 3,
+      "goldCost": 0,
+      "requiresLevel": 3,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 18,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 10,
+      "castTime": 1.2,
+      "resourceCost": 20,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 6,
+          "scaling": {
+            "magicAttack": 1.0
+          }
+        },
+        {
+          "kind": "heal",
+          "side": "self",
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.5
+          }
+        }
+      ],
+      "description": "Drena a vida do alvo e cura o conjurador.",
+      "animation": "anim_bruxo_drenar_vida",
+      "vfx": "vfx_bruxo_drenar_vida",
+      "sfx": "sfx_bruxo_drenar_vida"
+    },
+    {
+      "id": "lobo_mordida",
+      "name": "Mordida",
+      "ownerType": "monster",
+      "ownerId": "lobo_selvagem",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.2,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.0,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.9
+          }
+        }
+      ],
+      "description": "Mordida simples.",
+      "animation": "anim_lobo_mordida",
+      "vfx": "vfx_lobo_mordida",
+      "sfx": "sfx_lobo_mordida"
+    },
+    {
+      "id": "broto_chicote",
+      "name": "Chicote de Raiz",
+      "ownerType": "monster",
+      "ownerId": "broto_ancestral",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.6,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.4,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.9
+          }
+        }
+      ],
+      "description": "Chicote de raiz fina.",
+      "animation": "anim_broto_chicote",
+      "vfx": "vfx_broto_chicote",
+      "sfx": "sfx_broto_chicote"
+    },
+    {
+      "id": "javali_cornada",
+      "name": "Cornada",
+      "ownerType": "monster",
+      "ownerId": "javali_do_vale",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.4,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.5,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 4,
+          "scaling": {
+            "physAttack": 1.0
+          }
+        }
+      ],
+      "description": "Cornada violenta.",
+      "animation": "anim_javali_cornada",
+      "vfx": "vfx_javali_cornada",
+      "sfx": "sfx_javali_cornada"
+    },
+    {
+      "id": "lobo_cinzento_mordida",
+      "name": "Mordida Cinzenta",
+      "ownerType": "monster",
+      "ownerId": "lobo_cinzento",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.2,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.0,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.9
+          }
+        }
+      ],
+      "description": "Mordida forte.",
+      "animation": "anim_lobo_cinzento_mordida",
+      "vfx": "vfx_lobo_cinzento_mordida",
+      "sfx": "sfx_lobo_cinzento_mordida"
+    },
+    {
+      "id": "lobo_cinzento_mordida_sangrenta",
+      "name": "Mordida Sangrenta",
+      "ownerType": "monster",
+      "ownerId": "lobo_cinzento",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.2,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 8.0,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.7
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "bleeding",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.25
+          },
+          "damageType": "physical"
+        }
+      ],
+      "description": "Mordida que causa sangramento.",
+      "animation": "anim_lobo_cinzento_mordida_sangrenta",
+      "vfx": "vfx_lobo_cinzento_mordida_sangrenta",
+      "sfx": "sfx_lobo_cinzento_mordida_sangrenta"
+    },
+    {
+      "id": "lobo_lunar_mordida",
+      "name": "Mordida Lunar",
+      "ownerType": "monster",
+      "ownerId": "lobo_lunar_palido",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 2.4,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.0,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 4,
+          "scaling": {
+            "physAttack": 1.0
+          }
+        }
+      ],
+      "description": "Mordida gelada de luar.",
+      "animation": "anim_lobo_lunar_mordida",
+      "vfx": "vfx_lobo_lunar_mordida",
+      "sfx": "sfx_lobo_lunar_mordida"
+    },
+    {
+      "id": "lobo_lunar_salto",
+      "name": "Salto Lunar",
+      "ownerType": "monster",
+      "ownerId": "lobo_lunar_palido",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "ground",
+      "range": 12,
+      "radius": 2.5,
+      "maxTargets": 3,
+      "cooldown": 9.0,
+      "castTime": 1.2,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 8,
+          "scaling": {
+            "physAttack": 1.3
+          }
+        }
+      ],
+      "description": "Salta sobre a posição marcada; dá para desviar.",
+      "animation": "anim_lobo_lunar_salto",
+      "vfx": "vfx_lobo_lunar_salto",
+      "sfx": "sfx_lobo_lunar_salto"
+    },
+    {
+      "id": "sentinela_golpe",
+      "name": "Golpe de Pedra",
+      "ownerType": "monster",
+      "ownerId": "sentinela_de_pedra_rachada",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 3.0,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.6,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 5,
+          "scaling": {
+            "physAttack": 1.0
+          }
+        }
+      ],
+      "description": "Pancada de punhos de pedra.",
+      "animation": "anim_sentinela_golpe",
+      "vfx": "vfx_sentinela_golpe",
+      "sfx": "sfx_sentinela_golpe"
+    },
+    {
+      "id": "sentinela_pisada",
+      "name": "Pisada Sísmica",
+      "ownerType": "monster",
+      "ownerId": "sentinela_de_pedra_rachada",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "selfArea",
+      "range": 0,
+      "radius": 4.5,
+      "maxTargets": 5,
+      "cooldown": 10.0,
+      "castTime": 1.5,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 10,
+          "scaling": {
+            "physAttack": 1.2
+          }
+        }
+      ],
+      "description": "Pisada que abala a área ao redor; sinalizada.",
+      "animation": "anim_sentinela_pisada",
+      "vfx": "vfx_sentinela_pisada",
+      "sfx": "sfx_sentinela_pisada"
+    },
+    {
+      "id": "boss_pancada_de_raiz",
+      "name": "Pancada de Raiz",
+      "ownerType": "monster",
+      "ownerId": "colosso_da_raiz",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 4.0,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 3.0,
+      "castTime": 0.8,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 6,
+          "scaling": {
+            "physAttack": 1.3
+          }
+        }
+      ],
+      "description": "Pancada pesada com preparo curto; saia do alcance para evitar.",
+      "animation": "anim_boss_pancada_de_raiz",
+      "vfx": "vfx_boss_pancada_de_raiz",
+      "sfx": "sfx_boss_pancada_de_raiz"
+    },
+    {
+      "id": "boss_estaca_radicular",
+      "name": "Estaca Radicular",
+      "ownerType": "monster",
+      "ownerId": "colosso_da_raiz",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "ground",
+      "range": 16,
+      "radius": 4.0,
+      "maxTargets": 6,
+      "cooldown": 9.0,
+      "castTime": 1.8,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 12,
+          "scaling": {
+            "physAttack": 1.8
+          }
+        }
+      ],
+      "description": "Estacas de raiz brotam na área marcada.",
+      "animation": "anim_boss_estaca_radicular",
+      "vfx": "vfx_boss_estaca_radicular",
+      "sfx": "sfx_boss_estaca_radicular"
+    },
+    {
+      "id": "boss_enraizar",
+      "name": "Enraizar",
+      "ownerType": "monster",
+      "ownerId": "colosso_da_raiz",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 14,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 16.0,
+      "castTime": 1.0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.6
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "rooted",
+          "duration": 2.0,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Prende o alvo ao chão.",
+      "animation": "anim_boss_enraizar",
+      "vfx": "vfx_boss_enraizar",
+      "sfx": "sfx_boss_enraizar"
+    },
+    {
+      "id": "boss_furia_da_seiva",
+      "name": "Fúria da Seiva",
+      "ownerType": "monster",
+      "ownerId": "colosso_da_raiz",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "selfArea",
+      "range": 0,
+      "radius": 7.0,
+      "maxTargets": 8,
+      "cooldown": 20.0,
+      "castTime": 2.2,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 14,
+          "scaling": {
+            "physAttack": 1.6
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "sapped",
+          "duration": 3,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Explosão de seiva ao redor do Colosso; sinalizada.",
+      "animation": "anim_boss_furia_da_seiva",
+      "vfx": "vfx_boss_furia_da_seiva",
+      "sfx": "sfx_boss_furia_da_seiva"
+    }
+  ]
+}

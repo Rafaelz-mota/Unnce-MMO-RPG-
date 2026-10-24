@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "tables": [
+    {
+      "id": "loot_broto_ancestral",
+      "goldMin": 1,
+      "goldMax": 4,
+      "minContributionShare": null,
+      "maxItemsPerPlayer": 2,
+      "rarityCapsPerKill": {},
+      "entries": [
+        {
+          "itemId": "lasca_de_madeira_antiga",
+          "chance": 0.6,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "itemId": "capuz_de_couro",
+          "chance": 0.04,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "loot_lobo_selvagem",
+      "goldMin": 2,
+      "goldMax": 6,
+      "minContributionShare": null,
+      "maxItemsPerPlayer": 2,
+      "rarityCapsPerKill": {},
+      "entries": [
+        {
+          "itemId": "pele_de_lobo",
+          "chance": 0.6,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "itemId": "botas_de_couro",
+          "chance": 0.04,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "cobre_bruto",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "loot_javali_do_vale",
+      "goldMin": 3,
+      "goldMax": 8,
+      "minContributionShare": null,
+      "maxItemsPerPlayer": 2,
+      "rarityCapsPerKill": {},
+      "entries": [
+        {
+          "itemId": "presa_de_javali",
+          "chance": 0.6,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "itemId": "tunica_de_viajante",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "cobre_bruto",
+          "chance": 0.12,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "loot_lobo_cinzento",
+      "goldMin": 5,
+      "goldMax": 12,
+      "minContributionShare": null,
+      "maxItemsPerPlayer": 3,
+      "rarityCapsPerKill": {
+        "rare": 1
+      },
+      "entries": [
+        {
+          "itemId": "pele_de_lobo",
+          "chance": 0.8,
+          "min": 1,
+          "max": 3
+        },
+        {
+          "itemId": "anel_de_cobre",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "espada_de_ferro_reforcada",
+          "chance": 0.03,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "cajado_do_vale",
+          "chance": 0.03,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "arco_de_teixo",
+          "chance": 0.03,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "loot_lobo_lunar_palido",
+      "goldMin": 20,
+      "goldMax": 40,
+      "minContributionShare": null,
+      "maxItemsPerPlayer": 3,
+      "rarityCapsPerKill": {
+        "epic": 1
+      },
+      "entries": [
+        {
+          "itemId": "pele_de_lobo",
+          "chance": 1.0,
+          "min": 2,
+          "max": 4
+        },
+        {
+          "itemId": "capuz_do_cacador_lunar",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "peitoral_do_cacador_lunar",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "calcas_do_cacador_lunar",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "botas_do_cacador_lunar",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "anel_de_cobre",
+          "chance": 0.25,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "loot_sentinela",
+      "goldMin": 30,
+      "goldMax": 60,
+      "minContributionShare": null,
+      "maxItemsPerPlayer": 3,
+      "rarityCapsPerKill": {
+        "epic": 1
+      },
+      "entries": [
+        {
+          "itemId": "cobre_bruto",
+          "chance": 1.0,
+          "min": 2,
+          "max": 4
+        },
+        {
+          "itemId": "espada_de_ferro_reforcada",
+          "chance": 0.12,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "cajado_do_vale",
+          "chance": 0.12,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "arco_de_teixo",
+          "chance": 0.12,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "loot_colosso_da_raiz",
+      "goldMin": 150,
+      "goldMax": 260,
+      "minContributionShare": 0.05,
+      "maxItemsPerPlayer": 4,
+      "rarityCapsPerKill": {
+        "legendary": 1,
+        "unique": 1
+      },
+      "entries": [
+        {
+          "itemId": "fragmento_de_raiz_ancestral",
+          "chance": 1.0,
+          "min": 1,
+          "max": 3
+        },
+        {
+          "itemId": "lasca_de_madeira_antiga",
+          "chance": 1.0,
+          "min": 3,
+          "max": 6
+        },
+        {
+          "itemId": "lamina_da_raiz_desperta",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "cajado_do_colosso",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "coracao_de_raiz_viva",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "itemId": "peitoral_do_cacador_lunar",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    }
+  ]
+}

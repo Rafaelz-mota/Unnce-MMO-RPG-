@@ -1,0 +1,784 @@
+{
+  "schemaVersion": 1,
+  "classes": [
+    {
+      "id": "guerreiro",
+      "name": "Guerreiro",
+      "faction": "concordia",
+      "roles": [
+        "tank",
+        "melee"
+      ],
+      "resource": "rage",
+      "primaryBase": {
+        "strength": 12,
+        "intellect": 3,
+        "agility": 6,
+        "vitality": 12,
+        "spirit": 4
+      },
+      "primaryPerLevel": {
+        "strength": 1.6,
+        "intellect": 0.3,
+        "agility": 0.7,
+        "vitality": 1.6,
+        "spirit": 0.4
+      },
+      "weaponTypes": [
+        "sword",
+        "axe",
+        "mace"
+      ],
+      "startingItems": [
+        "espada_enferrujada"
+      ],
+      "skillIds": [
+        "guerreiro_golpe_poderoso",
+        "guerreiro_investida",
+        "guerreiro_grito_de_guerra",
+        "guerreiro_golpe_giratorio",
+        "guerreiro_impacto_atordoante",
+        "guerreiro_muralha_de_aco"
+      ],
+      "description": "Combatente de linha de frente, resistente e versátil."
+    },
+    {
+      "id": "guardiao",
+      "name": "Guardião",
+      "faction": "concordia",
+      "roles": [
+        "tank"
+      ],
+      "resource": "rage",
+      "primaryBase": {
+        "strength": 10,
+        "intellect": 3,
+        "agility": 5,
+        "vitality": 15,
+        "spirit": 5
+      },
+      "primaryPerLevel": {
+        "strength": 1.3,
+        "intellect": 0.3,
+        "agility": 0.5,
+        "vitality": 2.0,
+        "spirit": 0.6
+      },
+      "weaponTypes": [
+        "sword",
+        "mace",
+        "spear"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Protetor que absorve dano e mantém inimigos sob controle."
+    },
+    {
+      "id": "paladino",
+      "name": "Paladino",
+      "faction": "concordia",
+      "roles": [
+        "tank",
+        "healer"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 10,
+        "intellect": 6,
+        "agility": 5,
+        "vitality": 11,
+        "spirit": 8
+      },
+      "primaryPerLevel": {
+        "strength": 1.3,
+        "intellect": 0.8,
+        "agility": 0.5,
+        "vitality": 1.6,
+        "spirit": 0.9
+      },
+      "weaponTypes": [
+        "mace",
+        "sword",
+        "scepter"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Guerreiro sagrado que combina proteção e cura."
+    },
+    {
+      "id": "monge",
+      "name": "Monge",
+      "faction": "concordia",
+      "roles": [
+        "melee"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 9,
+        "intellect": 4,
+        "agility": 12,
+        "vitality": 9,
+        "spirit": 7
+      },
+      "primaryPerLevel": {
+        "strength": 1.1,
+        "intellect": 0.4,
+        "agility": 1.5,
+        "vitality": 1.3,
+        "spirit": 0.8
+      },
+      "weaponTypes": [
+        "fist",
+        "staff"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Lutador ágil de golpes rápidos e disciplina interior."
+    },
+    {
+      "id": "lanceiro",
+      "name": "Lanceiro",
+      "faction": "concordia",
+      "roles": [
+        "melee"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 11,
+        "intellect": 3,
+        "agility": 9,
+        "vitality": 10,
+        "spirit": 4
+      },
+      "primaryPerLevel": {
+        "strength": 1.5,
+        "intellect": 0.3,
+        "agility": 1.1,
+        "vitality": 1.4,
+        "spirit": 0.4
+      },
+      "weaponTypes": [
+        "spear"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Combatente de alcance estendido e investidas precisas."
+    },
+    {
+      "id": "arqueiro",
+      "name": "Arqueiro",
+      "faction": "concordia",
+      "roles": [
+        "ranged"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 6,
+        "intellect": 4,
+        "agility": 14,
+        "vitality": 8,
+        "spirit": 5
+      },
+      "primaryPerLevel": {
+        "strength": 0.7,
+        "intellect": 0.4,
+        "agility": 1.8,
+        "vitality": 1.1,
+        "spirit": 0.5
+      },
+      "weaponTypes": [
+        "bow"
+      ],
+      "startingItems": [
+        "arco_curto"
+      ],
+      "skillIds": [
+        "arqueiro_tiro_preciso",
+        "arqueiro_chuva_de_flechas",
+        "arqueiro_tiro_enfraquecedor",
+        "arqueiro_salto_agil"
+      ],
+      "description": "Atirador de longa distância com mobilidade."
+    },
+    {
+      "id": "engenheiro",
+      "name": "Engenheiro",
+      "faction": "concordia",
+      "roles": [
+        "ranged",
+        "utility"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 6,
+        "intellect": 9,
+        "agility": 10,
+        "vitality": 8,
+        "spirit": 4
+      },
+      "primaryPerLevel": {
+        "strength": 0.7,
+        "intellect": 1.1,
+        "agility": 1.3,
+        "vitality": 1.1,
+        "spirit": 0.5
+      },
+      "weaponTypes": [
+        "crossbow",
+        "wrench"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Inventor de engenhocas, armadilhas e torres."
+    },
+    {
+      "id": "mago",
+      "name": "Mago",
+      "faction": "concordia",
+      "roles": [
+        "caster"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 3,
+        "intellect": 14,
+        "agility": 4,
+        "vitality": 5,
+        "spirit": 8
+      },
+      "primaryPerLevel": {
+        "strength": 0.3,
+        "intellect": 1.9,
+        "agility": 0.4,
+        "vitality": 0.7,
+        "spirit": 1.1
+      },
+      "weaponTypes": [
+        "staff",
+        "wand"
+      ],
+      "startingItems": [
+        "cajado_de_carvalho"
+      ],
+      "skillIds": [
+        "mago_raio_arcano",
+        "mago_bola_de_fogo",
+        "mago_nova_glacial",
+        "mago_escudo_arcano",
+        "mago_prisao_de_gelo",
+        "mago_tempestade_arcana"
+      ],
+      "description": "Conjurador de feitiços arcanos de grande dano."
+    },
+    {
+      "id": "mago_runico",
+      "name": "Mago Rúnico",
+      "faction": "concordia",
+      "roles": [
+        "caster",
+        "control"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 4,
+        "intellect": 13,
+        "agility": 5,
+        "vitality": 6,
+        "spirit": 7
+      },
+      "primaryPerLevel": {
+        "strength": 0.4,
+        "intellect": 1.8,
+        "agility": 0.5,
+        "vitality": 0.9,
+        "spirit": 1.0
+      },
+      "weaponTypes": [
+        "staff",
+        "wand"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Gravador de runas que prende e pune adversários."
+    },
+    {
+      "id": "sacerdote",
+      "name": "Sacerdote",
+      "faction": "concordia",
+      "roles": [
+        "healer"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 3,
+        "intellect": 11,
+        "agility": 4,
+        "vitality": 6,
+        "spirit": 13
+      },
+      "primaryPerLevel": {
+        "strength": 0.3,
+        "intellect": 1.3,
+        "agility": 0.4,
+        "vitality": 0.9,
+        "spirit": 1.9
+      },
+      "weaponTypes": [
+        "scepter",
+        "staff"
+      ],
+      "startingItems": [
+        "cetro_de_madeira"
+      ],
+      "skillIds": [
+        "sacerdote_toque_de_luz",
+        "sacerdote_raio_sagrado",
+        "sacerdote_nova_de_cura",
+        "sacerdote_regeneracao",
+        "sacerdote_barreira_sagrada"
+      ],
+      "description": "Curandeiro devoto, sustenta o grupo com luz."
+    },
+    {
+      "id": "bardo",
+      "name": "Bardo",
+      "faction": "concordia",
+      "roles": [
+        "support"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 4,
+        "intellect": 9,
+        "agility": 8,
+        "vitality": 7,
+        "spirit": 10
+      },
+      "primaryPerLevel": {
+        "strength": 0.4,
+        "intellect": 1.0,
+        "agility": 1.0,
+        "vitality": 0.9,
+        "spirit": 1.4
+      },
+      "weaponTypes": [
+        "lute",
+        "dagger"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Músico que fortalece aliados e enfraquece inimigos."
+    },
+    {
+      "id": "druida",
+      "name": "Druida",
+      "faction": "concordia",
+      "roles": [
+        "healer",
+        "caster"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 4,
+        "intellect": 10,
+        "agility": 6,
+        "vitality": 8,
+        "spirit": 11
+      },
+      "primaryPerLevel": {
+        "strength": 0.4,
+        "intellect": 1.2,
+        "agility": 0.6,
+        "vitality": 1.1,
+        "spirit": 1.6
+      },
+      "weaponTypes": [
+        "staff",
+        "scepter"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Guardião da natureza, cura e controla com raízes."
+    },
+    {
+      "id": "cavaleiro_da_morte",
+      "name": "Cavaleiro da Morte",
+      "faction": "legiao",
+      "roles": [
+        "tank",
+        "melee"
+      ],
+      "resource": "rage",
+      "primaryBase": {
+        "strength": 12,
+        "intellect": 5,
+        "agility": 5,
+        "vitality": 12,
+        "spirit": 4
+      },
+      "primaryPerLevel": {
+        "strength": 1.6,
+        "intellect": 0.6,
+        "agility": 0.5,
+        "vitality": 1.7,
+        "spirit": 0.4
+      },
+      "weaponTypes": [
+        "sword",
+        "axe",
+        "mace"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Campeão sombrio que drena a vida dos inimigos."
+    },
+    {
+      "id": "berserker",
+      "name": "Berserker",
+      "faction": "legiao",
+      "roles": [
+        "melee",
+        "tank"
+      ],
+      "resource": "rage",
+      "primaryBase": {
+        "strength": 14,
+        "intellect": 2,
+        "agility": 6,
+        "vitality": 11,
+        "spirit": 3
+      },
+      "primaryPerLevel": {
+        "strength": 1.9,
+        "intellect": 0.2,
+        "agility": 0.7,
+        "vitality": 1.5,
+        "spirit": 0.3
+      },
+      "weaponTypes": [
+        "axe",
+        "sword"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Guerreiro furioso, quanto mais ferido mais perigoso."
+    },
+    {
+      "id": "assassino",
+      "name": "Assassino",
+      "faction": "legiao",
+      "roles": [
+        "melee"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 8,
+        "intellect": 3,
+        "agility": 14,
+        "vitality": 7,
+        "spirit": 4
+      },
+      "primaryPerLevel": {
+        "strength": 1.0,
+        "intellect": 0.3,
+        "agility": 1.9,
+        "vitality": 0.9,
+        "spirit": 0.4
+      },
+      "weaponTypes": [
+        "dagger"
+      ],
+      "startingItems": [
+        "adaga_gasta"
+      ],
+      "skillIds": [
+        "assassino_corte_rapido",
+        "assassino_golpe_sangrento",
+        "assassino_passo_sombrio"
+      ],
+      "description": "Mestre de golpes rápidos, veneno e emboscadas."
+    },
+    {
+      "id": "lamina_sombria",
+      "name": "Lâmina Sombria",
+      "faction": "legiao",
+      "roles": [
+        "melee",
+        "control"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 9,
+        "intellect": 5,
+        "agility": 12,
+        "vitality": 8,
+        "spirit": 5
+      },
+      "primaryPerLevel": {
+        "strength": 1.2,
+        "intellect": 0.5,
+        "agility": 1.6,
+        "vitality": 1.1,
+        "spirit": 0.6
+      },
+      "weaponTypes": [
+        "dagger",
+        "sword"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Duelista das sombras, alterna mobilidade e dano."
+    },
+    {
+      "id": "atirador",
+      "name": "Atirador",
+      "faction": "legiao",
+      "roles": [
+        "ranged"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 6,
+        "intellect": 4,
+        "agility": 14,
+        "vitality": 7,
+        "spirit": 4
+      },
+      "primaryPerLevel": {
+        "strength": 0.7,
+        "intellect": 0.4,
+        "agility": 1.9,
+        "vitality": 1.0,
+        "spirit": 0.4
+      },
+      "weaponTypes": [
+        "rifle",
+        "pistol"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Franco-atirador de pólvora e precisão."
+    },
+    {
+      "id": "domador_de_feras",
+      "name": "Domador de Feras",
+      "faction": "legiao",
+      "roles": [
+        "ranged",
+        "summoner"
+      ],
+      "resource": "energy",
+      "primaryBase": {
+        "strength": 7,
+        "intellect": 4,
+        "agility": 11,
+        "vitality": 9,
+        "spirit": 7
+      },
+      "primaryPerLevel": {
+        "strength": 0.8,
+        "intellect": 0.4,
+        "agility": 1.4,
+        "vitality": 1.2,
+        "spirit": 0.9
+      },
+      "weaponTypes": [
+        "bow",
+        "whip"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Caçador que luta ao lado de companheiros selvagens."
+    },
+    {
+      "id": "bruxo",
+      "name": "Bruxo",
+      "faction": "legiao",
+      "roles": [
+        "caster"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 3,
+        "intellect": 14,
+        "agility": 4,
+        "vitality": 6,
+        "spirit": 7
+      },
+      "primaryPerLevel": {
+        "strength": 0.3,
+        "intellect": 1.9,
+        "agility": 0.4,
+        "vitality": 0.8,
+        "spirit": 1.0
+      },
+      "weaponTypes": [
+        "staff",
+        "wand"
+      ],
+      "startingItems": [
+        "cajado_de_carvalho"
+      ],
+      "skillIds": [
+        "bruxo_seta_sombria",
+        "bruxo_corrupcao",
+        "bruxo_drenar_vida"
+      ],
+      "description": "Conjurador de maldições e dano ao longo do tempo."
+    },
+    {
+      "id": "necromante",
+      "name": "Necromante",
+      "faction": "legiao",
+      "roles": [
+        "caster",
+        "summoner"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 3,
+        "intellect": 13,
+        "agility": 4,
+        "vitality": 6,
+        "spirit": 8
+      },
+      "primaryPerLevel": {
+        "strength": 0.3,
+        "intellect": 1.8,
+        "agility": 0.4,
+        "vitality": 0.9,
+        "spirit": 1.1
+      },
+      "weaponTypes": [
+        "staff",
+        "scythe"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Comanda os mortos e drena a energia vital."
+    },
+    {
+      "id": "ilusionista",
+      "name": "Ilusionista",
+      "faction": "legiao",
+      "roles": [
+        "caster",
+        "control"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 3,
+        "intellect": 13,
+        "agility": 6,
+        "vitality": 5,
+        "spirit": 8
+      },
+      "primaryPerLevel": {
+        "strength": 0.3,
+        "intellect": 1.8,
+        "agility": 0.7,
+        "vitality": 0.7,
+        "spirit": 1.1
+      },
+      "weaponTypes": [
+        "wand",
+        "staff"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Engana os sentidos e controla o campo de batalha."
+    },
+    {
+      "id": "invocador",
+      "name": "Invocador",
+      "faction": "legiao",
+      "roles": [
+        "summoner",
+        "caster"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 3,
+        "intellect": 12,
+        "agility": 5,
+        "vitality": 6,
+        "spirit": 9
+      },
+      "primaryPerLevel": {
+        "strength": 0.3,
+        "intellect": 1.6,
+        "agility": 0.5,
+        "vitality": 0.9,
+        "spirit": 1.3
+      },
+      "weaponTypes": [
+        "staff",
+        "scepter"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Chama criaturas de outros planos para lutar."
+    },
+    {
+      "id": "clerigo",
+      "name": "Clérigo",
+      "faction": "legiao",
+      "roles": [
+        "healer"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 5,
+        "intellect": 9,
+        "agility": 4,
+        "vitality": 8,
+        "spirit": 12
+      },
+      "primaryPerLevel": {
+        "strength": 0.6,
+        "intellect": 1.0,
+        "agility": 0.4,
+        "vitality": 1.2,
+        "spirit": 1.7
+      },
+      "weaponTypes": [
+        "mace",
+        "scepter"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Curandeiro resistente que luta na linha de apoio."
+    },
+    {
+      "id": "alquimista",
+      "name": "Alquimista",
+      "faction": "legiao",
+      "roles": [
+        "support",
+        "ranged"
+      ],
+      "resource": "mana",
+      "primaryBase": {
+        "strength": 4,
+        "intellect": 12,
+        "agility": 8,
+        "vitality": 7,
+        "spirit": 7
+      },
+      "primaryPerLevel": {
+        "strength": 0.4,
+        "intellect": 1.5,
+        "agility": 1.0,
+        "vitality": 0.9,
+        "spirit": 0.9
+      },
+      "weaponTypes": [
+        "dagger",
+        "wand"
+      ],
+      "startingItems": [],
+      "skillIds": [],
+      "description": "Mistura poções, ácidos e elixires de combate."
+    }
+  ]
+}

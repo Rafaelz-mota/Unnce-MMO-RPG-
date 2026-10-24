@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "globalCooldown": 0.9,
+  "rangeTolerance": 0.5,
+  "castRangeLeeway": 2.0,
+  "moveInterruptsCast": true,
+  "mitigation": {
+    "k": 6.0,
+    "c": 40.0,
+    "maxMitigation": 0.75
+  },
+  "damageVariance": 0.08,
+  "critChanceCap": 0.75,
+  "aoeFalloff": {
+    "freeTargets": 3,
+    "perExtraTarget": 0.12,
+    "minMultiplier": 0.4
+  },
+  "pvpDamageMultiplier": 0.6,
+  "control": {
+    "maxDuration": {
+      "stun": 3.0,
+      "root": 3.0,
+      "silence": 4.0,
+      "slow": 8.0
+    },
+    "immunityAfter": {
+      "stun": 3.0,
+      "root": 3.0,
+      "silence": 2.0
+    },
+    "minMoveSpeedMultiplier": 0.4
+  },
+  "outOfCombatSeconds": 5.0,
+  "threat": {
+    "damageMultiplier": 1.0,
+    "healingMultiplier": 0.5
+  },
+  "corpseSeconds": 6.0,
+  "playerRespawnSeconds": 6.0,
+  "bodyRadius": 0.5,
+  "ai": {
+    "evadeSpeedMultiplier": 1.6,
+    "evadeHealPercentPerSecond": 0.25,
+    "attackRangeFraction": 0.9,
+    "targetSwitchThreatRatio": 1.1
+  },
+  "monsterScaling": {
+    "hpBase": 30,
+    "hpPerLevel": 24,
+    "attackBase": 6,
+    "attackPerLevel": 2.2,
+    "defenseBase": 2,
+    "defensePerLevel": 1.0,
+    "resistBase": 2,
+    "resistPerLevel": 0.9,
+    "critChance": 0.03,
+    "critMultiplier": 1.5
+  }
+}
