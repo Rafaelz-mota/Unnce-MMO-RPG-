@@ -30,6 +30,9 @@ namespace Mmorpg.Core.Tests
 
         public static IDataSource Source() { return new FileDataSource(Directory()); }
 
+        /// <summary>Cópia nova dos dados (para testes que alteram valores de balanceamento).</summary>
+        public static GameData Fresh() { return GameDataLoader.LoadOrThrow(Source()); }
+
         /// <summary>Dados já validados; compartilhados entre testes (são somente leitura).</summary>
         public static GameData Data()
         {

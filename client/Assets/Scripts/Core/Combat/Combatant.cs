@@ -80,6 +80,7 @@ namespace Mmorpg.Core.Combat
         public MonsterCategoryDef Category;
         public Vec2 Home;
         public AiState AiState;
+        public double EvadeStartedAt;
         public int TargetId;
         public readonly Dictionary<int, double> Threat = new Dictionary<int, double>();
         public readonly Dictionary<int, double> Contribution = new Dictionary<int, double>();
