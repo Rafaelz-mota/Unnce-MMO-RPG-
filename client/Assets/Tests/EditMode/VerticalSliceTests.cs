@@ -160,14 +160,20 @@ namespace Mmorpg.Core.Tests
             var store = new MemoryStore();
             GameSession s = NewSession("guerreiro", 1, store, 21);
             var bot = new HeadlessBot(s.Sim, s.Player);
-            Play(s, bot, 900.0);
+
+            // O log narra o primeiro abate (checado logo que acontece: o log guarda só as últimas linhas).
+            Play(s, bot, 300.0, () => s.Log.Any(l => l.Contains("XP")));
+            Assert.IsTrue(s.Log.Any(l => l.Contains("XP")),
+                "o log deveria mostrar o XP do primeiro abate; final do log: " + string.Join(" | ", s.Log.Skip(Math.Max(0, s.Log.Count - 8))));
+            Assert.IsTrue(s.Log.Any(l => l.Contains("Você derrotou")), "o log deveria narrar o abate");
+
+            Play(s, bot, 600.0);
 
             var audit = s.Sim.Rewards.Audit;
             int kills = audit.Count(a => a.Kind == "xp");
             Assert.IsTrue(kills >= 3, "o bot deveria ter derrotado pelo menos 3 monstros em 15 min, derrotou " + kills);
             Assert.IsTrue(s.Character.Level >= 2 || s.Character.Xp > 0, "deveria ter ganho experiência");
             Assert.IsTrue(s.Character.Gold > 0, "deveria ter ganho ouro");
-            Assert.IsTrue(s.Log.Any(l => l.Contains("XP")), "o log deveria mostrar o XP ganho");
             Assert.IsTrue(store.SaveCount >= 1 || s.Character.Level == 1, "subir de nível deveria salvar automaticamente");
 
             Assert.IsTrue(s.Save());
