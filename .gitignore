@@ -54,4 +54,4 @@ Thumbs.db
 ci/**/bin/
 ci/**/obj/
 *.log
-!ci/*.csproj
+!ci/**/*.csproj

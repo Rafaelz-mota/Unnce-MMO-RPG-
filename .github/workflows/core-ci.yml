@@ -43,13 +43,23 @@ jobs:
           tail -8 test.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
           exit $status
 
+      # A camada Unity (client/Assets/Scripts/Game) só compila de verdade dentro do Editor. Aqui ela é compilada contra
+      # stubs mínimos da UnityEngine: pega erros de sintaxe/tipos e de uso da API do núcleo, mas NÃO prova que roda na Unity.
+      - name: Compilar a camada Unity contra stubs
+        run: |
+          set +e
+          dotnet build ci/game-check/Mmorpg.Game.Check.csproj -c Release -nologo 2>&1 | tee game-check.log
+          status=${PIPESTATUS[0]}
+          grep -E ": error " game-check.log | sort -u | head -80 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
+          exit $status
+
       # Publica os logs numa branch própria para que possam ser lidos sem abrir a interface do GitHub.
       - name: Publicar relatório na branch ci-report
         if: always()
         run: |
           set +e
           mkdir -p /tmp/report
-          cp validate.log build.log test.log /tmp/report/ 2>/dev/null
+          cp validate.log build.log test.log game-check.log /tmp/report/ 2>/dev/null
           {
             echo "commit=$GITHUB_SHA"
             echo "run=$GITHUB_RUN_ID"

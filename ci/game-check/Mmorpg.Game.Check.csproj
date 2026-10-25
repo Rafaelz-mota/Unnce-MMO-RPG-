@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Verificação de COMPILAÇÃO da camada client/Assets/Scripts/Game contra stubs mínimos da UnityEngine (UnityStubs.cs).
+    Detecta erros de sintaxe/tipos e uso incorreto da API do núcleo. NÃO substitui abrir o projeto na Unity:
+    os stubs são escritos à mão e não executam nada.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>Mmorpg.Game.Check</AssemblyName>
+    <RootNamespace>Mmorpg.Game</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Habilita o ramo de entrada do PlayerInput (Input Manager clássico), como no Editor com "Both". -->
+    <DefineConstants>$(DefineConstants);ENABLE_LEGACY_INPUT_MANAGER</DefineConstants>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../../client/Assets/Scripts/Game/**/*.cs" />
+    <Compile Include="UnityStubs.cs" />
+    <ProjectReference Include="../core/Mmorpg.Core.csproj" />
+  </ItemGroup>
+
+</Project>
