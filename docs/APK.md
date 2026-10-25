@@ -10,12 +10,33 @@ Unity no próprio aparelho.
 
 ## O que você precisa
 
-1. Uma **conta Unity gratuita** (a que você já tem). Recomendo uma conta só para isso, **sem verificação em duas
-   etapas** (o login automático não consegue responder a ela) e com uma senha só de letras e números, porque símbolos
-   já causaram problema nesse tipo de login.
+1. Uma **conta Unity gratuita** (a que você já tem). **Mantenha a verificação em duas etapas ligada.** O arquivo de
+   licença é gerado com você logado no Unity Hub, onde a verificação funciona normalmente. O GameCI também usa e-mail e
+   senha como segredos; **não verifiquei** se esse login automático funciona com a verificação ligada. Se a build falhar
+   com erro de login, essa é a causa provável, e a decisão sobre o que fazer é sua (não recomendo desligar a
+   verificação). A senha só deve ir para os Secrets do GitHub, nunca para o chat. Prefira uma senha só de letras e
+   números, porque símbolos já causaram problema nesse tipo de login.
 2. **Um computador (Windows, Mac ou Linux) por alguns minutos**, uma única vez, para gerar o arquivo de licença.
    Não dá para fazer isso pelo celular: desde 2024 a Unity não ativa mais licença Personal pelo site, só pelo Unity Hub.
 3. Acesso às configurações do repositório no GitHub (você é o dono).
+
+## Existe um jeito oficial sem computador? (pesquisado em 25/10/2026)
+
+**Não encontrei nenhum.** O que a pesquisa mostrou:
+
+- A documentação da Unity diz que a ativação manual **não funciona** com Unity Personal e que a ativação Personal é
+  feita pelo Unity Hub. Não há processo oficial de licença Personal para CI sem o Hub.
+- O **Unity Build Automation** (build na nuvem da Unity) não aparece entre os recursos listados do plano Personal. Para
+  2026 a Unity anuncia 100 minutos gratuitos de build para **Mac**; não confirmei nada para Android.
+- Existem **ações de terceiros** (por exemplo `buildalon/activate-unity-license`) que entram na conta Unity com e-mail e
+  senha dentro do GitHub, sem computador e sem arquivo `.ulf`. Um projeto público as usa em 2026. Problemas: a
+  documentação delas não trata de verificação em duas etapas (quem usa costuma recomendar uma conta sem ela), a senha
+  passa por código de terceiros, uma ação parecida que aceitava a chave do autenticador foi arquivada em janeiro de 2026,
+  e um relato de junho de 2026 no fórum da Unity registra falhas de licença nesse tipo de login.
+  **Não adotei esse caminho**, justamente por empurrar para contas sem verificação em duas etapas.
+
+Conclusão: **o passo 1 abaixo, em um computador, é obrigatório** para gerar o APK. Ele é feito uma vez. Enquanto ele não
+acontece, o desenvolvimento continua sem Unity: a lógica do jogo é compilada e testada pelo GitHub (veja `ARQUITETURA.md`).
 
 ## Passo 1: gerar o arquivo de licença (no computador)
 
