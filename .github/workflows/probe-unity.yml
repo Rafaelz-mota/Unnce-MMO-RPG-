@@ -14,30 +14,35 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 20
     steps:
-      - name: Unity CLI - login sem tela, instalação (simulada) e comandos de build
+      - uses: actions/checkout@v4
+
+      - name: Unity CLI - instalar o Editor com Android e tentar o build (sem licença, sem login)
         continue-on-error: true
+        timeout-minutes: 40
         run: |
           mkdir -p out
           export UNITY_NO_PAGER=1 UNITY_NO_BANNER=1
-          redact() { sed -E 's#(https?://[^ ?"]+)\?[^ "]*#\1?[PARAMETROS-OCULTOS]#g'; }
+          curl -fsSL https://unity.com/install.sh | bash > /dev/null 2>&1
+          export PATH="$HOME/.local/bin:$PATH"
           {
-            echo "### disco antes"; df -h / | tail -n 1
-            curl -fsSL https://unity.com/install.sh | bash > /dev/null 2>&1
-            export PATH="$HOME/.local/bin:$PATH"
-            echo; echo "### unity --version"; unity --version 2>&1
-            echo; echo "### unity auth login --non-interactive (25 s, SEM concluir o login)"
-            timeout 25 unity auth login --non-interactive 2>&1 | redact | head -n 30
-            echo "exit=$?"
-            echo; echo "### unity auth login (sem --non-interactive, 25 s)"
-            timeout 25 unity auth login 2>&1 | redact | head -n 30
-            echo; echo "### unity license status"; unity license status 2>&1 | head -n 20
-            echo; echo "### unity license list"; unity license list 2>&1 | head -n 20
-            echo; echo "### unity install 6000.0.34f1 -m android --dry-run"
-            timeout 120 unity install 6000.0.34f1 -m android --cm --accept-eula --dry-run 2>&1 | head -n 60
-            echo; echo "### unity build --help"; unity build --help 2>&1 | grep -vE "^\s{20,}" | head -n 60
-            echo; echo "### unity ci --help"; unity ci --help 2>&1 | head -n 30
-            echo; echo "### disco depois"; df -h / | tail -n 1
+            echo "### releases (primeiras 25 linhas)"; unity releases 2>&1 | head -n 25
+            echo; echo "### tentativa 1: unity install 6000.0.34f1 -m android"
+            /usr/bin/time -v true 2>/dev/null
+            start=$(date +%s)
+            timeout 1500 unity install 6000.0.34f1 -m android --cm --accept-eula --non-interactive 2>&1 | tail -n 25
+            echo "tempo_s=$(( $(date +%s) - start ))"
+            echo; echo "### editores instalados"; unity editors -i 2>&1 | head -n 20
+            echo; echo "### disco depois da instalação"; df -h / | tail -n 1
           } > out/unity-cli.txt 2>&1
+          {
+            echo; echo "### unity build (sem licença: esperado falhar na licença, o que importa é ver os argumentos)"
+            timeout 600 unity build client --target Android --execute-method Mmorpg.EditorTools.CiBuild.BuildAndroid --android-export-type apk -o build/Android --allow-dirty-build --non-interactive 2>&1 | grep -vE "^\s*$" | head -n 80
+          } >> out/unity-cli.txt 2>&1
+          {
+            echo; echo "### log do Editor: linhas com argumentos e licença"
+            find "$HOME" client -name 'Editor.log' -o -name 'unity-build*.log' 2>/dev/null | head -n 5
+            for f in $(find "$HOME" client -name 'Editor.log' 2>/dev/null | head -n 2); do grep -nEi "COMMAND LINE|customBuildPath|executeMethod|license|licensing|batchmode" "$f" | head -n 25; done
+          } >> out/unity-cli.txt 2>&1
           true
 
       - name: Docker - a imagem do Editor existe para estas versões?
