@@ -1,0 +1,103 @@
+### releases (primeiras 25 linhas)
+version	stream	lts	installed
+7000.0.0a12	ALPHA	false	false
+6000.6.7f1	SUPPORTED	false	false
+6000.7.0b6	BETA	false	false
+6000.3.27f1	LTS	true	false
+7000.0.0a11	ALPHA	false	false
+6000.0.85f1	LTS	true	false
+6000.6.6f1	SUPPORTED	false	false
+6000.7.0b5	BETA	false	false
+7000.0.0a10	ALPHA	false	false
+7000.0.0a9	ALPHA	false	false
+6000.3.26f1	LTS	true	false
+6000.6.5f1	SUPPORTED	false	false
+6000.7.0b4	BETA	false	false
+7000.0.0a8	ALPHA	false	false
+7000.0.0a7	ALPHA	false	false
+6000.7.0b3	BETA	false	false
+6000.6.4f1	SUPPORTED	false	false
+6000.3.25f1	LTS	true	false
+6000.6.3f1	SUPPORTED	false	false
+6000.7.0b2	BETA	false	false
+
+### tentativa 1: unity install 6000.0.34f1 -m android
+{"type":"progress","pct":58,"msg":"Validating...","phase":"download"}
+{"type":"progress","pct":54,"msg":"Installing Android SDK Platform Tools...","phase":"install"}
+{"type":"progress","pct":58,"msg":"Queued...","phase":"download"}
+{"type":"progress","pct":67,"msg":"Downloading Android SDK Platforms 33...","phase":"download"}
+{"type":"progress","pct":67,"msg":"Validating...","phase":"download"}
+{"type":"progress","pct":62,"msg":"Installing Android SDK Platforms 33...","phase":"install"}
+{"type":"progress","pct":67,"msg":"Queued...","phase":"download"}
+{"type":"progress","pct":75,"msg":"Downloading Android SDK Platforms 34...","phase":"download"}
+{"type":"progress","pct":75,"msg":"Validating...","phase":"download"}
+{"type":"progress","pct":71,"msg":"Installing Android SDK Platforms 34...","phase":"install"}
+{"type":"progress","pct":75,"msg":"Queued...","phase":"download"}
+{"type":"progress","pct":83,"msg":"Downloading Android SDK Platforms 35...","phase":"download"}
+{"type":"progress","pct":83,"msg":"Validating...","phase":"download"}
+{"type":"progress","pct":79,"msg":"Installing Android SDK Platforms 35...","phase":"install"}
+{"type":"progress","pct":83,"msg":"Queued...","phase":"download"}
+{"type":"progress","pct":91,"msg":"Downloading Android SDK Command Line Tools...","phase":"download"}
+{"type":"progress","pct":92,"msg":"Downloading Android SDK Command Line Tools...","phase":"download"}
+{"type":"progress","pct":92,"msg":"Validating...","phase":"download"}
+{"type":"progress","pct":88,"msg":"Installing Android SDK Command Line Tools...","phase":"install"}
+{"type":"progress","pct":92,"msg":"Queued...","phase":"download"}
+{"type":"progress","pct":100,"msg":"Downloading Android SDK & NDK Tools...","phase":"download"}
+{"type":"progress","pct":100,"msg":"Validating...","phase":"download"}
+{"type":"progress","pct":96,"msg":"Installing Android SDK & NDK Tools...","phase":"install"}
+{"type":"progress","pct":100,"msg":"Install complete"}
+{"type":"result","success":true,"command":"install","data":{"completedUids":["6000.0.34f1-x86_64","android","android-open-jdk-17.0.9+9","android-ndk-r23b","cmake-3.22.1","android-sdk-build-tools-34.0.0","android-sdk-platform-tools-34.0.5","android-sdk-platforms-33","android-sdk-platforms-34","android-sdk-platforms-35","android-sdk-command-line-tools-6.0","android-sdk-ndk-tools"],"items":[{"uid":"6000.0.34f1-x86_64","name":"6000.0.34f1-x86_64","kind":"editor","status":"installed"},{"uid":"android","name":"Android Build Support","kind":"module","status":"installed"},{"uid":"android-open-jdk-17.0.9+9","name":"OpenJDK","kind":"module","status":"installed"},{"uid":"android-ndk-r23b","name":"Android NDK","kind":"module","status":"installed"},{"uid":"cmake-3.22.1","name":"CMake","kind":"module","status":"installed"},{"uid":"android-sdk-build-tools-34.0.0","name":"Android SDK Build Tools","kind":"module","status":"installed"},{"uid":"android-sdk-platform-tools-34.0.5","name":"Android SDK Platform Tools","kind":"module","status":"installed"},{"uid":"android-sdk-platforms-33","name":"Android SDK Platforms 33","kind":"module","status":"installed"},{"uid":"android-sdk-platforms-34","name":"Android SDK Platforms 34","kind":"module","status":"installed"},{"uid":"android-sdk-platforms-35","name":"Android SDK Platforms 35","kind":"module","status":"installed"},{"uid":"android-sdk-command-line-tools-6.0","name":"Android SDK Command Line Tools","kind":"module","status":"installed"},{"uid":"android-sdk-ndk-tools","name":"Android SDK & NDK Tools","kind":"module","status":"installed"}]},"errors":[],"warnings":[]}
+tempo_s=785
+
+### editores instalados
+version	alias	architecture	location	default	upgradeTo	modules
+6000.0.34f1	6.0.34f1	x86_64	/home/runner/Unity/Hub/Editor/6000.0.34f1/Editor/Unity	false		Android, Android SDK & NDK Tools, OpenJDK
+
+### disco depois da instalação
+/dev/root       146G   73G   73G  51% /
+
+### unity build (sem licença: esperado falhar na licença, o que importa é ver os argumentos)
+Unity Editor version:    6000.0.34f1 (5ab2d9ed9190)
+Branch:                  6000.0/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #72~22.04.1-Ubuntu SMP Wed Jul 22 23:39:45 UTC 2026
+Kernel version:          6.8.0-1064-azure
+Architecture:            x86_64
+Available memory:        15988 MB
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Connection attempt to the License Client on channel: "LicenseClient-runner" failed because channel doesn't exist; code: "0x80000002"
+[Licensing::Module] Successfully launched the LicensingClient (PId: 2608)
+[Licensing::IpcConnector] Successfully connected to the License Client on channel: "LicenseClient-runner" at "2026-10-25T18:41:42.308627Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.16.2+bdef8f5
+  Session Id:              c7cbc4772ba646909659b7884bc50bb5
+  Correlation Id:          7c2902622a1f7a3566a10212954dbad1
+  External correlation Id: 2910919663855101845
+  Machine Id:              60dgGvvqqZ6CZvtZ8pT4ziLm92s=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-runner" (connect: 0.57s, validation: 0.05s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to the License Notification on channel: "LicenseClient-runner-notifications" at "2026-10-25T18:41:42.359493Z"
+[Licensing::Module] Connected to LicensingClient (PId: 2608, launch time: 0.00, total connection time: 0.62s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Error: Code 500 while processing request (status: Unable to update licenses. Errors: No ULF license found.,Token not found in cache)
+[Licensing::Client] Error: Code 500 while updating license in client (status: Unable to update licenses. Errors: No ULF license found.,Token not found in cache)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Pro License: NO
+Initialize udev device monitor.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+No valid Unity Editor license found. Please activate your license.
+The Editor log reported the following errors:
+  [license] [Licensing::IpcConnector] Connection attempt to the License Client on channel: "LicenseClient-runner" failed because channel doesn't exist; code: "0x80000002"
+  [license] [Licensing::Module] Error: Access token is unavailable; failed to update
+  [license] [Licensing::Client] Error: Code 500 while processing request (status: Unable to update licenses. Errors: No ULF license found.,Token not found in cache)
+  [license] [Licensing::Client] Error: Code 500 while updating license in client (status: Unable to update licenses. Errors: No ULF license found.,Token not found in cache)
+  [license] [Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+  [license] [Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+  [license] [Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+  [license] No valid Unity Editor license found. Please activate your license.
+Error: Build failed (exit 1). See log: /home/runner/work/Unnce-MMO-RPG-/Unnce-MMO-RPG-/client/Logs/build-Android-1792953701351.log
+
+### log do Editor: linhas com argumentos e licença
