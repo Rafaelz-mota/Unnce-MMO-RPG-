@@ -254,7 +254,8 @@
         "stun": 0.0,
         "root": 0.0,
         "silence": 0.0,
-        "slow": 0.5
+        "slow": 0.5,
+        "taunt": 0.5
       },
       "lootTableId": "loot_colosso_da_raiz",
       "scale": 3.2,

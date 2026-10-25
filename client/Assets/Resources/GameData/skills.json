@@ -230,6 +230,42 @@
       "sfx": "sfx_guerreiro_muralha_de_aco"
     },
     {
+      "id": "guerreiro_desafio_do_campeao",
+      "name": "Desafio do Campeão",
+      "ownerType": "class",
+      "ownerId": "guerreiro",
+      "slot": 7,
+      "goldCost": 20000,
+      "requiresLevel": 18,
+      "type": "control",
+      "targeting": "enemy",
+      "range": 10,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 14,
+      "castTime": 0,
+      "resourceCost": 20,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "taunted",
+          "duration": 4,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
+        }
+      ],
+      "description": "Provoca um monstro: ele passa a atacar o guerreiro por alguns segundos. Não afeta jogadores.",
+      "animation": "anim_guerreiro_desafio_do_campeao",
+      "vfx": "vfx_guerreiro_desafio_do_campeao",
+      "sfx": "sfx_guerreiro_desafio_do_campeao"
+    },
+    {
       "id": "mago_raio_arcano",
       "name": "Raio Arcano",
       "ownerType": "class",

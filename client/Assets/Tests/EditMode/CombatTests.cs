@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Mmorpg.Core.Characters;
 using Mmorpg.Core.Combat;
 using Mmorpg.Core.Common;
 using Mmorpg.Core.Data;
@@ -373,6 +374,79 @@ namespace Mmorpg.Core.Tests
             double speed = w.Stats.Get("moveSpeed");
             t.Step(1.0);
             Assert.AreEqual(speed, w.Position.X, 0.01, "anda no máximo moveSpeed por segundo");
+        }
+
+        // ---- Provocação (taunt) ----
+
+        private static Combatant Tank(TestWorld t, double x, double z)
+        {
+            Combatant tank = t.Player("guerreiro", 18, x, z);
+            tank.Character.AddGold(20000);
+            Assert.AreEqual(LearnSkillResult.Ok, tank.Character.TryLearnSkill("guerreiro_desafio_do_campeao"));
+            return tank;
+        }
+
+        [Test]
+        public void Taunt_ForcesMonsterToTargetTaunter_AndTakesTopOfThreatList()
+        {
+            var t = new TestWorld();
+            Combatant tank = Tank(t, 0, 0);
+            Combatant dps = t.Player("mago", 18, 0, 4);
+            Combatant m = t.Monster("broto_ancestral", 3, 2);
+            t.World.AddThreat(m, dps, 100);
+
+            t.Step(0.1);
+            Assert.AreEqual(dps.Id, m.TargetId, "sem provocação, quem tem mais ameaça é o alvo");
+
+            Assert.AreEqual(UseSkillResult.Ok, t.Use(tank, "guerreiro_desafio_do_campeao", m));
+            t.Step(0.1);
+            Assert.AreEqual(tank.Id, m.TargetId, "provocado: ataca o provocador");
+            Assert.Greater(m.Threat[tank.Id], m.Threat[dps.Id], "provocador passa a liderar a ameaça");
+        }
+
+        [Test]
+        public void Taunt_IsNotAppliedToPlayers()
+        {
+            var t = new TestWorld();
+            Combatant a = t.Player("guerreiro", 18, 0, 0);
+            Combatant b = t.Player("mago", 18, 1, 0);
+
+            Assert.IsFalse(t.World.ApplyStatus(a, b, t.Data.Statuses["taunted"], 4.0, 0, DamageType.Physical, "teste"));
+            t.Flush();
+            Assert.AreEqual(1, t.Count(GameEventType.StatusResisted));
+            Assert.IsFalse(b.Statuses.Any(x => x.Def.Id == "taunted"));
+        }
+
+        [Test]
+        public void Taunt_IsHalvedOnBoss_AndCappedByMaxDuration()
+        {
+            var t = new TestWorld();
+            Combatant tank = t.Player("guerreiro", 18, 0, 0);
+            Combatant boss = t.Monster("colosso_da_raiz", 60, 0);
+            double resist = boss.MonsterDef.CcResist["taunt"];
+
+            Assert.IsTrue(t.World.ApplyStatus(tank, boss, t.Data.Statuses["taunted"], 4.0, 0, DamageType.Physical, "teste"));
+            StatusInstance s = boss.Statuses.Single(x => x.Def.Id == "taunted");
+            Assert.AreEqual(4.0 * resist, s.ExpiresAt - t.World.Time, 1e-6);
+
+            var t2 = new TestWorld();
+            Combatant tank2 = t2.Player("guerreiro", 18, 0, 0);
+            Combatant m2 = t2.Dummy(3, 0);
+            Assert.IsTrue(t2.World.ApplyStatus(tank2, m2, t2.Data.Statuses["taunted"], 60.0, 0, DamageType.Physical, "teste"));
+            StatusInstance s2 = m2.Statuses.Single(x => x.Def.Id == "taunted");
+            Assert.AreEqual(t2.Data.Combat.Control.MaxDuration["taunt"], s2.ExpiresAt - t2.World.Time, 1e-6);
+        }
+
+        [Test]
+        public void Taunt_SkillIsPaidSlot7_AndNeedsLevel18()
+        {
+            var t = new TestWorld();
+            SkillDef s = t.Data.Skills["guerreiro_desafio_do_campeao"];
+            Assert.AreEqual(7, s.Slot);
+            Assert.AreEqual(20000, s.GoldCost);
+            Combatant low = t.Player("guerreiro", 5, 0, 0);
+            low.Character.AddGold(20000);
+            Assert.AreEqual(LearnSkillResult.LevelTooLow, low.Character.TryLearnSkill("guerreiro_desafio_do_campeao"));
         }
     }
 }

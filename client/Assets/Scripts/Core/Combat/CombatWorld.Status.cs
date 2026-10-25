@@ -18,6 +18,7 @@ namespace Mmorpg.Core.Combat
             DamageType damageType, string skillId)
         {
             if (target == null || target.Dead) return false;
+            if (def.Kind == StatusKind.Taunt && !target.IsMonster) return Resist(source != null ? source.Id : 0, target, def, "só afeta monstros");
             int sourceId = source != null ? source.Id : 0;
             if (duration <= 0) duration = def.DefaultDuration;
             string key = def.ControlKey;
@@ -83,6 +84,16 @@ namespace Mmorpg.Core.Combat
             }
 
             if (def.StatMods.Count > 0) RecomputeEffective(target);
+            // Provocação: só monstros são provocados; o provocador passa a liderar a lista de ameaça,
+            // então continua sendo o alvo mesmo depois que o efeito expira (até outro jogador superá-lo).
+            if (def.Kind == StatusKind.Taunt && target.IsMonster && source != null && source.IsPlayer && IsHostile(source, target))
+            {
+                double top = 0;
+                foreach (double v in target.Threat.Values) if (v > top) top = v;
+                double mine;
+                target.Threat.TryGetValue(source.Id, out mine);
+                if (mine <= top) AddThreat(target, source, top - mine + 1.0);
+            }
             if (def.Kind == StatusKind.Stun) InterruptCast(target, "atordoado");
             else if (def.Kind == StatusKind.Silence && target.Cast != null && target.Cast.Skill.Silenceable) InterruptCast(target, "silenciado");
 

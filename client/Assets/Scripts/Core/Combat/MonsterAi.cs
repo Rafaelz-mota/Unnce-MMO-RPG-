@@ -75,6 +75,8 @@ namespace Mmorpg.Core.Combat
         /// <summary>Maior ameaça entre alvos válidos; só troca do alvo atual se a ameaça superar a dele pela razão configurada.</summary>
         private static Combatant PickTarget(CombatWorld w, Combatant m)
         {
+            Combatant forced = TauntedBy(w, m);
+            if (forced != null) return forced;
             Combatant best = null, current = null;
             double bestThreat = 0, currentThreat = 0;
             var stale = new List<int>();
@@ -89,6 +91,22 @@ namespace Mmorpg.Core.Combat
             if (best == null) return null;
             if (current != null && bestThreat <= currentThreat * w.Data.Combat.Ai.TargetSwitchThreatRatio) return current;
             return best;
+        }
+
+        /// <summary>Quem provocou o monstro (status de provocação ativo), se ainda vivo e hostil; senão null.</summary>
+        private static Combatant TauntedBy(CombatWorld w, Combatant m)
+        {
+            Combatant forced = null;
+            double latest = double.MinValue;
+            for (int i = 0; i < m.Statuses.Count; i++)
+            {
+                StatusInstance s = m.Statuses[i];
+                if (s.Def.Kind != StatusKind.Taunt || s.ExpiresAt <= w.Time) continue;
+                Combatant p = w.Get(s.SourceId);
+                if (p == null || p.Dead || !w.IsHostile(m, p)) continue;
+                if (s.AppliedAt >= latest) { latest = s.AppliedAt; forced = p; }
+            }
+            return forced;
         }
 
         private static IList<string> ActiveSkills(Combatant m)

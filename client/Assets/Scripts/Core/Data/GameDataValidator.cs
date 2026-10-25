@@ -11,7 +11,7 @@ namespace Mmorpg.Core.Data
     /// </summary>
     public static class GameDataValidator
     {
-        private static readonly string[] ControlKeys = { "stun", "root", "silence", "slow" };
+        private static readonly string[] ControlKeys = { "stun", "root", "silence", "slow", "taunt" };
 
         public static void Validate(GameData d, ValidationReport r)
         {

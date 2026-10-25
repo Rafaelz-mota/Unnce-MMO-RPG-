@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "statuses": [
     {
+      "id": "taunted",
+      "name": "Provocado",
+      "kind": "taunt",
+      "defaultDuration": 4.0,
+      "maxInstancesPerTarget": 1
+    },
+    {
       "id": "stunned",
       "name": "Atordoado",
       "kind": "stun",

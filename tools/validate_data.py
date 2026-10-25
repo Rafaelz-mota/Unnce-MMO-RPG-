@@ -363,7 +363,7 @@ def main():
             elif sk["ownerType"] != "monster" or sk["ownerId"] != m["id"]:
                 err(w, "habilidade %s pertence a outro dono" % sid)
         for key in m["ccResist"]:
-            if key not in ("stun", "root", "silence", "slow"):
+            if key not in ("stun", "root", "silence", "slow", "taunt"):
                 err(w, "ccResist com tipo desconhecido " + key)
         last = None
         for i, p in enumerate(m["phases"]):

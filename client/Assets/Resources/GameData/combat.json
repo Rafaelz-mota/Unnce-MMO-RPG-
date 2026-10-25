@@ -22,7 +22,8 @@
       "stun": 3.0,
       "root": 3.0,
       "silence": 4.0,
-      "slow": 8.0
+      "slow": 8.0,
+      "taunt": 6.0
     },
     "immunityAfter": {
       "stun": 3.0,

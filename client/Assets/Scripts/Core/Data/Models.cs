@@ -22,7 +22,7 @@ namespace Mmorpg.Core.Data
 
     public enum DashDirection { Toward, Away }
 
-    public enum StatusKind { Stun, Root, Silence, Slow, Dot, Hot, Shield, Buff, Debuff }
+    public enum StatusKind { Stun, Root, Silence, Slow, Dot, Hot, Shield, Buff, Debuff, Taunt }
 
     public enum ItemType { Equipment, Material }
 
@@ -131,7 +131,7 @@ namespace Mmorpg.Core.Data
         public double MoveSpeedMultiplier { get; set; } = 1.0;
         public Dictionary<string, StatModDef> StatMods { get; set; } = new Dictionary<string, StatModDef>();
 
-        /// <summary>Chave de controle (stun/root/silence/slow) usada por limites, resistências e imunidades; null se não for controle.</summary>
+        /// <summary>Chave de controle (stun/root/silence/slow/taunt) usada por limites, resistências e imunidades; null se não for controle.</summary>
         [JsonIgnore]
         public string ControlKey
         {
@@ -143,6 +143,7 @@ namespace Mmorpg.Core.Data
                     case StatusKind.Root: return "root";
                     case StatusKind.Silence: return "silence";
                     case StatusKind.Slow: return "slow";
+                    case StatusKind.Taunt: return "taunt";
                     default: return null;
                 }
             }
@@ -447,7 +448,7 @@ namespace Mmorpg.Core.Data
         public double DamageMultiplier { get; set; } = 1.0;
         public List<string> SkillIds { get; set; } = new List<string>();
         public List<BossPhaseDef> Phases { get; set; } = new List<BossPhaseDef>();
-        /// <summary>Multiplicador da duração por tipo de controle (stun/root/silence/slow); 0 = imune.</summary>
+        /// <summary>Multiplicador da duração por tipo de controle (stun/root/silence/slow/taunt); 0 = imune.</summary>
         public Dictionary<string, double> CcResist { get; set; } = new Dictionary<string, double>();
         public string LootTableId { get; set; }
         /// <summary>Escala visual (apenas apresentação).</summary>
