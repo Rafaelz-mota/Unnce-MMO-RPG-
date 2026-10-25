@@ -7,7 +7,7 @@ não há servidor, rede nem multiplayer ainda.
 
 | O que | Situação |
 |---|---|
-| Núcleo do jogo (dados, atributos, combate, monstros, chefe, recompensas, inventário, progressão, save) | Implementado e testado: 113 testes automáticos passando no CI |
+| Núcleo do jogo (dados, atributos, combate, monstros, chefe, recompensas, inventário, progressão, save) | Implementado e testado: 117 testes automáticos passando no CI |
 | Camada Unity (controles de PC e toque, câmera, mundo procedural, HUD) | Escrita e **compilada contra stubs** no CI; **nunca aberta nem executada em um Editor Unity** |
 | Servidor, rede, multiplayer, PvP em zonas | Não existe |
 

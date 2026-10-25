@@ -8,7 +8,7 @@ ainda não está pronto. Foi escrito a partir do código e dos resultados do CI,
 | Camada | Pasta | Depende de Unity? | Como é verificada |
 |---|---|---|---|
 | Dados | `client/Assets/Resources/GameData/*.json` | Não | Validador C# (`GameDataValidator`) nos testes e no início do jogo; validador independente `tools/validate_data.py` no CI |
-| Núcleo | `client/Assets/Scripts/Core` | **Não** (`noEngineReferences: true`) | Compilado em .NET puro no CI; 113 testes |
+| Núcleo | `client/Assets/Scripts/Core` | **Não** (`noEngineReferences: true`) | Compilado em .NET puro no CI; 117 testes |
 | Camada Unity | `client/Assets/Scripts/Game` | Sim | Compilada contra stubs mínimos da UnityEngine no CI (pega erros de sintaxe e de uso da API do núcleo). **Nunca executada em um Editor.** |
 
 O núcleo não conhece rede, tela, câmera nem arquivos de cena. Por isso o mesmo código pode rodar dentro de um servidor
@@ -61,7 +61,7 @@ jogador pode editá-los. Por isso:
 
 ## 4. O que está implementado e verificado
 
-Verificado pelo CI no commit `ac2a4c1`: dados válidos (0 erros), núcleo compila sem avisos, **113 de 113 testes**
+Verificado pelo CI no commit `8cb16f2`: dados válidos (0 erros), núcleo compila sem avisos, **117 de 117 testes**
 passam, camada Unity compila contra stubs.
 
 | Requisito do pedido | Situação |
@@ -73,7 +73,7 @@ passam, camada Unity compila contra stubs.
 | Região I parcial | Mapa com limites, obstáculos, ponto de nascimento do jogador e 7 zonas de monstros |
 | Monstros, recompensas e Colosso da Raiz | 6 monstros (3 comuns, 1 incomum, 1 raro, 1 de elite) e o chefe regional, com 2 fases, ataque sinalizado antes de acertar, resistência a controle, tabela de saque e reaparecimento de 60 minutos |
 | Atributos, equipamentos, inventário e progressão | Atributos derivados, nível 1 a 55, equipar com regras, bônus de conjunto, inventário, ouro, XP, save e carga |
-| Testes, tratamento de erros, documentação | 113 testes; erros de dados e de save viram relatórios; este documento e `EXECUTAR.md` |
+| Testes, tratamento de erros, documentação | 117 testes; erros de dados e de save viram relatórios; este documento e `EXECUTAR.md` |
 
 ## 5. Limitações conhecidas
 
@@ -97,8 +97,8 @@ passam, camada Unity compila contra stubs.
 
 | Item | Estado |
 |---|---|
-| Habilidades de classe | 27 de 216 (guerreiro, mago, sacerdote, arqueiro, assassino e bruxo, parciais). 18 classes sem nenhuma habilidade |
-| Tipos de efeito ausentes | Invocações (e seu limite) e grupo/party. Já existem: buffs de atributo (status `war_cry`, só 1 exemplo), tabela de ameaça dos monstros e controles. Falta um efeito de provocação dedicado |
+| Habilidades de classe | 28 de 216 (guerreiro, mago, sacerdote, arqueiro, assassino e bruxo, parciais). 18 classes sem nenhuma habilidade |
+| Tipos de efeito ausentes | Invocações (e seu limite) e grupo/party. Já existem: buffs de atributo (status `war_cry`, só 1 exemplo), tabela de ameaça, controles e provocação (`taunt`, só contra monstros; 1 habilidade: Desafio do Campeão) |
 | Regiões | 1 de 8 implementada; chefes das outras 7 não existem |
 | Monstros | Categorias lendário e único existem nos dados mas sem criaturas; modificadores (Ígneo, Glacial etc.) não existem; surgimento no mundo aberto por evento não existe |
 | Equipamentos | 24 itens e 1 conjunto; sem itens lendários e únicos fabricáveis |
@@ -111,7 +111,7 @@ passam, camada Unity compila contra stubs.
 1. Abrir o projeto em um Editor Unity, seguir `EXECUTAR.md`, jogar a Região I e corrigir o que aparecer (é o maior
    risco aberto). Enviar o texto completo de qualquer erro do Console.
 2. Versionar `Packages/manifest.json` e `ProjectSettings/` depois que o projeto abrir sem erros, para o clone abrir direto.
-3. Adicionar os tipos de efeito ausentes (invocação com limite, grupo, provocação) antes de escrever mais habilidades,
+3. Adicionar os tipos de efeito ausentes (invocação com limite e grupo) antes de escrever mais habilidades,
    já que várias classes (invocador, necromante, domador de feras, bardo) dependem deles.
 4. Criar `server/` com um host .NET que reutilize o núcleo e receba os comandos de `GameSession` como mensagens.
 5. Completar as habilidades classe a classe (9 por vez), com testes por habilidade.

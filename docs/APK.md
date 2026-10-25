@@ -35,6 +35,19 @@ Unity no próprio aparelho.
   e um relato de junho de 2026 no fórum da Unity registra falhas de licença nesse tipo de login.
   **Não adotei esse caminho**, justamente por empurrar para contas sem verificação em duas etapas.
 
+### Caminho B (experimental): Unity CLI oficial, login pelo celular
+
+A Unity publicou uma CLI oficial (`unity`, em beta). O que **foi testado** num runner do GitHub (25/10/2026):
+
+- `unity install 6000.0.34f1 -m android` instala o Editor com Android, **sem login**, em cerca de 13 minutos.
+- `unity auth login` imprime um link de login que dá para abrir no navegador do celular (a verificação em duas etapas
+  acontece lá, sem senha no GitHub).
+- `unity build` sem licença falha em "No valid Unity Editor license", como esperado.
+
+O que **não foi testado**: ativar a licença Personal (`unity license activate --personal`) depois do login, compilar o
+projeto e gerar o APK. Por isso este caminho **não está pronto**, e a licença Personal por esse meio pode não funcionar
+em CI. O caminho A (passos abaixo, em um computador) segue como o documentado.
+
 Conclusão: **o passo 1 abaixo, em um computador, é obrigatório** para gerar o APK. Ele é feito uma vez. Enquanto ele não
 acontece, o desenvolvimento continua sem Unity: a lógica do jogo é compilada e testada pelo GitHub (veja `ARQUITETURA.md`).
 

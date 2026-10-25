@@ -1,6 +1,6 @@
 # Como executar e testar
 
-> **Aviso honesto:** o núcleo do jogo (`client/Assets/Scripts/Core`) é verificado automaticamente (113 testes no CI).
+> **Aviso honesto:** o núcleo do jogo (`client/Assets/Scripts/Core`) é verificado automaticamente (117 testes no CI).
 > A camada Unity (`client/Assets/Scripts/Game`) **ainda não foi aberta nem executada em um Editor Unity**; só é
 > compilada no CI contra stubs. Se algo falhar ao abrir na Unity, veja "Solução de problemas" no fim.
 
@@ -12,7 +12,7 @@ Precisa do **.NET SDK 8** e do Python 3.
 # 1) validar os JSON de balanceamento (sem dependências)
 python3 -I tools/validate_data.py client/Assets/Resources/GameData
 
-# 2) compilar o núcleo e rodar os 113 testes
+# 2) compilar o núcleo e rodar os 117 testes
 export MMORPG_DATA_DIR="$PWD/client/Assets/Resources/GameData"   # PowerShell: $env:MMORPG_DATA_DIR = "$PWD/client/Assets/Resources/GameData"
 dotnet test ci/tests/Mmorpg.Core.Tests.csproj -c Release
 
