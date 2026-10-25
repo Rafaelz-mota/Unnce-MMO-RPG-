@@ -91,7 +91,9 @@ namespace Mmorpg.Game
                 _regionId = FirstImplementedRegion(_data);
                 if (_regionId == null) { Fail("Nenhuma região implementada", "regions.json não marca nenhuma região com \"implemented\": true."); return; }
 
-                _store = new JsonFileCharacterStore(Path.Combine(Application.persistentDataPath, "saves"));
+                string saveDir = Path.Combine(Application.persistentDataPath, "saves");
+                _store = new JsonFileCharacterStore(saveDir);
+                Debug.Log("Saves em: " + saveDir);
 
                 _classes = new List<ClassDef>(_data.Classes.Values);
                 // Classes com habilidades implementadas primeiro; empate por nome (ordem estável).
