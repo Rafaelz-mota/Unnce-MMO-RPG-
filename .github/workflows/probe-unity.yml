@@ -14,19 +14,29 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 20
     steps:
-      - name: Unity CLI - instalar pelo script oficial e ler a ajuda
+      - name: Unity CLI - login sem tela, instalação (simulada) e comandos de build
         continue-on-error: true
         run: |
           mkdir -p out
-          export UNITY_NO_PAGER=1
+          export UNITY_NO_PAGER=1 UNITY_NO_BANNER=1
+          redact() { sed -E 's#(https?://[^ ?"]+)\?[^ "]*#\1?[PARAMETROS-OCULTOS]#g'; }
           {
-            echo "### instalação"
-            curl -fsSL https://unity.com/install.sh | bash 2>&1 | tail -n 25
+            echo "### disco antes"; df -h / | tail -n 1
+            curl -fsSL https://unity.com/install.sh | bash > /dev/null 2>&1
             export PATH="$HOME/.local/bin:$PATH"
             echo; echo "### unity --version"; unity --version 2>&1
-            for c in "--help" "doctor" "auth --help" "auth login --help" "auth status" "license --help" "license activate --help" "license return --help" "license status --help" "install --help" "run --help" "open --help"; do
-              echo; echo "### unity $c"; timeout 60 unity $c 2>&1 | head -n 60
-            done
+            echo; echo "### unity auth login --non-interactive (25 s, SEM concluir o login)"
+            timeout 25 unity auth login --non-interactive 2>&1 | redact | head -n 30
+            echo "exit=$?"
+            echo; echo "### unity auth login (sem --non-interactive, 25 s)"
+            timeout 25 unity auth login 2>&1 | redact | head -n 30
+            echo; echo "### unity license status"; unity license status 2>&1 | head -n 20
+            echo; echo "### unity license list"; unity license list 2>&1 | head -n 20
+            echo; echo "### unity install 6000.0.34f1 -m android --dry-run"
+            timeout 120 unity install 6000.0.34f1 -m android --cm --accept-eula --dry-run 2>&1 | head -n 60
+            echo; echo "### unity build --help"; unity build --help 2>&1 | grep -vE "^\s{20,}" | head -n 60
+            echo; echo "### unity ci --help"; unity ci --help 2>&1 | head -n 30
+            echo; echo "### disco depois"; df -h / | tail -n 1
           } > out/unity-cli.txt 2>&1
           true
 
