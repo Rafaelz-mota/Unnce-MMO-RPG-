@@ -1,0 +1,100 @@
+name: Sonda - Unity CLI, imagens e pacotes (somente leitura)
+
+# TEMPORÁRIO. Roda só em branches probe/**. Não pede login, nem segredos, nem licença.
+# Objetivo: descobrir, com evidência, o que existe de fato (ajuda da Unity CLI, imagem de build, pacotes).
+on:
+  push:
+    branches: [ 'probe/**' ]
+
+permissions:
+  contents: read
+
+jobs:
+  sonda:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - name: Unity CLI - instalar pelo script oficial e ler a ajuda
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          export UNITY_NO_PAGER=1
+          {
+            echo "### instalação"
+            curl -fsSL https://unity.com/install.sh | bash 2>&1 | tail -n 25
+            export PATH="$HOME/.local/bin:$PATH"
+            echo; echo "### unity --version"; unity --version 2>&1
+            for c in "--help" "doctor" "auth --help" "auth login --help" "auth status" "license --help" "license activate --help" "license return --help" "license status --help" "install --help" "run --help" "open --help"; do
+              echo; echo "### unity $c"; timeout 60 unity $c 2>&1 | head -n 60
+            done
+          } > out/unity-cli.txt 2>&1
+          true
+
+      - name: Docker - a imagem do Editor existe para estas versões?
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          : > out/docker-imagens.txt
+          for v in 6000.0.34f1 6000.0.58f2 6000.0.60f1 6000.3.0f1 6000.3.7f1; do
+            for suf in android-3 android-2 android-1; do
+              if docker manifest inspect "unityci/editor:ubuntu-$v-$suf" > /dev/null 2>&1; then
+                echo "EXISTE  unityci/editor:ubuntu-$v-$suf" >> out/docker-imagens.txt
+              else
+                echo "nao     unityci/editor:ubuntu-$v-$suf" >> out/docker-imagens.txt
+              fi
+            done
+          done
+
+      - name: Registro de pacotes da Unity - versões disponíveis
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          : > out/pacotes-unity.txt
+          for p in com.unity.nuget.newtonsoft-json com.unity.test-framework com.unity.ugui; do
+            echo "### $p" >> out/pacotes-unity.txt
+            curl -fsS -m 30 "https://packages.unity.com/$p" 2>&1 | python3 -c "import sys,json; d=json.load(sys.stdin); print(sorted(d['versions'].keys())[-8:])" >> out/pacotes-unity.txt 2>&1 || echo "falhou" >> out/pacotes-unity.txt
+          done
+
+      - name: NuGet - existem assemblies de referência da UnityEngine?
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          : > out/nuget-unity.txt
+          for q in UnityEngine.Modules UnityEngine UnityEditor.Modules Unity.Engine; do
+            echo "### busca: $q" >> out/nuget-unity.txt
+            curl -fsS -m 30 "https://azuresearch-usnc.nuget.org/query?q=$q&take=6&prerelease=true" 2>&1 \
+              | python3 -c "import sys,json; d=json.load(sys.stdin); [print(x['id'], x['version'], '|', ','.join(x.get('authors',[]) if isinstance(x.get('authors'),list) else [x.get('authors','')]), '| downloads', x.get('totalDownloads')) for x in d['data']]" >> out/nuget-unity.txt 2>&1 || echo "falhou" >> out/nuget-unity.txt
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sonda
+          path: out/
+          retention-days: 3
+
+  publicar:
+    needs: sonda
+    if: always()
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: sonda
+          path: /tmp/report
+      - name: Publicar na branch probe-report
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set +e
+          cd /tmp/report
+          echo "commit=$GITHUB_SHA" > info.txt
+          git init -q
+          git checkout -q -b probe-report
+          git config user.name "probe-report"
+          git config user.email "probe-report@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Resultado da sonda para $GITHUB_SHA"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" probe-report
