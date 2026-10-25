@@ -398,6 +398,7 @@ namespace Mmorpg.Core.Tests
             t.Step(0.1);
             Assert.AreEqual(dps.Id, m.TargetId, "sem provocação, quem tem mais ameaça é o alvo");
 
+            tank.Resource = 100; // guerreiro usa fúria, que começa vazia
             Assert.AreEqual(UseSkillResult.Ok, t.Use(tank, "guerreiro_desafio_do_campeao", m));
             t.Step(0.1);
             Assert.AreEqual(tank.Id, m.TargetId, "provocado: ataca o provocador");
