@@ -38,6 +38,7 @@ Não existe pasta `server/` nem `data/` na raiz: os dados ficam em `client/Asset
 ## Documentação
 
 - [Como executar e testar](docs/EXECUTAR.md)
+- [Gerar o APK de teste para Android](docs/APK.md) (build automático no GitHub; ainda nunca executado)
 - [Arquitetura, limitações e pendências](docs/ARQUITETURA.md)
 - [GDD v0.1](docs/GDD_v0.1_MMORPG.md)
 

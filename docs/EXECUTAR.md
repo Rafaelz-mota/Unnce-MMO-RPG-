@@ -71,7 +71,8 @@ teto) não é detectado. No jogo online, o progresso fica no servidor.
 
 ### Build para Android
 
-Não foi testado. Pontos de atenção: *Platform = Android*, `Scripting Backend = IL2CPP` e `ARM64`, e manter
+Não foi testado. Para gerar um APK de teste sem instalar a Unity, veja [APK.md](APK.md) (build automático no GitHub).
+Pontos de atenção para um build manual: *Platform = Android*, `Scripting Backend = IL2CPP` e `ARM64`, e manter
 **Active Input Handling = Both**. Teclado na tela para o campo de nome em IMGUI não foi validado; o nome padrão
 ("Aventureiro") funciona sem digitar.
 

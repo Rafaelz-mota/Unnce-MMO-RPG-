@@ -79,10 +79,14 @@ passam, camada Unity compila contra stubs.
 
 - **A camada Unity nunca rodou em um Editor.** O CI só prova que ela compila contra stubs. Pode haver erros de execução,
   diferenças de versão da Unity ou problemas de visual que só aparecem ao abrir o projeto.
-- **O projeto Unity não abre direto da pasta `client/`:** `ProjectSettings/` e `Packages/` não estão versionados. O
-  caminho é criar um projeto novo e copiar as pastas (passo a passo em `EXECUTAR.md`). É preciso instalar o pacote
-  Newtonsoft.Json e configurar *Active Input Handling* como *Both*.
-- **Android não foi testado** (nem build, nem toque real, nem desempenho).
+- **O projeto Unity nunca foi aberto direto da pasta `client/`.** Existem `Packages/manifest.json` e
+  `ProjectSettings/ProjectVersion.txt` (versão `6000.0.34f1`, escolhida para o build automático), mas os demais arquivos
+  de `ProjectSettings/` não estão versionados e a Unity os cria na primeira abertura. O caminho mais seguro continua
+  sendo criar um projeto novo e copiar as pastas (passo a passo em `EXECUTAR.md`). É preciso configurar
+  *Active Input Handling* como *Both*.
+- **Android não foi testado** (nem toque real, nem desempenho). Há um build automático de APK
+  (`.github/workflows/android-apk.yml`, `client/Assets/Editor/CiBuild.cs`, guia em `APK.md`) que **nunca foi executado**:
+  exige uma licença Unity Personal gerada em um computador.
 - **O visual é provisório:** o mundo é montado com formas primitivas; não há modelos, animações, efeitos nem áudio
   finais. Os campos de animação, VFX e SFX nos dados são identificadores de apresentação sem assets.
 - **Sem servidor e sem multiplayer:** não existem rede, persistência no servidor, sincronização, reconexão, ferramentas
