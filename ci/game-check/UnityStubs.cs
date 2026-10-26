@@ -30,6 +30,7 @@ namespace UnityEngine
     public class Transform : Component
     {
         public Vector3 position, localPosition, localScale;
+        public Transform parent;
         public Quaternion rotation, localRotation;
         public void SetParent(Transform parent, bool worldPositionStays) { }
         public Transform GetChild(int i) { return null; }

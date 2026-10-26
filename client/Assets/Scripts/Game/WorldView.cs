@@ -65,20 +65,68 @@ namespace Mmorpg.Game
 
         private void OnEvent(GameEvent e)
         {
-            if (e.Type == GameEventType.Damage)
+            Transform fxParent = _root.transform;
+            switch (e.Type)
             {
-                EntityView hit = ViewOf(e.TargetId);
-                if (hit != null) hit.Flash();
-                return;
-            }
-            if (e.Type != GameEventType.SkillUsed) return;
-            EntityView src = ViewOf(e.SourceId);
-            if (src != null) src.Pulse();
-            if (e.Radius > 0.01)
-            {
-                bool byPlayer = e.SourceId == _session.Player.Id;
-                Color c = byPlayer ? new Color(0.3f, 0.85f, 1f) : new Color(1f, 0.3f, 0.2f);
-                RingEffect.Spawn(Conv.ToV3(e.Position), (float)e.Radius, c, _root.transform);
+                case GameEventType.Damage:
+                {
+                    EntityView hit = ViewOf(e.TargetId);
+                    if (hit != null) hit.Flash();
+                    return;
+                }
+                case GameEventType.Heal:
+                {
+                    EntityView healed = ViewOf(e.TargetId);
+                    if (healed != null) SkillVfx.OnHeal(healed.transform.position, fxParent);
+                    return;
+                }
+                case GameEventType.StatusApplied:
+                {
+                    EntityView t = ViewOf(e.TargetId);
+                    if (t != null && e.StatusId != null) SkillVfx.OnStatus(e.StatusId, t.transform.position, fxParent);
+                    return;
+                }
+                case GameEventType.Died:
+                {
+                    EntityView dead = ViewOf(e.TargetId);
+                    if (dead != null && dead.Combatant.IsMonster) SkillVfx.OnDeath(dead.transform.position, fxParent);
+                    return;
+                }
+                case GameEventType.LevelUp:
+                {
+                    EntityView up = ViewOf(e.TargetId != 0 ? e.TargetId : _session.Player.Id);
+                    if (up != null) SkillVfx.OnLevelUp(up.transform.position, fxParent);
+                    return;
+                }
+                case GameEventType.Dash:
+                {
+                    SkillDef ds;
+                    string del = _session.Data.Skills.TryGetValue(e.SkillId ?? "", out ds) ? ds.Element : null;
+                    Color m, a;
+                    SkillVfx.Palette(del, out m, out a);
+                    SkillVfx.OnDash(Conv.ToV3(e.Position), Conv.ToV3(e.Position2), a, fxParent);
+                    return;
+                }
+                case GameEventType.CastStarted:
+                {
+                    if (e.Radius > 0.01)
+                    {
+                        SkillDef cs;
+                        string cel = _session.Data.Skills.TryGetValue(e.SkillId ?? "", out cs) ? cs.Element : null;
+                        SkillVfx.Telegraph(Conv.ToV3(e.Position), (float)e.Radius, (float)e.Amount, e.SourceId == _session.Player.Id, cel, fxParent);
+                    }
+                    return;
+                }
+                case GameEventType.SkillUsed:
+                {
+                    SkillDef skill;
+                    _session.Data.Skills.TryGetValue(e.SkillId ?? "", out skill);
+                    EntityView src = ViewOf(e.SourceId);
+                    EntityView tgt = ViewOf(e.TargetId);
+                    if (src != null) src.Pulse();
+                    SkillVfx.OnSkillUsed(e, skill, src, tgt, e.SourceId == _session.Player.Id, fxParent);
+                    return;
+                }
             }
         }
 
