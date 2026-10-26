@@ -267,7 +267,10 @@
         "mago_nova_glacial",
         "mago_escudo_arcano",
         "mago_prisao_de_gelo",
-        "mago_tempestade_arcana"
+        "mago_tempestade_arcana",
+        "mago_tremor_da_terra",
+        "mago_ciclone",
+        "mago_chuva_de_meteoros"
       ],
       "description": "Conjurador de feitiços arcanos de grande dano."
     },

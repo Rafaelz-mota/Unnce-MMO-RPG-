@@ -354,6 +354,8 @@ namespace Mmorpg.Core.Data
         // Identificadores de apresentação (placeholders: os assets ainda não existem).
         public string Animation { get; set; }
         public string Vfx { get; set; }
+        /// <summary>Elemento (cor/efeito visual): physical, arcane, fire, ice, wind, earth, light, dark. Não altera o dano.</summary>
+        public string Element { get; set; }
         public string Sfx { get; set; }
     }
 

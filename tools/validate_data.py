@@ -227,6 +227,10 @@ def main():
             expected = 0 if slot <= rules["freeSkillSlots"] else rules["paidSkillGoldCost"].get(str(slot))
             if s["goldCost"] != expected:
                 err(w, "goldCost %s != esperado %s para o slot %d" % (s["goldCost"], expected, slot))
+            if slot <= rules["freeSkillSlots"] and s["requiresLevel"] != 1:
+                err(w, "habilidade gratuita (slot %d) deve liberar no nível 1" % slot)
+            if s.get("element") not in ("physical", "arcane", "fire", "ice", "wind", "earth", "light", "dark"):
+                err(w, "element ausente ou inválido: %r" % s.get("element"))
             key = (s["ownerId"], slot)
             if key in class_slots:
                 err(w, "slot %d repetido na classe %s" % (slot, s["ownerId"]))

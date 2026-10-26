@@ -11,6 +11,7 @@ namespace Mmorpg.Core.Data
     /// </summary>
     public static class GameDataValidator
     {
+        private static readonly string[] Elements = { "physical", "arcane", "fire", "ice", "wind", "earth", "light", "dark" };
         private static readonly string[] ControlKeys = { "stun", "root", "silence", "slow", "taunt" };
 
         public static void Validate(GameData d, ValidationReport r)
@@ -204,6 +205,10 @@ namespace Mmorpg.Core.Data
                                 r.Error(w, "rules.paidSkillGoldCost sem entrada para o slot " + s.Slot);
                             expected = paid;
                         }
+                        if (s.Slot <= d.Rules.FreeSkillSlots && s.RequiresLevel != 1)
+                            r.Error(w, "habilidade gratuita (slot " + s.Slot + ") deve liberar no nível 1");
+                        if (string.IsNullOrEmpty(s.Element) || !Elements.Contains(s.Element))
+                            r.Error(w, "element ausente ou inválido: " + s.Element);
                         if (s.GoldCost != expected)
                             r.Error(w, "goldCost " + s.GoldCost + " != esperado " + expected + " para o slot " + s.Slot);
                     }

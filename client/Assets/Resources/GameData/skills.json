@@ -33,7 +33,8 @@
       "description": "Um golpe pesado de arma.",
       "animation": "anim_guerreiro_golpe_poderoso",
       "vfx": "vfx_guerreiro_golpe_poderoso",
-      "sfx": "sfx_guerreiro_golpe_poderoso"
+      "sfx": "sfx_guerreiro_golpe_poderoso",
+      "element": "physical"
     },
     {
       "id": "guerreiro_investida",
@@ -42,7 +43,7 @@
       "ownerId": "guerreiro",
       "slot": 2,
       "goldCost": 0,
-      "requiresLevel": 2,
+      "requiresLevel": 1,
       "type": "mobility",
       "targeting": "enemy",
       "range": 14,
@@ -75,7 +76,8 @@
       "description": "Avança contra o alvo e o retarda.",
       "animation": "anim_guerreiro_investida",
       "vfx": "vfx_guerreiro_investida",
-      "sfx": "sfx_guerreiro_investida"
+      "sfx": "sfx_guerreiro_investida",
+      "element": "physical"
     },
     {
       "id": "guerreiro_grito_de_guerra",
@@ -84,7 +86,7 @@
       "ownerId": "guerreiro",
       "slot": 3,
       "goldCost": 0,
-      "requiresLevel": 3,
+      "requiresLevel": 1,
       "type": "buff",
       "targeting": "self",
       "range": 0,
@@ -111,7 +113,8 @@
       "description": "Aumenta defesa e ataque por alguns segundos.",
       "animation": "anim_guerreiro_grito_de_guerra",
       "vfx": "vfx_guerreiro_grito_de_guerra",
-      "sfx": "sfx_guerreiro_grito_de_guerra"
+      "sfx": "sfx_guerreiro_grito_de_guerra",
+      "element": "physical"
     },
     {
       "id": "guerreiro_golpe_giratorio",
@@ -120,7 +123,7 @@
       "ownerId": "guerreiro",
       "slot": 4,
       "goldCost": 0,
-      "requiresLevel": 5,
+      "requiresLevel": 1,
       "type": "damage",
       "targeting": "selfArea",
       "range": 0,
@@ -145,7 +148,8 @@
       "description": "Gira a arma atingindo todos ao redor.",
       "animation": "anim_guerreiro_golpe_giratorio",
       "vfx": "vfx_guerreiro_golpe_giratorio",
-      "sfx": "sfx_guerreiro_golpe_giratorio"
+      "sfx": "sfx_guerreiro_golpe_giratorio",
+      "element": "physical"
     },
     {
       "id": "guerreiro_impacto_atordoante",
@@ -154,7 +158,7 @@
       "ownerId": "guerreiro",
       "slot": 5,
       "goldCost": 0,
-      "requiresLevel": 7,
+      "requiresLevel": 1,
       "type": "control",
       "targeting": "enemy",
       "range": 2.5,
@@ -189,7 +193,8 @@
       "description": "Um golpe que atordoa o alvo.",
       "animation": "anim_guerreiro_impacto_atordoante",
       "vfx": "vfx_guerreiro_impacto_atordoante",
-      "sfx": "sfx_guerreiro_impacto_atordoante"
+      "sfx": "sfx_guerreiro_impacto_atordoante",
+      "element": "physical"
     },
     {
       "id": "guerreiro_muralha_de_aco",
@@ -227,7 +232,8 @@
       "description": "Cria uma barreira de aço que absorve dano.",
       "animation": "anim_guerreiro_muralha_de_aco",
       "vfx": "vfx_guerreiro_muralha_de_aco",
-      "sfx": "sfx_guerreiro_muralha_de_aco"
+      "sfx": "sfx_guerreiro_muralha_de_aco",
+      "element": "physical"
     },
     {
       "id": "guerreiro_desafio_do_campeao",
@@ -263,7 +269,8 @@
       "description": "Provoca um monstro: ele passa a atacar o guerreiro por alguns segundos. Não afeta jogadores.",
       "animation": "anim_guerreiro_desafio_do_campeao",
       "vfx": "vfx_guerreiro_desafio_do_campeao",
-      "sfx": "sfx_guerreiro_desafio_do_campeao"
+      "sfx": "sfx_guerreiro_desafio_do_campeao",
+      "element": "physical"
     },
     {
       "id": "mago_raio_arcano",
@@ -297,7 +304,8 @@
       "description": "Dispara um raio de energia arcana.",
       "animation": "anim_mago_raio_arcano",
       "vfx": "vfx_mago_raio_arcano",
-      "sfx": "sfx_mago_raio_arcano"
+      "sfx": "sfx_mago_raio_arcano",
+      "element": "arcane"
     },
     {
       "id": "mago_bola_de_fogo",
@@ -306,12 +314,12 @@
       "ownerId": "mago",
       "slot": 2,
       "goldCost": 0,
-      "requiresLevel": 2,
+      "requiresLevel": 1,
       "type": "damage",
-      "targeting": "enemy",
+      "targeting": "ground",
       "range": 24,
-      "radius": 0,
-      "maxTargets": 1,
+      "radius": 3,
+      "maxTargets": 5,
       "cooldown": 6,
       "castTime": 1.4,
       "resourceCost": 18,
@@ -340,10 +348,11 @@
           "damageType": "magic"
         }
       ],
-      "description": "Esfera flamejante que queima o alvo.",
+      "description": "Esfera flamejante que explode em área e queima os inimigos atingidos.",
       "animation": "anim_mago_bola_de_fogo",
       "vfx": "vfx_mago_bola_de_fogo",
-      "sfx": "sfx_mago_bola_de_fogo"
+      "sfx": "sfx_mago_bola_de_fogo",
+      "element": "fire"
     },
     {
       "id": "mago_nova_glacial",
@@ -352,7 +361,7 @@
       "ownerId": "mago",
       "slot": 3,
       "goldCost": 0,
-      "requiresLevel": 3,
+      "requiresLevel": 1,
       "type": "control",
       "targeting": "selfArea",
       "range": 0,
@@ -387,7 +396,8 @@
       "description": "Onda de gelo que retarda inimigos próximos.",
       "animation": "anim_mago_nova_glacial",
       "vfx": "vfx_mago_nova_glacial",
-      "sfx": "sfx_mago_nova_glacial"
+      "sfx": "sfx_mago_nova_glacial",
+      "element": "ice"
     },
     {
       "id": "mago_escudo_arcano",
@@ -396,7 +406,7 @@
       "ownerId": "mago",
       "slot": 4,
       "goldCost": 0,
-      "requiresLevel": 5,
+      "requiresLevel": 1,
       "type": "buff",
       "targeting": "self",
       "range": 0,
@@ -425,7 +435,8 @@
       "description": "Cria uma barreira de mana.",
       "animation": "anim_mago_escudo_arcano",
       "vfx": "vfx_mago_escudo_arcano",
-      "sfx": "sfx_mago_escudo_arcano"
+      "sfx": "sfx_mago_escudo_arcano",
+      "element": "arcane"
     },
     {
       "id": "mago_prisao_de_gelo",
@@ -434,7 +445,7 @@
       "ownerId": "mago",
       "slot": 5,
       "goldCost": 0,
-      "requiresLevel": 7,
+      "requiresLevel": 1,
       "type": "control",
       "targeting": "enemy",
       "range": 20,
@@ -469,7 +480,8 @@
       "description": "Congela os pés do alvo no lugar.",
       "animation": "anim_mago_prisao_de_gelo",
       "vfx": "vfx_mago_prisao_de_gelo",
-      "sfx": "sfx_mago_prisao_de_gelo"
+      "sfx": "sfx_mago_prisao_de_gelo",
+      "element": "ice"
     },
     {
       "id": "mago_tempestade_arcana",
@@ -503,7 +515,145 @@
       "description": "Tempestade de energia sobre uma área marcada.",
       "animation": "anim_mago_tempestade_arcana",
       "vfx": "vfx_mago_tempestade_arcana",
-      "sfx": "sfx_mago_tempestade_arcana"
+      "sfx": "sfx_mago_tempestade_arcana",
+      "element": "arcane"
+    },
+    {
+      "id": "mago_tremor_da_terra",
+      "name": "Tremor da Terra",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 7,
+      "goldCost": 20000,
+      "requiresLevel": 18,
+      "type": "damage",
+      "targeting": "ground",
+      "range": 22,
+      "radius": 5,
+      "maxTargets": 8,
+      "cooldown": 24,
+      "castTime": 1.2,
+      "resourceCost": 40,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 30,
+          "scaling": {
+            "magicAttack": 1.4
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "rooted",
+          "duration": 2,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
+        }
+      ],
+      "description": "A terra se abre sob os inimigos da área, ferindo e prendendo-os.",
+      "element": "earth",
+      "animation": "anim_mago_tremor_da_terra",
+      "vfx": "vfx_mago_tremor_da_terra",
+      "sfx": "sfx_mago_tremor_da_terra"
+    },
+    {
+      "id": "mago_ciclone",
+      "name": "Ciclone",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 8,
+      "goldCost": 30000,
+      "requiresLevel": 28,
+      "type": "damage",
+      "targeting": "selfArea",
+      "range": 0,
+      "radius": 7,
+      "maxTargets": 10,
+      "cooldown": 26,
+      "castTime": 0,
+      "resourceCost": 45,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 40,
+          "scaling": {
+            "magicAttack": 1.2
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "silenced",
+          "duration": 2.5,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
+        }
+      ],
+      "description": "Vendaval em volta do mago que fere e silencia os inimigos próximos.",
+      "element": "wind",
+      "animation": "anim_mago_ciclone",
+      "vfx": "vfx_mago_ciclone",
+      "sfx": "sfx_mago_ciclone"
+    },
+    {
+      "id": "mago_chuva_de_meteoros",
+      "name": "Chuva de Meteoros",
+      "ownerType": "class",
+      "ownerId": "mago",
+      "slot": 9,
+      "goldCost": 40000,
+      "requiresLevel": 40,
+      "type": "damage",
+      "targeting": "ground",
+      "range": 26,
+      "radius": 7,
+      "maxTargets": 10,
+      "cooldown": 60,
+      "castTime": 2.5,
+      "resourceCost": 70,
+      "usesGlobalCooldown": true,
+      "silenceable": true,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "magic",
+          "base": 70,
+          "scaling": {
+            "magicAttack": 2.6
+          }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "burning",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 5,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
+        }
+      ],
+      "description": "Meteoros caem sobre uma grande área, ferindo e queimando todos.",
+      "element": "fire",
+      "animation": "anim_mago_chuva_de_meteoros",
+      "vfx": "vfx_mago_chuva_de_meteoros",
+      "sfx": "sfx_mago_chuva_de_meteoros"
     },
     {
       "id": "sacerdote_toque_de_luz",
@@ -537,7 +687,8 @@
       "description": "Cura um aliado com luz.",
       "animation": "anim_sacerdote_toque_de_luz",
       "vfx": "vfx_sacerdote_toque_de_luz",
-      "sfx": "sfx_sacerdote_toque_de_luz"
+      "sfx": "sfx_sacerdote_toque_de_luz",
+      "element": "light"
     },
     {
       "id": "sacerdote_raio_sagrado",
@@ -546,7 +697,7 @@
       "ownerId": "sacerdote",
       "slot": 2,
       "goldCost": 0,
-      "requiresLevel": 2,
+      "requiresLevel": 1,
       "type": "damage",
       "targeting": "enemy",
       "range": 20,
@@ -571,7 +722,8 @@
       "description": "Fere inimigos com luz sagrada.",
       "animation": "anim_sacerdote_raio_sagrado",
       "vfx": "vfx_sacerdote_raio_sagrado",
-      "sfx": "sfx_sacerdote_raio_sagrado"
+      "sfx": "sfx_sacerdote_raio_sagrado",
+      "element": "light"
     },
     {
       "id": "sacerdote_nova_de_cura",
@@ -580,7 +732,7 @@
       "ownerId": "sacerdote",
       "slot": 3,
       "goldCost": 0,
-      "requiresLevel": 3,
+      "requiresLevel": 1,
       "type": "heal",
       "targeting": "selfArea",
       "range": 0,
@@ -605,7 +757,8 @@
       "description": "Cura aliados próximos, priorizando os mais feridos.",
       "animation": "anim_sacerdote_nova_de_cura",
       "vfx": "vfx_sacerdote_nova_de_cura",
-      "sfx": "sfx_sacerdote_nova_de_cura"
+      "sfx": "sfx_sacerdote_nova_de_cura",
+      "element": "light"
     },
     {
       "id": "sacerdote_regeneracao",
@@ -614,7 +767,7 @@
       "ownerId": "sacerdote",
       "slot": 4,
       "goldCost": 0,
-      "requiresLevel": 5,
+      "requiresLevel": 1,
       "type": "heal",
       "targeting": "ally",
       "range": 20,
@@ -643,7 +796,8 @@
       "description": "Cura aliado ao longo do tempo.",
       "animation": "anim_sacerdote_regeneracao",
       "vfx": "vfx_sacerdote_regeneracao",
-      "sfx": "sfx_sacerdote_regeneracao"
+      "sfx": "sfx_sacerdote_regeneracao",
+      "element": "light"
     },
     {
       "id": "sacerdote_barreira_sagrada",
@@ -652,7 +806,7 @@
       "ownerId": "sacerdote",
       "slot": 5,
       "goldCost": 0,
-      "requiresLevel": 7,
+      "requiresLevel": 1,
       "type": "buff",
       "targeting": "ally",
       "range": 20,
@@ -681,7 +835,8 @@
       "description": "Protege um aliado com uma barreira.",
       "animation": "anim_sacerdote_barreira_sagrada",
       "vfx": "vfx_sacerdote_barreira_sagrada",
-      "sfx": "sfx_sacerdote_barreira_sagrada"
+      "sfx": "sfx_sacerdote_barreira_sagrada",
+      "element": "light"
     },
     {
       "id": "arqueiro_tiro_preciso",
@@ -715,7 +870,8 @@
       "description": "Flecha de longo alcance.",
       "animation": "anim_arqueiro_tiro_preciso",
       "vfx": "vfx_arqueiro_tiro_preciso",
-      "sfx": "sfx_arqueiro_tiro_preciso"
+      "sfx": "sfx_arqueiro_tiro_preciso",
+      "element": "physical"
     },
     {
       "id": "arqueiro_chuva_de_flechas",
@@ -724,7 +880,7 @@
       "ownerId": "arqueiro",
       "slot": 2,
       "goldCost": 0,
-      "requiresLevel": 3,
+      "requiresLevel": 1,
       "type": "damage",
       "targeting": "ground",
       "range": 26,
@@ -749,7 +905,8 @@
       "description": "Chuva de flechas sobre uma área.",
       "animation": "anim_arqueiro_chuva_de_flechas",
       "vfx": "vfx_arqueiro_chuva_de_flechas",
-      "sfx": "sfx_arqueiro_chuva_de_flechas"
+      "sfx": "sfx_arqueiro_chuva_de_flechas",
+      "element": "physical"
     },
     {
       "id": "arqueiro_tiro_enfraquecedor",
@@ -758,7 +915,7 @@
       "ownerId": "arqueiro",
       "slot": 3,
       "goldCost": 0,
-      "requiresLevel": 4,
+      "requiresLevel": 1,
       "type": "control",
       "targeting": "enemy",
       "range": 26,
@@ -793,7 +950,8 @@
       "description": "Fere a perna do alvo, retardando-o.",
       "animation": "anim_arqueiro_tiro_enfraquecedor",
       "vfx": "vfx_arqueiro_tiro_enfraquecedor",
-      "sfx": "sfx_arqueiro_tiro_enfraquecedor"
+      "sfx": "sfx_arqueiro_tiro_enfraquecedor",
+      "element": "physical"
     },
     {
       "id": "arqueiro_salto_agil",
@@ -802,7 +960,7 @@
       "ownerId": "arqueiro",
       "slot": 4,
       "goldCost": 0,
-      "requiresLevel": 5,
+      "requiresLevel": 1,
       "type": "mobility",
       "targeting": "enemy",
       "range": 30,
@@ -825,7 +983,8 @@
       "description": "Salta para longe do alvo.",
       "animation": "anim_arqueiro_salto_agil",
       "vfx": "vfx_arqueiro_salto_agil",
-      "sfx": "sfx_arqueiro_salto_agil"
+      "sfx": "sfx_arqueiro_salto_agil",
+      "element": "physical"
     },
     {
       "id": "assassino_corte_rapido",
@@ -859,7 +1018,8 @@
       "description": "Golpe rápido de adaga.",
       "animation": "anim_assassino_corte_rapido",
       "vfx": "vfx_assassino_corte_rapido",
-      "sfx": "sfx_assassino_corte_rapido"
+      "sfx": "sfx_assassino_corte_rapido",
+      "element": "physical"
     },
     {
       "id": "assassino_golpe_sangrento",
@@ -868,7 +1028,7 @@
       "ownerId": "assassino",
       "slot": 2,
       "goldCost": 0,
-      "requiresLevel": 2,
+      "requiresLevel": 1,
       "type": "damage",
       "targeting": "enemy",
       "range": 2.5,
@@ -905,7 +1065,8 @@
       "description": "Corte profundo que faz o alvo sangrar.",
       "animation": "anim_assassino_golpe_sangrento",
       "vfx": "vfx_assassino_golpe_sangrento",
-      "sfx": "sfx_assassino_golpe_sangrento"
+      "sfx": "sfx_assassino_golpe_sangrento",
+      "element": "physical"
     },
     {
       "id": "assassino_passo_sombrio",
@@ -914,7 +1075,7 @@
       "ownerId": "assassino",
       "slot": 3,
       "goldCost": 0,
-      "requiresLevel": 3,
+      "requiresLevel": 1,
       "type": "mobility",
       "targeting": "enemy",
       "range": 16,
@@ -937,7 +1098,8 @@
       "description": "Avança nas sombras até o alvo.",
       "animation": "anim_assassino_passo_sombrio",
       "vfx": "vfx_assassino_passo_sombrio",
-      "sfx": "sfx_assassino_passo_sombrio"
+      "sfx": "sfx_assassino_passo_sombrio",
+      "element": "dark"
     },
     {
       "id": "bruxo_seta_sombria",
@@ -971,7 +1133,8 @@
       "description": "Projétil de energia sombria.",
       "animation": "anim_bruxo_seta_sombria",
       "vfx": "vfx_bruxo_seta_sombria",
-      "sfx": "sfx_bruxo_seta_sombria"
+      "sfx": "sfx_bruxo_seta_sombria",
+      "element": "dark"
     },
     {
       "id": "bruxo_corrupcao",
@@ -980,7 +1143,7 @@
       "ownerId": "bruxo",
       "slot": 2,
       "goldCost": 0,
-      "requiresLevel": 2,
+      "requiresLevel": 1,
       "type": "damage",
       "targeting": "enemy",
       "range": 22,
@@ -1009,7 +1172,8 @@
       "description": "Corrompe o alvo, causando dano ao longo do tempo.",
       "animation": "anim_bruxo_corrupcao",
       "vfx": "vfx_bruxo_corrupcao",
-      "sfx": "sfx_bruxo_corrupcao"
+      "sfx": "sfx_bruxo_corrupcao",
+      "element": "dark"
     },
     {
       "id": "bruxo_drenar_vida",
@@ -1018,7 +1182,7 @@
       "ownerId": "bruxo",
       "slot": 3,
       "goldCost": 0,
-      "requiresLevel": 3,
+      "requiresLevel": 1,
       "type": "damage",
       "targeting": "enemy",
       "range": 18,
@@ -1051,7 +1215,8 @@
       "description": "Drena a vida do alvo e cura o conjurador.",
       "animation": "anim_bruxo_drenar_vida",
       "vfx": "vfx_bruxo_drenar_vida",
-      "sfx": "sfx_bruxo_drenar_vida"
+      "sfx": "sfx_bruxo_drenar_vida",
+      "element": "dark"
     },
     {
       "id": "lobo_mordida",
