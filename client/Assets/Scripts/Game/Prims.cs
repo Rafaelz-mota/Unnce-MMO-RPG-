@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mmorpg.Game
@@ -20,6 +21,37 @@ namespace Mmorpg.Game
             {
                 Collider col = go.GetComponent<Collider>();
                 if (col != null) UnityEngine.Object.Destroy(col);
+            }
+            return go;
+        }
+
+        private static readonly Dictionary<int, Material> Shared = new Dictionary<int, Material>();
+
+        /// <summary>
+        /// Como Make, mas reaproveita um material por cor (sem colisor). Usado nos enfeites do mapa: poucos materiais
+        /// permitem à Unity agrupar as chamadas de desenho, importante no celular.
+        /// </summary>
+        public static GameObject MakeShared(PrimitiveType type, string name, Transform parent, Vector3 localPos, Vector3 scale, Color color)
+        {
+            GameObject go = GameObject.CreatePrimitive(type);
+            go.name = name;
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = localPos;
+            go.transform.localScale = scale;
+            Collider col = go.GetComponent<Collider>();
+            if (col != null) UnityEngine.Object.Destroy(col);
+            Renderer r = go.GetComponent<Renderer>();
+            if (r != null)
+            {
+                int key = ((int)(Mathf.Clamp01(color.r) * 255f) << 16) | ((int)(Mathf.Clamp01(color.g) * 255f) << 8) | (int)(Mathf.Clamp01(color.b) * 255f);
+                Material m;
+                if (!Shared.TryGetValue(key, out m) || m == null)
+                {
+                    m = new Material(r.sharedMaterial);
+                    m.color = color;
+                    Shared[key] = m;
+                }
+                r.sharedMaterial = m;
             }
             return go;
         }

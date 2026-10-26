@@ -146,14 +146,20 @@ namespace UnityEngine
     }
     public class AudioListener : Behaviour { }
 
+    public enum FogMode { Linear = 1, Exponential = 2, ExponentialSquared = 3 }
     public enum LightType { Spot, Directional, Point }
-    public class Light : Behaviour { public LightType type; public float intensity; }
+    public enum LightShadows { None, Hard, Soft }
+    public class Light : Behaviour { public LightType type; public float intensity; public LightShadows shadows; public Color color; }
 
     public static class RenderSettings
     {
         public static Rendering.AmbientMode ambientMode;
         public static Color ambientLight;
         public static Light sun;
+        public static bool fog;
+        public static Color fogColor;
+        public static FogMode fogMode;
+        public static float fogStartDistance, fogEndDistance;
     }
 
     public static class Time { public static float deltaTime; public static float unscaledTime; public static float time; }

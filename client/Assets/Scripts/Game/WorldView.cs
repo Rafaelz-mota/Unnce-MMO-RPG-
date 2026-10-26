@@ -163,6 +163,7 @@ namespace Mmorpg.Game
             // Ponto de nascimento.
             Prims.Make(PrimitiveType.Cylinder, "Nascimento", _root.transform, new Vector3((float)region.PlayerSpawn.X, 0.03f, (float)region.PlayerSpawn.Z), new Vector3(5f, 0.01f, 5f), new Color(0.75f, 0.7f, 0.45f), false);
 
+            TerrainDecor.Build(region, _root.transform);
             foreach (ObstacleDef o in region.Obstacles) BuildObstacle(o);
         }
 
@@ -174,20 +175,22 @@ namespace Mmorpg.Game
             holder.transform.SetParent(_root.transform, false);
             holder.transform.position = p;
             Transform t = holder.transform;
+            int variant = (int)(System.Math.Abs(o.X * 7.0 + o.Z * 13.0)) % 3;
 
             switch (o.Kind)
             {
                 case "tree":
-                    Prims.Make(PrimitiveType.Cylinder, "Tronco", t, new Vector3(0f, 1.6f, 0f), new Vector3(r * 0.8f, 1.6f, r * 0.8f), new Color(0.4f, 0.28f, 0.16f), false);
-                    Prims.Make(PrimitiveType.Sphere, "Copa", t, new Vector3(0f, 4f, 0f), new Vector3(r * 3f, r * 2.6f, r * 3f), new Color(0.15f, 0.42f, 0.18f), false);
+                    TerrainDecor.Tree(t, Vector3.zero, Mathf.Max(0.5f, r * 0.9f), variant);
                     break;
                 case "rock":
-                    Prims.Make(PrimitiveType.Sphere, "Pedra", t, new Vector3(0f, r * 0.45f, 0f), new Vector3(r * 2f, r * 1.1f, r * 2f), new Color(0.5f, 0.5f, 0.52f), false);
+                    TerrainDecor.Rock(t, Vector3.zero, r);
                     break;
-                default: // ruin e qualquer tipo novo: base de pedra com dois pilares
-                    Prims.Make(PrimitiveType.Cylinder, "Base", t, new Vector3(0f, 0.2f, 0f), new Vector3(r * 2f, 0.2f, r * 2f), new Color(0.55f, 0.55f, 0.58f), false);
-                    Prims.Make(PrimitiveType.Cube, "Pilar1", t, new Vector3(-r * 0.4f, 1.8f, 0f), new Vector3(r * 0.5f, 3.4f, r * 0.5f), new Color(0.65f, 0.65f, 0.68f), false);
-                    Prims.Make(PrimitiveType.Cube, "Pilar2", t, new Vector3(r * 0.4f, 1.1f, r * 0.2f), new Vector3(r * 0.5f, 2.0f, r * 0.5f), new Color(0.62f, 0.62f, 0.65f), false);
+                default: // ruin e qualquer tipo novo: base de pedra com pilares e um arco quebrado
+                    Prims.MakeShared(PrimitiveType.Cylinder, "Base", t, new Vector3(0f, 0.2f, 0f), new Vector3(r * 2f, 0.2f, r * 2f), new Color(0.55f, 0.55f, 0.58f));
+                    Prims.MakeShared(PrimitiveType.Cube, "Pilar1", t, new Vector3(-r * 0.4f, 1.8f, 0f), new Vector3(r * 0.5f, 3.4f, r * 0.5f), new Color(0.65f, 0.65f, 0.68f));
+                    Prims.MakeShared(PrimitiveType.Cube, "Pilar2", t, new Vector3(r * 0.4f, 1.1f, r * 0.2f), new Vector3(r * 0.5f, 2.0f, r * 0.5f), new Color(0.62f, 0.62f, 0.65f));
+                    Prims.MakeShared(PrimitiveType.Cube, "Verga", t, new Vector3(-r * 0.15f, 3.5f, 0f), new Vector3(r * 1.0f, 0.4f, r * 0.45f), new Color(0.6f, 0.6f, 0.63f));
+                    Prims.MakeShared(PrimitiveType.Sphere, "Hera", t, new Vector3(-r * 0.4f, 2.2f, r * 0.28f), new Vector3(r * 0.35f, 1.4f, r * 0.15f), new Color(0.25f, 0.5f, 0.22f));
                     break;
             }
         }

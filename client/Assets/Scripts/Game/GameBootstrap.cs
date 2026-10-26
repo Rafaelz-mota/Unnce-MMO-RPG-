@@ -191,11 +191,18 @@ namespace Mmorpg.Game
         {
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = new Color(0.5f, 0.52f, 0.55f);
+            RenderSettings.fog = true;
+            RenderSettings.fogColor = new Color(0.62f, 0.76f, 0.9f);
+            RenderSettings.fogMode = FogMode.Linear;
+            RenderSettings.fogStartDistance = 70f;
+            RenderSettings.fogEndDistance = 230f;
             if (RenderSettings.sun != null) return;
             var go = new GameObject("Sol");
             Light light = go.AddComponent<Light>();
             light.type = LightType.Directional;
             light.intensity = 1.1f;
+            light.color = new Color(1f, 0.96f, 0.86f);
+            light.shadows = LightShadows.Soft;
             go.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
             RenderSettings.sun = light;
         }
