@@ -110,6 +110,23 @@ namespace Mmorpg.Core.Tests
         }
 
         [Test]
+        public void DevUnlockAll_IsOffByDefault_AndWhenOnGivesMaxLevelAndAllClassSkills()
+        {
+            GameSession s = NewSession("mago", 1);
+            Assert.IsFalse(s.DevUnlockAll(), "desligado por padrão");
+            Assert.AreEqual(1, s.Character.Level);
+            Assert.IsFalse(s.Character.IsSkillLearned("mago_chuva_de_meteoros"));
+
+            s.DevToolsEnabled = true;
+            Assert.IsTrue(s.DevUnlockAll());
+            Assert.AreEqual(s.Data.Progression.MaxLevel, s.Character.Level);
+            Assert.AreEqual(s.Data.Progression.MaxLevel, s.Player.Level, "o combatente também sobe de nível");
+            foreach (SkillDef k in s.Character.ClassSkills())
+                Assert.IsTrue(s.Character.IsSkillLearned(k.Id), k.Id);
+            Assert.GreaterOrEqual(s.Character.Gold, 100000);
+        }
+
+        [Test]
         public void Tick_ClampsHugeSteps_AndIgnoresInvalidOnes()
         {
             GameSession s = NewSession("guerreiro", 1);

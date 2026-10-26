@@ -186,6 +186,34 @@ namespace Mmorpg.Core.Session
             return result;
         }
 
+        // ------------------------------------------------------------------ modo de teste (offline)
+        /// <summary>
+        /// Liga as ferramentas de teste. Só existe no protótipo offline e começa DESLIGADO: quem monta a sessão decide.
+        /// Um servidor online nunca deve ligar isto; progressão no online é decidida pelo servidor.
+        /// </summary>
+        public bool DevToolsEnabled { get; set; }
+
+        /// <summary>Modo de teste: nível máximo, todas as habilidades da classe e ouro extra. Devolve false se desligado.</summary>
+        public bool DevUnlockAll()
+        {
+            if (!DevToolsEnabled) return false;
+            int guard = 0;
+            while (!Character.IsMaxLevel && guard++ < 1000) Character.AddXp(Character.XpToNext);
+            Character.SyncFreeSkills();
+
+            long need = 0;
+            foreach (SkillDef s in Character.ClassSkills())
+                if (!Character.IsSkillLearned(s.Id)) need += s.GoldCost;
+            if (need > Character.Gold) Character.AddGold(need - Character.Gold);
+            foreach (SkillDef s in Character.ClassSkills())
+                Character.TryLearnSkill(s.Id);
+            Character.AddGold(100000);
+
+            Sim.World.RefreshPlayerStats(Player, true);
+            AddLog("MODO DE TESTE: nível " + Character.Level + " e todas as habilidades da classe liberadas.");
+            return true;
+        }
+
         /// <summary>Compra (com Gold) a habilidade paga do slot 6..9. Os custos vêm de rules.json.</summary>
         public LearnSkillResult LearnSkill(int number)
         {

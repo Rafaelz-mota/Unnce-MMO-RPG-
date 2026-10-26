@@ -151,6 +151,7 @@ namespace Mmorpg.Game
         private void BeginSession(PlayerCharacter pc)
         {
             _session = GameSession.Start(_data, pc, _regionId, new SystemRng(), _store);
+            _session.DevToolsEnabled = true; // protótipo offline de testes; um servidor nunca liga isto
 
             Camera cam = SetupCamera();
             SetupLight();

@@ -595,7 +595,7 @@ namespace Mmorpg.Game
         // ------------------------------------------------------------------ menu
         private void DrawMenu(float k)
         {
-            float w = Mathf.Min(Screen.width - 20f, 380f * k), h = 330f * k;
+            float w = Mathf.Min(Screen.width - 20f, 380f * k), h = 372f * k;
             Rect win = new Rect((Screen.width - w) * 0.5f, (Screen.height - h) * 0.5f, w, h);
             Fill(win, new Color(0.05f, 0.05f, 0.08f, 0.95f));
             RegisterUi(win);
@@ -619,6 +619,16 @@ namespace Mmorpg.Game
             y += line + 2f * k;
             _input.TouchMode = GUI.Toggle(new Rect(win.x + pad, y, w - 2 * pad, line), _input.TouchMode, " Controles de toque na tela", _button);
             y += line + 8f * k;
+
+            if (_session.DevToolsEnabled)
+            {
+                if (GUI.Button(new Rect(win.x + pad, y, w - 2 * pad, 32f * k), "MODO TESTE: nível máximo + todas as habilidades", _button))
+                {
+                    _session.DevUnlockAll();
+                    _menuOpen = false;
+                }
+                y += 38f * k;
+            }
 
             float bw = (w - 3 * pad) * 0.5f;
             if (GUI.Button(new Rect(win.x + pad, y, bw, 32f * k), "Continuar", _button)) _menuOpen = false;
