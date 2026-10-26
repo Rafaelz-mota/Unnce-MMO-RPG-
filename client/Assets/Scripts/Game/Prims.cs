@@ -24,6 +24,23 @@ namespace Mmorpg.Game
             return go;
         }
 
+        /// <summary>Ponto de articulação vazio (para balançar pernas e braços girando o pivô).</summary>
+        public static Transform Pivot(Transform parent, string name, Vector3 localPos)
+        {
+            var go = new GameObject(name);
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = localPos;
+            return go.transform;
+        }
+
+        /// <summary>Cápsula invisível com colisor, usada para clicar/tocar na entidade (o corpo desenhado não tem colisor).</summary>
+        public static void Hitbox(Transform parent, float height, float width)
+        {
+            GameObject go = Make(PrimitiveType.Capsule, "Hitbox", parent, new Vector3(0f, height * 0.5f, 0f), new Vector3(width, height * 0.5f, width), Color.white, true);
+            Renderer r = go.GetComponent<Renderer>();
+            if (r != null) r.enabled = false;
+        }
+
         public static void Tint(GameObject go, Color color)
         {
             Renderer r = go.GetComponent<Renderer>();

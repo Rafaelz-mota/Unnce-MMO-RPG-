@@ -65,6 +65,12 @@ namespace Mmorpg.Game
 
         private void OnEvent(GameEvent e)
         {
+            if (e.Type == GameEventType.Damage)
+            {
+                EntityView hit = ViewOf(e.TargetId);
+                if (hit != null) hit.Flash();
+                return;
+            }
             if (e.Type != GameEventType.SkillUsed) return;
             EntityView src = ViewOf(e.SourceId);
             if (src != null) src.Pulse();

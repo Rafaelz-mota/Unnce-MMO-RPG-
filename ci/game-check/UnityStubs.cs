@@ -112,6 +112,14 @@ namespace UnityEngine
         public static int Min(int a, int b) { return a; }
         public static float Exp(float p) { return 0f; }
         public static int RoundToInt(float f) { return 0; }
+        public const float PI = 3.14159274f;
+        public const float Rad2Deg = 57.29578f;
+        public static float Sin(float f) { return 0f; }
+        public static float Cos(float f) { return 0f; }
+        public static float Abs(float f) { return 0f; }
+        public static float Sqrt(float f) { return 0f; }
+        public static float Atan2(float y, float x) { return 0f; }
+        public static float Lerp(float a, float b, float t) { return a; }
     }
 
     public struct Ray { }
@@ -122,8 +130,8 @@ namespace UnityEngine
         public static bool Raycast(Ray ray, out RaycastHit hit, float maxDistance) { hit = default(RaycastHit); return false; }
     }
 
-    public class Material : Object { public Color color; }
-    public class Renderer : Component { public Material material; }
+    public class Material : Object { public Color color; public Material() { } public Material(Material source) { } }
+    public class Renderer : Component { public Material material, sharedMaterial; public bool enabled; }
 
     public enum CameraClearFlags { Skybox = 1, SolidColor = 2 }
     public class Camera : Behaviour
@@ -147,7 +155,7 @@ namespace UnityEngine
         public static Light sun;
     }
 
-    public static class Time { public static float deltaTime; public static float unscaledTime; }
+    public static class Time { public static float deltaTime; public static float unscaledTime; public static float time; }
     public static class Screen { public static int width; public static int height; }
     public static class Application
     {
