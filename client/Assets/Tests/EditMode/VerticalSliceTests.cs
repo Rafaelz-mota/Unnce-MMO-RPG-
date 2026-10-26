@@ -105,7 +105,8 @@ namespace Mmorpg.Core.Tests
             GameSession s = NewSession("guerreiro", 1);
             // Nenhum monstro perto do ponto de nascimento: não há o que atacar.
             Assert.AreEqual(UseSkillResult.NoTarget, s.UseHotbarSlot(1));
-            Assert.AreEqual(UseSkillResult.NotLearned, s.UseHotbarSlot(5), "slot 5 exige nível 7");
+            Assert.AreEqual(UseSkillResult.NoTarget, s.UseHotbarSlot(5), "slot 5 é gratuito e já está liberado");
+            Assert.AreEqual(UseSkillResult.NotLearned, s.UseHotbarSlot(6), "slot 6 é pago e está bloqueado");
         }
 
         [Test]

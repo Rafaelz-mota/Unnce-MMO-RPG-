@@ -157,8 +157,7 @@ namespace Mmorpg.Core.Tests
             Assert.AreEqual(d.Rules.SkillsPerClass, bar.Count);
             Assert.AreEqual(Enumerable.Range(1, d.Rules.SkillsPerClass), bar.Select(s => s.Number));
             Assert.AreEqual(HotbarSlotState.Ready, bar[0].State);
-            Assert.AreEqual(HotbarSlotState.LockedByLevel, bar[1].State);
-            Assert.AreEqual(2, bar[1].RequiredLevel);
+            for (int i = 0; i < 5; i++) Assert.AreEqual(HotbarSlotState.Ready, bar[i].State, "as 5 primeiras são liberadas no nível 1");
             Assert.AreEqual(HotbarSlotState.LockedByLevel, bar[5].State, "paga, mas nível insuficiente");
             Assert.AreEqual(HotbarSlotState.Empty, bar[8].State, "ainda não definida no catálogo");
             Assert.IsNull(bar[8].Skill);

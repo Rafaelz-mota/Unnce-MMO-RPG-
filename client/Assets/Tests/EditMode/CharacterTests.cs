@@ -21,15 +21,14 @@ namespace Mmorpg.Core.Tests
         }
 
         [Test]
-        public void CreateNew_StartsWithFreeSkillsUnlockedByLevelOnly()
+        public void CreateNew_StartsWithFiveFreeSkills_AndPaidOnesLocked()
         {
             PlayerCharacter pc = PlayerCharacter.CreateNew(D, "Heroi", "guerreiro");
             Assert.IsTrue(pc.IsSkillLearned("guerreiro_golpe_poderoso"));
-            Assert.IsFalse(pc.IsSkillLearned("guerreiro_investida"), "exige nível 2");
-            Assert.IsFalse(pc.IsSkillLearned("guerreiro_muralha_de_aco"), "habilidade paga");
-            TestWorld.SetLevel(pc, 7);
-            Assert.IsTrue(pc.IsSkillLearned("guerreiro_investida"));
+            Assert.IsTrue(pc.IsSkillLearned("guerreiro_investida"), "as 5 primeiras são liberadas no nível 1");
             Assert.IsTrue(pc.IsSkillLearned("guerreiro_impacto_atordoante"));
+            Assert.IsFalse(pc.IsSkillLearned("guerreiro_muralha_de_aco"), "habilidade paga");
+            TestWorld.SetLevel(pc, 10);
             Assert.IsFalse(pc.IsSkillLearned("guerreiro_muralha_de_aco"), "paga nunca é automática");
         }
 
@@ -84,7 +83,7 @@ namespace Mmorpg.Core.Tests
             PlayerCharacter pc = PlayerCharacter.CreateNew(D, "Heroi", "guerreiro");
             Assert.AreEqual(LearnSkillResult.NotClassSkill, pc.TryLearnSkill("mago_raio_arcano"));
             Assert.AreEqual(LearnSkillResult.UnknownSkill, pc.TryLearnSkill("nao_existe"));
-            Assert.AreEqual(LearnSkillResult.FreeSkill, pc.TryLearnSkill("guerreiro_investida"));
+            Assert.AreEqual(LearnSkillResult.AlreadyLearned, pc.TryLearnSkill("guerreiro_investida"), "gratuita: já vem aprendida");
             Assert.AreEqual(LearnSkillResult.LevelTooLow, pc.TryLearnSkill("guerreiro_muralha_de_aco"));
             TestWorld.SetLevel(pc, 10);
             Assert.AreEqual(LearnSkillResult.NotEnoughGold, pc.TryLearnSkill("guerreiro_muralha_de_aco"));

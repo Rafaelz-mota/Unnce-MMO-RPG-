@@ -22,7 +22,6 @@ namespace Mmorpg.Core.Tests
 
             Assert.AreEqual(UseSkillResult.UnknownSkill, t.World.UseSkill(w, "nao_existe", dummy.Id, dummy.Position));
             Assert.AreEqual(UseSkillResult.NotLearned, t.Use(w, "mago_raio_arcano", dummy), "habilidade de outra classe");
-            Assert.AreEqual(UseSkillResult.NotLearned, t.Use(w, "guerreiro_investida", dummy), "exige nível 2");
             Assert.AreEqual(UseSkillResult.NotLearned, t.Use(w, "guerreiro_muralha_de_aco", dummy), "habilidade paga não comprada");
 
             w.Dead = true;
@@ -448,6 +447,21 @@ namespace Mmorpg.Core.Tests
             Combatant low = t.Player("guerreiro", 5, 0, 0);
             low.Character.AddGold(20000);
             Assert.AreEqual(LearnSkillResult.LevelTooLow, low.Character.TryLearnSkill("guerreiro_desafio_do_campeao"));
+        }
+
+        [Test]
+        public void MageKit_HasElementalVariety_AndMostSkillsAreArea()
+        {
+            var t = new TestWorld();
+            var skills = t.Data.Classes["mago"].SkillIds.Select(id => t.Data.Skills[id]).ToList();
+            Assert.AreEqual(9, skills.Count);
+            var elements = skills.Select(x => x.Element).Distinct().ToList();
+            foreach (string e in new[] { "arcane", "fire", "ice", "wind", "earth" })
+                CollectionAssert.Contains(elements, e);
+            int area = skills.Count(x => x.Targeting == Targeting.Ground || x.Targeting == Targeting.SelfArea);
+            Assert.GreaterOrEqual(area, 6, "o mago tem poucos pontos de vida e depende de dano em área");
+            Assert.IsTrue(skills.Where(x => x.Slot <= 5).All(x => x.RequiresLevel == 1 && x.GoldCost == 0));
+            Assert.IsTrue(skills.Where(x => x.Slot > 5).All(x => x.GoldCost > 0));
         }
     }
 }
