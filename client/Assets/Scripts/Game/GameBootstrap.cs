@@ -39,6 +39,9 @@ namespace Mmorpg.Game
         private PlayerInput _input;
         private GameHud _hud;
         private string _regionId;
+        private bool _switchPending;
+        private bool _devStart = true;
+        private string _returnTo;
 
         private string _errorTitle = "";
         private string _errorText = "";
@@ -108,7 +111,7 @@ namespace Mmorpg.Game
                 {
                     string error;
                     PlayerCharacter pc = GameSession.TryLoadCharacter(_data, _store, last, out error);
-                    if (pc != null) { BeginSession(pc); return; }
+                    if (pc != null) { BeginSession(pc, false); return; }
                     if (error != null)
                     {
                         // Não sobrescreve um save ilegível: o novo personagem usa outro nome e o arquivo antigo fica intacto.
@@ -148,10 +151,11 @@ namespace Mmorpg.Game
         }
 
         // ------------------------------------------------------------------ início da partida
-        private void BeginSession(PlayerCharacter pc)
+        private void BeginSession(PlayerCharacter pc, bool devUnlock)
         {
             _session = GameSession.Start(_data, pc, _regionId, new SystemRng(), _store);
             _session.DevToolsEnabled = true; // protótipo offline de testes; um servidor nunca liga isto
+            if (devUnlock) _session.DevUnlockAll();
 
             Camera cam = SetupCamera();
             SetupLight();
@@ -162,6 +166,7 @@ namespace Mmorpg.Game
             _hud = new GameHud(_session, _rig);
             _input = new PlayerInput(_session, _rig, _hud);
             _hud.Bind(_world, _input);
+            _hud.OnSwitchClassRequested = delegate { _switchPending = true; };
             _rig.SnapTo(Conv.ToV3(_session.Player.Position));
 
             PlayerPrefs.SetString(PrefLastCharacter, pc.Name);
@@ -209,8 +214,25 @@ namespace Mmorpg.Game
         }
 
         // ------------------------------------------------------------------ frame
+        /// <summary>Modo teste: salva o personagem atual, desmonta o mundo e volta à escolha de classe.</summary>
+        private void SwitchClass()
+        {
+            _switchPending = false;
+            try { _session.Save(); } catch (Exception ex) { Debug.LogException(ex); }
+            _returnTo = _session.Character.Name;
+            if (_hud != null) _hud.Dispose();
+            if (_world != null) _world.Destroy();
+            _hud = null;
+            _world = null;
+            _session = null;
+            _name = FreeName("Teste");
+            _notice = "Modo teste: escolha outra classe. O personagem anterior (" + _returnTo + ") foi salvo e pode ser retomado.";
+            _stage = Stage.ClassSelect;
+        }
+
         private void Update()
         {
+            if (_stage == Stage.Playing && _switchPending) { SwitchClass(); return; }
             if (_stage != Stage.Playing) return;
             try
             {
@@ -325,7 +347,8 @@ namespace Mmorpg.Game
             }
 
             GUI.Label(new Rect(x, y, 90f * k, 30f * k), "Nome:", _text);
-            _name = GUI.TextField(new Rect(x + 80f * k, y, 260f * k, 30f * k), _name ?? "", 24);
+            _name = GUI.TextField(new Rect(x + 80f * k, y, 220f * k, 30f * k), _name ?? "", 24);
+            _devStart = GUI.Toggle(new Rect(x + 310f * k, y, w - 310f * k, 30f * k), _devStart, " Modo teste (nível máx. + todas as habilidades)", _button);
             y += 40f * k;
 
             int pages = (_classes.Count + ClassesPerPage - 1) / ClassesPerPage;
@@ -353,6 +376,13 @@ namespace Mmorpg.Game
             if (GUI.Button(new Rect(x, by, 120f * k, 40f * k), "< Anterior", _button)) _page = Mathf.Max(0, _page - 1);
             GUI.Label(new Rect(x + 130f * k, by + 6f * k, 160f * k, 30f * k), "Página " + (_page + 1) + " / " + pages, _text);
             if (GUI.Button(new Rect(x + w - 120f * k, by, 120f * k, 40f * k), "Próxima >", _button)) _page = Mathf.Min(pages - 1, _page + 1);
+            if (!string.IsNullOrEmpty(_returnTo) && GUI.Button(new Rect(x + w * 0.5f - 130f * k, by, 260f * k, 40f * k), "Voltar a " + _returnTo, _button))
+            {
+                string error;
+                PlayerCharacter back = GameSession.TryLoadCharacter(_data, _store, _returnTo, out error);
+                if (back != null) { _returnTo = null; _notice = null; BeginSession(back, false); }
+                else _notice = "Não foi possível retomar " + _returnTo + ": " + error;
+            }
         }
 
         private string FactionName(string id)
@@ -374,7 +404,8 @@ namespace Mmorpg.Game
                 }
                 PlayerCharacter pc = PlayerCharacter.CreateNew(_data, name, cls.Id);
                 _notice = null;
-                BeginSession(pc);
+                _returnTo = null;
+                BeginSession(pc, _devStart);
             }
             catch (ArgumentException ex)
             {

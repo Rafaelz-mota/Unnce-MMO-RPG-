@@ -48,6 +48,9 @@ namespace Mmorpg.Game
 
         private bool _inventoryOpen;
         private bool _menuOpen;
+
+        /// <summary>Modo teste: pedido para voltar à escolha de classe (tratado fora do desenho da tela).</summary>
+        public System.Action OnSwitchClassRequested;
         private int _selectedSlot = -1;
         private string _banner;
         private float _bannerAge;
@@ -595,7 +598,7 @@ namespace Mmorpg.Game
         // ------------------------------------------------------------------ menu
         private void DrawMenu(float k)
         {
-            float w = Mathf.Min(Screen.width - 20f, 380f * k), h = 372f * k;
+            float w = Mathf.Min(Screen.width - 20f, 380f * k), h = 410f * k;
             Rect win = new Rect((Screen.width - w) * 0.5f, (Screen.height - h) * 0.5f, w, h);
             Fill(win, new Color(0.05f, 0.05f, 0.08f, 0.95f));
             RegisterUi(win);
@@ -626,6 +629,12 @@ namespace Mmorpg.Game
                 {
                     _session.DevUnlockAll();
                     _menuOpen = false;
+                }
+                y += 38f * k;
+                if (GUI.Button(new Rect(win.x + pad, y, w - 2 * pad, 32f * k), "MODO TESTE: trocar de classe", _button))
+                {
+                    _menuOpen = false;
+                    if (OnSwitchClassRequested != null) OnSwitchClassRequested();
                 }
                 y += 38f * k;
             }
