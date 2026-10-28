@@ -12,6 +12,10 @@ namespace Mmorpg.Game
     public static class SkillVfx
     {
         private const float Golden = 2.399963f;
+        /// <summary>Acima disto, efeitos secundários são descartados (ainda não há pooling de objetos).</summary>
+        public const int MaxLive = 220;
+
+        private static bool Busy { get { return Fx.Live > MaxLive; } }
 
         public static void Palette(string element, out Color main, out Color alt)
         {
@@ -91,6 +95,7 @@ namespace Mmorpg.Game
         // ------------------------------------------------------------------ habilidades
         public static void OnSkillUsed(GameEvent e, SkillDef skill, EntityView source, EntityView target, bool byPlayer, Transform parent)
         {
+            if (Busy && !byPlayer) return;
             string el = skill != null && !string.IsNullOrEmpty(skill.Element) ? skill.Element : "physical";
             Color main, alt;
             Palette(el, out main, out alt);
@@ -113,10 +118,13 @@ namespace Mmorpg.Game
             if (hasEnemyTarget)
             {
                 Vector3 to = target.transform.position + new Vector3(0f, 1.2f, 0f);
-                if (el == "physical")
+                if (el == "physical" && skill.Range <= 4.0)
                 {
-                    Slash(to, main, alt, parent);
-                    Burst(to, alt, 6, 3.5f, 0.12f, parent);
+                    MeleeSwing(source, to, main, alt, parent);
+                }
+                else if (el == "physical")
+                {
+                    Projectile(from, to, main, alt, parent, 0.18f); // flecha/tiro: projétil pequeno e rápido
                 }
                 else Projectile(from, to, main, alt, parent, el == "fire" ? 0.5f : 0.38f);
                 return;
@@ -127,14 +135,43 @@ namespace Mmorpg.Game
             Aura(at, main, alt, parent, el == "light" || skill != null && skill.Type == SkillType.Heal);
         }
 
-        private static void Slash(Vector3 pos, Color main, Color alt, Transform parent)
+        /// <summary>
+        /// Golpe corpo a corpo: rastro em arco da arma na frente de quem ataca e, logo depois, o impacto no alvo.
+        /// Dispara no evento SkillUsed (o dano real já foi decidido pelo núcleo); o atraso do impacto é só visual.
+        /// </summary>
+        private static void MeleeSwing(EntityView source, Vector3 to, Color main, Color alt, Transform parent)
         {
-            GameObject go = Prims.Make(PrimitiveType.Cube, "Talho", parent, pos, new Vector3(0.2f, 0.06f, 0.1f), main, false);
-            go.transform.rotation = Quaternion.Euler(0f, 0f, 35f);
-            Fx fx = go.AddComponent<Fx>();
-            fx.Life = 0.18f;
-            fx.S0 = new Vector3(0.3f, 0.06f, 0.1f);
-            fx.S1 = new Vector3(2.2f, 0.02f, 0.04f);
+            if (source != null)
+            {
+                Vector3 fwd = source.transform.rotation * Vector3.forward;
+                Vector3 right = new Vector3(fwd.z, 0f, -fwd.x);
+                Vector3 c = source.transform.position + new Vector3(0f, 1.3f, 0f);
+                const int n = 7;
+                for (int i = 0; i < n; i++)
+                {
+                    float a = -1.1f + 2.2f * i / (n - 1);
+                    Vector3 p = c + fwd * (Mathf.Cos(a) * 1.7f) + right * (Mathf.Sin(a) * 1.7f);
+                    GameObject seg = Prims.Make(PrimitiveType.Cube, "Rastro", parent, p, new Vector3(0.3f, 0.06f, 0.3f), i % 2 == 0 ? main : alt, false);
+                    seg.transform.rotation = Quaternion.Euler(0f, a * -Mathf.Rad2Deg, 0f);
+                    Fx fx = seg.AddComponent<Fx>();
+                    fx.Delay = 0.03f * i;
+                    fx.Life = 0.16f;
+                    fx.Pop = true;
+                    fx.S0 = new Vector3(0.1f, 0.04f, 0.1f);
+                    fx.S1 = new Vector3(0.55f, 0.07f, 0.35f);
+                }
+            }
+            // impacto: clarão no alvo logo depois do arco, com faíscas ao terminar
+            GameObject hit = Prims.Make(PrimitiveType.Sphere, "Impacto", parent, to, Vector3.one * 0.3f, alt, false);
+            Fx hf = hit.AddComponent<Fx>();
+            hf.Delay = 0.12f;
+            hf.Life = 0.18f;
+            hf.Pop = true;
+            hf.S0 = Vector3.one * 0.2f;
+            hf.S1 = Vector3.one * 1.0f;
+            hf.EndBurst = true;
+            hf.BurstColor = main;
+            Ring(new Vector3(to.x, 0f, to.z), 1.1f, alt, parent, 0.3f, 0.12f);
         }
 
         private static void Aura(Vector3 at, Color main, Color alt, Transform parent, bool light)

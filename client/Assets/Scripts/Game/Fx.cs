@@ -26,6 +26,13 @@ namespace Mmorpg.Game
 
         private float _age;
 
+        /// <summary>Quantidade de peças de efeito vivas; SkillVfx usa para limitar efeitos e proteger o FPS no celular.</summary>
+        public static int Live;
+
+        private void Awake() { Live++; }
+
+        private void OnDestroy() { Live--; }
+
         private void Update()
         {
             float dt = Time.deltaTime;
