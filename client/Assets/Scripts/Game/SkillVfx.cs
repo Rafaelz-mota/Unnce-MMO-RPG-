@@ -33,9 +33,10 @@ namespace Mmorpg.Game
         }
 
         // ------------------------------------------------------------------ peças básicas
-        public static void Ring(Vector3 pos, float radius, Color color, Transform parent, float life, float delay)
+        /// <summary>Anel no chão. Cada camada usa uma altura própria (y) para dois anéis simultâneos não "brigarem" na tela (z-fighting).</summary>
+        public static void Ring(Vector3 pos, float radius, Color color, Transform parent, float life, float delay, float y = 0.08f)
         {
-            GameObject go = Prims.Make(PrimitiveType.Cylinder, "Anel", parent, new Vector3(pos.x, 0.07f, pos.z), Vector3.one, color, false);
+            GameObject go = Prims.Make(PrimitiveType.Cylinder, "Anel", parent, new Vector3(pos.x, y, pos.z), Vector3.one, color, false);
             Fx fx = go.AddComponent<Fx>();
             fx.Life = life;
             fx.Delay = delay;
@@ -171,12 +172,12 @@ namespace Mmorpg.Game
             hf.S1 = Vector3.one * 1.0f;
             hf.EndBurst = true;
             hf.BurstColor = main;
-            Ring(new Vector3(to.x, 0f, to.z), 1.1f, alt, parent, 0.3f, 0.12f);
+            Ring(new Vector3(to.x, 0f, to.z), 1.1f, alt, parent, 0.3f, 0.12f, 0.24f);
         }
 
         private static void Aura(Vector3 at, Color main, Color alt, Transform parent, bool light)
         {
-            Ring(at, 1.4f, main, parent, 0.5f, 0f);
+            Ring(at, 1.4f, main, parent, 0.5f, 0f, 0.28f);
             for (int i = 0; i < 10; i++)
             {
                 float a = i * Golden;
@@ -198,7 +199,7 @@ namespace Mmorpg.Game
         private static void AreaEffect(string el, SkillDef skill, Vector3 center, float radius, Color main, Color alt, Transform parent)
         {
             Ring(center, radius, main, parent, 0.5f, 0f);
-            Ring(center, radius * 0.65f, alt, parent, 0.45f, 0.08f);
+            Ring(center, radius * 0.65f, alt, parent, 0.45f, 0.08f, 0.12f);
             int count = Mathf.Clamp(Mathf.RoundToInt(8f + radius * 3f), 10, 28);
             bool ground = skill != null && skill.Targeting == Targeting.Ground;
 
@@ -352,7 +353,7 @@ namespace Mmorpg.Game
                 case "regrowth": c = new Color(0.4f, 0.9f, 0.4f); break;
                 default: return;
             }
-            Ring(pos, 1.1f, c, parent, 0.45f, 0f);
+            Ring(pos, 1.1f, c, parent, 0.45f, 0f, 0.16f);
             for (int i = 0; i < 5; i++)
             {
                 float a = i * Golden;
@@ -381,7 +382,7 @@ namespace Mmorpg.Game
         public static void OnLevelUp(Vector3 pos, Transform parent)
         {
             Pillar(pos, 1.0f, 8f, new Color(1f, 0.9f, 0.4f), parent, 1.0f);
-            Ring(pos, 2.5f, new Color(1f, 0.85f, 0.3f), parent, 0.8f, 0f);
+            Ring(pos, 2.5f, new Color(1f, 0.85f, 0.3f), parent, 0.8f, 0f, 0.2f);
             Burst(pos + new Vector3(0f, 1f, 0f), new Color(1f, 0.95f, 0.6f), 16, 5f, 0.18f, parent);
         }
 

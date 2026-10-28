@@ -392,8 +392,11 @@ namespace Mmorpg.Game
             else
             {
                 int old = _label.fontSize;
-                _label.fontSize = Mathf.RoundToInt(Mathf.Max(9f, 11f * k));
-                Text(new Rect(r.x + 2, r.y + 2, r.width - 4, r.height - 4), SlotCaption(s), Color.white, TextAnchor.MiddleCenter);
+                _label.fontSize = Mathf.RoundToInt(Mathf.Max(8f, 10f * k));
+                bool wrap = _label.wordWrap;
+                _label.wordWrap = true; // nomes longos ("Tempestade Arcana") quebram em linhas em vez de serem cortados
+                Text(new Rect(r.x + 2, r.y + 12f * k, r.width - 4, r.height - 14f * k), SlotCaption(s), Color.white, TextAnchor.MiddleCenter);
+                _label.wordWrap = wrap;
                 _label.fontSize = old;
             }
             Text(new Rect(r.x + 3, r.y, 20f * k, 16f * k), s.Number.ToString(), new Color(1f, 1f, 1f, 0.7f), TextAnchor.UpperLeft);
@@ -414,7 +417,7 @@ namespace Mmorpg.Game
                 DrawSlotFace(r, slots[i], k);
                 if (GUI.Button(r, GUIContent.none, GUIStyle.none)) _input.HotbarPress(slots[i].Number, false);
             }
-            Text(new Rect(x0, y - 20f * k, total, 18f * k), "1-9 habilidades  |  Tab alvo  |  B inventário  |  botão direito gira a câmera  |  Esc menu  |  F2 modo toque", new Color(1f, 1f, 1f, 0.6f), TextAnchor.MiddleCenter);
+            Text(new Rect(10f, y - 20f * k, Screen.width - 20f, 18f * k), "1-9 habilidades  |  Tab alvo  |  B bolsa  |  botão direito gira a câmera  |  Esc menu  |  F2 toque", new Color(1f, 1f, 1f, 0.6f), TextAnchor.MiddleCenter);
         }
 
         /// <summary>Controles de toque (Android): apenas desenho; os toques são tratados por <see cref="PlayerInput"/> com o mesmo TouchLayout.</summary>
