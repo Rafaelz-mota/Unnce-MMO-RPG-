@@ -272,13 +272,15 @@ namespace Mmorpg.Core.Combat
         {
             if (c.MoveIntent.SqrLength < 1e-9) return;
             if (c.HasControl("stun") || c.HasControl("root")) return;
+            double castSlow = 1.0;
             if (c.Cast != null)
             {
-                if (Data.Combat.MoveInterruptsCast) InterruptCast(c, "movimento");
+                if (c.Cast.Skill.CastWhileMoving) castSlow = Data.Combat.CastMoveSpeedMultiplier;
+                else if (Data.Combat.MoveInterruptsCast) InterruptCast(c, "movimento");
             }
             double mag = Math.Min(1.0, c.MoveIntent.Length);
             Vec2 dir = c.MoveIntent.Normalized();
-            double speed = c.Stats.Get("moveSpeed") * SlowMultiplier(c) * mag;
+            double speed = c.Stats.Get("moveSpeed") * SlowMultiplier(c) * mag * castSlow;
             Vec2 target = c.Position + dir * (speed * dt);
             c.Position = Map.Move(c.Position, target, BodyRadius);
             c.Facing = dir;

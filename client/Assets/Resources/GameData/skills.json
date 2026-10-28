@@ -290,6 +290,7 @@
       "resourceCost": 6,
       "usesGlobalCooldown": true,
       "silenceable": true,
+      "castWhileMoving": true,
       "pvpMultiplier": 1.0,
       "effects": [
         {
@@ -673,6 +674,7 @@
       "resourceCost": 10,
       "usesGlobalCooldown": true,
       "silenceable": true,
+      "castWhileMoving": true,
       "pvpMultiplier": 1.0,
       "effects": [
         {
@@ -708,6 +710,7 @@
       "resourceCost": 6,
       "usesGlobalCooldown": true,
       "silenceable": true,
+      "castWhileMoving": true,
       "pvpMultiplier": 1.0,
       "effects": [
         {
@@ -1119,6 +1122,7 @@
       "resourceCost": 6,
       "usesGlobalCooldown": true,
       "silenceable": true,
+      "castWhileMoving": true,
       "pvpMultiplier": 1.0,
       "effects": [
         {

@@ -301,7 +301,7 @@ namespace Mmorpg.Core.Tests
             Combatant dummy = t.Dummy(5, 0);
             double mana = m.Resource;
 
-            Assert.AreEqual(UseSkillResult.Ok, t.Use(m, "mago_raio_arcano", dummy));
+            Assert.AreEqual(UseSkillResult.Ok, t.Use(m, "mago_bola_de_fogo", dummy));
             Assert.IsNotNull(m.Cast);
             t.World.SetMoveIntent(m, 0, 1);
             t.Step(0.2);
@@ -462,6 +462,37 @@ namespace Mmorpg.Core.Tests
             Assert.GreaterOrEqual(area, 6, "o mago tem poucos pontos de vida e depende de dano em área");
             Assert.IsTrue(skills.Where(x => x.Slot <= 5).All(x => x.RequiresLevel == 1 && x.GoldCost == 0));
             Assert.IsTrue(skills.Where(x => x.Slot > 5).All(x => x.GoldCost > 0));
+        }
+
+        [Test]
+        public void CastWhileMoving_KeepsTheCast_MovesSlower_AndStillHits()
+        {
+            var t = new TestWorld();
+            Combatant m = t.Player("mago", 1, 0, 0);
+            Combatant dummy = t.Dummy(6, 0);
+            double speed = m.Stats.Get("moveSpeed");
+
+            Assert.IsTrue(t.Data.Skills["mago_raio_arcano"].CastWhileMoving);
+            Assert.AreEqual(UseSkillResult.Ok, t.Use(m, "mago_raio_arcano", dummy));
+            t.World.SetMoveIntent(m, 0, 1);
+            t.Step(0.4);
+
+            Assert.AreEqual(0, t.Count(GameEventType.CastInterrupted), "andar não interrompe");
+            Assert.IsNotNull(m.Cast);
+            Assert.AreEqual(speed * t.Data.Combat.CastMoveSpeedMultiplier * 0.4, m.Position.Z, 0.05, "anda mais devagar enquanto conjura");
+
+            t.World.SetMoveIntent(m, 0, 0);
+            t.Step(0.6);
+            Assert.IsNull(m.Cast);
+            Assert.Less(dummy.Hp, dummy.MaxHp, "a habilidade saiu e acertou");
+        }
+
+        [Test]
+        public void HeavySpells_StillRequireStandingStill()
+        {
+            var t = new TestWorld();
+            foreach (string id in new[] { "mago_bola_de_fogo", "mago_tempestade_arcana", "mago_chuva_de_meteoros" })
+                Assert.IsFalse(t.Data.Skills[id].CastWhileMoving, id);
         }
     }
 }

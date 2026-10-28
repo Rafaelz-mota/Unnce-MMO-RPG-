@@ -4,6 +4,7 @@
   "rangeTolerance": 0.5,
   "castRangeLeeway": 2.0,
   "moveInterruptsCast": true,
+  "castMoveSpeedMultiplier": 0.7,
   "mitigation": {
     "k": 6.0,
     "c": 40.0,

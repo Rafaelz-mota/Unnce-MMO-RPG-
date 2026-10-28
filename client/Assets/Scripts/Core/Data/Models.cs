@@ -219,6 +219,10 @@ namespace Mmorpg.Core.Data
         public double RangeTolerance { get; set; }
         public double CastRangeLeeway { get; set; }
         public bool MoveInterruptsCast { get; set; }
+        /// <summary>Velocidade de movimento (multiplicador) enquanto conjura uma habilidade com castWhileMoving.</summary>
+        public double CastMoveSpeedMultiplier { get; set; } = 0.7;
+        /// <summary>Velocidade (0..1] enquanto se move conjurando uma habilidade com castWhileMoving.</summary>
+        public double CastMoveSpeedMultiplier { get; set; } = 0.6;
         public MitigationConfig Mitigation { get; set; } = new MitigationConfig();
         public double DamageVariance { get; set; }
         public double CritChanceCap { get; set; }
@@ -348,6 +352,10 @@ namespace Mmorpg.Core.Data
         public double ResourceCost { get; set; }
         public bool UsesGlobalCooldown { get; set; } = true;
         public bool Silenceable { get; set; } = true;
+        /// <summary>Se true, andar não interrompe a conjuração (o personagem anda mais devagar enquanto conjura).</summary>
+        public bool CastWhileMoving { get; set; }
+        /// <summary>Pode ser conjurada andando (com velocidade reduzida, CombatConfig.CastMoveSpeedMultiplier). As demais são interrompidas pelo movimento.</summary>
+        public bool CastWhileMoving { get; set; }
         public double PvpMultiplier { get; set; } = 1.0;
         public List<SkillEffectDef> Effects { get; set; } = new List<SkillEffectDef>();
         public string Description { get; set; }
