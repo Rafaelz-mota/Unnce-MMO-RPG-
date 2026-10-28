@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "classes": [
+    {
+      "id": "guerreiro",
+      "cloth": "#8C94A6",
+      "accent": "#BF332E",
+      "skin": "#E6BD99",
+      "build": "heavy",
+      "height": 1.0,
+      "robe": false,
+      "cape": true,
+      "shoulders": "round",
+      "headgear": "helm",
+      "back": "none",
+      "offHand": "shield"
+    },
+    {
+      "id": "guardiao",
+      "cloth": "#808CB2",
+      "accent": "#F2CC4C",
+      "skin": "#E6BD99",
+      "build": "heavy",
+      "height": 1.08,
+      "robe": false,
+      "cape": false,
+      "shoulders": "large",
+      "headgear": "helm",
+      "back": "none",
+      "offHand": "shield"
+    },
+    {
+      "id": "paladino",
+      "cloth": "#E6E0CC",
+      "accent": "#F2C740",
+      "skin": "#E6BD99",
+      "build": "heavy",
+      "height": 1.02,
+      "robe": false,
+      "cape": true,
+      "shoulders": "round",
+      "headgear": "crown",
+      "back": "none",
+      "offHand": "shield"
+    },
+    {
+      "id": "monge",
+      "cloth": "#D98033",
+      "accent": "#734C26",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.0,
+      "robe": false,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "headband",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "lanceiro",
+      "cloth": "#33808C",
+      "accent": "#D9E0E6",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.06,
+      "robe": false,
+      "cape": false,
+      "shoulders": "round",
+      "headgear": "plume",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "arqueiro",
+      "cloth": "#408040",
+      "accent": "#8C6133",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.0,
+      "robe": false,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "hood",
+      "back": "quiver",
+      "offHand": "none"
+    },
+    {
+      "id": "engenheiro",
+      "cloth": "#B28C4C",
+      "accent": "#5980BF",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 0.95,
+      "robe": false,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "goggles",
+      "back": "backpack",
+      "offHand": "none"
+    },
+    {
+      "id": "mago",
+      "cloth": "#334CBF",
+      "accent": "#66E6FF",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.0,
+      "robe": true,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "hat",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "mago_runico",
+      "cloth": "#403399",
+      "accent": "#F2CC4C",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.03,
+      "robe": true,
+      "cape": true,
+      "shoulders": "none",
+      "headgear": "circlet",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "sacerdote",
+      "cloth": "#EDEDE0",
+      "accent": "#F2CC4C",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.0,
+      "robe": true,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "circlet",
+      "back": "tome",
+      "offHand": "none"
+    },
+    {
+      "id": "bardo",
+      "cloth": "#B24080",
+      "accent": "#F2D94C",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 0.98,
+      "robe": false,
+      "cape": true,
+      "shoulders": "none",
+      "headgear": "plume",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "druida",
+      "cloth": "#59804C",
+      "accent": "#73CC4C",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.0,
+      "robe": false,
+      "cape": false,
+      "shoulders": "round",
+      "headgear": "horns",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "cavaleiro_da_morte",
+      "cloth": "#33384C",
+      "accent": "#66E6FF",
+      "skin": "#E6BD99",
+      "build": "heavy",
+      "height": 1.08,
+      "robe": false,
+      "cape": true,
+      "shoulders": "spiked",
+      "headgear": "horns",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "berserker",
+      "cloth": "#804033",
+      "accent": "#E0D9BF",
+      "skin": "#E6BD99",
+      "build": "heavy",
+      "height": 1.05,
+      "robe": false,
+      "cape": false,
+      "shoulders": "spiked",
+      "headgear": "horns",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "assassino",
+      "cloth": "#33333D",
+      "accent": "#B22633",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 0.98,
+      "robe": false,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "hood",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "lamina_sombria",
+      "cloth": "#4C3366",
+      "accent": "#B266F2",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.0,
+      "robe": false,
+      "cape": true,
+      "shoulders": "none",
+      "headgear": "mask",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "atirador",
+      "cloth": "#4C5240",
+      "accent": "#F28C33",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.0,
+      "robe": false,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "hat",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "domador_de_feras",
+      "cloth": "#806140",
+      "accent": "#E0D9BF",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.02,
+      "robe": false,
+      "cape": false,
+      "shoulders": "round",
+      "headgear": "skull",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "bruxo",
+      "cloth": "#4C1F66",
+      "accent": "#BF4CF2",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.0,
+      "robe": true,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "hood",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "necromante",
+      "cloth": "#404740",
+      "accent": "#66F280",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.04,
+      "robe": true,
+      "cape": true,
+      "shoulders": "none",
+      "headgear": "skull",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "ilusionista",
+      "cloth": "#994CB2",
+      "accent": "#4CD9CC",
+      "skin": "#E6BD99",
+      "build": "slim",
+      "height": 1.0,
+      "robe": true,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "mask",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "invocador",
+      "cloth": "#99264C",
+      "accent": "#F2CC4C",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.0,
+      "robe": true,
+      "cape": false,
+      "shoulders": "round",
+      "headgear": "horns",
+      "back": "tome",
+      "offHand": "none"
+    },
+    {
+      "id": "clerigo",
+      "cloth": "#8C3333",
+      "accent": "#E0E0E6",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 1.0,
+      "robe": true,
+      "cape": false,
+      "shoulders": "round",
+      "headgear": "crown",
+      "back": "none",
+      "offHand": "none"
+    },
+    {
+      "id": "alquimista",
+      "cloth": "#338066",
+      "accent": "#F28C33",
+      "skin": "#E6BD99",
+      "build": "normal",
+      "height": 0.97,
+      "robe": false,
+      "cape": false,
+      "shoulders": "none",
+      "headgear": "goggles",
+      "back": "backpack",
+      "offHand": "none"
+    }
+  ],
+  "items": [
+    {
+      "id": "espada_enferrujada",
+      "shape": "sword",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "adaga_gasta",
+      "shape": "dagger",
+      "color": "#9A9A9F",
+      "socket": "hand_r"
+    },
+    {
+      "id": "cajado_de_carvalho",
+      "shape": "staff",
+      "color": "#6E4A26",
+      "glow": "#66E0FF",
+      "socket": "hand_r"
+    },
+    {
+      "id": "arco_curto",
+      "shape": "bow",
+      "color": "#7A5230",
+      "socket": "hand_l"
+    },
+    {
+      "id": "cetro_de_madeira",
+      "shape": "scepter",
+      "color": "#7A5230",
+      "glow": "#FFD54D",
+      "socket": "hand_r"
+    },
+    {
+      "id": "espada_de_ferro_reforcada",
+      "shape": "sword",
+      "color": "#C9CED8",
+      "glow": "#6FA8FF",
+      "socket": "hand_r"
+    },
+    {
+      "id": "cajado_do_vale",
+      "shape": "staff",
+      "color": "#3F7A3A",
+      "glow": "#7DFF9A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "arco_de_teixo",
+      "shape": "bow",
+      "color": "#4A6A3A",
+      "glow": "#7DFF9A",
+      "socket": "hand_l"
+    },
+    {
+      "id": "lamina_da_raiz_desperta",
+      "shape": "sword",
+      "color": "#9BE06B",
+      "glow": "#FFB347",
+      "socket": "hand_r"
+    },
+    {
+      "id": "cajado_do_colosso",
+      "shape": "staff",
+      "color": "#4A2F1A",
+      "glow": "#FF5A3C",
+      "socket": "hand_r"
+    },
+    {
+      "id": "capuz_de_couro",
+      "shape": "hood",
+      "color": "#7A5A3A"
+    },
+    {
+      "id": "tunica_de_viajante",
+      "shape": "tunic",
+      "color": "#8A7A55"
+    },
+    {
+      "id": "botas_de_couro",
+      "shape": "boots",
+      "color": "#5A3F28"
+    },
+    {
+      "id": "capuz_do_cacador_lunar",
+      "shape": "hood",
+      "color": "#B9C7FF",
+      "glow": "#9FD0FF"
+    },
+    {
+      "id": "peitoral_do_cacador_lunar",
+      "shape": "plate",
+      "color": "#AEB9E8",
+      "glow": "#9FD0FF"
+    },
+    {
+      "id": "calcas_do_cacador_lunar",
+      "shape": "pants",
+      "color": "#8E98C8"
+    },
+    {
+      "id": "botas_do_cacador_lunar",
+      "shape": "boots",
+      "color": "#7E88B8"
+    }
+  ]
+}
