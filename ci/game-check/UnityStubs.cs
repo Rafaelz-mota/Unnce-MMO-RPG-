@@ -13,6 +13,7 @@ namespace UnityEngine
         public string name;
         public static void Destroy(Object o) { }
         public static void DontDestroyOnLoad(Object o) { }
+        public static T Instantiate<T>(T original) where T : Object { return original; }
     }
 
     public class Component : Object
@@ -34,6 +35,7 @@ namespace UnityEngine
         public Quaternion rotation, localRotation;
         public void SetParent(Transform parent, bool worldPositionStays) { }
         public Transform GetChild(int i) { return null; }
+        public int childCount;
     }
 
     public class GameObject : Object
@@ -42,6 +44,7 @@ namespace UnityEngine
         public string tag;
         public GameObject() { }
         public GameObject(string name) { }
+        public void SetActive(bool value) { }
         public T AddComponent<T>() where T : Component { return null; }
         public T GetComponent<T>() where T : Component { return null; }
         public T[] GetComponentsInChildren<T>() where T : Component { return null; }

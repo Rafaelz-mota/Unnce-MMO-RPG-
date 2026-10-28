@@ -1,6 +1,7 @@
 using Mmorpg.Core.Combat;
 using Mmorpg.Core.Common;
 using Mmorpg.Core.Data;
+using Mmorpg.Core.Presentation;
 using UnityEngine;
 
 namespace Mmorpg.Game
@@ -13,6 +14,7 @@ namespace Mmorpg.Game
     {
         private Transform _body;
         private ProceduralAnim _anim;
+        private ModelParts _parts;
         private Renderer[] _renderers;
         private Color[] _original;
         private float _pulse;
@@ -52,8 +54,16 @@ namespace Mmorpg.Game
             else
             {
                 string classId = c.Character != null && c.Character.Class != null ? c.Character.Class.Id : null;
-                parts = ModelBuilder.BuildPlayer(classId, c.Faction, _body);
+                PresentationCatalog catalog = PresentationLibrary.Get(data);
+                parts = ModelBuilder.BuildPlayer(catalog.ClassLook(classId), _body);
+                scale = parts.HeightScale;
+                if (c.Character != null)
+                {
+                    EquipmentVisuals eq = gameObject.AddComponent<EquipmentVisuals>();
+                    eq.Init(c.Character, data, catalog, parts, this);
+                }
             }
+            _parts = parts;
             parts.Root.localScale = new Vector3(scale, scale, scale);
             LabelHeight = parts.Height * scale + 0.3f;
 
@@ -66,7 +76,13 @@ namespace Mmorpg.Game
             _anim.LegSwing = parts.LegSwing;
             _anim.ArmSwing = parts.ArmSwing;
 
-            _renderers = parts.Root.GetComponentsInChildren<Renderer>();
+            RefreshRenderers();
+        }
+
+        /// <summary>Recalcula a lista de peças coloridas (após o equipamento mudar) para o piscar de dano e a cor de morte.</summary>
+        public void RefreshRenderers()
+        {
+            _renderers = _parts.Root.GetComponentsInChildren<Renderer>();
             _original = new Color[_renderers.Length];
             for (int i = 0; i < _renderers.Length; i++) _original[i] = _renderers[i].material.color;
         }
