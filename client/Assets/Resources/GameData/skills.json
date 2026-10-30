@@ -1009,9 +1009,19 @@
           "side": "self",
           "dashDirection": "away",
           "dashDistance": 9
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "crippled",
+          "duration": 3,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Salta para longe do alvo.",
+      "description": "Salta para longe do alvo e o deixa lento por 3s.",
       "animation": "anim_arqueiro_salto_agil",
       "vfx": "vfx_arqueiro_salto_agil",
       "sfx": "sfx_arqueiro_salto_agil",
@@ -1125,9 +1135,18 @@
           "side": "self",
           "dashDirection": "toward",
           "dashDistance": 14
+        },
+        {
+          "kind": "damage",
+          "side": "enemy",
+          "damageType": "physical",
+          "base": 4,
+          "scaling": {
+            "physAttack": 0.8
+          }
         }
       ],
-      "description": "Avança nas sombras até o alvo.",
+      "description": "Avança nas sombras até o alvo e o golpeia ao chegar.",
       "animation": "anim_assassino_passo_sombrio",
       "vfx": "vfx_assassino_passo_sombrio",
       "sfx": "sfx_assassino_passo_sombrio",
@@ -7382,9 +7401,19 @@
           "side": "self",
           "dashDirection": "away",
           "dashDistance": 10
+        },
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "keen",
+          "duration": 5,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Rola para longe do alvo.",
+      "description": "Rola para longe do alvo e ganha precisão por 5s.",
       "element": "physical",
       "animation": "anim_atirador_esquiva_rolada",
       "vfx": "vfx_atirador_esquiva_rolada",
@@ -8669,9 +8698,21 @@
           "side": "self",
           "dashDirection": "away",
           "dashDistance": 12
+        },
+        {
+          "kind": "shield",
+          "side": "self",
+          "statusId": "barrier",
+          "duration": 5,
+          "chance": 1.0,
+          "base": 15,
+          "scaling": {
+            "maxHp": 0.15
+          },
+          "damageType": "physical"
         }
       ],
-      "description": "Desfaz-se em névoa e reaparece longe do alvo.",
+      "description": "Desfaz-se em névoa, reaparece longe e ganha uma barreira por 5s.",
       "element": "arcane",
       "animation": "anim_ilusionista_passo_etereo",
       "vfx": "vfx_ilusionista_passo_etereo",
