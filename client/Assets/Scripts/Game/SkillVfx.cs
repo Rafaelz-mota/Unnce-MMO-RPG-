@@ -1,6 +1,8 @@
 using Mmorpg.Core.Combat;
 using Mmorpg.Core.Data;
 using Mmorpg.Core.Events;
+using Mmorpg.Core.Presentation;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mmorpg.Game
@@ -14,6 +16,34 @@ namespace Mmorpg.Game
         private const float Golden = 2.399963f;
         /// <summary>Acima disto, efeitos secundários são descartados (ainda não há pooling de objetos).</summary>
         public const int MaxLive = 220;
+
+        /// <summary>Dados do jogo (definidos pelo WorldView); servem para calcular o estilo visual de cada habilidade.</summary>
+        public static GameData Data;
+        private static readonly Dictionary<string, SkillVfxStyle> Styles = new Dictionary<string, SkillVfxStyle>();
+
+        public static SkillVfxStyle StyleOf(SkillDef skill)
+        {
+            if (skill == null) return null;
+            SkillVfxStyle st;
+            if (!Styles.TryGetValue(skill.Id, out st)) { st = SkillVfxStyle.For(skill, Data); Styles[skill.Id] = st; }
+            return st;
+        }
+
+        /// <summary>Gira o matiz da cor em passos (cada habilidade do mesmo elemento fica um pouco diferente).</summary>
+        private static Color Shift(Color c, int step)
+        {
+            if (step == 0) return c;
+            float s = (step < 0 ? -step : step) * 0.07f;
+            return step > 0
+                ? new Color(c.r * (1f - s) + c.g * s, c.g * (1f - s) + c.b * s, c.b * (1f - s) + c.r * s)
+                : new Color(c.r * (1f - s) + c.b * s, c.g * (1f - s) + c.r * s, c.b * (1f - s) + c.g * s);
+        }
+
+        private static PrimitiveType ShapeOf(SkillVfxStyle st)
+        {
+            if (st == null) return PrimitiveType.Sphere;
+            return st.Shape == 1 ? PrimitiveType.Cube : st.Shape == 2 ? PrimitiveType.Cylinder : PrimitiveType.Sphere;
+        }
 
         private static bool Busy { get { return Fx.Live > MaxLive; } }
 
@@ -75,17 +105,23 @@ namespace Mmorpg.Game
 
         public static void Projectile(Vector3 from, Vector3 to, Color main, Color alt, Transform parent, float size)
         {
+            Projectile(from, to, main, alt, parent, size, PrimitiveType.Sphere, 4, 0f);
+        }
+
+        public static void Projectile(Vector3 from, Vector3 to, Color main, Color alt, Transform parent, float size, PrimitiveType shape, int trails, float delay)
+        {
             float life = 0.12f + 0.012f * Vector3.Distance(from, to);
             life = Mathf.Clamp(life, 0.15f, 0.5f);
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < trails; i++)
             {
-                GameObject go = Prims.Make(PrimitiveType.Sphere, i == 0 ? "Projetil" : "Rastro", parent, from, Vector3.one * size, i == 0 ? main : alt, false);
+                GameObject go = Prims.Make(i == 0 ? shape : PrimitiveType.Sphere, i == 0 ? "Projetil" : "Rastro", parent, from, Vector3.one * size, i == 0 ? main : alt, false);
                 Fx fx = go.AddComponent<Fx>();
                 fx.Travel = true;
                 fx.From = from;
                 fx.To = to;
                 fx.Life = life;
-                fx.Delay = 0.035f * i;
+                fx.Delay = delay + 0.035f * i;
+                if (shape != PrimitiveType.Sphere && i == 0) { fx.Spin = 540f; fx.Tumble = true; }
                 float s = size * (1f - 0.18f * i);
                 fx.S0 = Vector3.one * s;
                 fx.S1 = Vector3.one * s * 0.6f;
@@ -101,6 +137,9 @@ namespace Mmorpg.Game
             Color main, alt;
             Palette(el, out main, out alt);
             if (!byPlayer && el == "physical") { main = new Color(1f, 0.35f, 0.25f); alt = new Color(1f, 0.7f, 0.3f); }
+            SkillVfxStyle style = StyleOf(skill);
+            if (style != null) { main = Shift(main, style.HueStep); alt = Shift(alt, style.HueStep); }
+            int hits = style != null ? System.Math.Max(1, style.Hits) : 1;
 
             Vector3 center = Conv.ToV3(e.Position);
             float radius = (float)e.Radius;
@@ -108,6 +147,7 @@ namespace Mmorpg.Game
             if (radius > 0.01f)
             {
                 AreaEffect(el, skill, center, radius, main, alt, parent);
+                if (style != null) AreaOverlay(style, center, radius, main, alt, parent);
                 return;
             }
 
@@ -119,28 +159,144 @@ namespace Mmorpg.Game
             if (hasEnemyTarget)
             {
                 Vector3 to = target.transform.position + new Vector3(0f, 1.2f, 0f);
-                if (el == "physical" && skill.Range <= 4.0)
+                float sm = style != null ? style.SizeMul : 1f;
+                PrimitiveType shape = ShapeOf(style);
+                int trails = style != null ? style.Trails : 4;
+                for (int h = 0; h < hits; h++)
                 {
-                    MeleeSwing(source, to, main, alt, parent);
+                    float d = 0.14f * h;
+                    if (el == "physical" && skill.Range <= 4.0)
+                        MeleeSwing(source, to, main, alt, parent, d, h % 2 == 1);
+                    else if (el == "physical")
+                        Projectile(from, to, main, alt, parent, 0.18f * sm, shape, trails, d); // flecha/tiro: projétil pequeno e rápido
+                    else Projectile(from, to, main, alt, parent, (el == "fire" ? 0.5f : 0.38f) * sm, shape, trails, d);
                 }
-                else if (el == "physical")
-                {
-                    Projectile(from, to, main, alt, parent, 0.18f); // flecha/tiro: projétil pequeno e rápido
-                }
-                else Projectile(from, to, main, alt, parent, el == "fire" ? 0.5f : 0.38f);
+                if (style != null) HitOverlay(style, from, to, source, parent, hits);
                 return;
             }
 
             // Buff, escudo, cura em um aliado, ou em si mesmo: aura subindo em volta do alvo.
             Vector3 at = allyTarget ? target.transform.position : (source != null ? source.transform.position : center);
             Aura(at, main, alt, parent, el == "light" || skill != null && skill.Type == SkillType.Heal);
+            if (style != null) SupportOverlay(style, at, main, alt, parent);
+        }
+
+        // ------------------------------------------------------------------ camadas por mecânica (cada habilidade tem a sua combinação)
+        /// <summary>Execução, roubo de vida, dano em si: marcas que mostram a mecânica no alvo.</summary>
+        private static void HitOverlay(SkillVfxStyle st, Vector3 from, Vector3 to, EntityView source, Transform parent, int hits)
+        {
+            if (Busy) return;
+            if (st.Execute)
+            {
+                Color red = new Color(1f, 0.15f, 0.12f);
+                for (int i = 0; i < 3; i++)
+                {
+                    GameObject s = Prims.Make(PrimitiveType.Cube, "Marca", parent, to + new Vector3((i - 1) * 0.35f, 0.6f, 0f), new Vector3(0.08f, 0.6f, 0.08f), red, false);
+                    s.transform.rotation = Quaternion.Euler(0f, 0f, 25f);
+                    Fx fx = s.AddComponent<Fx>();
+                    fx.Delay = 0.1f + 0.05f * i; fx.Life = 0.35f; fx.Pop = true;
+                    fx.S0 = new Vector3(0.05f, 0.1f, 0.05f); fx.S1 = new Vector3(0.1f, 1.2f, 0.1f);
+                }
+            }
+            if (st.Leech)
+            {
+                Vector3 back = source != null ? source.transform.position + new Vector3(0f, 1.2f, 0f) : from;
+                for (int i = 0; i < 3; i++)
+                    Projectile(to, back, new Color(0.85f, 0.1f, 0.2f), new Color(1f, 0.5f, 0.5f), parent, 0.16f, PrimitiveType.Sphere, 3, 0.15f + 0.07f * i);
+            }
+            if (st.BonusVsStatus)
+                Ring(new Vector3(to.x, 0f, to.z), 1.6f, new Color(1f, 0.9f, 0.4f), parent, 0.4f, 0.12f, 0.3f);
+            if (st.Dot)
+                for (int i = 0; i < 4; i++)
+                    Particle(PrimitiveType.Sphere, parent, to + new Vector3(0f, 0.2f, 0f), Vector3.one * 0.12f, new Color(0.5f, 0.9f, 0.2f), new Vector3((i - 1.5f) * 0.6f, 1.2f, 0f), new Vector3(0f, -4f, 0f), 0.6f, 0.15f, false, false);
+        }
+
+        /// <summary>Camadas para buffs/curas/escudos: domo, limpeza, velocidade, provocação.</summary>
+        private static void SupportOverlay(SkillVfxStyle st, Vector3 at, Color main, Color alt, Transform parent)
+        {
+            if (Busy) return;
+            if (st.Shield)
+            {
+                GameObject dome = Prims.Make(PrimitiveType.Sphere, "Domo", parent, at + new Vector3(0f, 1.1f, 0f), Vector3.one * 2.4f, main, false);
+                Fx fx = dome.AddComponent<Fx>();
+                fx.Life = 0.7f; fx.S0 = Vector3.one * 1.2f; fx.S1 = Vector3.one * 2.6f;
+            }
+            if (st.Cleanse)
+                for (int i = 0; i < 3; i++)
+                    Ring(at, 1.0f + 0.3f * i, Color.white, parent, 0.5f, 0.1f * i, 0.4f + 0.5f * i);
+            if (st.Haste)
+                for (int i = 0; i < 5; i++)
+                {
+                    GameObject l = Prims.Make(PrimitiveType.Cube, "Velocidade", parent, at + new Vector3((i - 2) * 0.3f, 0.4f + 0.3f * i, 0f), new Vector3(0.04f, 0.04f, 0.9f), alt, false);
+                    Fx fx = l.AddComponent<Fx>();
+                    fx.Life = 0.4f; fx.Delay = 0.04f * i; fx.Velocity = new Vector3(0f, 0f, 6f);
+                    fx.S0 = new Vector3(0.04f, 0.04f, 0.9f); fx.S1 = Vector3.zero;
+                }
+            if (st.Taunt)
+            {
+                Ring(at, 3.0f, new Color(1f, 0.3f, 0.15f), parent, 0.5f, 0f, 0.35f);
+                Pillar(at + new Vector3(0f, 0f, 0f), 0.25f, 4f, new Color(1f, 0.3f, 0.15f), parent, 0.5f);
+            }
+            if (st.Heal && st.BuffAlly)
+                Burst(at + new Vector3(0f, 1f, 0f), new Color(0.4f, 1f, 0.5f), st.Bursts / 2, 3f, 0.12f, parent);
+            if (st.Debuff || st.Silence || st.Slow)
+                for (int i = 0; i < 4; i++)
+                    Particle(PrimitiveType.Cube, parent, at + new Vector3(0f, 2.4f - 0.15f * i, 0f), Vector3.one * 0.15f, Dk(main, 0.6f), new Vector3(0f, -1.5f, 0f), Vector3.zero, 0.6f, 0.05f * i, true, false);
+        }
+
+        /// <summary>Padrão extra nas habilidades de área: espiral, colunas na borda ou convergência; pulsos para multi-golpe.</summary>
+        private static void AreaOverlay(SkillVfxStyle st, Vector3 center, float radius, Color main, Color alt, Transform parent)
+        {
+            if (Busy) return;
+            int n = st.Bursts;
+            switch (st.Pattern)
+            {
+                case 1:
+                    for (int i = 0; i < n; i++)
+                    {
+                        float a = i * 0.7f, rr = radius * (0.2f + 0.8f * i / n);
+                        Particle(ShapeOf(st), parent, center + new Vector3(Mathf.Cos(a) * rr, 0.2f + 0.1f * i, Mathf.Sin(a) * rr), Vector3.one * 0.18f * st.SizeMul, i % 2 == 0 ? main : alt, new Vector3(0f, 1.5f, 0f), Vector3.zero, 0.6f, 0.03f * i, false, false);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < 5; i++)
+                    {
+                        float a = i * 6.2832f / 5f;
+                        Pillar(center + new Vector3(Mathf.Cos(a) * radius * 0.9f, 0f, Mathf.Sin(a) * radius * 0.9f), 0.35f * st.SizeMul, 3.5f, main, parent, 0.45f);
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < n; i++)
+                    {
+                        float a = i * 6.2832f / n;
+                        Vector3 start = center + new Vector3(Mathf.Cos(a) * radius * 1.1f, 0.4f, Mathf.Sin(a) * radius * 1.1f);
+                        GameObject o = Prims.Make(ShapeOf(st), "Convergente", parent, start, Vector3.one * 0.2f * st.SizeMul, i % 2 == 0 ? main : alt, false);
+                        Fx fx = o.AddComponent<Fx>();
+                        fx.Travel = true; fx.From = start; fx.To = center + new Vector3(0f, 0.4f, 0f); fx.Life = 0.35f;
+                        fx.S0 = Vector3.one * 0.2f * st.SizeMul; fx.S1 = Vector3.one * 0.05f;
+                    }
+                    break;
+            }
+            for (int h = 1; h < st.Hits; h++)
+                Ring(center, radius * (0.5f + 0.5f * h / st.Hits), alt, parent, 0.35f, 0.14f * h, 0.1f + 0.03f * h);
+            for (int r = 1; r < st.Rings; r++)
+                Ring(center, radius * (0.3f + 0.2f * r), main, parent, 0.4f, 0.05f * r, 0.18f + 0.04f * r);
+            if (st.Stun)
+                for (int i = 0; i < 4; i++)
+                    Particle(PrimitiveType.Sphere, parent, center + new Vector3(Mathf.Cos(i * 1.57f) * 0.8f, 2.4f, Mathf.Sin(i * 1.57f) * 0.8f), Vector3.one * 0.2f, new Color(1f, 0.9f, 0.2f), Vector3.zero, Vector3.zero, 0.7f, 0.1f, false, true);
+            if (st.Root)
+                for (int i = 0; i < 6; i++)
+                {
+                    float a = i * 1.05f;
+                    Particle(PrimitiveType.Cylinder, parent, center + new Vector3(Mathf.Cos(a) * radius * 0.5f, 0.3f, Mathf.Sin(a) * radius * 0.5f), new Vector3(0.12f, 0.6f, 0.12f), new Color(0.35f, 0.7f, 0.25f), new Vector3(0f, 1.2f, 0f), Vector3.zero, 0.8f, 0.04f * i, false, false);
+                }
         }
 
         /// <summary>
         /// Golpe corpo a corpo: rastro em arco da arma na frente de quem ataca e, logo depois, o impacto no alvo.
         /// Dispara no evento SkillUsed (o dano real já foi decidido pelo núcleo); o atraso do impacto é só visual.
         /// </summary>
-        private static void MeleeSwing(EntityView source, Vector3 to, Color main, Color alt, Transform parent)
+        private static void MeleeSwing(EntityView source, Vector3 to, Color main, Color alt, Transform parent, float baseDelay = 0f, bool flip = false)
         {
             if (source != null)
             {
@@ -150,12 +306,12 @@ namespace Mmorpg.Game
                 const int n = 7;
                 for (int i = 0; i < n; i++)
                 {
-                    float a = -1.1f + 2.2f * i / (n - 1);
+                    float a = (flip ? 1.1f : -1.1f) + (flip ? -2.2f : 2.2f) * i / (n - 1);
                     Vector3 p = c + fwd * (Mathf.Cos(a) * 1.7f) + right * (Mathf.Sin(a) * 1.7f);
                     GameObject seg = Prims.Make(PrimitiveType.Cube, "Rastro", parent, p, new Vector3(0.3f, 0.06f, 0.3f), i % 2 == 0 ? main : alt, false);
                     seg.transform.rotation = Quaternion.Euler(0f, a * -Mathf.Rad2Deg, 0f);
                     Fx fx = seg.AddComponent<Fx>();
-                    fx.Delay = 0.03f * i;
+                    fx.Delay = baseDelay + 0.03f * i;
                     fx.Life = 0.16f;
                     fx.Pop = true;
                     fx.S0 = new Vector3(0.1f, 0.04f, 0.1f);
@@ -165,14 +321,14 @@ namespace Mmorpg.Game
             // impacto: clarão no alvo logo depois do arco, com faíscas ao terminar
             GameObject hit = Prims.Make(PrimitiveType.Sphere, "Impacto", parent, to, Vector3.one * 0.3f, alt, false);
             Fx hf = hit.AddComponent<Fx>();
-            hf.Delay = 0.12f;
+            hf.Delay = baseDelay + 0.12f;
             hf.Life = 0.18f;
             hf.Pop = true;
             hf.S0 = Vector3.one * 0.2f;
             hf.S1 = Vector3.one * 1.0f;
             hf.EndBurst = true;
             hf.BurstColor = main;
-            Ring(new Vector3(to.x, 0f, to.z), 1.1f, alt, parent, 0.3f, 0.12f, 0.24f);
+            Ring(new Vector3(to.x, 0f, to.z), 1.1f, alt, parent, 0.3f, baseDelay + 0.12f, 0.24f);
         }
 
         private static void Aura(Vector3 at, Color main, Color alt, Transform parent, bool light)

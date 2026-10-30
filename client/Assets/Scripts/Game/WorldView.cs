@@ -23,6 +23,7 @@ namespace Mmorpg.Game
             _session = session;
             _root = new GameObject("Mundo - " + session.Sim.Region.Name);
             _root.transform.SetParent(parent, false);
+            SkillVfx.Data = session.Data;
             BuildTerrain(session.Sim.Region);
             session.EventRaised += OnEvent;
         }

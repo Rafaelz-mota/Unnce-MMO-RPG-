@@ -133,5 +133,40 @@ namespace Mmorpg.Core.Tests
             Assert.IsTrue(sk.Any(s => s.Effects.Any(e => e.ResolvedSide() == EffectSide.Enemy && e.Kind == EffectKind.ApplyStatus &&
                 t.Data.Statuses[e.StatusId].Kind == StatusKind.Debuff)), "debuff");
         }
+
+        [Test]
+        public void VfxStyle_IsDeterministic_AndDiffersBetweenSkillsOfTheSameClass()
+        {
+            var t = new TestWorld();
+            foreach (ClassDef c in t.Data.Classes.Values)
+            {
+                var skills = t.Data.Skills.Values.Where(s => s.OwnerType == SkillOwner.Class && s.OwnerId == c.Id).ToList();
+                var sigs = skills.Select(s => Mmorpg.Core.Presentation.SkillVfxStyle.For(s, t.Data).Signature()).ToList();
+                Assert.AreEqual(sigs.Count, sigs.Distinct().Count(), c.Id + ": duas habilidades com o mesmo visual");
+                Assert.AreEqual(sigs, skills.Select(s => Mmorpg.Core.Presentation.SkillVfxStyle.For(s, t.Data).Signature()).ToList());
+            }
+        }
+
+        [Test]
+        public void VfxStyle_ReflectsTheMechanics()
+        {
+            var t = new TestWorld();
+            var d = t.Data;
+            Assert.IsTrue(Mmorpg.Core.Presentation.SkillVfxStyle.For(d.Skills["necromante_raio_necrotico"], d).Leech);
+            Assert.IsTrue(Mmorpg.Core.Presentation.SkillVfxStyle.For(d.Skills["arqueiro_tiro_preciso"], d).Execute);
+            Assert.AreEqual(2, Mmorpg.Core.Presentation.SkillVfxStyle.For(d.Skills["assassino_corte_rapido"], d).Hits);
+            Assert.IsTrue(Mmorpg.Core.Presentation.SkillVfxStyle.For(d.Skills["paladino_mao_curativa"], d).Cleanse);
+            Assert.IsTrue(Mmorpg.Core.Presentation.SkillVfxStyle.For(d.Skills["guerreiro_muralha_de_aco"], d).Shield);
+            Assert.IsTrue(Mmorpg.Core.Presentation.SkillVfxStyle.For(d.Skills["sacerdote_sentenca_sagrada"], d).Debuff);
+        }
+
+        [Test]
+        public void VfxStyle_IsVariedAcrossAllSkills()
+        {
+            var t = new TestWorld();
+            var all = t.Data.Skills.Values.Where(s => s.OwnerType == SkillOwner.Class)
+                .Select(s => Mmorpg.Core.Presentation.SkillVfxStyle.For(s, t.Data).Signature()).ToList();
+            Assert.GreaterOrEqual(all.Distinct().Count(), 205, "visuais repetidos demais entre as 216 habilidades");
+        }
     }
 }
