@@ -167,7 +167,7 @@ def main():
     skills = {s["id"]: s for s in d["skills"]["skills"]}
     unique_ids(d["skills"]["skills"], "skills")
     targetings = {"enemy", "ally", "self", "ground", "selfArea"}
-    kinds = {"damage", "heal", "applyStatus", "shield", "dash"}
+    kinds = {"damage", "heal", "applyStatus", "shield", "dash", "cleanse"}
     sides = {"enemy", "ally", "self"}
     class_slots = {}
     for s in skills.values():
@@ -190,7 +190,7 @@ def main():
         for e in s["effects"]:
             k = e["kind"]
             side = e.get("side") or {"damage": "enemy", "heal": "ally", "shield": "ally",
-                                      "applyStatus": "enemy", "dash": "self"}[k]
+                                      "applyStatus": "enemy", "dash": "self", "cleanse": "ally"}[k]
             if k not in kinds:
                 err(w, "efeito inválido " + k)
             if side not in sides:
@@ -210,6 +210,19 @@ def main():
                     if k == "applyStatus" and sd["kind"] in ("dot", "hot", "shield") and \
                             e["base"] + sum(e["scaling"].values()) <= 0:
                         err(w, "dot/hot/shield sem valor (base/scaling)")
+            if not (1 <= e.get("hits", 1) <= 10):
+                err(w, "hits fora de [1,10]")
+            if not (0 <= e.get("leech", 0) <= 1):
+                err(w, "leech fora de [0,1]")
+            if not (0 <= e.get("executeBelowHpPercent", 0) <= 100):
+                err(w, "executeBelowHpPercent fora de [0,100]")
+            if e.get("executeMultiplier", 1) < 1 or e.get("bonusMultiplier", 1) < 1:
+                err(w, "multiplicadores de bônus devem ser >= 1")
+            if e.get("bonusIfStatusId") and e["bonusIfStatusId"] not in status:
+                err(w, "bonusIfStatusId desconhecido %r" % e["bonusIfStatusId"])
+            if k != "damage" and (e.get("hits", 1) > 1 or e.get("leech", 0) > 0 or e.get("executeBelowHpPercent", 0) > 0
+                                  or e.get("bonusIfStatusId")):
+                err(w, "hits/leech/execute/bonus só valem para efeito damage")
             if k == "dash" and (e.get("dashDistance", 0) <= 0 or e.get("dashDirection") not in ("toward", "away")):
                 err(w, "dash exige dashDistance > 0 e dashDirection toward/away")
             if s["targeting"] == "enemy" and side == "ally":

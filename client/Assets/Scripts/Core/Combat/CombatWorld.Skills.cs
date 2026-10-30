@@ -217,7 +217,15 @@ namespace Mmorpg.Core.Combat
                     case EffectKind.Damage:
                     {
                         double aoe = skill.MaxTargets > 1 ? DamageFormula.AoeMultiplier(Data, targets.Count) : 1.0;
-                        for (int t = 0; t < targets.Count; t++) DealSkillDamage(caster, targets[t], skill, e, aoe);
+                        int hits = Math.Max(1, e.Hits);
+                        for (int t = 0; t < targets.Count; t++)
+                            for (int h = 0; h < hits; h++) DealSkillDamage(caster, targets[t], skill, e, aoe);
+                        break;
+                    }
+                    case EffectKind.Cleanse:
+                    {
+                        bool dispel = side == EffectSide.Enemy;
+                        for (int t = 0; t < targets.Count; t++) Cleanse(caster, targets[t], dispel, e.Count);
                         break;
                     }
                     case EffectKind.Heal:

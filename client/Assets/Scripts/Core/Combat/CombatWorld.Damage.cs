@@ -25,12 +25,16 @@ namespace Mmorpg.Core.Combat
             if (variance > 0) raw *= 1.0 + variance * (Rng.NextDouble() * 2.0 - 1.0);
             if (caster.IsMonster) raw *= caster.PhaseDamageMultiplier;
             raw *= aoeMultiplier;
+            if (effect.ExecuteBelowHpPercent > 0 && target.HpPercent < effect.ExecuteBelowHpPercent) raw *= effect.ExecuteMultiplier;
+            if (effect.BonusIfStatusId != null && HasStatus(target, effect.BonusIfStatusId)) raw *= effect.BonusMultiplier;
             if (caster.IsPlayer && target.IsPlayer) raw *= Data.Combat.PvpDamageMultiplier * skill.PvpMultiplier;
 
             bool crit = Rng.NextDouble() < DamageFormula.CritChance(Data, caster.Stats);
             if (crit) raw *= Math.Max(1.0, caster.Stats.Get("critMultiplier"));
 
             double dealt = ApplyDamage(caster, caster.Id, caster.Level, caster.IsPlayer, target, raw, effect.DamageType, skill.Id, crit);
+
+            if (effect.Leech > 0 && dealt > 0) HealTarget(caster, caster, dealt * effect.Leech, skill.Id);
 
             if (caster.ResourceId != null && dealt > 0)
             {
@@ -102,6 +106,32 @@ namespace Mmorpg.Core.Combat
 
             if (target.Hp <= 0) Kill(target, sourceId);
             return amount;
+        }
+
+        internal static bool HasStatus(Combatant c, string statusId)
+        {
+            for (int i = 0; i < c.Statuses.Count; i++) if (c.Statuses[i].Def.Id == statusId) return true;
+            return false;
+        }
+
+        /// <summary>Remove status nocivos (aliado) ou benéficos (dispel, inimigo). count 0 = todos.</summary>
+        internal int Cleanse(Combatant caster, Combatant target, bool dispel, int count)
+        {
+            if (target == null || target.Dead) return 0;
+            int removed = 0;
+            StatusInstance[] copy = target.Statuses.ToArray();
+            for (int i = 0; i < copy.Length; i++)
+            {
+                if (count > 0 && removed >= count) break;
+                StatusKind k = copy[i].Def.Kind;
+                bool harmful = k == StatusKind.Stun || k == StatusKind.Root || k == StatusKind.Silence || k == StatusKind.Slow ||
+                               k == StatusKind.Dot || k == StatusKind.Debuff || k == StatusKind.Taunt;
+                bool beneficial = k == StatusKind.Buff || k == StatusKind.Shield || k == StatusKind.Hot;
+                if (dispel ? !beneficial : !harmful) continue;
+                RemoveStatus(target, copy[i]);
+                removed++;
+            }
+            return removed;
         }
 
         /// <summary>Cura. Só a cura efetiva (sem overheal) gera ameaça e contribuição, e só para aliados em combate.</summary>

@@ -16,7 +16,8 @@ namespace Mmorpg.Core.Data
 
     public enum Targeting { Enemy, Ally, Self, Ground, SelfArea }
 
-    public enum EffectKind { Damage, Heal, ApplyStatus, Shield, Dash }
+    /// <summary>Cleanse: lado aliado/self remove debuffs e controles; lado inimigo remove buffs, escudos e regenerações (dispel).</summary>
+    public enum EffectKind { Damage, Heal, ApplyStatus, Shield, Dash, Cleanse }
 
     public enum EffectSide { Enemy, Ally, Self }
 
@@ -315,6 +316,18 @@ namespace Mmorpg.Core.Data
         public double Chance { get; set; } = 1.0;
         public DashDirection DashDirection { get; set; }
         public double DashDistance { get; set; }
+        /// <summary>Damage: número de golpes independentes (cada um rola crítico/variação). Padrão 1.</summary>
+        public int Hits { get; set; } = 1;
+        /// <summary>Damage: fração do dano causado devolvida como cura ao conjurador (0.3 = 30%).</summary>
+        public double Leech { get; set; }
+        /// <summary>Damage: se a vida do alvo (%) estiver abaixo disto, o dano é multiplicado por ExecuteMultiplier.</summary>
+        public double ExecuteBelowHpPercent { get; set; }
+        public double ExecuteMultiplier { get; set; } = 1.0;
+        /// <summary>Damage: se o alvo tiver este status, o dano é multiplicado por BonusMultiplier.</summary>
+        public string BonusIfStatusId { get; set; }
+        public double BonusMultiplier { get; set; } = 1.0;
+        /// <summary>Cleanse: quantos status remover (0 = todos os aplicáveis).</summary>
+        public int Count { get; set; }
 
         /// <summary>Lado afetado; se não informado, deduzido do tipo do efeito.</summary>
         public EffectSide ResolvedSide()
@@ -324,6 +337,7 @@ namespace Mmorpg.Core.Data
             {
                 case EffectKind.Heal: return EffectSide.Ally;
                 case EffectKind.Shield: return EffectSide.Ally;
+                case EffectKind.Cleanse: return EffectSide.Ally;
                 case EffectKind.Dash: return EffectSide.Self;
                 default: return EffectSide.Enemy;
             }

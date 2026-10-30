@@ -179,7 +179,18 @@ namespace Mmorpg.Core.Data
                         case EffectKind.Dash:
                             if (e.DashDistance <= 0) r.Error(w, "dash exige dashDistance > 0");
                             break;
+                        case EffectKind.Cleanse:
+                            if (e.Count < 0) r.Error(w, "cleanse: count não pode ser negativo");
+                            break;
                     }
+                    if (e.Hits < 1 || e.Hits > 10) r.Error(w, "hits fora de [1,10]");
+                    if (e.Leech < 0 || e.Leech > 1) r.Error(w, "leech fora de [0,1]");
+                    if (e.ExecuteBelowHpPercent < 0 || e.ExecuteBelowHpPercent > 100) r.Error(w, "executeBelowHpPercent fora de [0,100]");
+                    if (e.ExecuteMultiplier < 1 || e.BonusMultiplier < 1) r.Error(w, "multiplicadores de bônus devem ser >= 1");
+                    if (e.BonusIfStatusId != null && !d.Statuses.ContainsKey(e.BonusIfStatusId))
+                        r.Error(w, "bonusIfStatusId desconhecido '" + e.BonusIfStatusId + "'");
+                    if ((e.Hits > 1 || e.Leech > 0 || e.ExecuteBelowHpPercent > 0 || e.BonusIfStatusId != null) && e.Kind != EffectKind.Damage)
+                        r.Error(w, "hits/leech/execute/bonus só valem para efeito damage");
                     if (s.Targeting == Targeting.Enemy && side == EffectSide.Ally)
                         r.Error(w, "habilidade com alvo inimigo não pode ter efeito do lado ally");
                     if (s.Targeting == Targeting.Ally && side == EffectSide.Enemy)

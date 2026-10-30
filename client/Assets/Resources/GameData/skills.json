@@ -28,9 +28,19 @@
           "scaling": {
             "physAttack": 0.9
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "weakened",
+          "duration": 4,
+          "chance": 0.3,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Um golpe pesado de arma.",
+      "description": "Golpe pesado; 30% de chance de enfraquecer o alvo por 4s.",
       "animation": "anim_guerreiro_golpe_poderoso",
       "vfx": "vfx_guerreiro_golpe_poderoso",
       "sfx": "sfx_guerreiro_golpe_poderoso",
@@ -227,9 +237,19 @@
           },
           "chance": 1.0,
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "fortified",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Cria uma barreira de aço que absorve dano.",
+      "description": "Escudo de aço e defesa elevada por 8s.",
       "animation": "anim_guerreiro_muralha_de_aco",
       "vfx": "vfx_guerreiro_muralha_de_aco",
       "sfx": "sfx_guerreiro_muralha_de_aco",
@@ -299,10 +319,12 @@
           "base": 5,
           "scaling": {
             "magicAttack": 0.95
-          }
+          },
+          "bonusIfStatusId": "burning",
+          "bonusMultiplier": 1.4
         }
       ],
-      "description": "Dispara um raio de energia arcana.",
+      "description": "Raio que amplifica chamas: 40% a mais de dano em alvos queimando.",
       "animation": "anim_mago_raio_arcano",
       "vfx": "vfx_mago_raio_arcano",
       "sfx": "sfx_mago_raio_arcano",
@@ -507,13 +529,14 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 25,
+          "base": 6.25,
           "scaling": {
-            "magicAttack": 1.8
-          }
+            "magicAttack": 0.45
+          },
+          "hits": 4
         }
       ],
-      "description": "Tempestade de energia sobre uma área marcada.",
+      "description": "Quatro descargas arcanas consecutivas na área.",
       "animation": "anim_mago_tempestade_arcana",
       "vfx": "vfx_mago_tempestade_arcana",
       "sfx": "sfx_mago_tempestade_arcana",
@@ -719,10 +742,12 @@
           "base": 3,
           "scaling": {
             "magicAttack": 0.7
-          }
+          },
+          "bonusIfStatusId": "corruption",
+          "bonusMultiplier": 1.5
         }
       ],
-      "description": "Fere inimigos com luz sagrada.",
+      "description": "Raio sagrado que purifica: 50% a mais de dano em alvos corrompidos.",
       "animation": "anim_sacerdote_raio_sagrado",
       "vfx": "vfx_sacerdote_raio_sagrado",
       "sfx": "sfx_sacerdote_raio_sagrado",
@@ -867,10 +892,12 @@
           "base": 3,
           "scaling": {
             "physAttack": 0.9
-          }
+          },
+          "executeBelowHpPercent": 30,
+          "executeMultiplier": 1.7
         }
       ],
-      "description": "Flecha de longo alcance.",
+      "description": "Tiro mirado: causa 70% a mais de dano em alvos com menos de 30% de vida.",
       "animation": "anim_arqueiro_tiro_preciso",
       "vfx": "vfx_arqueiro_tiro_preciso",
       "sfx": "sfx_arqueiro_tiro_preciso",
@@ -899,13 +926,14 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 6,
+          "base": 2.0,
           "scaling": {
-            "physAttack": 0.8
-          }
+            "physAttack": 0.267
+          },
+          "hits": 3
         }
       ],
-      "description": "Chuva de flechas sobre uma área.",
+      "description": "Três salvas de flechas caem na área; cada uma rola crítico.",
       "animation": "anim_arqueiro_chuva_de_flechas",
       "vfx": "vfx_arqueiro_chuva_de_flechas",
       "sfx": "sfx_arqueiro_chuva_de_flechas",
@@ -1012,13 +1040,14 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 3,
+          "base": 2,
           "scaling": {
-            "physAttack": 0.9
-          }
+            "physAttack": 0.5
+          },
+          "hits": 2
         }
       ],
-      "description": "Golpe rápido de adaga.",
+      "description": "Dois cortes rápidos em sequência; cada um pode causar crítico.",
       "animation": "anim_assassino_corte_rapido",
       "vfx": "vfx_assassino_corte_rapido",
       "sfx": "sfx_assassino_corte_rapido",
@@ -1132,9 +1161,21 @@
           "scaling": {
             "magicAttack": 0.95
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "corruption",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 2,
+          "scaling": {
+            "magicAttack": 0.25
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Projétil de energia sombria.",
+      "description": "Seta sombria que deixa o alvo corrompido por 6s.",
       "animation": "anim_bruxo_seta_sombria",
       "vfx": "vfx_bruxo_seta_sombria",
       "sfx": "sfx_bruxo_seta_sombria",
@@ -2086,24 +2127,21 @@
           "kind": "applyStatus",
           "side": "self",
           "statusId": "keen",
-          "duration": 12,
+          "duration": 15,
           "chance": 1.0,
           "base": 0,
           "scaling": {},
           "damageType": "physical"
         },
         {
-          "kind": "applyStatus",
+          "kind": "cleanse",
           "side": "self",
-          "statusId": "haste",
-          "duration": 6,
-          "chance": 1.0,
+          "count": 0,
           "base": 0,
-          "scaling": {},
-          "damageType": "physical"
+          "scaling": {}
         }
       ],
-      "description": "Foco absoluto: chance de crítico maior e passos mais rápidos.",
+      "description": "Foco total: aumenta precisão/crítico por 15s e remove efeitos nocivos.",
       "element": "wind",
       "animation": "anim_arqueiro_olhar_de_aguia",
       "vfx": "vfx_arqueiro_olhar_de_aguia",
@@ -2137,9 +2175,19 @@
           "scaling": {
             "physAttack": 2.24
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "vulnerable",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Barragem de flechas sobre uma grande área, disparada andando.",
+      "description": "Saraivada que perfura a armadura: inimigos atingidos ficam vulneráveis por 8s.",
       "element": "physical",
       "animation": "anim_arqueiro_saraivada",
       "vfx": "vfx_arqueiro_saraivada",
@@ -2514,15 +2562,15 @@
         {
           "kind": "applyStatus",
           "side": "enemy",
-          "statusId": "vulnerable",
-          "duration": 10,
+          "statusId": "crippled",
+          "duration": 4,
           "chance": 1.0,
           "base": 0,
           "scaling": {},
           "damageType": "physical"
         }
       ],
-      "description": "Amaldiçoa o alvo: ataque e defesa caem.",
+      "description": "Enfraquece o alvo e reduz sua velocidade.",
       "element": "dark",
       "animation": "anim_bruxo_maldicao_da_fraqueza",
       "vfx": "vfx_bruxo_maldicao_da_fraqueza",
@@ -2948,9 +2996,19 @@
             "maxHp": 0.38
           },
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "stoneskin",
+          "duration": 10,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Ergue uma barreira enorme de proteção em torno de si.",
+      "description": "Escudo de luz e pele de pedra por 10s.",
       "element": "light",
       "animation": "anim_guardiao_muralha_viva",
       "vfx": "vfx_guardiao_muralha_viva",
@@ -3078,16 +3136,16 @@
         },
         {
           "kind": "applyStatus",
-          "side": "ally",
-          "statusId": "warded",
-          "duration": 12,
+          "side": "enemy",
+          "statusId": "taunted",
+          "duration": 4,
           "chance": 1.0,
           "base": 0,
           "scaling": {},
           "damageType": "physical"
         }
       ],
-      "description": "Fortifica a si e aos aliados próximos.",
+      "description": "Eleva a defesa dos aliados próximos e provoca os monstros ao redor.",
       "element": "light",
       "animation": "anim_guardiao_baluarte_inabalavel",
       "vfx": "vfx_guardiao_baluarte_inabalavel",
@@ -3178,10 +3236,11 @@
           "base": 5,
           "scaling": {
             "magicAttack": 0.9
-          }
+          },
+          "leech": 0.2
         }
       ],
-      "description": "Golpe de martelo abençoado.",
+      "description": "Golpe sagrado que devolve 20% do dano como vida.",
       "element": "light",
       "animation": "anim_paladino_golpe_sagrado",
       "vfx": "vfx_paladino_golpe_sagrado",
@@ -3212,11 +3271,18 @@
           "side": "ally",
           "base": 12,
           "scaling": {
-            "magicAttack": 1.3
+            "magicAttack": 1.2
           }
+        },
+        {
+          "kind": "cleanse",
+          "side": "ally",
+          "count": 1,
+          "base": 0,
+          "scaling": {}
         }
       ],
-      "description": "Imposição de mãos que cura um aliado.",
+      "description": "Cura um aliado e remove um efeito nocivo.",
       "element": "light",
       "animation": "anim_paladino_mao_curativa",
       "vfx": "vfx_paladino_mao_curativa",
@@ -3548,13 +3614,14 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 4,
+          "base": 1.33,
           "scaling": {
-            "physAttack": 0.72
-          }
+            "physAttack": 0.24
+          },
+          "hits": 3
         }
       ],
-      "description": "Golpe rápido e seco.",
+      "description": "Três socos rápidos; cada um pode causar crítico.",
       "element": "physical",
       "animation": "anim_monge_punho_veloz",
       "vfx": "vfx_monge_punho_veloz",
@@ -3745,13 +3812,14 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 57,
+          "base": 9.5,
           "scaling": {
-            "physAttack": 4.14
-          }
+            "physAttack": 0.69
+          },
+          "hits": 6
         }
       ],
-      "description": "Saraivada de socos em um só alvo.",
+      "description": "Seis golpes de punho em sequência; cada um rola crítico.",
       "element": "physical",
       "animation": "anim_monge_mil_punhos",
       "vfx": "vfx_monge_mil_punhos",
@@ -3784,9 +3852,19 @@
           "scaling": {
             "magicAttack": 3.6
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "silenced",
+          "duration": 2,
+          "chance": 0.5,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         }
       ],
-      "description": "Projeta energia interior à distância.",
+      "description": "Onda de energia; 50% de chance de silenciar o alvo por 2s.",
       "element": "wind",
       "animation": "anim_monge_onda_de_chi",
       "vfx": "vfx_monge_onda_de_chi",
@@ -3909,9 +3987,19 @@
           "scaling": {
             "physAttack": 0.85
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "crippled",
+          "duration": 3,
+          "chance": 0.3,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Estocada longa de lança.",
+      "description": "Estocada longa; 30% de chance de ferir a perna e reduzir a velocidade do alvo.",
       "element": "physical",
       "animation": "anim_lanceiro_estocada",
       "vfx": "vfx_lanceiro_estocada",
@@ -4243,9 +4331,19 @@
           "scaling": {
             "physAttack": 5.46
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "rooted",
+          "duration": 2,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Chuva de lanças sobre uma grande área.",
+      "description": "Chuva de lanças que prende no chão os inimigos atingidos por 2s.",
       "element": "physical",
       "animation": "anim_lanceiro_chuva_de_lancas",
       "vfx": "vfx_lanceiro_chuva_de_lancas",
@@ -4276,11 +4374,21 @@
           "damageType": "physical",
           "base": 4,
           "scaling": {
-            "physAttack": 0.81
+            "physAttack": 0.75
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "rooted",
+          "duration": 1.5,
+          "chance": 0.2,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Virote de besta.",
+      "description": "Virote pesado; 20% de chance de pregar o alvo no chão.",
       "element": "physical",
       "animation": "anim_engenheiro_disparo_de_besta",
       "vfx": "vfx_engenheiro_disparo_de_besta",
@@ -4313,9 +4421,21 @@
           "scaling": {
             "physAttack": 1.17
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "burning",
+          "duration": 4,
+          "chance": 0.5,
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.2
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Granada explosiva.",
+      "description": "Granada incendiária; 50% de chance de queimar os alvos.",
       "element": "fire",
       "animation": "anim_engenheiro_granada",
       "vfx": "vfx_engenheiro_granada",
@@ -4397,9 +4517,19 @@
             "maxHp": 0.22
           },
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "empowered",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Gera um escudo de energia ao redor.",
+      "description": "Escudo portátil que também sobrecarrega seu poder por 6s.",
       "element": "physical",
       "animation": "anim_engenheiro_escudo_portatil",
       "vfx": "vfx_engenheiro_escudo_portatil",
@@ -4477,9 +4607,21 @@
           "scaling": {
             "physAttack": 3.78
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "burning",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 3,
+          "scaling": {
+            "physAttack": 0.25
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Míssil de alto dano.",
+      "description": "Míssil que explode e deixa o alvo queimando por 6s.",
       "element": "fire",
       "animation": "anim_engenheiro_missil_teleguiado",
       "vfx": "vfx_engenheiro_missil_teleguiado",
@@ -4559,9 +4701,19 @@
           "scaling": {
             "physAttack": 3.45
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "stunned",
+          "duration": 1.5,
+          "chance": 0.6,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Explosivo pesado em uma área.",
+      "description": "Carga explosiva; 60% de chance de atordoar os alvos.",
       "element": "fire",
       "animation": "anim_engenheiro_carga_de_demolicao",
       "vfx": "vfx_engenheiro_carga_de_demolicao",
@@ -4590,13 +4742,14 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 136,
+          "base": 45.33,
           "scaling": {
-            "physAttack": 5.88
-          }
+            "physAttack": 1.96
+          },
+          "hits": 3
         }
       ],
-      "description": "Chamada de artilharia sobre uma área enorme.",
+      "description": "Três disparos de artilharia consecutivos na área.",
       "element": "fire",
       "animation": "anim_engenheiro_bombardeio_de_artilharia",
       "vfx": "vfx_engenheiro_bombardeio_de_artilharia",
@@ -4628,11 +4781,13 @@
           "damageType": "magic",
           "base": 4,
           "scaling": {
-            "magicAttack": 0.81
-          }
+            "magicAttack": 0.8
+          },
+          "bonusIfStatusId": "chilled",
+          "bonusMultiplier": 1.5
         }
       ],
-      "description": "Runa flamejante lançada contra o alvo.",
+      "description": "Runa explosiva; causa 50% a mais em alvos congelados.",
       "element": "fire",
       "animation": "anim_mago_runico_runa_de_fogo",
       "vfx": "vfx_mago_runico_runa_de_fogo",
@@ -4935,13 +5090,14 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 63,
+          "base": 21,
           "scaling": {
-            "magicAttack": 3.45
-          }
+            "magicAttack": 1.15
+          },
+          "hits": 3
         }
       ],
-      "description": "Tempestade de runas flamejantes.",
+      "description": "Três descargas rúnicas consecutivas na área; cada uma rola crítico.",
       "element": "arcane",
       "animation": "anim_mago_runico_tempestade_runica",
       "vfx": "vfx_mago_runico_tempestade_runica",
@@ -5018,11 +5174,21 @@
           "damageType": "magic",
           "base": 4,
           "scaling": {
-            "magicAttack": 0.77
+            "magicAttack": 0.7
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "sapped",
+          "duration": 3,
+          "chance": 0.5,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         }
       ],
-      "description": "Nota afiada como lâmina.",
+      "description": "Nota aguda; 50% de chance de reduzir a velocidade do alvo.",
       "element": "arcane",
       "animation": "anim_bardo_nota_cortante",
       "vfx": "vfx_bardo_nota_cortante",
@@ -5174,9 +5340,19 @@
           "base": 0,
           "scaling": {},
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "inspired",
+          "duration": 7,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Batida veloz que acelera todos.",
+      "description": "Ritmo veloz: aliados próximos ganham velocidade e inspiração.",
       "element": "wind",
       "animation": "anim_bardo_ritmo_acelerado",
       "vfx": "vfx_bardo_ritmo_acelerado",
@@ -5250,7 +5426,7 @@
         {
           "kind": "applyStatus",
           "side": "ally",
-          "statusId": "fortified",
+          "statusId": "warded",
           "duration": 12,
           "chance": 1.0,
           "base": 0,
@@ -5260,7 +5436,7 @@
         {
           "kind": "applyStatus",
           "side": "ally",
-          "statusId": "warded",
+          "statusId": "inspired",
           "duration": 12,
           "chance": 1.0,
           "base": 0,
@@ -5268,7 +5444,7 @@
           "damageType": "physical"
         }
       ],
-      "description": "Hino que fortifica e protege contra magia.",
+      "description": "Hino que protege contra magia e inspira os aliados próximos.",
       "element": "light",
       "animation": "anim_bardo_hino_de_protecao",
       "vfx": "vfx_bardo_hino_de_protecao",
@@ -5297,13 +5473,23 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 63,
+          "base": 50,
           "scaling": {
-            "magicAttack": 3.45
+            "magicAttack": 2.8
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "inspired",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Onda sonora crescente que fere uma grande área.",
+      "description": "Explosão sonora que fere inimigos e inspira os aliados na área.",
       "element": "arcane",
       "animation": "anim_bardo_crescendo",
       "vfx": "vfx_bardo_crescendo",
@@ -5388,11 +5574,21 @@
           "damageType": "magic",
           "base": 4,
           "scaling": {
-            "magicAttack": 0.81
+            "magicAttack": 0.75
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "rooted",
+          "duration": 1.5,
+          "chance": 0.3,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         }
       ],
-      "description": "Espinho mágico lançado do chão.",
+      "description": "Espinho que brota do chão; 30% de chance de prender o alvo.",
       "element": "earth",
       "animation": "anim_druida_espinho_verde",
       "vfx": "vfx_druida_espinho_verde",
@@ -5555,14 +5751,26 @@
           "statusId": "barrier",
           "duration": 8,
           "chance": 1.0,
-          "base": 33,
+          "base": 25,
           "scaling": {
-            "maxHp": 0.3
+            "maxHp": 0.25
           },
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "regrowth",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Cobre o aliado com casca resistente.",
+      "description": "Casca protetora que absorve dano e regenera vida.",
       "element": "earth",
       "animation": "anim_druida_casca_de_arvore",
       "vfx": "vfx_druida_casca_de_arvore",
@@ -5591,13 +5799,25 @@
         {
           "kind": "heal",
           "side": "ally",
-          "base": 23,
+          "base": 18,
           "scaling": {
-            "magicAttack": 1.4
+            "magicAttack": 1.1
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "regrowth",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Chuva que cura os aliados na área.",
+      "description": "Chuva que cura e regenera os aliados na área.",
       "element": "ice",
       "animation": "anim_druida_chuva_revigorante",
       "vfx": "vfx_druida_chuva_revigorante",
@@ -5681,9 +5901,19 @@
             "magicAttack": 0.5
           },
           "damageType": "magic"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "stoneskin",
+          "duration": 12,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Flores curativas brotam e regeneram os aliados próximos.",
+      "description": "Flores que regeneram e endurecem a pele dos aliados por 12s.",
       "element": "earth",
       "animation": "anim_druida_floracao",
       "vfx": "vfx_druida_floracao",
@@ -5759,11 +5989,22 @@
           "damageType": "physical",
           "base": 5,
           "scaling": {
-            "physAttack": 0.85
-          }
+            "physAttack": 0.8
+          },
+          "leech": 0.2
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "chilled",
+          "duration": 3,
+          "chance": 0.35,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Lâmina coberta de gelo.",
+      "description": "Golpe gélido que devolve 20% do dano como vida e pode congelar o alvo.",
       "element": "ice",
       "animation": "anim_cavaleiro_da_morte_golpe_gelido",
       "vfx": "vfx_cavaleiro_da_morte_golpe_gelido",
@@ -6161,10 +6402,11 @@
           "base": 5,
           "scaling": {
             "physAttack": 0.9
-          }
+          },
+          "leech": 0.25
         }
       ],
-      "description": "Golpe bruto de machado.",
+      "description": "Machadada brutal que devolve 25% do dano como vida.",
       "element": "physical",
       "animation": "anim_berserker_machadada",
       "vfx": "vfx_berserker_machadada",
@@ -6549,9 +6791,21 @@
           "scaling": {
             "physAttack": 0.77
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "corruption",
+          "duration": 5,
+          "chance": 1.0,
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.2
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Corte rápido de lâmina sombria.",
+      "description": "Corte imbuído de sombras: o alvo sofre dano sombrio por 5s.",
       "element": "dark",
       "animation": "anim_lamina_sombria_corte_sombrio",
       "vfx": "vfx_lamina_sombria_corte_sombrio",
@@ -6948,13 +7202,15 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 4,
+          "base": 5,
           "scaling": {
-            "physAttack": 0.81
-          }
+            "physAttack": 1.0
+          },
+          "bonusIfStatusId": "vulnerable",
+          "bonusMultiplier": 1.5
         }
       ],
-      "description": "Tiro de longo alcance.",
+      "description": "Tiro de longo alcance; causa 50% a mais em alvos vulneráveis.",
       "element": "physical",
       "animation": "anim_atirador_tiro_de_rifle",
       "vfx": "vfx_atirador_tiro_de_rifle",
@@ -7203,13 +7459,14 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 38,
+          "base": 9.5,
           "scaling": {
-            "physAttack": 2.4
-          }
+            "physAttack": 0.6
+          },
+          "hits": 4
         }
       ],
-      "description": "Metralha uma área inteira.",
+      "description": "Rajada de quatro tiros na área; cada um rola crítico.",
       "element": "physical",
       "animation": "anim_atirador_chuva_de_balas",
       "vfx": "vfx_atirador_chuva_de_balas",
@@ -7289,10 +7546,12 @@
           "base": 273,
           "scaling": {
             "physAttack": 11.76
-          }
+          },
+          "executeBelowHpPercent": 40,
+          "executeMultiplier": 2.5
         }
       ],
-      "description": "O disparo perfeito: dano gigantesco.",
+      "description": "Tiro de execução: causa 150% a mais de dano em alvos com menos de 40% de vida.",
       "element": "physical",
       "animation": "anim_atirador_tiro_final",
       "vfx": "vfx_atirador_tiro_final",
@@ -7321,13 +7580,25 @@
         {
           "kind": "damage",
           "damageType": "physical",
-          "base": 4,
+          "base": 3,
           "scaling": {
-            "physAttack": 0.81
+            "physAttack": 0.7
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "bleeding",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 2,
+          "scaling": {
+            "physAttack": 0.2
+          },
+          "damageType": "physical"
         }
       ],
-      "description": "Flecha de caçador.",
+      "description": "Flecha de caça que faz o alvo sangrar por 6s.",
       "element": "physical",
       "animation": "anim_domador_de_feras_tiro_de_caca",
       "vfx": "vfx_domador_de_feras_tiro_de_caca",
@@ -7407,9 +7678,19 @@
           "base": 0,
           "scaling": {},
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "keen",
+          "duration": 7,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Grito que acelera você e quem estiver perto.",
+      "description": "Uivo da matilha: aliados próximos ganham velocidade e precisão.",
       "element": "wind",
       "animation": "anim_domador_de_feras_grito_da_matilha",
       "vfx": "vfx_domador_de_feras_grito_da_matilha",
@@ -7575,8 +7856,8 @@
         {
           "kind": "applyStatus",
           "side": "self",
-          "statusId": "keen",
-          "duration": 12,
+          "statusId": "frenzy",
+          "duration": 10,
           "chance": 1.0,
           "base": 0,
           "scaling": {},
@@ -7593,7 +7874,7 @@
           "damageType": "physical"
         }
       ],
-      "description": "Sentidos aguçados: mais crítico e mais veloz.",
+      "description": "Desperta o instinto selvagem: frenesi por 10s e velocidade por 6s.",
       "element": "wind",
       "animation": "anim_domador_de_feras_instinto_primal",
       "vfx": "vfx_domador_de_feras_instinto_primal",
@@ -7627,9 +7908,19 @@
           "scaling": {
             "physAttack": 3.28
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "stunned",
+          "duration": 1.5,
+          "chance": 0.4,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Pancada de terreno que lembra uma manada em fuga.",
+      "description": "A manada estoura sobre a área; 40% de chance de atordoar.",
       "element": "earth",
       "animation": "anim_domador_de_feras_estouro_da_manada",
       "vfx": "vfx_domador_de_feras_estouro_da_manada",
@@ -7706,11 +7997,12 @@
           "damageType": "magic",
           "base": 4,
           "scaling": {
-            "magicAttack": 0.81
-          }
+            "magicAttack": 0.8
+          },
+          "leech": 0.35
         }
       ],
-      "description": "Raio de energia da morte.",
+      "description": "Raio sombrio que devolve 35% do dano causado como vida.",
       "element": "dark",
       "animation": "anim_necromante_raio_necrotico",
       "vfx": "vfx_necromante_raio_necrotico",
@@ -7786,12 +8078,14 @@
         {
           "kind": "applyStatus",
           "side": "enemy",
-          "statusId": "weakened",
+          "statusId": "corruption",
           "duration": 10,
           "chance": 1.0,
-          "base": 0,
-          "scaling": {},
-          "damageType": "physical"
+          "base": 3,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
         },
         {
           "kind": "applyStatus",
@@ -7804,7 +8098,7 @@
           "damageType": "physical"
         }
       ],
-      "description": "Reduz ataque e defesa do alvo.",
+      "description": "O alvo apodrece: dano sombrio contínuo e mais dano recebido por 10s.",
       "element": "dark",
       "animation": "anim_necromante_maldicao_do_declinio",
       "vfx": "vfx_necromante_maldicao_do_declinio",
@@ -7976,9 +8270,21 @@
           "scaling": {
             "magicAttack": 2.85
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "corruption",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 3,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Detona restos e fere uma área.",
+      "description": "Explosão que deixa os atingidos corrompidos por 6s.",
       "element": "dark",
       "animation": "anim_necromante_explosao_de_cadaveres",
       "vfx": "vfx_necromante_explosao_de_cadaveres",
@@ -8114,11 +8420,21 @@
           "damageType": "magic",
           "base": 4,
           "scaling": {
-            "magicAttack": 0.77
+            "magicAttack": 0.7
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "silenced",
+          "duration": 1.5,
+          "chance": 0.2,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         }
       ],
-      "description": "Faíscas de luz enganadora.",
+      "description": "Faísca que confunde; 20% de chance de silenciar o alvo por pouco tempo.",
       "element": "arcane",
       "animation": "anim_ilusionista_faisca_ilusoria",
       "vfx": "vfx_ilusionista_faisca_ilusoria",
@@ -8210,9 +8526,19 @@
             "maxHp": 0.21
           },
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "haste",
+          "duration": 5,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Espelhos de luz absorvem dano.",
+      "description": "Espelho que absorve dano e acelera você por 5s.",
       "element": "light",
       "animation": "anim_ilusionista_espelho_de_luz",
       "vfx": "vfx_ilusionista_espelho_de_luz",
@@ -8422,10 +8748,12 @@
           "base": 97,
           "scaling": {
             "magicAttack": 5.29
-          }
+          },
+          "executeBelowHpPercent": 50,
+          "executeMultiplier": 1.8
         }
       ],
-      "description": "A ilusão que machuca de verdade.",
+      "description": "O alvo vê a própria morte: 80% a mais de dano abaixo de 50% de vida.",
       "element": "arcane",
       "animation": "anim_ilusionista_ilusao_mortal",
       "vfx": "vfx_ilusionista_ilusao_mortal",
@@ -8510,13 +8838,14 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 4,
+          "base": 2,
           "scaling": {
-            "magicAttack": 0.81
-          }
+            "magicAttack": 0.3
+          },
+          "hits": 3
         }
       ],
-      "description": "Orbe de energia espiritual.",
+      "description": "O orbe se divide em três fragmentos que atingem o alvo em sequência.",
       "element": "arcane",
       "animation": "anim_invocador_orbe_espiritual",
       "vfx": "vfx_invocador_orbe_espiritual",
@@ -8682,9 +9011,21 @@
             "maxHp": 0.3
           },
           "damageType": "physical"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "self",
+          "statusId": "regrowth",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 4,
+          "scaling": {
+            "magicAttack": 0.3
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Espíritos formam uma barreira ao seu redor.",
+      "description": "Barreira espiritual que absorve dano e regenera vida por 8s.",
       "element": "arcane",
       "animation": "anim_invocador_barreira_espiritual",
       "vfx": "vfx_invocador_barreira_espiritual",
@@ -8713,13 +9054,14 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 50,
+          "base": 16.67,
           "scaling": {
-            "magicAttack": 3.6
-          }
+            "magicAttack": 1.2
+          },
+          "hits": 3
         }
       ],
-      "description": "Rajada de energia astral.",
+      "description": "Três projéteis astrais em sequência.",
       "element": "arcane",
       "animation": "anim_invocador_rajada_astral",
       "vfx": "vfx_invocador_rajada_astral",
@@ -8842,9 +9184,19 @@
           "scaling": {
             "magicAttack": 5.88
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "stunned",
+          "duration": 2,
+          "chance": 0.7,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         }
       ],
-      "description": "Estrelas caem sobre uma enorme área.",
+      "description": "Cataclismo; 70% de chance de atordoar os atingidos.",
       "element": "arcane",
       "animation": "anim_invocador_cataclismo_astral",
       "vfx": "vfx_invocador_cataclismo_astral",
@@ -8874,13 +9226,25 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 4,
+          "base": 3,
           "scaling": {
-            "magicAttack": 0.77
+            "magicAttack": 0.6
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "corruption",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 2,
+          "scaling": {
+            "magicAttack": 0.25
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Chama escura que consome o alvo.",
+      "description": "Chama que corrói o alvo causando dano sombrio ao longo de 6s.",
       "element": "dark",
       "animation": "anim_clerigo_chama_sombria",
       "vfx": "vfx_clerigo_chama_sombria",
@@ -8907,15 +9271,19 @@
       "pvpMultiplier": 1.0,
       "effects": [
         {
-          "kind": "heal",
+          "kind": "applyStatus",
           "side": "ally",
-          "base": 12,
+          "statusId": "regrowth",
+          "duration": 8,
+          "chance": 1.0,
+          "base": 6,
           "scaling": {
-            "magicAttack": 1.3
-          }
+            "magicAttack": 0.6
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Cura um aliado com energia da penumbra.",
+      "description": "Cura um aliado gradualmente durante 8s.",
       "element": "dark",
       "animation": "anim_clerigo_cura_sombria",
       "vfx": "vfx_clerigo_cura_sombria",
@@ -9034,9 +9402,16 @@
             "maxHp": 0.3
           },
           "damageType": "physical"
+        },
+        {
+          "kind": "cleanse",
+          "side": "ally",
+          "count": 1,
+          "base": 0,
+          "scaling": {}
         }
       ],
-      "description": "Barreira escura em um aliado.",
+      "description": "Escudo sombrio que absorve dano e remove um efeito nocivo.",
       "element": "dark",
       "animation": "anim_clerigo_escudo_da_penumbra",
       "vfx": "vfx_clerigo_escudo_da_penumbra",
@@ -9069,9 +9444,16 @@
           "scaling": {
             "magicAttack": 1.4
           }
+        },
+        {
+          "kind": "cleanse",
+          "side": "ally",
+          "count": 2,
+          "base": 0,
+          "scaling": {}
         }
       ],
-      "description": "Onda que cura todos os aliados próximos.",
+      "description": "Onda que cura os aliados na área e remove até 2 efeitos nocivos.",
       "element": "dark",
       "animation": "anim_clerigo_onda_de_vida",
       "vfx": "vfx_clerigo_onda_de_vida",
@@ -9153,9 +9535,19 @@
             "magicAttack": 0.5
           },
           "damageType": "magic"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "empowered",
+          "duration": 12,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Comunhão que regenera os aliados próximos.",
+      "description": "Comunhão que regenera e fortalece o poder dos aliados por 12s.",
       "element": "dark",
       "animation": "anim_clerigo_comunhao_sombria",
       "vfx": "vfx_clerigo_comunhao_sombria",
@@ -9240,13 +9632,23 @@
         {
           "kind": "damage",
           "damageType": "magic",
-          "base": 4,
+          "base": 3,
           "scaling": {
-            "magicAttack": 0.77
+            "magicAttack": 0.65
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "vulnerable",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Arremessa um frasco de ácido.",
+      "description": "Ácido que corrói a armadura: o alvo fica vulnerável por 6s.",
       "element": "earth",
       "animation": "anim_alquimista_frasco_corrosivo",
       "vfx": "vfx_alquimista_frasco_corrosivo",
@@ -9275,13 +9677,23 @@
         {
           "kind": "heal",
           "side": "ally",
-          "base": 12,
+          "base": 8,
           "scaling": {
-            "magicAttack": 1.3
+            "magicAttack": 0.9
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "haste",
+          "duration": 4,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "Poção que cura um aliado.",
+      "description": "Poção que cura um aliado e o deixa mais veloz por 4s.",
       "element": "light",
       "animation": "anim_alquimista_pocao_de_cura",
       "vfx": "vfx_alquimista_pocao_de_cura",
@@ -9504,9 +9916,21 @@
           "scaling": {
             "magicAttack": 3.0
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "poisoned",
+          "duration": 6,
+          "chance": 1.0,
+          "base": 3,
+          "scaling": {
+            "magicAttack": 0.25
+          },
+          "damageType": "magic"
         }
       ],
-      "description": "Reação instável que explode na área.",
+      "description": "Explosão que envenena os atingidos por 6s.",
       "element": "fire",
       "animation": "anim_alquimista_explosao_alquimica",
       "vfx": "vfx_alquimista_explosao_alquimica",
@@ -9586,9 +10010,19 @@
           "scaling": {
             "magicAttack": 5.67
           }
+        },
+        {
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "vulnerable",
+          "duration": 10,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "physical"
         }
       ],
-      "description": "A obra-prima do alquimista: dano enorme em área.",
+      "description": "A obra-prima: dano enorme e inimigos vulneráveis por 10s.",
       "element": "arcane",
       "animation": "anim_alquimista_grande_obra",
       "vfx": "vfx_alquimista_grande_obra",
