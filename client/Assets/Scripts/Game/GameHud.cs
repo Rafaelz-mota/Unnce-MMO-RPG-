@@ -50,6 +50,7 @@ namespace Mmorpg.Game
         private bool _inventoryOpen;
         private bool _shopOpen;
         private bool _shopSellMode;
+        private string _shopId = "mercador_do_vale";
         private bool _shopOnlyMine = true;
         private string _shopCategory = "weapon";
         private Vector2 _shopScroll;
@@ -92,7 +93,15 @@ namespace Mmorpg.Game
 
         public void ToggleInventory() { _inventoryOpen = !_inventoryOpen; if (_inventoryOpen) { _menuOpen = false; _shopOpen = false; } }
 
-        public void ToggleShop() { _shopOpen = !_shopOpen; if (_shopOpen) { _menuOpen = false; _inventoryOpen = false; } }
+        public void ToggleShop()
+        {
+            if (_shopOpen) { _shopOpen = false; return; }
+            NpcDef npc = _session.NearbyMerchant();
+            if (npc != null) _shopId = npc.ShopId;
+            else if (_session.DevToolsEnabled) { foreach (string id in _session.Data.Shops.Keys) { _shopId = id; break; } }
+            else { _session.Notify("Chegue perto do mercador para comprar e vender."); return; }
+            _shopOpen = true; _menuOpen = false; _inventoryOpen = false;
+        }
 
         public void ToggleMenu() { _menuOpen = !_menuOpen; if (_menuOpen) { _inventoryOpen = false; _shopOpen = false; } }
 
@@ -175,6 +184,7 @@ namespace Mmorpg.Game
             DrawBanner(k);
             DrawDeath(k);
             if (_inventoryOpen) DrawInventory(k);
+            DrawNpcs(k);
             if (_shopOpen) DrawShop(k);
             if (_menuOpen) DrawMenu(k);
 
@@ -518,7 +528,7 @@ namespace Mmorpg.Game
             float pad = 10f * k, line = 24f * k;
             Text(new Rect(win.x + pad, win.y + pad, w - 2 * pad - 180f * k, line), "Inventário  (" + (inv.Capacity - inv.FreeSlots) + "/" + inv.Capacity + ")   Ouro: " + pc.Gold, Color.white, TextAnchor.MiddleLeft);
             if (GUI.Button(new Rect(win.xMax - pad - 80f * k, win.y + pad, 80f * k, line), "Fechar", _button)) _inventoryOpen = false;
-            if (GUI.Button(new Rect(win.xMax - pad - 170f * k, win.y + pad, 84f * k, line), "Loja", _button)) { _inventoryOpen = false; _shopOpen = true; }
+            if (GUI.Button(new Rect(win.xMax - pad - 170f * k, win.y + pad, 84f * k, line), "Loja", _button)) { _inventoryOpen = false; ToggleShop(); }
 
             // Equipamento (esquerda)
             float colW = 210f * k;
@@ -611,13 +621,46 @@ namespace Mmorpg.Game
         }
 
 
+
+        // ------------------------------------------------------------------ NPCs
+        private void DrawNpcs(float k)
+        {
+            Camera cam = _camera.Camera;
+            RegionDef region = _session.Sim.Region;
+            NpcDef near = _session.NearbyMerchant();
+            for (int i = 0; i < region.Npcs.Count; i++)
+            {
+                NpcDef n = region.Npcs[i];
+                Vector3 sp = cam.WorldToScreenPoint(new Vector3((float)n.X, 3.1f, (float)n.Z));
+                if (sp.z <= 0f) continue;
+                if (Vec2Distance(n) > LabelRange) continue;
+                Text(new Rect(sp.x - 110f * k, Screen.height - sp.y - 22f * k, 220f * k, 20f * k), n.Name + "  (Loja)", new Color(1f, 0.85f, 0.35f), TextAnchor.MiddleCenter);
+            }
+            if (near != null && !AnyWindowOpen)
+            {
+                float w = 260f * k, h = 40f * k;
+                Rect r = new Rect((Screen.width - w) * 0.5f, Screen.height * 0.62f, w, h);
+                RegisterUi(r);
+                if (GUI.Button(r, "Falar com " + near.Name + "  [E]", _button)) ToggleShop();
+                if (!string.IsNullOrEmpty(near.Greeting))
+                    Text(new Rect(r.x - 60f * k, r.y - 26f * k, w + 120f * k, 24f * k), near.Greeting, new Color(1f, 0.95f, 0.75f), TextAnchor.MiddleCenter);
+            }
+        }
+
+        private double Vec2Distance(NpcDef n)
+        {
+            double dx = n.X - _session.Player.Position.X, dz = n.Z - _session.Player.Position.Z;
+            return Math.Sqrt(dx * dx + dz * dz);
+        }
+
         // ------------------------------------------------------------------ loja
         private void DrawShop(float k)
         {
             GameData data = _session.Data;
             PlayerCharacter pc = _session.Character;
             ShopDef shop;
-            if (!data.Shops.TryGetValue("mercador_do_vale", out shop)) { _shopOpen = false; return; }
+            if (!data.Shops.TryGetValue(_shopId, out shop)) { _shopOpen = false; return; }
+            if (!_session.DevToolsEnabled && _session.NearbyMerchant() == null) { _shopOpen = false; _session.Notify("Você se afastou do mercador."); return; }
 
             float w = Mathf.Min(Screen.width - 20f, 700f * k), h = Mathf.Min(Screen.height - 20f, 480f * k);
             Rect win = new Rect((Screen.width - w) * 0.5f, (Screen.height - h) * 0.5f, w, h);
@@ -770,7 +813,7 @@ namespace Mmorpg.Game
             _input.TouchMode = GUI.Toggle(new Rect(win.x + pad, y, w - 2 * pad, line), _input.TouchMode, " Controles de toque na tela", _button);
             y += line + 8f * k;
 
-            if (GUI.Button(new Rect(win.x + pad, y, w - 2 * pad, 32f * k), "Loja do Mercador", _button)) { _menuOpen = false; _shopOpen = true; }
+            if (GUI.Button(new Rect(win.x + pad, y, w - 2 * pad, 32f * k), "Loja do Mercador", _button)) { _menuOpen = false; ToggleShop(); }
             y += 38f * k;
 
             if (_session.DevToolsEnabled)

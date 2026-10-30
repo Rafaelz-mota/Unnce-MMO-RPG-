@@ -386,6 +386,18 @@
           "z": -8.1,
           "radius": 0.8
         }
+      ],
+      "npcs": [
+        {
+          "id": "mercador_orvalho",
+          "name": "Mercador Orvalho",
+          "role": "merchant",
+          "shopId": "mercador_do_vale",
+          "x": 7.0,
+          "z": -57.0,
+          "interactRange": 6.0,
+          "greeting": "Bem-vindo, viajante! Tenho armas, armaduras, colares e anéis para todos os heróis."
+        }
       ]
     },
     {
@@ -400,7 +412,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     },
     {
       "id": "serra_de_ferro",
@@ -414,7 +427,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     },
     {
       "id": "deserto_das_cinzas",
@@ -428,7 +442,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     },
     {
       "id": "pantano_dos_sussurros",
@@ -442,7 +457,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     },
     {
       "id": "tundra_dos_antigos",
@@ -456,7 +472,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     },
     {
       "id": "terras_do_abismo",
@@ -470,7 +487,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     },
     {
       "id": "coroa_celestial",
@@ -484,7 +502,8 @@
       "bounds": null,
       "playerSpawn": null,
       "spawnZones": [],
-      "obstacles": []
+      "obstacles": [],
+      "npcs": []
     }
   ]
 }

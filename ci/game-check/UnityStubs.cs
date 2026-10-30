@@ -200,7 +200,7 @@ namespace UnityEngine
     }
 
     // ------------------------------------------------------------------ entrada
-    public enum KeyCode { None, Tab, Escape, F2, UpArrow, DownArrow, RightArrow, LeftArrow, Alpha1, Alpha2, Alpha3, Alpha4, Alpha5, Alpha6, Alpha7, Alpha8, Alpha9, A, B, D, I, P, S, W }
+    public enum KeyCode { None, Tab, Escape, F2, UpArrow, DownArrow, RightArrow, LeftArrow, Alpha1, Alpha2, Alpha3, Alpha4, Alpha5, Alpha6, Alpha7, Alpha8, Alpha9, A, B, D, E, I, P, S, W }
     public enum TouchPhase { Began, Moved, Stationary, Ended, Canceled }
     public struct Touch { public int fingerId; public Vector2 position; public TouchPhase phase; }
     public static class Input

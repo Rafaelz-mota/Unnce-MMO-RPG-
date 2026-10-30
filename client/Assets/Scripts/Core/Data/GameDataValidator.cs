@@ -449,6 +449,21 @@ namespace Mmorpg.Core.Data
                     double dx = o.X - sp.X, dz = o.Z - sp.Z;
                     if (Math.Sqrt(dx * dx + dz * dz) < o.Radius + 1.0) r.Error(w, "obstáculo sobre o ponto de nascimento");
                 }
+                var npcIds = new System.Collections.Generic.HashSet<string>();
+                foreach (var n in reg.Npcs)
+                {
+                    string nw = w + " npc " + n.Id;
+                    if (string.IsNullOrEmpty(n.Id) || !npcIds.Add(n.Id)) r.Error(w, "npc sem id ou repetido: " + n.Id);
+                    if (n.Role != "merchant") r.Error(nw, "role inválido '" + n.Role + "'");
+                    if (n.Role == "merchant" && !d.Shops.ContainsKey(n.ShopId ?? "")) r.Error(nw, "loja inexistente '" + n.ShopId + "'");
+                    if (n.InteractRange <= 0) r.Error(nw, "interactRange deve ser > 0");
+                    if (n.X < b.MinX || n.X > b.MaxX || n.Z < b.MinZ || n.Z > b.MaxZ) r.Error(nw, "fora dos limites");
+                    foreach (var o in reg.Obstacles)
+                    {
+                        double ox = o.X - n.X, oz = o.Z - n.Z;
+                        if (Math.Sqrt(ox * ox + oz * oz) < o.Radius + 1.0) r.Error(nw, "sobre um obstáculo");
+                    }
+                }
             }
         }
 

@@ -568,6 +568,20 @@ namespace Mmorpg.Core.Data
         public double Radius { get; set; }
     }
 
+    public class NpcDef
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        /// <summary>Por enquanto apenas "merchant".</summary>
+        public string Role { get; set; }
+        public string ShopId { get; set; }
+        public double X { get; set; }
+        public double Z { get; set; }
+        /// <summary>Distância máxima (m) para falar/comprar/vender.</summary>
+        public double InteractRange { get; set; }
+        public string Greeting { get; set; }
+    }
+
     public class RegionDef
     {
         public string Id { get; set; }
@@ -582,6 +596,7 @@ namespace Mmorpg.Core.Data
         public PointDef PlayerSpawn { get; set; }
         public List<SpawnZoneDef> SpawnZones { get; set; } = new List<SpawnZoneDef>();
         public List<ObstacleDef> Obstacles { get; set; } = new List<ObstacleDef>();
+        public List<NpcDef> Npcs { get; set; } = new List<NpcDef>();
     }
 
     public class RegionsFile

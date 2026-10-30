@@ -14,7 +14,8 @@ namespace Mmorpg.Core.Shop
         InventoryFull,
         EmptySlot,
         NotTradable,
-        GoldFull
+        GoldFull,
+        TooFar
     }
 
     /// <summary>
@@ -79,6 +80,7 @@ namespace Mmorpg.Core.Shop
                 case ShopResult.InventoryFull: return "Inventário cheio.";
                 case ShopResult.EmptySlot: return "Não há item nesse espaço.";
                 case ShopResult.NotTradable: return "Esse item não pode ser vendido.";
+                case ShopResult.TooFar: return "Chegue perto do mercador.";
                 case ShopResult.GoldFull: return "Você não pode carregar tanto ouro.";
                 default: return r.ToString();
             }

@@ -258,8 +258,30 @@ namespace Mmorpg.Core.Session
         }
 
         // ------------------------------------------------------------------ loja
+        /// <summary>Mercador mais próximo dentro do alcance de interação, ou null.</summary>
+        public NpcDef NearbyMerchant()
+        {
+            NpcDef best = null;
+            double bestD = double.MaxValue;
+            foreach (NpcDef n in Sim.Region.Npcs)
+            {
+                if (n.Role != "merchant") continue;
+                double dist = Vec2.Distance(Player.Position, new Vec2(n.X, n.Z));
+                if (dist <= n.InteractRange && dist < bestD) { best = n; bestD = dist; }
+            }
+            return best;
+        }
+
+        private bool CanTrade(string shopId)
+        {
+            if (DevToolsEnabled) return true;
+            NpcDef n = NearbyMerchant();
+            return n != null && (shopId == null || n.ShopId == shopId) && !Player.Dead;
+        }
+
         public ShopResult BuyItem(string shopId, string itemId, int count)
         {
+            if (!CanTrade(shopId)) { AddLog(ShopService.Describe(ShopResult.TooFar)); return ShopResult.TooFar; }
             long spent;
             ShopResult r = ShopService.Buy(Data, Character, shopId, itemId, count, out spent);
             AddLog(r == ShopResult.Ok
@@ -270,6 +292,7 @@ namespace Mmorpg.Core.Session
 
         public ShopResult SellItem(int inventorySlot, int count)
         {
+            if (!CanTrade(null)) { AddLog(ShopService.Describe(ShopResult.TooFar)); return ShopResult.TooFar; }
             var stack = Character.Inventory.Get(inventorySlot);
             string name = stack != null ? Data.Items[stack.ItemId].Name : null;
             long earned;

@@ -164,7 +164,27 @@ namespace Mmorpg.Game
             Prims.Make(PrimitiveType.Cylinder, "Nascimento", _root.transform, new Vector3((float)region.PlayerSpawn.X, 0.03f, (float)region.PlayerSpawn.Z), new Vector3(5f, 0.01f, 5f), new Color(0.75f, 0.7f, 0.45f), false);
 
             TerrainDecor.Build(region, _root.transform);
+            foreach (NpcDef n in region.Npcs) BuildNpc(n);
             foreach (ObstacleDef o in region.Obstacles) BuildObstacle(o);
+        }
+
+        /// <summary>Mercador montado com primitivas: corpo, cabeça, chapéu, balcão com caixas e placa. Aparência provisória.</summary>
+        private void BuildNpc(NpcDef n)
+        {
+            Transform root = Prims.Pivot(_root.transform, "NPC - " + n.Name, new Vector3((float)n.X, 0f, (float)n.Z));
+            root.localRotation = Quaternion.Euler(0f, 200f, 0f);
+            Color robe = new Color(0.55f, 0.18f, 0.2f), skin = new Color(0.88f, 0.7f, 0.55f), wood = new Color(0.45f, 0.3f, 0.17f);
+            Prims.Make(PrimitiveType.Capsule, "Corpo", root, new Vector3(0f, 1.0f, 0f), new Vector3(0.9f, 1.0f, 0.9f), robe, false);
+            Prims.Make(PrimitiveType.Sphere, "Cabeca", root, new Vector3(0f, 2.2f, 0f), new Vector3(0.6f, 0.6f, 0.6f), skin, false);
+            Prims.Make(PrimitiveType.Cylinder, "ChapeuAba", root, new Vector3(0f, 2.45f, 0f), new Vector3(0.95f, 0.04f, 0.95f), new Color(0.25f, 0.18f, 0.1f), false);
+            Prims.Make(PrimitiveType.Cylinder, "ChapeuTopo", root, new Vector3(0f, 2.65f, 0f), new Vector3(0.5f, 0.2f, 0.5f), new Color(0.25f, 0.18f, 0.1f), false);
+            Prims.Make(PrimitiveType.Cube, "Balcao", root, new Vector3(0f, 0.5f, 1.3f), new Vector3(3.2f, 1.0f, 0.9f), wood, false);
+            Prims.Make(PrimitiveType.Cube, "Caixa1", root, new Vector3(-1.6f, 0.45f, -0.5f), new Vector3(0.9f, 0.9f, 0.9f), wood, false);
+            Prims.Make(PrimitiveType.Cube, "Caixa2", root, new Vector3(1.7f, 0.35f, -0.6f), new Vector3(0.7f, 0.7f, 0.7f), new Color(0.5f, 0.36f, 0.2f), false);
+            Prims.Make(PrimitiveType.Cylinder, "Poste", root, new Vector3(-1.5f, 1.5f, 1.3f), new Vector3(0.12f, 1.5f, 0.12f), wood, false);
+            Prims.Make(PrimitiveType.Cylinder, "Poste2", root, new Vector3(1.5f, 1.5f, 1.3f), new Vector3(0.12f, 1.5f, 0.12f), wood, false);
+            Prims.Make(PrimitiveType.Cube, "Toldo", root, new Vector3(0f, 3.05f, 1.3f), new Vector3(3.6f, 0.12f, 1.4f), new Color(0.85f, 0.65f, 0.2f), false);
+            Prims.Make(PrimitiveType.Sphere, "Marcador", root, new Vector3(0f, 3.6f, 0f), new Vector3(0.35f, 0.35f, 0.35f), new Color(1f, 0.85f, 0.2f), false);
         }
 
         private void BuildObstacle(ObstacleDef o)

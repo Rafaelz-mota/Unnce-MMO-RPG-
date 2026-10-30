@@ -121,5 +121,42 @@ namespace Mmorpg.Core.Tests
             low.Inventory.Add("loja_sword_t6", 1);
             Assert.AreEqual(EquipResult.LevelTooLow, low.Equip(Enumerable.Range(0, low.Inventory.Capacity).First(s => low.Inventory.Get(s) != null)));
         }
+
+        private static Mmorpg.Core.Session.GameSession Session(out PlayerCharacter pc)
+        {
+            GameData d = TestData.Fresh();
+            pc = PlayerCharacter.CreateNew(d, "Heroi", "guerreiro");
+            pc.AddGold(100000);
+            return Mmorpg.Core.Session.GameSession.Start(d, pc, "vale_do_despertar", new Mmorpg.Core.Common.SystemRng(5), null);
+        }
+
+        [Test]
+        public void Region1_HasAMerchantNpc_WithAnExistingShop()
+        {
+            GameData d = TestData.Data();
+            var npcs = d.Regions["vale_do_despertar"].Npcs;
+            Assert.IsNotEmpty(npcs);
+            foreach (NpcDef n in npcs) Assert.IsTrue(d.Shops.ContainsKey(n.ShopId), n.Id);
+        }
+
+        [Test]
+        public void Trading_RequiresBeingNearTheMerchant()
+        {
+            PlayerCharacter pc;
+            var s = Session(out pc);
+            s.Tick(0.05);
+            Assert.IsNull(s.NearbyMerchant(), "o herói nasce longe do mercador");
+            Assert.AreEqual(ShopResult.TooFar, s.BuyItem("mercador_do_vale", "loja_sword_t1", 1));
+            Assert.AreEqual(100000, pc.Gold);
+
+            NpcDef npc = s.Sim.Region.Npcs[0];
+            s.Player.Position = new Mmorpg.Core.Common.Vec2(npc.X + 1.0, npc.Z);
+            Assert.IsNotNull(s.NearbyMerchant());
+            Assert.AreEqual(ShopResult.Ok, s.BuyItem("mercador_do_vale", "loja_sword_t1", 1));
+            Assert.AreEqual(1, pc.Inventory.CountOf("loja_sword_t1"));
+
+            s.Player.Position = new Mmorpg.Core.Common.Vec2(npc.X + npc.InteractRange + 5.0, npc.Z);
+            Assert.AreEqual(ShopResult.TooFar, s.SellItem(0, 1));
+        }
     }
 }

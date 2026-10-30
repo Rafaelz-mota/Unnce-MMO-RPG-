@@ -458,6 +458,23 @@ def main():
                 err(w, "obstáculo fora dos limites: %s" % o)
             if ((o["x"] - sp["x"]) ** 2 + (o["z"] - sp["z"]) ** 2) ** 0.5 < o["radius"] + 1.0:
                 err(w, "obstáculo sobre o ponto de nascimento")
+        npc_ids = set()
+        for n in r.get("npcs", []):
+            nw = w + " npc " + str(n.get("id"))
+            if not n.get("id") or n["id"] in npc_ids:
+                err(w, "npc sem id ou repetido: %r" % n.get("id"))
+            npc_ids.add(n.get("id"))
+            if n.get("role") != "merchant":
+                err(nw, "role inválido %r" % n.get("role"))
+            if n.get("role") == "merchant" and n.get("shopId") not in shops:
+                err(nw, "loja inexistente %r" % n.get("shopId"))
+            if n.get("interactRange", 0) <= 0:
+                err(nw, "interactRange deve ser > 0")
+            if not (b["minX"] <= n["x"] <= b["maxX"] and b["minZ"] <= n["z"] <= b["maxZ"]):
+                err(nw, "fora dos limites")
+            for o in r["obstacles"]:
+                if ((o["x"] - n["x"]) ** 2 + (o["z"] - n["z"]) ** 2) ** 0.5 < o["radius"] + 1.0:
+                    err(nw, "sobre um obstáculo")
 
     # resumo / pendências
     print("Resumo: %d classes | %d/%d habilidades de classe | %d habilidades de monstros | %d itens | %d monstros | %d/%d regiões implementadas" % (

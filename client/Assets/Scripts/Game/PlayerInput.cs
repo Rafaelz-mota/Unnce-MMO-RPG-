@@ -153,7 +153,7 @@ namespace Mmorpg.Game
 
             if (Input.GetKeyDown(KeyCode.Tab)) _session.CycleTarget();
             if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.I)) _hud.ToggleInventory();
-            if (Input.GetKeyDown(KeyCode.P)) _hud.ToggleShop();
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.E)) _hud.ToggleShop();
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
