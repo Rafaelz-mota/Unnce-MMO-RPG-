@@ -57,6 +57,7 @@ namespace UnityEngine
     {
         public float x, y;
         public Vector2(float x, float y) { this.x = x; this.y = y; }
+        public static Vector2 zero { get { return new Vector2(0f, 0f); } }
         public float magnitude { get { return 0f; } }
         public static Vector2 operator -(Vector2 a, Vector2 b) { return a; }
         public static float Distance(Vector2 a, Vector2 b) { return 0f; }
@@ -199,7 +200,7 @@ namespace UnityEngine
     }
 
     // ------------------------------------------------------------------ entrada
-    public enum KeyCode { None, Tab, Escape, F2, UpArrow, DownArrow, RightArrow, LeftArrow, Alpha1, Alpha2, Alpha3, Alpha4, Alpha5, Alpha6, Alpha7, Alpha8, Alpha9, A, B, D, I, S, W }
+    public enum KeyCode { None, Tab, Escape, F2, UpArrow, DownArrow, RightArrow, LeftArrow, Alpha1, Alpha2, Alpha3, Alpha4, Alpha5, Alpha6, Alpha7, Alpha8, Alpha9, A, B, D, I, P, S, W }
     public enum TouchPhase { Began, Moved, Stationary, Ended, Canceled }
     public struct Touch { public int fingerId; public Vector2 position; public TouchPhase phase; }
     public static class Input
