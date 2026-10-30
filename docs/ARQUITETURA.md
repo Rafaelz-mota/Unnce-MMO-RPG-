@@ -97,7 +97,7 @@ passam, camada Unity compila contra stubs.
 
 | Item | Estado |
 |---|---|
-| Habilidades de classe | 28 de 216 (guerreiro, mago, sacerdote, arqueiro, assassino e bruxo, parciais). 18 classes sem nenhuma habilidade |
+| Habilidades de classe | 216 de 216 escritas (9 por classe, nomes únicos, 5 gratuitas e 4 pagas) usando só os efeitos existentes. Faltam invocação real, efeitos de grupo e balanceamento por jogo: invocador, necromante, domador de feras e bardo têm kits sem invocações por enquanto. Só o kit do mago tem testes de comportamento por habilidade |
 | Tipos de efeito ausentes | Invocações (e seu limite) e grupo/party. Já existem: buffs de atributo (status `war_cry`, só 1 exemplo), tabela de ameaça, controles e provocação (`taunt`, só contra monstros; 1 habilidade: Desafio do Campeão) |
 | Regiões | 1 de 8 implementada; chefes das outras 7 não existem |
 | Monstros | Categorias lendário e único existem nos dados mas sem criaturas; modificadores (Ígneo, Glacial etc.) não existem; surgimento no mundo aberto por evento não existe |
@@ -114,4 +114,4 @@ passam, camada Unity compila contra stubs.
 3. Adicionar os tipos de efeito ausentes (invocação com limite e grupo) antes de escrever mais habilidades,
    já que várias classes (invocador, necromante, domador de feras, bardo) dependem deles.
 4. Criar `server/` com um host .NET que reutilize o núcleo e receba os comandos de `GameSession` como mensagens.
-5. Completar as habilidades classe a classe (9 por vez), com testes por habilidade.
+5. Testar o comportamento de cada kit (hoje só mago e regras gerais) e balancear no jogo.

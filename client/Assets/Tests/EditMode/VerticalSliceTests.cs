@@ -79,6 +79,29 @@ namespace Mmorpg.Core.Tests
         }
 
         [Test]
+        public void EveryClass_HasNineDistinctSkills_WithFiveFreeAndFourPaid()
+        {
+            GameData data = TestData.Fresh();
+            var allNames = new System.Collections.Generic.HashSet<string>();
+            foreach (ClassDef cls in data.Classes.Values)
+            {
+                var sk = new System.Collections.Generic.List<SkillDef>();
+                foreach (string id in cls.SkillIds) sk.Add(data.Skills[id]);
+                Assert.AreEqual(9, sk.Count, cls.Id);
+                var elements = new System.Collections.Generic.HashSet<string>();
+                var shapes = new System.Collections.Generic.HashSet<string>();
+                foreach (SkillDef x in sk)
+                {
+                    Assert.IsTrue(allNames.Add(x.Name), "nome repetido: " + x.Name);
+                    Assert.AreEqual(x.Slot <= 5, x.GoldCost == 0, x.Id);
+                    elements.Add(x.Element);
+                    shapes.Add(x.Targeting + "/" + x.Effects.Count + "/" + x.Type);
+                }
+                Assert.GreaterOrEqual(shapes.Count, 4, cls.Id + " tem habilidades parecidas demais");
+            }
+        }
+
+        [Test]
         public void Start_RejectsNullArguments()
         {
             GameData data = TestData.Fresh();

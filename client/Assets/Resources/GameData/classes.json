@@ -39,7 +39,9 @@
         "guerreiro_golpe_giratorio",
         "guerreiro_impacto_atordoante",
         "guerreiro_muralha_de_aco",
-        "guerreiro_desafio_do_campeao"
+        "guerreiro_desafio_do_campeao",
+        "guerreiro_lamina_executora",
+        "guerreiro_avatar_da_guerra"
       ],
       "description": "Combatente de linha de frente, resistente e versátil."
     },
@@ -71,7 +73,17 @@
         "spear"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "guardiao_pancada_de_escudo",
+        "guardiao_postura_de_pedra",
+        "guardiao_brado_de_ameaca",
+        "guardiao_retaliacao",
+        "guardiao_muralha_viva",
+        "guardiao_terremoto_de_escudo",
+        "guardiao_corrente_prendedora",
+        "guardiao_baluarte_inabalavel",
+        "guardiao_ultimo_bastiao"
+      ],
       "description": "Protetor que absorve dano e mantém inimigos sob controle."
     },
     {
@@ -103,7 +115,17 @@
         "scepter"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "paladino_golpe_sagrado",
+        "paladino_mao_curativa",
+        "paladino_aura_de_devocao",
+        "paladino_martelo_da_justica",
+        "paladino_consagracao",
+        "paladino_escudo_da_fe",
+        "paladino_colera_divina",
+        "paladino_bencao_do_guardiao",
+        "paladino_intervencao_divina"
+      ],
       "description": "Guerreiro sagrado que combina proteção e cura."
     },
     {
@@ -133,7 +155,17 @@
         "staff"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "monge_punho_veloz",
+        "monge_chute_giratorio",
+        "monge_palma_da_brisa",
+        "monge_postura_da_garca",
+        "monge_golpe_do_ponto_vital",
+        "monge_mil_punhos",
+        "monge_onda_de_chi",
+        "monge_meditacao_serena",
+        "monge_dragao_ascendente"
+      ],
       "description": "Lutador ágil de golpes rápidos e disciplina interior."
     },
     {
@@ -162,7 +194,17 @@
         "spear"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "lanceiro_estocada",
+        "lanceiro_investida_de_lanca",
+        "lanceiro_varredura",
+        "lanceiro_postura_de_guarda",
+        "lanceiro_lanca_arremessada",
+        "lanceiro_perfurar_armadura",
+        "lanceiro_muralha_de_pontas",
+        "lanceiro_salto_do_dragao",
+        "lanceiro_chuva_de_lancas"
+      ],
       "description": "Combatente de alcance estendido e investidas precisas."
     },
     {
@@ -197,7 +239,12 @@
         "arqueiro_tiro_preciso",
         "arqueiro_chuva_de_flechas",
         "arqueiro_tiro_enfraquecedor",
-        "arqueiro_salto_agil"
+        "arqueiro_salto_agil",
+        "arqueiro_flecha_perfurante",
+        "arqueiro_armadilha_de_espinhos",
+        "arqueiro_olhar_de_aguia",
+        "arqueiro_saraivada",
+        "arqueiro_tiro_do_cacador_de_titas"
       ],
       "description": "Atirador de longa distância com mobilidade."
     },
@@ -229,7 +276,17 @@
         "wrench"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "engenheiro_disparo_de_besta",
+        "engenheiro_granada",
+        "engenheiro_rede_de_cabos",
+        "engenheiro_escudo_portatil",
+        "engenheiro_bomba_de_fumaca",
+        "engenheiro_missil_teleguiado",
+        "engenheiro_sobrecarga",
+        "engenheiro_carga_de_demolicao",
+        "engenheiro_bombardeio_de_artilharia"
+      ],
       "description": "Inventor de engenhocas, armadilhas e torres."
     },
     {
@@ -302,7 +359,17 @@
         "wand"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "mago_runico_runa_de_fogo",
+        "mago_runico_runa_de_gelo",
+        "mago_runico_circulo_runico",
+        "mago_runico_glifo_de_protecao",
+        "mago_runico_runa_do_silencio",
+        "mago_runico_explosao_de_runas",
+        "mago_runico_selo_da_lentidao",
+        "mago_runico_tempestade_runica",
+        "mago_runico_palavra_de_poder"
+      ],
       "description": "Gravador de runas que prende e pune adversários."
     },
     {
@@ -339,7 +406,11 @@
         "sacerdote_raio_sagrado",
         "sacerdote_nova_de_cura",
         "sacerdote_regeneracao",
-        "sacerdote_barreira_sagrada"
+        "sacerdote_barreira_sagrada",
+        "sacerdote_coluna_de_luz",
+        "sacerdote_purificacao",
+        "sacerdote_julgamento_divino",
+        "sacerdote_milagre"
       ],
       "description": "Curandeiro devoto, sustenta o grupo com luz."
     },
@@ -370,7 +441,17 @@
         "dagger"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "bardo_nota_cortante",
+        "bardo_cancao_de_coragem",
+        "bardo_melodia_de_cura",
+        "bardo_acorde_dissonante",
+        "bardo_ritmo_acelerado",
+        "bardo_balada_sonifera",
+        "bardo_hino_de_protecao",
+        "bardo_crescendo",
+        "bardo_sinfonia_final"
+      ],
       "description": "Músico que fortalece aliados e enfraquece inimigos."
     },
     {
@@ -401,7 +482,17 @@
         "scepter"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "druida_espinho_verde",
+        "druida_raizes_prendedoras",
+        "druida_broto_curativo",
+        "druida_enxame_de_insetos",
+        "druida_casca_de_arvore",
+        "druida_chuva_revigorante",
+        "druida_tempestade_de_espinhos",
+        "druida_floracao",
+        "druida_ira_da_floresta"
+      ],
       "description": "Guardião da natureza, cura e controla com raízes."
     },
     {
@@ -433,7 +524,17 @@
         "mace"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "cavaleiro_da_morte_golpe_gelido",
+        "cavaleiro_da_morte_corrente_sombria",
+        "cavaleiro_da_morte_aura_de_gelo",
+        "cavaleiro_da_morte_dreno_runico",
+        "cavaleiro_da_morte_escudo_de_ossos",
+        "cavaleiro_da_morte_provocacao_funebre",
+        "cavaleiro_da_morte_marcha_da_morte",
+        "cavaleiro_da_morte_armadura_runica",
+        "cavaleiro_da_morte_apocalipse_gelido"
+      ],
       "description": "Campeão sombrio que drena a vida dos inimigos."
     },
     {
@@ -464,7 +565,17 @@
         "sword"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "berserker_machadada",
+        "berserker_golpe_selvagem",
+        "berserker_rugido_barbaro",
+        "berserker_sede_de_sangue",
+        "berserker_salto_selvagem",
+        "berserker_turbilhao_de_aco",
+        "berserker_carne_dura",
+        "berserker_massacre",
+        "berserker_furia_ancestral"
+      ],
       "description": "Guerreiro furioso, quanto mais ferido mais perigoso."
     },
     {
@@ -498,7 +609,13 @@
       "skillIds": [
         "assassino_corte_rapido",
         "assassino_golpe_sangrento",
-        "assassino_passo_sombrio"
+        "assassino_passo_sombrio",
+        "assassino_veneno_mortal",
+        "assassino_laminas_giratorias",
+        "assassino_cortina_de_fumaca",
+        "assassino_execucao_sombria",
+        "assassino_danca_das_sombras",
+        "assassino_mil_cortes"
       ],
       "description": "Mestre de golpes rápidos, veneno e emboscadas."
     },
@@ -530,7 +647,17 @@
         "sword"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "lamina_sombria_corte_sombrio",
+        "lamina_sombria_estocada_paralisante",
+        "lamina_sombria_veu_de_sombra",
+        "lamina_sombria_golpe_cego",
+        "lamina_sombria_passo_fantasma",
+        "lamina_sombria_lamina_dupla",
+        "lamina_sombria_armadilha_sombria",
+        "lamina_sombria_eclipse",
+        "lamina_sombria_execucao_eclipsada"
+      ],
       "description": "Duelista das sombras, alterna mobilidade e dano."
     },
     {
@@ -560,7 +687,17 @@
         "pistol"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "atirador_tiro_de_rifle",
+        "atirador_rajada",
+        "atirador_tiro_na_perna",
+        "atirador_granada_de_choque",
+        "atirador_esquiva_rolada",
+        "atirador_tiro_perfurante",
+        "atirador_chuva_de_balas",
+        "atirador_municao_incendiaria",
+        "atirador_tiro_final"
+      ],
       "description": "Franco-atirador de pólvora e precisão."
     },
     {
@@ -591,7 +728,17 @@
         "whip"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "domador_de_feras_tiro_de_caca",
+        "domador_de_feras_chicote_estalante",
+        "domador_de_feras_grito_da_matilha",
+        "domador_de_feras_isca_fedorenta",
+        "domador_de_feras_armadilha_de_urso",
+        "domador_de_feras_disparo_venenoso",
+        "domador_de_feras_instinto_primal",
+        "domador_de_feras_estouro_da_manada",
+        "domador_de_feras_furia_da_natureza"
+      ],
       "description": "Caçador que luta ao lado de companheiros selvagens."
     },
     {
@@ -626,7 +773,13 @@
       "skillIds": [
         "bruxo_seta_sombria",
         "bruxo_corrupcao",
-        "bruxo_drenar_vida"
+        "bruxo_drenar_vida",
+        "bruxo_maldicao_da_fraqueza",
+        "bruxo_pacto_sombrio",
+        "bruxo_chuva_de_cinzas_negras",
+        "bruxo_grilhoes_das_trevas",
+        "bruxo_fome_insaciavel",
+        "bruxo_colapso_do_vazio"
       ],
       "description": "Conjurador de maldições e dano ao longo do tempo."
     },
@@ -658,7 +811,17 @@
         "scythe"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "necromante_raio_necrotico",
+        "necromante_praga",
+        "necromante_maldicao_do_declinio",
+        "necromante_drenar_alma",
+        "necromante_nuvem_putrida",
+        "necromante_armadura_de_ossos",
+        "necromante_explosao_de_cadaveres",
+        "necromante_aura_da_podridao",
+        "necromante_ceifa_em_massa"
+      ],
       "description": "Comanda os mortos e drena a energia vital."
     },
     {
@@ -689,7 +852,17 @@
         "staff"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "ilusionista_faisca_ilusoria",
+        "ilusionista_miragem",
+        "ilusionista_espelho_de_luz",
+        "ilusionista_confusao",
+        "ilusionista_ofuscar",
+        "ilusionista_passo_etereo",
+        "ilusionista_pesadelo",
+        "ilusionista_ilusao_mortal",
+        "ilusionista_realidade_distorcida"
+      ],
       "description": "Engana os sentidos e controla o campo de batalha."
     },
     {
@@ -720,7 +893,17 @@
         "scepter"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "invocador_orbe_espiritual",
+        "invocador_pacto_elemental",
+        "invocador_selo_do_vinculo",
+        "invocador_chamas_espirituais",
+        "invocador_barreira_espiritual",
+        "invocador_rajada_astral",
+        "invocador_fenda_astral",
+        "invocador_ressonancia_arcana",
+        "invocador_cataclismo_astral"
+      ],
       "description": "Chama criaturas de outros planos para lutar."
     },
     {
@@ -750,7 +933,17 @@
         "scepter"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "clerigo_chama_sombria",
+        "clerigo_cura_sombria",
+        "clerigo_bencao_profana",
+        "clerigo_punicao",
+        "clerigo_escudo_da_penumbra",
+        "clerigo_onda_de_vida",
+        "clerigo_maldicao_sagrada",
+        "clerigo_comunhao_sombria",
+        "clerigo_jubilo_obscuro"
+      ],
       "description": "Curandeiro resistente que luta na linha de apoio."
     },
     {
@@ -781,7 +974,17 @@
         "wand"
       ],
       "startingItems": [],
-      "skillIds": [],
+      "skillIds": [
+        "alquimista_frasco_corrosivo",
+        "alquimista_pocao_de_cura",
+        "alquimista_elixir_de_velocidade",
+        "alquimista_bomba_de_acido",
+        "alquimista_nevoa_toxica",
+        "alquimista_elixir_de_pedra",
+        "alquimista_explosao_alquimica",
+        "alquimista_pocao_da_furia",
+        "alquimista_grande_obra"
+      ],
       "description": "Mistura poções, ácidos e elixires de combate."
     }
   ]
