@@ -213,5 +213,44 @@ namespace Mmorpg.Core.Tests
             Assert.IsNotNull(EventLog.Describe(UseSkillResult.NoTarget));
             Assert.IsNotNull(EventLog.Describe(UseSkillResult.OnCooldown));
         }
+
+        [Test]
+        public void TargetLock_KeepsTheTarget_UntilUnlockedSwitchedOrDead()
+        {
+            GameData data = TestData.Fresh();
+            PlayerCharacter pc = PlayerCharacter.CreateNew(data, "Heroi", "arqueiro");
+            var s = GameSession.Start(data, pc, "vale_do_despertar", new Mmorpg.Core.Common.SystemRng(4), null);
+            var def = data.Monsters["broto_ancestral"];
+            def.AggroRange = 0;
+            def.MoveSpeed = 0;
+            def.HpMultiplier = 1000;
+            Combatant a = s.Sim.World.AddMonster(def, new Mmorpg.Core.Common.Vec2(s.Player.Position.X, s.Player.Position.Z + 8), null);
+            Combatant b = s.Sim.World.AddMonster(def, new Mmorpg.Core.Common.Vec2(s.Player.Position.X, s.Player.Position.Z + 12), null);
+
+            s.SelectTarget(b.Id);
+            Assert.IsTrue(s.LockTarget());
+            Assert.IsTrue(s.TargetLocked);
+            Assert.AreEqual(b.Id, s.SelectedTargetId);
+
+            s.SelectTarget(0);                       // clique em nada não solta a mira
+            Assert.AreEqual(b.Id, s.SelectedTargetId);
+            s.ClearTarget();                         // primeiro comando só destrava
+            Assert.IsFalse(s.TargetLocked);
+            Assert.AreEqual(b.Id, s.SelectedTargetId);
+
+            s.LockTarget();
+            s.SelectTarget(a.Id);                    // trocar de propósito move a trava
+            Assert.IsTrue(s.TargetLocked);
+            Assert.AreEqual(a.Id, s.SelectedTargetId);
+
+            s.UseSkill("arqueiro_tiro_preciso");     // usa o alvo travado, mesmo havendo outro mais perto/longe
+            s.Tick(0.05);
+            Assert.AreEqual(a.Id, s.SelectedTargetId);
+
+            a.Dead = true;                           // morreu: destrava
+            s.Tick(0.05);
+            Assert.IsFalse(s.TargetLocked);
+            Assert.AreEqual(0, s.SelectedTargetId);
+        }
     }
 }

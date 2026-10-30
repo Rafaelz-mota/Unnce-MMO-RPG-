@@ -101,7 +101,19 @@ namespace Mmorpg.Core.Session
             }
             if (_events.Count > 512) _events.RemoveRange(0, _events.Count - 512);
 
-            if (SelectedTargetId != 0 && !TargetSelector.IsValid(Sim.World, Player, SelectedTargetId)) SelectedTargetId = 0;
+            if (SelectedTargetId != 0 && !TargetSelector.IsValid(Sim.World, Player, SelectedTargetId))
+            {
+                SelectedTargetId = 0;
+                if (TargetLocked) { TargetLocked = false; AddLog("O alvo travado saiu de combate."); }
+            }
+            else if (TargetLocked && SelectedTargetId != 0 &&
+                     Vec2.Distance(Player.Position, Sim.World.Get(SelectedTargetId).Position) > LockBreakRange)
+            {
+                SelectedTargetId = 0;
+                TargetLocked = false;
+                AddLog("O alvo ficou longe demais: mira solta.");
+            }
+            else if (SelectedTargetId == 0 && TargetLocked) TargetLocked = false;
 
             if (leveled) Save();
             else if (AutosaveSeconds > 0 && Sim.World.Time - _lastAutosave >= AutosaveSeconds) Save();
@@ -126,12 +138,51 @@ namespace Mmorpg.Core.Session
             Sim.World.SetMoveIntent(Player, worldDirection.X, worldDirection.Z);
         }
 
+        /// <summary>Mira travada: o alvo fica fixo até você destravar, trocar de alvo de propósito, ele morrer ou ficar longe demais.</summary>
+        public bool TargetLocked { get; private set; }
+
+        /// <summary>Distância (m) a partir da qual uma mira travada é solta sozinha.</summary>
+        public double LockBreakRange = 70.0;
+
         public void SelectTarget(int id)
         {
-            SelectedTargetId = TargetSelector.IsValid(Sim.World, Player, id) ? id : 0;
+            bool valid = TargetSelector.IsValid(Sim.World, Player, id);
+            if (valid) SelectedTargetId = id;               // trocar de alvo de propósito mantém o travamento no novo alvo
+            else if (!TargetLocked) SelectedTargetId = 0;   // clique em algo inválido não solta uma mira travada
         }
 
-        public void ClearTarget() { SelectedTargetId = 0; }
+        /// <summary>Limpa o alvo. Com a mira travada, apenas destrava (um segundo comando limpa).</summary>
+        public void ClearTarget()
+        {
+            if (TargetLocked) { UnlockTarget(); return; }
+            SelectedTargetId = 0;
+        }
+
+        /// <summary>Trava a mira no alvo selecionado (ou, sem alvo, no inimigo mais próximo).</summary>
+        public bool LockTarget()
+        {
+            if (!TargetSelector.IsValid(Sim.World, Player, SelectedTargetId))
+            {
+                Combatant near = TargetSelector.Nearest(Sim.World, Player, TabTargetRange);
+                if (near == null) { Notify("Selecione um monstro para travar a mira."); return false; }
+                SelectedTargetId = near.Id;
+            }
+            TargetLocked = true;
+            Notify("Mira travada em " + SelectedTarget.Name + ".");
+            return true;
+        }
+
+        public void UnlockTarget()
+        {
+            if (!TargetLocked) return;
+            TargetLocked = false;
+            Notify("Mira destravada.");
+        }
+
+        public void ToggleTargetLock()
+        {
+            if (TargetLocked) UnlockTarget(); else LockTarget();
+        }
 
         /// <summary>Tab: próximo inimigo válido, do mais perto ao mais longe. Devolve o id escolhido (0 se não há).</summary>
         public int CycleTarget()

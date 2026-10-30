@@ -282,6 +282,16 @@ namespace Mmorpg.Game
             string tag = t.Category != null && !string.IsNullOrEmpty(t.Category.Tag) ? " " + t.Category.Tag : "";
             Text(new Rect(x, y, width, 22f * k), t.Name + "  -  Nv " + t.Level + tag, Conv.Hex(t.Category != null ? t.Category.ColorHex : null, Color.white), TextAnchor.MiddleCenter);
             Bar(new Rect(x, y + 24f * k, width, h), (float)(t.Hp / Math.Max(1.0, t.MaxHp)), new Color(0.85f, 0.3f, 0.2f), ((long)Math.Ceiling(t.Hp)) + " / " + ((long)t.MaxHp));
+
+            // botão de travar/destravar a mira (funciona por toque, mouse ou tecla T)
+            bool locked = _session.TargetLocked;
+            Rect lockBtn = new Rect(x, y + 24f * k + h + 6f * k, width, 28f * k);
+            RegisterUi(new Rect(lockBtn.x - 2, lockBtn.y - 2, lockBtn.width + 4, lockBtn.height + 4));
+            Color old = GUI.backgroundColor;
+            GUI.backgroundColor = locked ? new Color(1f, 0.35f, 0.3f) : Color.white;
+            if (GUI.Button(lockBtn, locked ? "MIRA TRAVADA - toque para destravar [T]" : "Travar mira neste alvo [T]", _button))
+                _session.ToggleTargetLock();
+            GUI.backgroundColor = old;
         }
 
         private void DrawXpBar(float k)
@@ -309,6 +319,8 @@ namespace Mmorpg.Game
                 float gy = Screen.height - sp.y;
                 float width = 70f * k;
                 string tag = c.Category != null && !string.IsNullOrEmpty(c.Category.Tag) ? " " + c.Category.Tag : "";
+                if (c.Id == _session.SelectedTargetId)
+                    Text(new Rect(sp.x - 90f * k, gy - 42f * k, 180f * k, 18f * k), _session.TargetLocked ? "[ TRAVADO ]" : "v", _session.TargetLocked ? new Color(1f, 0.3f, 0.25f) : Color.white, TextAnchor.MiddleCenter);
                 Text(new Rect(sp.x - 90f * k, gy - 22f * k, 180f * k, 18f * k), c.Name + " " + c.Level + tag, Conv.Hex(c.Category != null ? c.Category.ColorHex : null, Color.white), TextAnchor.MiddleCenter);
                 Bar(new Rect(sp.x - width * 0.5f, gy - 4f * k, width, 7f * k), (float)(c.Hp / Math.Max(1.0, c.MaxHp)), new Color(0.85f, 0.2f, 0.15f), null);
             }
