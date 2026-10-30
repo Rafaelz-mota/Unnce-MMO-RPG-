@@ -858,9 +858,19 @@
           },
           "chance": 1.0,
           "damageType": "magic"
+        },
+        {
+          "kind": "applyStatus",
+          "side": "ally",
+          "statusId": "warded",
+          "duration": 10,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         }
       ],
-      "description": "Protege um aliado com uma barreira.",
+      "description": "Escudo que absorve dano e protege contra magia por 10s.",
       "animation": "anim_sacerdote_barreira_sagrada",
       "vfx": "vfx_sacerdote_barreira_sagrada",
       "sfx": "sfx_sacerdote_barreira_sagrada",
@@ -1875,25 +1885,32 @@
           "scaling": {
             "magicAttack": 1.52
           }
+        },
+        {
+          "kind": "cleanse",
+          "side": "ally",
+          "count": 1,
+          "base": 0,
+          "scaling": {}
         }
       ],
-      "description": "Uma coluna sagrada cura todos os aliados próximos.",
+      "description": "Coluna de luz que cura os aliados na área e remove um efeito nocivo.",
       "element": "light",
       "animation": "anim_sacerdote_coluna_de_luz",
       "vfx": "vfx_sacerdote_coluna_de_luz",
       "sfx": "sfx_sacerdote_coluna_de_luz"
     },
     {
-      "id": "sacerdote_purificacao",
-      "name": "Purificação",
+      "id": "sacerdote_sentenca_sagrada",
+      "name": "Sentença Sagrada",
       "ownerType": "class",
       "ownerId": "sacerdote",
       "slot": 7,
       "goldCost": 20000,
       "requiresLevel": 18,
-      "type": "heal",
-      "targeting": "ally",
-      "range": 20,
+      "type": "debuff",
+      "targeting": "enemy",
+      "range": 22,
       "radius": 0,
       "maxTargets": 1,
       "cooldown": 36,
@@ -1904,29 +1921,31 @@
       "pvpMultiplier": 1.0,
       "effects": [
         {
-          "kind": "heal",
-          "side": "ally",
-          "base": 35,
-          "scaling": {
-            "magicAttack": 1.8
-          }
+          "kind": "applyStatus",
+          "side": "enemy",
+          "statusId": "weakened",
+          "duration": 10,
+          "chance": 1.0,
+          "base": 0,
+          "scaling": {},
+          "damageType": "magic"
         },
         {
           "kind": "applyStatus",
-          "side": "ally",
-          "statusId": "warded",
-          "duration": 8,
+          "side": "enemy",
+          "statusId": "vulnerable",
+          "duration": 10,
           "chance": 1.0,
           "base": 0,
           "scaling": {},
           "damageType": "magic"
         }
       ],
-      "description": "Cura o aliado e o protege contra magia.",
+      "description": "Condena o alvo: ele causa menos dano e recebe mais dano por 10s.",
       "element": "light",
-      "animation": "anim_sacerdote_purificacao",
-      "vfx": "vfx_sacerdote_purificacao",
-      "sfx": "sfx_sacerdote_purificacao"
+      "animation": "anim_sacerdote_sentenca_sagrada",
+      "vfx": "vfx_sacerdote_sentenca_sagrada",
+      "sfx": "sfx_sacerdote_sentenca_sagrada"
     },
     {
       "id": "sacerdote_julgamento_divino",

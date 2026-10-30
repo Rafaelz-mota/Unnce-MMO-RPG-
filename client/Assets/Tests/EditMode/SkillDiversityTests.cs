@@ -119,5 +119,19 @@ namespace Mmorpg.Core.Tests
             t.Step(1.5);
             Assert.IsFalse(ally.Statuses.Any(s => s.Def.Id == "crippled"), "efeito nocivo removido");
         }
+
+        [Test]
+        public void Sacerdote_HasDamageHealBuffDebuffAndAreaHeal()
+        {
+            var t = new TestWorld();
+            var sk = t.Data.Skills.Values.Where(s => s.OwnerType == SkillOwner.Class && s.OwnerId == "sacerdote").ToList();
+            Assert.IsTrue(sk.Any(s => s.Effects.Any(e => e.Kind == EffectKind.Damage)), "dano");
+            Assert.IsTrue(sk.Any(s => s.Targeting == Targeting.Ally && s.Effects.Any(e => e.Kind == EffectKind.Heal)), "cura");
+            Assert.IsTrue(sk.Any(s => s.Targeting == Targeting.SelfArea && s.Effects.Any(e => e.Kind == EffectKind.Heal)), "cura em área");
+            Assert.IsTrue(sk.Any(s => s.Effects.Any(e => e.ResolvedSide() == EffectSide.Ally && e.Kind == EffectKind.ApplyStatus &&
+                t.Data.Statuses[e.StatusId].Kind == StatusKind.Buff)), "buff");
+            Assert.IsTrue(sk.Any(s => s.Effects.Any(e => e.ResolvedSide() == EffectSide.Enemy && e.Kind == EffectKind.ApplyStatus &&
+                t.Data.Statuses[e.StatusId].Kind == StatusKind.Debuff)), "debuff");
+        }
     }
 }
