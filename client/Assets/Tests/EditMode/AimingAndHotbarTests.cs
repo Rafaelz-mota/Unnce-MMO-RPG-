@@ -219,7 +219,7 @@ namespace Mmorpg.Core.Tests
         {
             GameData data = TestData.Fresh();
             PlayerCharacter pc = PlayerCharacter.CreateNew(data, "Heroi", "arqueiro");
-            var s = GameSession.Start(data, pc, "vale_do_despertar", new Mmorpg.Core.Common.SystemRng(4), null);
+            var s = Mmorpg.Core.Session.GameSession.Start(data, pc, "vale_do_despertar", new Mmorpg.Core.Common.SystemRng(4), null);
             var def = data.Monsters["broto_ancestral"];
             def.AggroRange = 0;
             def.MoveSpeed = 0;
