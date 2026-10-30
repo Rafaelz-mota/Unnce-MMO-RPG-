@@ -115,11 +115,9 @@ namespace Mmorpg.Core.Tests
         [Test]
         public void UseHotbarSlot_OutOfRangeOrEmpty_IsRefusedWithAMessage()
         {
-            GameSession s = NewSession("guardiao", 1); // classe ainda sem habilidades nos dados
+            GameSession s = NewSession("guardiao", 1);
             Assert.AreEqual(UseSkillResult.UnknownSkill, s.UseHotbarSlot(0));
             Assert.AreEqual(UseSkillResult.UnknownSkill, s.UseHotbarSlot(10));
-            Assert.AreEqual(UseSkillResult.UnknownSkill, s.UseHotbarSlot(1));
-            Assert.IsTrue(s.Log.Any(l => l.Contains("ainda não existe")), "deveria avisar que a habilidade não existe");
         }
 
         [Test]
@@ -289,7 +287,8 @@ namespace Mmorpg.Core.Tests
             Assert.AreEqual(500, s.Character.Gold);
             Assert.IsTrue(s.Character.IsSkillLearned(paid.Id));
             Assert.AreEqual(LearnSkillResult.AlreadyLearned, s.LearnSkill(6));
-            Assert.AreEqual(LearnSkillResult.UnknownSkill, s.LearnSkill(9), "o slot 9 do guerreiro ainda não existe nos dados");
+            Assert.AreEqual(LearnSkillResult.LevelTooLow, s.LearnSkill(9), "o slot 9 exige nível 40");
+            Assert.AreEqual(LearnSkillResult.UnknownSkill, s.LearnSkill(10), "não existe slot 10");
             Assert.IsTrue(s.Log.Any(l => l.Contains("aprendeu")));
         }
 

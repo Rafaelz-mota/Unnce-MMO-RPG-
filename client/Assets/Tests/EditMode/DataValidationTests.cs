@@ -42,12 +42,11 @@ namespace Mmorpg.Core.Tests
         }
 
         [Test]
-        public void RealData_IsValid_AndReportsPendingContentAsWarningsOnly()
+        public void RealData_IsValid_AndHasNoErrors()
         {
             LoadResult r = GameDataLoader.Load(TestData.Source());
             Assert.IsTrue(r.Success, r.Report.ToText());
             Assert.AreEqual(0, r.Report.ErrorCount);
-            Assert.Greater(r.Report.WarningCount, 0, "classes sem habilidades devem aparecer como aviso de progresso");
         }
 
         [Test]

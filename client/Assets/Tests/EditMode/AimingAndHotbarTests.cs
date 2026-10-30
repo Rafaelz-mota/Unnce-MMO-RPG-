@@ -148,7 +148,7 @@ namespace Mmorpg.Core.Tests
 
         // ------------------------------------------------------------ HotbarModel
         [Test]
-        public void Hotbar_ShowsReadyLockedAndEmptySlots_ForAClassWithPartialSkills()
+        public void Hotbar_ShowsReadyLockedAndEmptySlots_ForAFullKit()
         {
             GameData d = TestData.Fresh();
             PlayerCharacter pc = PlayerCharacter.CreateNew(d, "Rex", "guerreiro");
@@ -159,8 +159,8 @@ namespace Mmorpg.Core.Tests
             Assert.AreEqual(HotbarSlotState.Ready, bar[0].State);
             for (int i = 0; i < 5; i++) Assert.AreEqual(HotbarSlotState.Ready, bar[i].State, "as 5 primeiras são liberadas no nível 1");
             Assert.AreEqual(HotbarSlotState.LockedByLevel, bar[5].State, "paga, mas nível insuficiente");
-            Assert.AreEqual(HotbarSlotState.Empty, bar[8].State, "ainda não definida no catálogo");
-            Assert.IsNull(bar[8].Skill);
+            Assert.AreEqual(HotbarSlotState.LockedByLevel, bar[8].State, "slot 9 exige nível 40");
+            Assert.IsNotNull(bar[8].Skill);
         }
 
         [Test]
@@ -181,15 +181,6 @@ namespace Mmorpg.Core.Tests
             Assert.AreEqual(LearnSkillResult.Ok, pc.TryLearnSkill(paid.Skill.Id));
             Assert.AreEqual(HotbarSlotState.Ready, HotbarModel.Build(pc)[5].State);
             Assert.AreEqual(0, pc.Gold);
-        }
-
-        [Test]
-        public void Hotbar_ClassWithoutSkillsYet_ShowsOnlyEmptySlots()
-        {
-            GameData d = TestData.Fresh();
-            ClassDef none = d.Classes.Values.First(c => !d.Skills.Values.Any(s => s.OwnerType == SkillOwner.Class && s.OwnerId == c.Id));
-            PlayerCharacter pc = PlayerCharacter.CreateNew(d, "Novo", none.Id);
-            Assert.IsTrue(HotbarModel.Build(pc).All(s => s.State == HotbarSlotState.Empty));
         }
 
         // ------------------------------------------------------------ EventLog
