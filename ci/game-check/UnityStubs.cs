@@ -270,6 +270,7 @@ namespace UnityEngine
         public static Vector2 BeginScrollView(Rect position, Vector2 scrollPosition, Rect viewRect) { return scrollPosition; }
         public static void EndScrollView() { }
         public static bool enabled;
+        public static Color backgroundColor;
         public static string TextField(Rect r, string text, int maxLength) { return text; }
     }
 }
