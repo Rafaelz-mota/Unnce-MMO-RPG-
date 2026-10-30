@@ -266,6 +266,9 @@ namespace UnityEngine
         public static void DrawTexture(Rect r, Texture t) { }
         public static float HorizontalSlider(Rect r, float value, float left, float right) { return value; }
         public static bool Toggle(Rect r, bool value, string text, GUIStyle style) { return value; }
+        public static Vector2 BeginScrollView(Rect position, Vector2 scrollPosition, Rect viewRect) { return scrollPosition; }
+        public static void EndScrollView() { }
+        public static bool enabled;
         public static string TextField(Rect r, string text, int maxLength) { return text; }
     }
 }

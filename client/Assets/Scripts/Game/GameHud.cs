@@ -9,6 +9,7 @@ using Mmorpg.Core.Events;
 using Mmorpg.Core.Hotbar;
 using Mmorpg.Core.Items;
 using Mmorpg.Core.Session;
+using Mmorpg.Core.Shop;
 using UnityEngine;
 
 namespace Mmorpg.Game
@@ -47,6 +48,13 @@ namespace Mmorpg.Game
         private readonly StringBuilder _sb = new StringBuilder();
 
         private bool _inventoryOpen;
+        private bool _shopOpen;
+        private bool _shopSellMode;
+        private bool _shopOnlyMine = true;
+        private string _shopCategory = "weapon";
+        private Vector2 _shopScroll;
+        private static readonly string[] ShopCategories = { "weapon", "head", "chest", "legs", "feet", "necklace", "ring" };
+        private static readonly string[] ShopCategoryNames = { "Armas", "Elmos", "Peitorais", "Calças", "Botas", "Colares", "Anéis" };
         private bool _menuOpen;
 
         /// <summary>Modo teste: pedido para voltar à escolha de classe (tratado fora do desenho da tela).</summary>
@@ -80,13 +88,15 @@ namespace Mmorpg.Game
         }
 
         // ------------------------------------------------------------------ estado das janelas (usado pela entrada)
-        public bool AnyWindowOpen { get { return _inventoryOpen || _menuOpen; } }
+        public bool AnyWindowOpen { get { return _inventoryOpen || _menuOpen || _shopOpen; } }
 
-        public void ToggleInventory() { _inventoryOpen = !_inventoryOpen; if (_inventoryOpen) _menuOpen = false; }
+        public void ToggleInventory() { _inventoryOpen = !_inventoryOpen; if (_inventoryOpen) { _menuOpen = false; _shopOpen = false; } }
 
-        public void ToggleMenu() { _menuOpen = !_menuOpen; if (_menuOpen) _inventoryOpen = false; }
+        public void ToggleShop() { _shopOpen = !_shopOpen; if (_shopOpen) { _menuOpen = false; _inventoryOpen = false; } }
 
-        public void CloseWindows() { _inventoryOpen = false; _menuOpen = false; }
+        public void ToggleMenu() { _menuOpen = !_menuOpen; if (_menuOpen) { _inventoryOpen = false; _shopOpen = false; } }
+
+        public void CloseWindows() { _inventoryOpen = false; _menuOpen = false; _shopOpen = false; }
 
         /// <summary>True se o ponto (pixels, Y para cima) está sobre uma janela ou a barra de habilidades do HUD.</summary>
         public bool IsOverUi(Vector2 screenPosition)
@@ -165,6 +175,7 @@ namespace Mmorpg.Game
             DrawBanner(k);
             DrawDeath(k);
             if (_inventoryOpen) DrawInventory(k);
+            if (_shopOpen) DrawShop(k);
             if (_menuOpen) DrawMenu(k);
 
             if (!_input.InputAvailable)
@@ -505,8 +516,9 @@ namespace Mmorpg.Game
             GUI.Box(win, GUIContent.none);
 
             float pad = 10f * k, line = 24f * k;
-            Text(new Rect(win.x + pad, win.y + pad, w - 2 * pad - 90f * k, line), "Inventário  (" + (inv.Capacity - inv.FreeSlots) + "/" + inv.Capacity + ")   Ouro: " + pc.Gold, Color.white, TextAnchor.MiddleLeft);
+            Text(new Rect(win.x + pad, win.y + pad, w - 2 * pad - 180f * k, line), "Inventário  (" + (inv.Capacity - inv.FreeSlots) + "/" + inv.Capacity + ")   Ouro: " + pc.Gold, Color.white, TextAnchor.MiddleLeft);
             if (GUI.Button(new Rect(win.xMax - pad - 80f * k, win.y + pad, 80f * k, line), "Fechar", _button)) _inventoryOpen = false;
+            if (GUI.Button(new Rect(win.xMax - pad - 170f * k, win.y + pad, 84f * k, line), "Loja", _button)) { _inventoryOpen = false; _shopOpen = true; }
 
             // Equipamento (esquerda)
             float colW = 210f * k;
@@ -598,10 +610,142 @@ namespace Mmorpg.Game
             }
         }
 
+
+        // ------------------------------------------------------------------ loja
+        private void DrawShop(float k)
+        {
+            GameData data = _session.Data;
+            PlayerCharacter pc = _session.Character;
+            ShopDef shop;
+            if (!data.Shops.TryGetValue("mercador_do_vale", out shop)) { _shopOpen = false; return; }
+
+            float w = Mathf.Min(Screen.width - 20f, 700f * k), h = Mathf.Min(Screen.height - 20f, 480f * k);
+            Rect win = new Rect((Screen.width - w) * 0.5f, (Screen.height - h) * 0.5f, w, h);
+            Fill(win, new Color(0.05f, 0.05f, 0.08f, 0.96f));
+            RegisterUi(win);
+            GUI.Box(win, GUIContent.none);
+
+            float pad = 10f * k, line = 26f * k;
+            Text(new Rect(win.x + pad, win.y + pad, w - 2 * pad - 90f * k, line), shop.Name + "   Ouro: " + pc.Gold + "   Nv " + pc.Level, Color.white, TextAnchor.MiddleLeft);
+            if (GUI.Button(new Rect(win.xMax - pad - 80f * k, win.y + pad, 80f * k, line), "Fechar", _button)) _shopOpen = false;
+
+            float y = win.y + pad + line + 4f * k;
+            float half = (w - 2 * pad - 6f * k) * 0.5f;
+            if (GUI.Toggle(new Rect(win.x + pad, y, half, line), !_shopSellMode, " Comprar", _button)) _shopSellMode = false;
+            if (GUI.Toggle(new Rect(win.x + pad + half + 6f * k, y, half, line), _shopSellMode, " Vender", _button)) _shopSellMode = true;
+            y += line + 4f * k;
+
+            float listBottom = win.yMax - pad - 22f * k;
+            if (_shopSellMode) DrawShopSell(k, win, y, listBottom, pad, line);
+            else DrawShopBuy(k, shop, win, y, listBottom, pad, line);
+
+            Text(new Rect(win.x + pad, win.yMax - pad - 20f * k, w - 2 * pad, 20f * k),
+                "Preços e regras vêm de shops.json; compra e venda são validadas pelo núcleo.", new Color(0.6f, 0.6f, 0.6f), TextAnchor.MiddleLeft);
+        }
+
+        private void DrawShopBuy(float k, ShopDef shop, Rect win, float y, float listBottom, float pad, float line)
+        {
+            GameData data = _session.Data;
+            PlayerCharacter pc = _session.Character;
+            float w = win.width;
+
+            float tabW = (w - 2 * pad - (ShopCategories.Length - 1) * 3f * k) / ShopCategories.Length;
+            for (int i = 0; i < ShopCategories.Length; i++)
+                if (GUI.Toggle(new Rect(win.x + pad + i * (tabW + 3f * k), y, tabW, line), _shopCategory == ShopCategories[i], ShopCategoryNames[i], _button))
+                    if (_shopCategory != ShopCategories[i]) { _shopCategory = ShopCategories[i]; _shopScroll = Vector2.zero; }
+            y += line + 3f * k;
+            _shopOnlyMine = GUI.Toggle(new Rect(win.x + pad, y, w - 2 * pad, line), _shopOnlyMine, " Só itens que a minha classe pode usar", _button);
+            y += line + 3f * k;
+
+            var rows = new List<ShopEntryDef>();
+            for (int i = 0; i < shop.Stock.Count; i++)
+            {
+                ItemDef it = data.Items[shop.Stock[i].ItemId];
+                if (it.Slot != _shopCategory) continue;
+                if (_shopOnlyMine && ItemRules.CanEquip(data, pc.Class, data.Rules.MaxLevel, it) != EquipResult.Ok) continue;
+                rows.Add(shop.Stock[i]);
+            }
+            rows.Sort((a, b) =>
+            {
+                ItemDef x = data.Items[a.ItemId], z = data.Items[b.ItemId];
+                int c = x.RequiredLevel.CompareTo(z.RequiredLevel);
+                return c != 0 ? c : string.CompareOrdinal(x.Name, z.Name);
+            });
+
+            float rowH = 44f * k;
+            Rect view = new Rect(win.x + pad, y, w - 2 * pad, listBottom - y);
+            Rect content = new Rect(0, 0, view.width - 18f * k, rows.Count * rowH);
+            _shopScroll = GUI.BeginScrollView(view, _shopScroll, content);
+            float btnW = 130f * k;
+            for (int i = 0; i < rows.Count; i++)
+            {
+                ItemDef it = data.Items[rows[i].ItemId];
+                Rect r = new Rect(0, i * rowH, content.width, rowH - 3f * k);
+                Fill(r, new Color(0.14f, 0.14f, 0.19f, 0.95f));
+                _sb.Length = 0;
+                _sb.Append(it.Name).Append("  ").Append(RarityTag(it)).Append("   Nv ").Append(it.RequiredLevel);
+                if (!string.IsNullOrEmpty(it.WeaponType)) _sb.Append("   (").Append(it.WeaponType).Append(")");
+                _sb.Append("\n");
+                foreach (KeyValuePair<string, double> kv in it.Stats) _sb.Append(kv.Key).Append(" +").Append(kv.Value).Append("  ");
+                bool tooLow = pc.Level < it.RequiredLevel;
+                bool usable = ItemRules.CanEquip(data, pc.Class, data.Rules.MaxLevel, it) == EquipResult.Ok;
+                Color col = RarityColor(it);
+                if (!usable) col = new Color(col.r * 0.6f, col.g * 0.6f, col.b * 0.6f);
+                int old = _label.fontSize;
+                _label.fontSize = Mathf.RoundToInt(Mathf.Max(9f, 11f * k));
+                Text(new Rect(r.x + 4f * k, r.y, r.width - btnW - 8f * k, r.height), _sb.ToString(), col, TextAnchor.MiddleLeft);
+                _label.fontSize = old;
+                bool afford = pc.Gold >= rows[i].Price;
+                GUI.enabled = afford;
+                if (GUI.Button(new Rect(r.xMax - btnW - 2f * k, r.y + 3f * k, btnW, r.height - 6f * k),
+                    "Comprar\n" + rows[i].Price + (tooLow ? " (Nv " + it.RequiredLevel + ")" : ""), _button))
+                    _session.BuyItem(shop.Id, it.Id, 1);
+                GUI.enabled = true;
+            }
+            GUI.EndScrollView();
+            if (rows.Count == 0)
+                Text(new Rect(view.x, view.y, view.width, 30f * k), "Nenhum item nesta categoria para a sua classe.", new Color(0.7f, 0.7f, 0.7f), TextAnchor.MiddleLeft);
+        }
+
+        private void DrawShopSell(float k, Rect win, float y, float listBottom, float pad, float line)
+        {
+            GameData data = _session.Data;
+            Inventory inv = _session.Character.Inventory;
+            float w = win.width;
+            float rowH = 38f * k;
+            Rect view = new Rect(win.x + pad, y, w - 2 * pad, listBottom - y);
+            Rect content = new Rect(0, 0, view.width - 18f * k, inv.Capacity * rowH);
+            _shopScroll = GUI.BeginScrollView(view, _shopScroll, content);
+            float btnW = 130f * k;
+            int shown = 0;
+            for (int s = 0; s < inv.Capacity; s++)
+            {
+                ItemStack st = inv.Get(s);
+                if (st == null) continue;
+                ItemDef it = data.Items[st.ItemId];
+                Rect r = new Rect(0, shown * rowH, content.width, rowH - 3f * k);
+                shown++;
+                Fill(r, new Color(0.14f, 0.14f, 0.19f, 0.95f));
+                Text(new Rect(r.x + 4f * k, r.y, r.width - btnW - 8f * k, r.height),
+                    it.Name + " " + RarityTag(it) + (st.Count > 1 ? "  x" + st.Count : ""), RarityColor(it), TextAnchor.MiddleLeft);
+                GUI.enabled = it.Tradable && it.SellValue > 0;
+                if (GUI.Button(new Rect(r.xMax - btnW - 2f * k, r.y + 3f * k, btnW, r.height - 6f * k), "Vender\n" + it.SellValue, _button))
+                {
+                    _session.SellItem(s, 1);
+                    GUI.enabled = true;
+                    break;
+                }
+                GUI.enabled = true;
+            }
+            GUI.EndScrollView();
+            if (shown == 0)
+                Text(new Rect(view.x, view.y, view.width, 30f * k), "Seu inventário está vazio.", new Color(0.7f, 0.7f, 0.7f), TextAnchor.MiddleLeft);
+        }
+
         // ------------------------------------------------------------------ menu
         private void DrawMenu(float k)
         {
-            float w = Mathf.Min(Screen.width - 20f, 380f * k), h = 410f * k;
+            float w = Mathf.Min(Screen.width - 20f, 380f * k), h = 450f * k;
             Rect win = new Rect((Screen.width - w) * 0.5f, (Screen.height - h) * 0.5f, w, h);
             Fill(win, new Color(0.05f, 0.05f, 0.08f, 0.95f));
             RegisterUi(win);
@@ -625,6 +769,9 @@ namespace Mmorpg.Game
             y += line + 2f * k;
             _input.TouchMode = GUI.Toggle(new Rect(win.x + pad, y, w - 2 * pad, line), _input.TouchMode, " Controles de toque na tela", _button);
             y += line + 8f * k;
+
+            if (GUI.Button(new Rect(win.x + pad, y, w - 2 * pad, 32f * k), "Loja do Mercador", _button)) { _menuOpen = false; _shopOpen = true; }
+            y += 38f * k;
 
             if (_session.DevToolsEnabled)
             {
