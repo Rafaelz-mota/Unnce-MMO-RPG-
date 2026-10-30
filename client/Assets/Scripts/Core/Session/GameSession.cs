@@ -9,6 +9,7 @@ using Mmorpg.Core.Data;
 using Mmorpg.Core.Events;
 using Mmorpg.Core.Hotbar;
 using Mmorpg.Core.Items;
+using Mmorpg.Core.Shop;
 using Mmorpg.Core.Presentation;
 using Mmorpg.Core.World;
 
@@ -253,6 +254,27 @@ namespace Mmorpg.Core.Session
             EquipResult r = Character.Unequip(slot);
             if (r == EquipResult.Ok) Sim.World.RefreshPlayerStats(Player, false);
             else AddLog(DescribeEquip(r));
+            return r;
+        }
+
+        // ------------------------------------------------------------------ loja
+        public ShopResult BuyItem(string shopId, string itemId, int count)
+        {
+            long spent;
+            ShopResult r = ShopService.Buy(Data, Character, shopId, itemId, count, out spent);
+            AddLog(r == ShopResult.Ok
+                ? "Comprou " + Data.Items[itemId].Name + (count > 1 ? " x" + count : "") + " por " + spent + " de ouro."
+                : ShopService.Describe(r));
+            return r;
+        }
+
+        public ShopResult SellItem(int inventorySlot, int count)
+        {
+            var stack = Character.Inventory.Get(inventorySlot);
+            string name = stack != null ? Data.Items[stack.ItemId].Name : null;
+            long earned;
+            ShopResult r = ShopService.Sell(Data, Character, inventorySlot, count, out earned);
+            AddLog(r == ShopResult.Ok ? "Vendeu " + name + (count > 1 ? " x" + count : "") + " por " + earned + " de ouro." : ShopService.Describe(r));
             return r;
         }
 

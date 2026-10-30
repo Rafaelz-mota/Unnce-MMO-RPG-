@@ -50,7 +50,7 @@ namespace Mmorpg.Core.Tests
         {
             List<string> problems;
             PresentationCatalog c = Load(out problems);
-            var missing = TestData.Data().Items.Values.Where(i => !string.IsNullOrEmpty(i.Slot) && i.Slot != "accessory" && !c.HasCatalogEntry(i.Id)).Select(i => i.Id).ToList();
+            var missing = TestData.Data().Items.Values.Where(i => !string.IsNullOrEmpty(i.Slot) && i.Slot != "accessory" && i.Slot != "necklace" && i.Slot != "ring" && !c.HasCatalogEntry(i.Id)).Select(i => i.Id).ToList();
             Assert.IsEmpty(missing, "itens equipáveis sem aparência: " + string.Join(", ", missing));
         }
 

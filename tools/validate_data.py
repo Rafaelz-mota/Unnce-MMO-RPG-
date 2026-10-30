@@ -17,7 +17,7 @@ import sys
 DEFAULT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
                            "client", "Assets", "Resources", "GameData")
 FILES = ["rules", "attributes", "rarities", "statuses", "combat", "progression", "classes",
-         "skills", "items", "sets", "monsters", "loot_tables", "regions"]
+         "skills", "items", "shops", "sets", "monsters", "loot_tables", "regions"]
 SUPPORTED_SCHEMA = 1
 
 errors, warnings = [], []
@@ -310,6 +310,25 @@ def main():
             err(w, "type inválido " + it["type"])
         if it.get("setId") and it["setId"] not in sets:
             err(w, "setId desconhecido " + it["setId"])
+    shops = {x["id"]: x for x in d["shops"]["shops"]}
+    unique_ids(d["shops"]["shops"], "shops")
+    for sh in shops.values():
+        w = "shop " + sh["id"]
+        if not sh["stock"]:
+            err(w, "loja sem itens")
+        seen = set()
+        for e in sh["stock"]:
+            it = items.get(e["itemId"])
+            if not it:
+                err(w, "item inexistente %r" % e["itemId"])
+                continue
+            if e["itemId"] in seen:
+                err(w, "item repetido " + e["itemId"])
+            seen.add(e["itemId"])
+            if e["price"] <= 0:
+                err(w, "preço de %s deve ser > 0" % e["itemId"])
+            elif e["price"] <= it["sellValue"]:
+                err(w, "preço de %s deve ser maior que o sellValue (%s)" % (e["itemId"], it["sellValue"]))
     for k in classes.values():
         for iid in k["startingItems"]:
             it = items.get(iid)

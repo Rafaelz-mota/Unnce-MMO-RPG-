@@ -46,6 +46,8 @@
     "chest",
     "legs",
     "feet",
+    "necklace",
+    "ring",
     "accessory"
   ],
   "inventoryCapacity": 30,

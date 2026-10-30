@@ -409,6 +409,27 @@ namespace Mmorpg.Core.Data
         public List<ItemDef> Items { get; set; } = new List<ItemDef>();
     }
 
+    public class ShopEntryDef
+    {
+        public string ItemId { get; set; }
+        /// <summary>Preço de compra em ouro (sempre maior que o sellValue do item, para não haver ganho em comprar e revender).</summary>
+        public long Price { get; set; }
+    }
+
+    public class ShopDef
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<ShopEntryDef> Stock { get; set; } = new List<ShopEntryDef>();
+    }
+
+    public class ShopsFile
+    {
+        public int SchemaVersion { get; set; }
+        public List<ShopDef> Shops { get; set; } = new List<ShopDef>();
+    }
+
     public class SetBonusDef
     {
         public int Pieces { get; set; }

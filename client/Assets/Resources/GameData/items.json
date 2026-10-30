@@ -465,6 +465,5052 @@
       "tradable": true,
       "origin": "chefe: Colosso da Raiz",
       "description": "Componente para receitas especiais do Crafter (pendente)."
+    },
+    {
+      "id": "loja_sword_t1",
+      "name": "Espada de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "sword",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "strength": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_axe_t1",
+      "name": "Machado do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "axe",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "strength": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_mace_t1",
+      "name": "Maça de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "mace",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "vitality": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_spear_t1",
+      "name": "Lança de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "spear",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "agility": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_dagger_t1",
+      "name": "Adaga de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "dagger",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 3,
+        "critChance": 0.01
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_bow_t1",
+      "name": "Arco do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "bow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "agility": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_crossbow_t1",
+      "name": "Besta de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "crossbow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "agility": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wrench_t1",
+      "name": "Chave Inglesa de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "wrench",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "intellect": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_rifle_t1",
+      "name": "Rifle do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "rifle",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "agility": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pistol_t1",
+      "name": "Pistola de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "pistol",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 3,
+        "critChance": 0.01
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_whip_t1",
+      "name": "Chicote do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "whip",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 3,
+        "agility": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_fist_t1",
+      "name": "Manopla de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "fist",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 3,
+        "agility": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_staff_t1",
+      "name": "Cajado do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "staff",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 4,
+        "intellect": 1,
+        "maxMana": 9
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wand_t1",
+      "name": "Varinha de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "wand",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 3,
+        "critChance": 0.01,
+        "maxMana": 9
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scepter_t1",
+      "name": "Cetro do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "scepter",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 3,
+        "spirit": 1,
+        "maxMana": 9
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scythe_t1",
+      "name": "Foice de Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "scythe",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 4,
+        "vitality": 1,
+        "maxMana": 9
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_lute_t1",
+      "name": "Alaúde do Aprendiz",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": "lute",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 3,
+        "spirit": 1,
+        "maxMana": 9
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 15,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_head_t1",
+      "name": "Elmo do Aprendiz",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 2,
+        "maxHp": 7
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 11,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_chest_t1",
+      "name": "Peitoral do Aprendiz",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 3,
+        "maxHp": 7,
+        "strength": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 16,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_legs_t1",
+      "name": "Grevas de Aprendiz",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 2,
+        "maxHp": 7
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 12,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_feet_t1",
+      "name": "Botas de Placa de Aprendiz",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "maxHp": 7
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 8,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_head_t1",
+      "name": "Capuz de Couro do Aprendiz",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "agility": 1,
+        "maxHp": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 11,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_chest_t1",
+      "name": "Casaco de Couro do Aprendiz",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 2,
+        "agility": 1,
+        "maxHp": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 16,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_legs_t1",
+      "name": "Calças de Couro de Aprendiz",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "agility": 1,
+        "maxHp": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 12,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_feet_t1",
+      "name": "Botas de Couro de Aprendiz",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "maxHp": 4,
+        "moveSpeed": 0.1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 8,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_head_t1",
+      "name": "Capuz de Tecido do Aprendiz",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "magicResist": 1,
+        "maxMana": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 11,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_chest_t1",
+      "name": "Túnica de Aprendiz",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "magicResist": 2,
+        "maxMana": 5,
+        "intellect": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 16,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_legs_t1",
+      "name": "Calções de Tecido do Aprendiz",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "magicResist": 2,
+        "maxMana": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 12,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_feet_t1",
+      "name": "Sapatilhas de Aprendiz",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 1,
+        "magicResist": 1,
+        "maxMana": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 8,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_1_t1",
+      "name": "Colar de Vitalidade do Aprendiz",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "maxHp": 12,
+        "hpRegen": 0.16
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_2_t1",
+      "name": "Colar do Estudioso do Aprendiz",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 1,
+        "maxMana": 8
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_3_t1",
+      "name": "Colar do Guerreiro do Aprendiz",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 1,
+        "physDefense": 0.5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_1_t1",
+      "name": "Anel de Força do Aprendiz",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "strength": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_2_t1",
+      "name": "Anel de Intelecto do Aprendiz",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "intellect": 1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_3_t1",
+      "name": "Anel de Agilidade do Aprendiz",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "agility": 1,
+        "critChance": 0.002
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_4_t1",
+      "name": "Anel de Espírito do Aprendiz",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 1,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "spirit": 1,
+        "manaRegen": 0.11
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 18,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_sword_t2",
+      "name": "Espada de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "sword",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 10,
+        "strength": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_axe_t2",
+      "name": "Machado do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "axe",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 12,
+        "strength": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_mace_t2",
+      "name": "Maça de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "mace",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 10,
+        "vitality": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_spear_t2",
+      "name": "Lança de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "spear",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 10,
+        "agility": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_dagger_t2",
+      "name": "Adaga de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "dagger",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 9,
+        "critChance": 0.012
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_bow_t2",
+      "name": "Arco do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "bow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 10,
+        "agility": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_crossbow_t2",
+      "name": "Besta de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "crossbow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 11,
+        "agility": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wrench_t2",
+      "name": "Chave Inglesa de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "wrench",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 10,
+        "intellect": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_rifle_t2",
+      "name": "Rifle do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "rifle",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 12,
+        "agility": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pistol_t2",
+      "name": "Pistola de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "pistol",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 9,
+        "critChance": 0.012
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_whip_t2",
+      "name": "Chicote do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "whip",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 9,
+        "agility": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_fist_t2",
+      "name": "Manopla de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "fist",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 9,
+        "agility": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_staff_t2",
+      "name": "Cajado do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "staff",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 10,
+        "intellect": 2,
+        "maxMana": 23
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wand_t2",
+      "name": "Varinha de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "wand",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 9,
+        "critChance": 0.012,
+        "maxMana": 23
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scepter_t2",
+      "name": "Cetro do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "scepter",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 9,
+        "spirit": 2,
+        "maxMana": 23
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scythe_t2",
+      "name": "Foice de Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "scythe",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 12,
+        "vitality": 2,
+        "maxMana": 23
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_lute_t2",
+      "name": "Alaúde do Soldado",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": "lute",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 9,
+        "spirit": 2,
+        "maxMana": 23
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 138,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_head_t2",
+      "name": "Elmo do Soldado",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 7,
+        "maxHp": 13
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 106,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_chest_t2",
+      "name": "Peitoral do Soldado",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 10,
+        "maxHp": 17,
+        "strength": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 148,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_legs_t2",
+      "name": "Grevas de Soldado",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 8,
+        "maxHp": 15
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 117,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_feet_t2",
+      "name": "Botas de Placa de Soldado",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 5,
+        "maxHp": 11
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 85,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_head_t2",
+      "name": "Capuz de Couro do Soldado",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 4,
+        "agility": 2,
+        "maxHp": 8
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 106,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_chest_t2",
+      "name": "Casaco de Couro do Soldado",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 7,
+        "agility": 2,
+        "maxHp": 10
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 148,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_legs_t2",
+      "name": "Calças de Couro de Soldado",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 6,
+        "agility": 2,
+        "maxHp": 9
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 117,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_feet_t2",
+      "name": "Botas de Couro de Soldado",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 3,
+        "maxHp": 7,
+        "moveSpeed": 0.12
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 85,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_head_t2",
+      "name": "Capuz de Tecido do Soldado",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 2,
+        "magicResist": 5,
+        "maxMana": 10
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 106,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_chest_t2",
+      "name": "Túnica de Soldado",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 3,
+        "magicResist": 8,
+        "maxMana": 12,
+        "intellect": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 148,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_legs_t2",
+      "name": "Calções de Tecido do Soldado",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 3,
+        "magicResist": 7,
+        "maxMana": 11
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 117,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_feet_t2",
+      "name": "Sapatilhas de Soldado",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 2,
+        "magicResist": 4,
+        "maxMana": 8
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 85,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_1_t2",
+      "name": "Colar de Vitalidade do Soldado",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "maxHp": 26,
+        "hpRegen": 0.28
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_2_t2",
+      "name": "Colar do Estudioso do Soldado",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 2,
+        "maxMana": 18
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_3_t2",
+      "name": "Colar do Guerreiro do Soldado",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 2,
+        "physDefense": 1.1
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_1_t2",
+      "name": "Anel de Força do Soldado",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "strength": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_2_t2",
+      "name": "Anel de Intelecto do Soldado",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "intellect": 2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_3_t2",
+      "name": "Anel de Agilidade do Soldado",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "agility": 2,
+        "critChance": 0.004
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_4_t2",
+      "name": "Anel de Espírito do Soldado",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "common",
+      "requiredLevel": 10,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "spirit": 2,
+        "manaRegen": 0.18
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 170,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_sword_t3",
+      "name": "Espada de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "sword",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 21,
+        "strength": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_axe_t3",
+      "name": "Machado do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "axe",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 23,
+        "strength": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_mace_t3",
+      "name": "Maça de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "mace",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 21,
+        "vitality": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_spear_t3",
+      "name": "Lança de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "spear",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 21,
+        "agility": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_dagger_t3",
+      "name": "Adaga de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "dagger",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 18,
+        "critChance": 0.014
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_bow_t3",
+      "name": "Arco do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "bow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 21,
+        "agility": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_crossbow_t3",
+      "name": "Besta de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "crossbow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 22,
+        "agility": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wrench_t3",
+      "name": "Chave Inglesa de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "wrench",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 20,
+        "intellect": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_rifle_t3",
+      "name": "Rifle do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "rifle",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 23,
+        "agility": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pistol_t3",
+      "name": "Pistola de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "pistol",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 19,
+        "critChance": 0.014
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_whip_t3",
+      "name": "Chicote do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "whip",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 19,
+        "agility": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_fist_t3",
+      "name": "Manopla de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "fist",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 19,
+        "agility": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_staff_t3",
+      "name": "Cajado do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "staff",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 21,
+        "intellect": 3,
+        "maxMana": 38
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wand_t3",
+      "name": "Varinha de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "wand",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 19,
+        "critChance": 0.014,
+        "maxMana": 38
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scepter_t3",
+      "name": "Cetro do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "scepter",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 19,
+        "spirit": 3,
+        "maxMana": 38
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scythe_t3",
+      "name": "Foice de Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "scythe",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 23,
+        "vitality": 3,
+        "maxMana": 38
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_lute_t3",
+      "name": "Alaúde do Veterano",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": "lute",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 19,
+        "spirit": 3,
+        "maxMana": 38
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 731,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_head_t3",
+      "name": "Elmo do Veterano",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 14,
+        "maxHp": 20
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 562,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_chest_t3",
+      "name": "Peitoral do Veterano",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 21,
+        "maxHp": 28,
+        "strength": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 787,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_legs_t3",
+      "name": "Grevas de Veterano",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 17,
+        "maxHp": 24
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 618,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_feet_t3",
+      "name": "Botas de Placa de Veterano",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 10,
+        "maxHp": 17
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 450,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_head_t3",
+      "name": "Capuz de Couro do Veterano",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 9,
+        "agility": 3,
+        "maxHp": 12
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 562,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_chest_t3",
+      "name": "Casaco de Couro do Veterano",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 14,
+        "agility": 3,
+        "maxHp": 16
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 787,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_legs_t3",
+      "name": "Calças de Couro de Veterano",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 12,
+        "agility": 3,
+        "maxHp": 14
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 618,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_feet_t3",
+      "name": "Botas de Couro de Veterano",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 7,
+        "maxHp": 10,
+        "moveSpeed": 0.14
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 450,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_head_t3",
+      "name": "Capuz de Tecido do Veterano",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 5,
+        "magicResist": 11,
+        "maxMana": 15
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 562,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_chest_t3",
+      "name": "Túnica de Veterano",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 7,
+        "magicResist": 17,
+        "maxMana": 21,
+        "intellect": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 787,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_legs_t3",
+      "name": "Calções de Tecido do Veterano",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 6,
+        "magicResist": 14,
+        "maxMana": 18
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 618,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_feet_t3",
+      "name": "Sapatilhas de Veterano",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 3,
+        "magicResist": 8,
+        "maxMana": 12
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 450,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_1_t3",
+      "name": "Colar de Vitalidade do Veterano",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "maxHp": 47,
+        "hpRegen": 0.46
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_2_t3",
+      "name": "Colar do Estudioso do Veterano",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 4,
+        "maxMana": 31
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_3_t3",
+      "name": "Colar do Guerreiro do Veterano",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 4,
+        "physDefense": 1.95
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_1_t3",
+      "name": "Anel de Força do Veterano",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "strength": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_2_t3",
+      "name": "Anel de Intelecto do Veterano",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "intellect": 3
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_3_t3",
+      "name": "Anel de Agilidade do Veterano",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "agility": 3,
+        "critChance": 0.006
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_4_t3",
+      "name": "Anel de Espírito do Veterano",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 20,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "spirit": 3,
+        "manaRegen": 0.31
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 900,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_sword_t4",
+      "name": "Espada de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "sword",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 29,
+        "strength": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_axe_t4",
+      "name": "Machado do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "axe",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 32,
+        "strength": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_mace_t4",
+      "name": "Maça de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "mace",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 29,
+        "vitality": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_spear_t4",
+      "name": "Lança de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "spear",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 29,
+        "agility": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_dagger_t4",
+      "name": "Adaga de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "dagger",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 25,
+        "critChance": 0.016
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_bow_t4",
+      "name": "Arco do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "bow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 29,
+        "agility": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_crossbow_t4",
+      "name": "Besta de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "crossbow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 31,
+        "agility": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wrench_t4",
+      "name": "Chave Inglesa de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "wrench",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 28,
+        "intellect": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_rifle_t4",
+      "name": "Rifle do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "rifle",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 32,
+        "agility": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pistol_t4",
+      "name": "Pistola de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "pistol",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 26,
+        "critChance": 0.016
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_whip_t4",
+      "name": "Chicote do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "whip",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 26,
+        "agility": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_fist_t4",
+      "name": "Manopla de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "fist",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 26,
+        "agility": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_staff_t4",
+      "name": "Cajado do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "staff",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 29,
+        "intellect": 4,
+        "maxMana": 53
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wand_t4",
+      "name": "Varinha de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "wand",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 26,
+        "critChance": 0.016,
+        "maxMana": 53
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scepter_t4",
+      "name": "Cetro do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "scepter",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 26,
+        "spirit": 4,
+        "maxMana": 53
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scythe_t4",
+      "name": "Foice de Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "scythe",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 32,
+        "vitality": 4,
+        "maxMana": 53
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_lute_t4",
+      "name": "Alaúde do Mestre",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": "lute",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 26,
+        "spirit": 4,
+        "maxMana": 53
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1331,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_head_t4",
+      "name": "Elmo do Mestre",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 20,
+        "maxHp": 28
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1023,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_chest_t4",
+      "name": "Peitoral do Mestre",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 30,
+        "maxHp": 38,
+        "strength": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1433,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_legs_t4",
+      "name": "Grevas de Mestre",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 25,
+        "maxHp": 33
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1126,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_feet_t4",
+      "name": "Botas de Placa de Mestre",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 15,
+        "maxHp": 22
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 818,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_head_t4",
+      "name": "Capuz de Couro do Mestre",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 13,
+        "agility": 4,
+        "maxHp": 16
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1023,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_chest_t4",
+      "name": "Casaco de Couro do Mestre",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 20,
+        "agility": 4,
+        "maxHp": 22
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1433,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_legs_t4",
+      "name": "Calças de Couro de Mestre",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 17,
+        "agility": 4,
+        "maxHp": 19
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1126,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_feet_t4",
+      "name": "Botas de Couro de Mestre",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 10,
+        "maxHp": 13,
+        "moveSpeed": 0.16
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 818,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_head_t4",
+      "name": "Capuz de Tecido do Mestre",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 7,
+        "magicResist": 16,
+        "maxMana": 21
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1023,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_chest_t4",
+      "name": "Túnica de Mestre",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 10,
+        "magicResist": 24,
+        "maxMana": 29,
+        "intellect": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1433,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_legs_t4",
+      "name": "Calções de Tecido do Mestre",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 8,
+        "magicResist": 20,
+        "maxMana": 25
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1126,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_feet_t4",
+      "name": "Sapatilhas de Mestre",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 5,
+        "magicResist": 12,
+        "maxMana": 17
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 818,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_1_t4",
+      "name": "Colar de Vitalidade do Mestre",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "maxHp": 63,
+        "hpRegen": 0.6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_2_t4",
+      "name": "Colar do Estudioso do Mestre",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 5,
+        "maxMana": 42
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_3_t4",
+      "name": "Colar do Guerreiro do Mestre",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 5,
+        "physDefense": 2.64
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_1_t4",
+      "name": "Anel de Força do Mestre",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "strength": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_2_t4",
+      "name": "Anel de Intelecto do Mestre",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "intellect": 4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_3_t4",
+      "name": "Anel de Agilidade do Mestre",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "agility": 4,
+        "critChance": 0.008
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_4_t4",
+      "name": "Anel de Espírito do Mestre",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "rare",
+      "requiredLevel": 30,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "spirit": 4,
+        "manaRegen": 0.4
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 1638,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_sword_t5",
+      "name": "Espada de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "sword",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 43,
+        "strength": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_axe_t5",
+      "name": "Machado do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "axe",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 47,
+        "strength": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_mace_t5",
+      "name": "Maça de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "mace",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 43,
+        "vitality": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_spear_t5",
+      "name": "Lança de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "spear",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 43,
+        "agility": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_dagger_t5",
+      "name": "Adaga de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "dagger",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 36,
+        "critChance": 0.018
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_bow_t5",
+      "name": "Arco do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "bow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 43,
+        "agility": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_crossbow_t5",
+      "name": "Besta de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "crossbow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 45,
+        "agility": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wrench_t5",
+      "name": "Chave Inglesa de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "wrench",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 41,
+        "intellect": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_rifle_t5",
+      "name": "Rifle do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "rifle",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 47,
+        "agility": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pistol_t5",
+      "name": "Pistola de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "pistol",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 39,
+        "critChance": 0.018
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_whip_t5",
+      "name": "Chicote do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "whip",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 39,
+        "agility": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_fist_t5",
+      "name": "Manopla de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "fist",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 39,
+        "agility": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_staff_t5",
+      "name": "Cajado do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "staff",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 43,
+        "intellect": 5,
+        "maxMana": 68
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wand_t5",
+      "name": "Varinha de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "wand",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 39,
+        "critChance": 0.018,
+        "maxMana": 68
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scepter_t5",
+      "name": "Cetro do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "scepter",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 39,
+        "spirit": 5,
+        "maxMana": 68
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scythe_t5",
+      "name": "Foice de Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "scythe",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 47,
+        "vitality": 5,
+        "maxMana": 68
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_lute_t5",
+      "name": "Alaúde do Campeão",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": "lute",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 39,
+        "spirit": 5,
+        "maxMana": 68
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4113,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_head_t5",
+      "name": "Elmo do Campeão",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 30,
+        "maxHp": 35
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3165,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_chest_t5",
+      "name": "Peitoral do Campeão",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 44,
+        "maxHp": 49,
+        "strength": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4430,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_legs_t5",
+      "name": "Grevas de Campeão",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 37,
+        "maxHp": 42
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3481,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_feet_t5",
+      "name": "Botas de Placa de Campeão",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 22,
+        "maxHp": 28
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 2531,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_head_t5",
+      "name": "Capuz de Couro do Campeão",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 20,
+        "agility": 5,
+        "maxHp": 20
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3165,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_chest_t5",
+      "name": "Casaco de Couro do Campeão",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 30,
+        "agility": 5,
+        "maxHp": 28
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4430,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_legs_t5",
+      "name": "Calças de Couro de Campeão",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 25,
+        "agility": 5,
+        "maxHp": 24
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3481,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_feet_t5",
+      "name": "Botas de Couro de Campeão",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 15,
+        "maxHp": 16,
+        "moveSpeed": 0.18
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 2531,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_head_t5",
+      "name": "Capuz de Tecido do Campeão",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 10,
+        "magicResist": 24,
+        "maxMana": 26
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3165,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_chest_t5",
+      "name": "Túnica de Campeão",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 15,
+        "magicResist": 36,
+        "maxMana": 38,
+        "intellect": 5
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4430,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_legs_t5",
+      "name": "Calções de Tecido do Campeão",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 12,
+        "magicResist": 30,
+        "maxMana": 32
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3481,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_feet_t5",
+      "name": "Sapatilhas de Campeão",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 7,
+        "magicResist": 18,
+        "maxMana": 21
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 2531,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_1_t5",
+      "name": "Colar de Vitalidade do Campeão",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "maxHp": 90,
+        "hpRegen": 0.85
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_2_t5",
+      "name": "Colar do Estudioso do Campeão",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 8,
+        "maxMana": 60
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_3_t5",
+      "name": "Colar do Guerreiro do Campeão",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 8,
+        "physDefense": 3.77
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_1_t5",
+      "name": "Anel de Força do Campeão",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "strength": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_2_t5",
+      "name": "Anel de Intelecto do Campeão",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "intellect": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_3_t5",
+      "name": "Anel de Agilidade do Campeão",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "agility": 6,
+        "critChance": 0.011
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_4_t5",
+      "name": "Anel de Espírito do Campeão",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 40,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "spirit": 6,
+        "manaRegen": 0.56
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5062,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_sword_t6",
+      "name": "Espada de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "sword",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 53,
+        "strength": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_axe_t6",
+      "name": "Machado do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "axe",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 58,
+        "strength": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_mace_t6",
+      "name": "Maça de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "mace",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 53,
+        "vitality": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_spear_t6",
+      "name": "Lança de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "spear",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 53,
+        "agility": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_dagger_t6",
+      "name": "Adaga de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "dagger",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 45,
+        "critChance": 0.02
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_bow_t6",
+      "name": "Arco do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "bow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 53,
+        "agility": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_crossbow_t6",
+      "name": "Besta de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "crossbow",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 55,
+        "agility": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wrench_t6",
+      "name": "Chave Inglesa de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "wrench",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 50,
+        "intellect": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_rifle_t6",
+      "name": "Rifle do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "rifle",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 58,
+        "agility": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pistol_t6",
+      "name": "Pistola de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "pistol",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 47,
+        "critChance": 0.02
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_whip_t6",
+      "name": "Chicote do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "whip",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 47,
+        "agility": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_fist_t6",
+      "name": "Manopla de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "fist",
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 47,
+        "agility": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_staff_t6",
+      "name": "Cajado do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "staff",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 53,
+        "intellect": 6,
+        "maxMana": 83
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_wand_t6",
+      "name": "Varinha de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "wand",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 47,
+        "critChance": 0.02,
+        "maxMana": 83
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scepter_t6",
+      "name": "Cetro do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "scepter",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 47,
+        "spirit": 6,
+        "maxMana": 83
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_scythe_t6",
+      "name": "Foice de Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "scythe",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 58,
+        "vitality": 6,
+        "maxMana": 83
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_lute_t6",
+      "name": "Alaúde do Herói",
+      "type": "equipment",
+      "slot": "weapon",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": "lute",
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 47,
+        "spirit": 6,
+        "maxMana": 83
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 5790,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_head_t6",
+      "name": "Elmo do Herói",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 37,
+        "maxHp": 42
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4453,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_chest_t6",
+      "name": "Peitoral do Herói",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 55,
+        "maxHp": 60,
+        "strength": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 6235,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_legs_t6",
+      "name": "Grevas de Herói",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 46,
+        "maxHp": 51
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4898,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_placa_feet_t6",
+      "name": "Botas de Placa de Herói",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "guerreiro",
+        "guardiao",
+        "paladino",
+        "cavaleiro_da_morte",
+        "berserker",
+        "lanceiro"
+      ],
+      "stats": {
+        "physDefense": 27,
+        "maxHp": 33
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3562,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_head_t6",
+      "name": "Capuz de Couro do Herói",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 24,
+        "agility": 6,
+        "maxHp": 24
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4453,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_chest_t6",
+      "name": "Casaco de Couro do Herói",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 37,
+        "agility": 6,
+        "maxHp": 34
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 6235,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_legs_t6",
+      "name": "Calças de Couro de Herói",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 31,
+        "agility": 6,
+        "maxHp": 29
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4898,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_couro_feet_t6",
+      "name": "Botas de Couro de Herói",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "monge",
+        "arqueiro",
+        "assassino",
+        "lamina_sombria",
+        "atirador",
+        "domador_de_feras",
+        "engenheiro",
+        "bardo"
+      ],
+      "stats": {
+        "physDefense": 18,
+        "maxHp": 19,
+        "moveSpeed": 0.2
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3562,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_head_t6",
+      "name": "Capuz de Tecido do Herói",
+      "type": "equipment",
+      "slot": "head",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 12,
+        "magicResist": 29,
+        "maxMana": 32
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4453,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_chest_t6",
+      "name": "Túnica de Herói",
+      "type": "equipment",
+      "slot": "chest",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 18,
+        "magicResist": 44,
+        "maxMana": 46,
+        "intellect": 6
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 6235,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_legs_t6",
+      "name": "Calções de Tecido do Herói",
+      "type": "equipment",
+      "slot": "legs",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 15,
+        "magicResist": 37,
+        "maxMana": 39
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 4898,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_pano_feet_t6",
+      "name": "Sapatilhas de Herói",
+      "type": "equipment",
+      "slot": "feet",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [
+        "mago",
+        "mago_runico",
+        "sacerdote",
+        "druida",
+        "bruxo",
+        "necromante",
+        "ilusionista",
+        "invocador",
+        "clerigo",
+        "alquimista"
+      ],
+      "stats": {
+        "physDefense": 9,
+        "magicResist": 22,
+        "maxMana": 25
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 3562,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_1_t6",
+      "name": "Colar de Vitalidade do Herói",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "maxHp": 109,
+        "hpRegen": 1.01
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_2_t6",
+      "name": "Colar do Estudioso do Herói",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "magicAttack": 9,
+        "maxMana": 73
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_colar_3_t6",
+      "name": "Colar do Guerreiro do Herói",
+      "type": "equipment",
+      "slot": "necklace",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "physAttack": 9,
+        "physDefense": 4.55
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_1_t6",
+      "name": "Anel de Força do Herói",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "strength": 7
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_2_t6",
+      "name": "Anel de Intelecto do Herói",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "intellect": 7
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_3_t6",
+      "name": "Anel de Agilidade do Herói",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "agility": 7,
+        "critChance": 0.013
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
+    },
+    {
+      "id": "loja_anel_4_t6",
+      "name": "Anel de Espírito do Herói",
+      "type": "equipment",
+      "slot": "ring",
+      "rarity": "epic",
+      "requiredLevel": 50,
+      "weaponType": null,
+      "allowedClasses": [],
+      "stats": {
+        "spirit": 7,
+        "manaRegen": 0.67
+      },
+      "setId": null,
+      "maxStack": 1,
+      "sellValue": 7125,
+      "tradable": true,
+      "origin": "loja",
+      "description": ""
     }
   ]
 }

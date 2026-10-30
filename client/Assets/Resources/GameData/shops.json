@@ -1,0 +1,876 @@
+{
+  "schemaVersion": 1,
+  "shops": [
+    {
+      "id": "mercador_do_vale",
+      "name": "Mercador do Vale",
+      "description": "Armas, armaduras, colares e anéis de todas as faixas de nível.",
+      "stock": [
+        {
+          "itemId": "loja_sword_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_axe_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_mace_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_spear_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_dagger_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_bow_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_crossbow_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_wrench_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_rifle_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_pistol_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_whip_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_fist_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_staff_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_wand_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_scepter_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_scythe_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_lute_t1",
+          "price": 60
+        },
+        {
+          "itemId": "loja_placa_head_t1",
+          "price": 45
+        },
+        {
+          "itemId": "loja_placa_chest_t1",
+          "price": 65
+        },
+        {
+          "itemId": "loja_placa_legs_t1",
+          "price": 50
+        },
+        {
+          "itemId": "loja_placa_feet_t1",
+          "price": 35
+        },
+        {
+          "itemId": "loja_couro_head_t1",
+          "price": 45
+        },
+        {
+          "itemId": "loja_couro_chest_t1",
+          "price": 65
+        },
+        {
+          "itemId": "loja_couro_legs_t1",
+          "price": 50
+        },
+        {
+          "itemId": "loja_couro_feet_t1",
+          "price": 35
+        },
+        {
+          "itemId": "loja_pano_head_t1",
+          "price": 45
+        },
+        {
+          "itemId": "loja_pano_chest_t1",
+          "price": 65
+        },
+        {
+          "itemId": "loja_pano_legs_t1",
+          "price": 50
+        },
+        {
+          "itemId": "loja_pano_feet_t1",
+          "price": 35
+        },
+        {
+          "itemId": "loja_colar_1_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_colar_2_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_colar_3_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_anel_1_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_anel_2_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_anel_3_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_anel_4_t1",
+          "price": 75
+        },
+        {
+          "itemId": "loja_sword_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_axe_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_mace_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_spear_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_dagger_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_bow_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_crossbow_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_wrench_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_rifle_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_pistol_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_whip_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_fist_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_staff_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_wand_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_scepter_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_scythe_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_lute_t2",
+          "price": 555
+        },
+        {
+          "itemId": "loja_placa_head_t2",
+          "price": 425
+        },
+        {
+          "itemId": "loja_placa_chest_t2",
+          "price": 595
+        },
+        {
+          "itemId": "loja_placa_legs_t2",
+          "price": 470
+        },
+        {
+          "itemId": "loja_placa_feet_t2",
+          "price": 340
+        },
+        {
+          "itemId": "loja_couro_head_t2",
+          "price": 425
+        },
+        {
+          "itemId": "loja_couro_chest_t2",
+          "price": 595
+        },
+        {
+          "itemId": "loja_couro_legs_t2",
+          "price": 470
+        },
+        {
+          "itemId": "loja_couro_feet_t2",
+          "price": 340
+        },
+        {
+          "itemId": "loja_pano_head_t2",
+          "price": 425
+        },
+        {
+          "itemId": "loja_pano_chest_t2",
+          "price": 595
+        },
+        {
+          "itemId": "loja_pano_legs_t2",
+          "price": 470
+        },
+        {
+          "itemId": "loja_pano_feet_t2",
+          "price": 340
+        },
+        {
+          "itemId": "loja_colar_1_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_colar_2_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_colar_3_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_anel_1_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_anel_2_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_anel_3_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_anel_4_t2",
+          "price": 680
+        },
+        {
+          "itemId": "loja_sword_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_axe_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_mace_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_spear_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_dagger_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_bow_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_crossbow_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_wrench_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_rifle_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_pistol_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_whip_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_fist_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_staff_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_wand_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_scepter_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_scythe_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_lute_t3",
+          "price": 2925
+        },
+        {
+          "itemId": "loja_placa_head_t3",
+          "price": 2250
+        },
+        {
+          "itemId": "loja_placa_chest_t3",
+          "price": 3150
+        },
+        {
+          "itemId": "loja_placa_legs_t3",
+          "price": 2475
+        },
+        {
+          "itemId": "loja_placa_feet_t3",
+          "price": 1800
+        },
+        {
+          "itemId": "loja_couro_head_t3",
+          "price": 2250
+        },
+        {
+          "itemId": "loja_couro_chest_t3",
+          "price": 3150
+        },
+        {
+          "itemId": "loja_couro_legs_t3",
+          "price": 2475
+        },
+        {
+          "itemId": "loja_couro_feet_t3",
+          "price": 1800
+        },
+        {
+          "itemId": "loja_pano_head_t3",
+          "price": 2250
+        },
+        {
+          "itemId": "loja_pano_chest_t3",
+          "price": 3150
+        },
+        {
+          "itemId": "loja_pano_legs_t3",
+          "price": 2475
+        },
+        {
+          "itemId": "loja_pano_feet_t3",
+          "price": 1800
+        },
+        {
+          "itemId": "loja_colar_1_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_colar_2_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_colar_3_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_anel_1_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_anel_2_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_anel_3_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_anel_4_t3",
+          "price": 3600
+        },
+        {
+          "itemId": "loja_sword_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_axe_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_mace_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_spear_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_dagger_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_bow_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_crossbow_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_wrench_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_rifle_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_pistol_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_whip_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_fist_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_staff_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_wand_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_scepter_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_scythe_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_lute_t4",
+          "price": 5325
+        },
+        {
+          "itemId": "loja_placa_head_t4",
+          "price": 4095
+        },
+        {
+          "itemId": "loja_placa_chest_t4",
+          "price": 5735
+        },
+        {
+          "itemId": "loja_placa_legs_t4",
+          "price": 4505
+        },
+        {
+          "itemId": "loja_placa_feet_t4",
+          "price": 3275
+        },
+        {
+          "itemId": "loja_couro_head_t4",
+          "price": 4095
+        },
+        {
+          "itemId": "loja_couro_chest_t4",
+          "price": 5735
+        },
+        {
+          "itemId": "loja_couro_legs_t4",
+          "price": 4505
+        },
+        {
+          "itemId": "loja_couro_feet_t4",
+          "price": 3275
+        },
+        {
+          "itemId": "loja_pano_head_t4",
+          "price": 4095
+        },
+        {
+          "itemId": "loja_pano_chest_t4",
+          "price": 5735
+        },
+        {
+          "itemId": "loja_pano_legs_t4",
+          "price": 4505
+        },
+        {
+          "itemId": "loja_pano_feet_t4",
+          "price": 3275
+        },
+        {
+          "itemId": "loja_colar_1_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_colar_2_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_colar_3_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_anel_1_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_anel_2_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_anel_3_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_anel_4_t4",
+          "price": 6555
+        },
+        {
+          "itemId": "loja_sword_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_axe_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_mace_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_spear_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_dagger_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_bow_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_crossbow_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_wrench_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_rifle_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_pistol_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_whip_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_fist_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_staff_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_wand_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_scepter_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_scythe_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_lute_t5",
+          "price": 16455
+        },
+        {
+          "itemId": "loja_placa_head_t5",
+          "price": 12660
+        },
+        {
+          "itemId": "loja_placa_chest_t5",
+          "price": 17720
+        },
+        {
+          "itemId": "loja_placa_legs_t5",
+          "price": 13925
+        },
+        {
+          "itemId": "loja_placa_feet_t5",
+          "price": 10125
+        },
+        {
+          "itemId": "loja_couro_head_t5",
+          "price": 12660
+        },
+        {
+          "itemId": "loja_couro_chest_t5",
+          "price": 17720
+        },
+        {
+          "itemId": "loja_couro_legs_t5",
+          "price": 13925
+        },
+        {
+          "itemId": "loja_couro_feet_t5",
+          "price": 10125
+        },
+        {
+          "itemId": "loja_pano_head_t5",
+          "price": 12660
+        },
+        {
+          "itemId": "loja_pano_chest_t5",
+          "price": 17720
+        },
+        {
+          "itemId": "loja_pano_legs_t5",
+          "price": 13925
+        },
+        {
+          "itemId": "loja_pano_feet_t5",
+          "price": 10125
+        },
+        {
+          "itemId": "loja_colar_1_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_colar_2_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_colar_3_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_anel_1_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_anel_2_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_anel_3_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_anel_4_t5",
+          "price": 20250
+        },
+        {
+          "itemId": "loja_sword_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_axe_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_mace_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_spear_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_dagger_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_bow_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_crossbow_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_wrench_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_rifle_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_pistol_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_whip_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_fist_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_staff_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_wand_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_scepter_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_scythe_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_lute_t6",
+          "price": 23160
+        },
+        {
+          "itemId": "loja_placa_head_t6",
+          "price": 17815
+        },
+        {
+          "itemId": "loja_placa_chest_t6",
+          "price": 24940
+        },
+        {
+          "itemId": "loja_placa_legs_t6",
+          "price": 19595
+        },
+        {
+          "itemId": "loja_placa_feet_t6",
+          "price": 14250
+        },
+        {
+          "itemId": "loja_couro_head_t6",
+          "price": 17815
+        },
+        {
+          "itemId": "loja_couro_chest_t6",
+          "price": 24940
+        },
+        {
+          "itemId": "loja_couro_legs_t6",
+          "price": 19595
+        },
+        {
+          "itemId": "loja_couro_feet_t6",
+          "price": 14250
+        },
+        {
+          "itemId": "loja_pano_head_t6",
+          "price": 17815
+        },
+        {
+          "itemId": "loja_pano_chest_t6",
+          "price": 24940
+        },
+        {
+          "itemId": "loja_pano_legs_t6",
+          "price": 19595
+        },
+        {
+          "itemId": "loja_pano_feet_t6",
+          "price": 14250
+        },
+        {
+          "itemId": "loja_colar_1_t6",
+          "price": 28500
+        },
+        {
+          "itemId": "loja_colar_2_t6",
+          "price": 28500
+        },
+        {
+          "itemId": "loja_colar_3_t6",
+          "price": 28500
+        },
+        {
+          "itemId": "loja_anel_1_t6",
+          "price": 28500
+        },
+        {
+          "itemId": "loja_anel_2_t6",
+          "price": 28500
+        },
+        {
+          "itemId": "loja_anel_3_t6",
+          "price": 28500
+        },
+        {
+          "itemId": "loja_anel_4_t6",
+          "price": 28500
+        }
+      ]
+    }
+  ]
+}

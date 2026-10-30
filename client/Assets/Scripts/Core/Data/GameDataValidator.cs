@@ -24,6 +24,7 @@ namespace Mmorpg.Core.Data
             ValidateSkills(d, r);
             ValidateClassSkillLinks(d, r);
             ValidateItems(d, r);
+            ValidateShops(d, r);
             ValidateSets(d, r);
             ValidateLoot(d, r);
             ValidateMonsters(d, r);
@@ -299,6 +300,24 @@ namespace Mmorpg.Core.Data
                         r.Error("class " + c.Id, "item inicial " + iid + " inválido (precisa ser equipamento de nível 1)");
                     else if (it.Slot == "weapon" && !c.WeaponTypes.Contains(it.WeaponType ?? ""))
                         r.Error("class " + c.Id, "arma inicial " + iid + " incompatível com a classe");
+                }
+            }
+        }
+
+        private static void ValidateShops(GameData d, ValidationReport r)
+        {
+            foreach (var shop in d.Shops.Values)
+            {
+                string w = "shop " + shop.Id;
+                if (shop.Stock.Count == 0) r.Error(w, "loja sem itens");
+                var seen = new System.Collections.Generic.HashSet<string>();
+                foreach (var e in shop.Stock)
+                {
+                    ItemDef it;
+                    if (!d.Items.TryGetValue(e.ItemId ?? "", out it)) { r.Error(w, "item inexistente '" + e.ItemId + "'"); continue; }
+                    if (!seen.Add(e.ItemId)) r.Error(w, "item repetido " + e.ItemId);
+                    if (e.Price <= 0) r.Error(w, "preço de " + e.ItemId + " deve ser > 0");
+                    else if (e.Price <= it.SellValue) r.Error(w, "preço de " + e.ItemId + " deve ser maior que o sellValue (" + it.SellValue + ")");
                 }
             }
         }

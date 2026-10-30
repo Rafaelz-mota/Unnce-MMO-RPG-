@@ -35,7 +35,7 @@ namespace Mmorpg.Game
         private const int LogLinesShown = 6;
         private const float LabelRange = 45f;
 
-        private static readonly string[] EquipLabels = { "weapon", "head", "chest", "legs", "feet", "accessory" };
+        private static readonly string[] EquipLabels = { "weapon", "head", "chest", "legs", "feet", "necklace", "ring", "accessory" };
 
         private readonly GameSession _session;
         private readonly CameraRig _camera;

@@ -442,6 +442,1094 @@
       "id": "botas_do_cacador_lunar",
       "shape": "boots",
       "color": "#7E88B8"
+    },
+    {
+      "id": "loja_sword_t1",
+      "shape": "sword",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_axe_t1",
+      "shape": "axe",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_mace_t1",
+      "shape": "mace",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_spear_t1",
+      "shape": "spear",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_dagger_t1",
+      "shape": "dagger",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_bow_t1",
+      "shape": "bow",
+      "color": "#8A7A6A",
+      "socket": "hand_l"
+    },
+    {
+      "id": "loja_crossbow_t1",
+      "shape": "bow",
+      "color": "#8A7A6A",
+      "socket": "hand_l"
+    },
+    {
+      "id": "loja_wrench_t1",
+      "shape": "mace",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_rifle_t1",
+      "shape": "stick",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_pistol_t1",
+      "shape": "stick",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_whip_t1",
+      "shape": "stick",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_fist_t1",
+      "shape": "stick",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_staff_t1",
+      "shape": "staff",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_wand_t1",
+      "shape": "wand",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_scepter_t1",
+      "shape": "scepter",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_scythe_t1",
+      "shape": "spear",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_lute_t1",
+      "shape": "stick",
+      "color": "#8A7A6A",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_placa_head_t1",
+      "shape": "helm",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_placa_chest_t1",
+      "shape": "plate",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_placa_legs_t1",
+      "shape": "pants",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_placa_feet_t1",
+      "shape": "boots",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_couro_head_t1",
+      "shape": "hood",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_couro_chest_t1",
+      "shape": "tunic",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_couro_legs_t1",
+      "shape": "pants",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_couro_feet_t1",
+      "shape": "boots",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_pano_head_t1",
+      "shape": "hood",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_pano_chest_t1",
+      "shape": "tunic",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_pano_legs_t1",
+      "shape": "pants",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_pano_feet_t1",
+      "shape": "boots",
+      "color": "#8A7A6A"
+    },
+    {
+      "id": "loja_sword_t2",
+      "shape": "sword",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_axe_t2",
+      "shape": "axe",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_mace_t2",
+      "shape": "mace",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_spear_t2",
+      "shape": "spear",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_dagger_t2",
+      "shape": "dagger",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_bow_t2",
+      "shape": "bow",
+      "color": "#A8B0BC",
+      "socket": "hand_l"
+    },
+    {
+      "id": "loja_crossbow_t2",
+      "shape": "bow",
+      "color": "#A8B0BC",
+      "socket": "hand_l"
+    },
+    {
+      "id": "loja_wrench_t2",
+      "shape": "mace",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_rifle_t2",
+      "shape": "stick",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_pistol_t2",
+      "shape": "stick",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_whip_t2",
+      "shape": "stick",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_fist_t2",
+      "shape": "stick",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_staff_t2",
+      "shape": "staff",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_wand_t2",
+      "shape": "wand",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_scepter_t2",
+      "shape": "scepter",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_scythe_t2",
+      "shape": "spear",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_lute_t2",
+      "shape": "stick",
+      "color": "#A8B0BC",
+      "socket": "hand_r"
+    },
+    {
+      "id": "loja_placa_head_t2",
+      "shape": "helm",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_placa_chest_t2",
+      "shape": "plate",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_placa_legs_t2",
+      "shape": "pants",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_placa_feet_t2",
+      "shape": "boots",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_couro_head_t2",
+      "shape": "hood",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_couro_chest_t2",
+      "shape": "tunic",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_couro_legs_t2",
+      "shape": "pants",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_couro_feet_t2",
+      "shape": "boots",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_pano_head_t2",
+      "shape": "hood",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_pano_chest_t2",
+      "shape": "tunic",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_pano_legs_t2",
+      "shape": "pants",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_pano_feet_t2",
+      "shape": "boots",
+      "color": "#A8B0BC"
+    },
+    {
+      "id": "loja_sword_t3",
+      "shape": "sword",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_axe_t3",
+      "shape": "axe",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_mace_t3",
+      "shape": "mace",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_spear_t3",
+      "shape": "spear",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_dagger_t3",
+      "shape": "dagger",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_bow_t3",
+      "shape": "bow",
+      "color": "#6FA8FF",
+      "socket": "hand_l",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_crossbow_t3",
+      "shape": "bow",
+      "color": "#6FA8FF",
+      "socket": "hand_l",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_wrench_t3",
+      "shape": "mace",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_rifle_t3",
+      "shape": "stick",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_pistol_t3",
+      "shape": "stick",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_whip_t3",
+      "shape": "stick",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_fist_t3",
+      "shape": "stick",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_staff_t3",
+      "shape": "staff",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_wand_t3",
+      "shape": "wand",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_scepter_t3",
+      "shape": "scepter",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_scythe_t3",
+      "shape": "spear",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_lute_t3",
+      "shape": "stick",
+      "color": "#6FA8FF",
+      "socket": "hand_r",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_placa_head_t3",
+      "shape": "helm",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_placa_chest_t3",
+      "shape": "plate",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_placa_legs_t3",
+      "shape": "pants",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_placa_feet_t3",
+      "shape": "boots",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_couro_head_t3",
+      "shape": "hood",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_couro_chest_t3",
+      "shape": "tunic",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_couro_legs_t3",
+      "shape": "pants",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_couro_feet_t3",
+      "shape": "boots",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_pano_head_t3",
+      "shape": "hood",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_pano_chest_t3",
+      "shape": "tunic",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_pano_legs_t3",
+      "shape": "pants",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_pano_feet_t3",
+      "shape": "boots",
+      "color": "#6FA8FF",
+      "glow": "#6FA8FF"
+    },
+    {
+      "id": "loja_sword_t4",
+      "shape": "sword",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_axe_t4",
+      "shape": "axe",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_mace_t4",
+      "shape": "mace",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_spear_t4",
+      "shape": "spear",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_dagger_t4",
+      "shape": "dagger",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_bow_t4",
+      "shape": "bow",
+      "color": "#5BD6A0",
+      "socket": "hand_l",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_crossbow_t4",
+      "shape": "bow",
+      "color": "#5BD6A0",
+      "socket": "hand_l",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_wrench_t4",
+      "shape": "mace",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_rifle_t4",
+      "shape": "stick",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_pistol_t4",
+      "shape": "stick",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_whip_t4",
+      "shape": "stick",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_fist_t4",
+      "shape": "stick",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_staff_t4",
+      "shape": "staff",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_wand_t4",
+      "shape": "wand",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_scepter_t4",
+      "shape": "scepter",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_scythe_t4",
+      "shape": "spear",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_lute_t4",
+      "shape": "stick",
+      "color": "#5BD6A0",
+      "socket": "hand_r",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_placa_head_t4",
+      "shape": "helm",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_placa_chest_t4",
+      "shape": "plate",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_placa_legs_t4",
+      "shape": "pants",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_placa_feet_t4",
+      "shape": "boots",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_couro_head_t4",
+      "shape": "hood",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_couro_chest_t4",
+      "shape": "tunic",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_couro_legs_t4",
+      "shape": "pants",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_couro_feet_t4",
+      "shape": "boots",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_pano_head_t4",
+      "shape": "hood",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_pano_chest_t4",
+      "shape": "tunic",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_pano_legs_t4",
+      "shape": "pants",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_pano_feet_t4",
+      "shape": "boots",
+      "color": "#5BD6A0",
+      "glow": "#7DFF9A"
+    },
+    {
+      "id": "loja_sword_t5",
+      "shape": "sword",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_axe_t5",
+      "shape": "axe",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_mace_t5",
+      "shape": "mace",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_spear_t5",
+      "shape": "spear",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_dagger_t5",
+      "shape": "dagger",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_bow_t5",
+      "shape": "bow",
+      "color": "#BA68C8",
+      "socket": "hand_l",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_crossbow_t5",
+      "shape": "bow",
+      "color": "#BA68C8",
+      "socket": "hand_l",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_wrench_t5",
+      "shape": "mace",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_rifle_t5",
+      "shape": "stick",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_pistol_t5",
+      "shape": "stick",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_whip_t5",
+      "shape": "stick",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_fist_t5",
+      "shape": "stick",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_staff_t5",
+      "shape": "staff",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_wand_t5",
+      "shape": "wand",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_scepter_t5",
+      "shape": "scepter",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_scythe_t5",
+      "shape": "spear",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_lute_t5",
+      "shape": "stick",
+      "color": "#BA68C8",
+      "socket": "hand_r",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_placa_head_t5",
+      "shape": "helm",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_placa_chest_t5",
+      "shape": "plate",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_placa_legs_t5",
+      "shape": "pants",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_placa_feet_t5",
+      "shape": "boots",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_couro_head_t5",
+      "shape": "hood",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_couro_chest_t5",
+      "shape": "tunic",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_couro_legs_t5",
+      "shape": "pants",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_couro_feet_t5",
+      "shape": "boots",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_pano_head_t5",
+      "shape": "hood",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_pano_chest_t5",
+      "shape": "tunic",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_pano_legs_t5",
+      "shape": "pants",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_pano_feet_t5",
+      "shape": "boots",
+      "color": "#BA68C8",
+      "glow": "#D79BFF"
+    },
+    {
+      "id": "loja_sword_t6",
+      "shape": "sword",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_axe_t6",
+      "shape": "axe",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_mace_t6",
+      "shape": "mace",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_spear_t6",
+      "shape": "spear",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_dagger_t6",
+      "shape": "dagger",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_bow_t6",
+      "shape": "bow",
+      "color": "#FFB74D",
+      "socket": "hand_l",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_crossbow_t6",
+      "shape": "bow",
+      "color": "#FFB74D",
+      "socket": "hand_l",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_wrench_t6",
+      "shape": "mace",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_rifle_t6",
+      "shape": "stick",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_pistol_t6",
+      "shape": "stick",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_whip_t6",
+      "shape": "stick",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_fist_t6",
+      "shape": "stick",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_staff_t6",
+      "shape": "staff",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_wand_t6",
+      "shape": "wand",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_scepter_t6",
+      "shape": "scepter",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_scythe_t6",
+      "shape": "spear",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_lute_t6",
+      "shape": "stick",
+      "color": "#FFB74D",
+      "socket": "hand_r",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_placa_head_t6",
+      "shape": "helm",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_placa_chest_t6",
+      "shape": "plate",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_placa_legs_t6",
+      "shape": "pants",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_placa_feet_t6",
+      "shape": "boots",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_couro_head_t6",
+      "shape": "hood",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_couro_chest_t6",
+      "shape": "tunic",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_couro_legs_t6",
+      "shape": "pants",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_couro_feet_t6",
+      "shape": "boots",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_pano_head_t6",
+      "shape": "hood",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_pano_chest_t6",
+      "shape": "tunic",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_pano_legs_t6",
+      "shape": "pants",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
+    },
+    {
+      "id": "loja_pano_feet_t6",
+      "shape": "boots",
+      "color": "#FFB74D",
+      "glow": "#FFD27A"
     }
   ]
 }

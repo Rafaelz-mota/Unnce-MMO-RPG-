@@ -46,6 +46,7 @@ namespace Mmorpg.Core.Data
             ClassesFile classes = Read<ClassesFile>(source, "classes", settings, report);
             SkillsFile skills = Read<SkillsFile>(source, "skills", settings, report);
             ItemsFile items = Read<ItemsFile>(source, "items", settings, report);
+            ShopsFile shops = Read<ShopsFile>(source, "shops", settings, report);
             SetsFile sets = Read<SetsFile>(source, "sets", settings, report);
             MonstersFile monsters = Read<MonstersFile>(source, "monsters", settings, report);
             LootFile loot = Read<LootFile>(source, "loot_tables", settings, report);
@@ -65,6 +66,7 @@ namespace Mmorpg.Core.Data
             CheckSchema("classes", classes.SchemaVersion, report);
             CheckSchema("skills", skills.SchemaVersion, report);
             CheckSchema("items", items.SchemaVersion, report);
+            CheckSchema("shops", shops.SchemaVersion, report);
             CheckSchema("sets", sets.SchemaVersion, report);
             CheckSchema("monsters", monsters.SchemaVersion, report);
             CheckSchema("loot_tables", loot.SchemaVersion, report);
@@ -81,7 +83,7 @@ namespace Mmorpg.Core.Data
                 Combat = combat,
                 Progression = progression
             };
-            data.BuildIndexes(rarities, statuses, classes, skills, items, sets, monsters, loot, regions, report);
+            data.BuildIndexes(rarities, statuses, classes, skills, items, shops, sets, monsters, loot, regions, report);
             GameDataValidator.Validate(data, report);
             return new LoadResult { Data = data, Report = report };
         }

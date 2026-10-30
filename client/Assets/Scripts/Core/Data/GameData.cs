@@ -97,6 +97,7 @@ namespace Mmorpg.Core.Data
         public Dictionary<string, ClassDef> Classes { get; private set; } = new Dictionary<string, ClassDef>();
         public Dictionary<string, SkillDef> Skills { get; private set; } = new Dictionary<string, SkillDef>();
         public Dictionary<string, ItemDef> Items { get; private set; } = new Dictionary<string, ItemDef>();
+        public Dictionary<string, ShopDef> Shops { get; private set; } = new Dictionary<string, ShopDef>();
         public Dictionary<string, SetDef> Sets { get; private set; } = new Dictionary<string, SetDef>();
         public Dictionary<string, MonsterCategoryDef> MonsterCategories { get; private set; } = new Dictionary<string, MonsterCategoryDef>();
         public Dictionary<string, MonsterDef> Monsters { get; private set; } = new Dictionary<string, MonsterDef>();
@@ -127,13 +128,14 @@ namespace Mmorpg.Core.Data
         }
 
         internal void BuildIndexes(RaritiesFile rarities, StatusesFile statuses, ClassesFile classes, SkillsFile skills,
-            ItemsFile items, SetsFile sets, MonstersFile monsters, LootFile loot, RegionsFile regions, ValidationReport report)
+            ItemsFile items, ShopsFile shops, SetsFile sets, MonstersFile monsters, LootFile loot, RegionsFile regions, ValidationReport report)
         {
             Index(rarities.Rarities, x => x.Id, Rarities, "rarities", report);
             Index(statuses.Statuses, x => x.Id, Statuses, "statuses", report);
             Index(classes.Classes, x => x.Id, Classes, "classes", report);
             Index(skills.Skills, x => x.Id, Skills, "skills", report);
             Index(items.Items, x => x.Id, Items, "items", report);
+            Index(shops.Shops, x => x.Id, Shops, "shops", report);
             Index(sets.Sets, x => x.Id, Sets, "sets", report);
             Index(monsters.Categories, x => x.Id, MonsterCategories, "monsters.categories", report);
             Index(monsters.Monsters, x => x.Id, Monsters, "monsters", report);
