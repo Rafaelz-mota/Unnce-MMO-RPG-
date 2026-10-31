@@ -209,7 +209,8 @@ namespace Mmorpg.Game
                 case "rock":
                     TerrainDecor.Rock(t, Vector3.zero, r);
                     break;
-                default: // ruin e qualquer tipo novo: base de pedra com pilares e um arco quebrado
+                default: // ruin e qualquer tipo novo: modelo pronto em Models/Buildings/<kind>, senão base de pedra com pilares e um arco quebrado
+                    if (ModelBuilder.TryInstantiate(ModelBuilder.BuildingsFolder + o.Kind, t, Vector3.zero, variant * 90f, 1f) != null) break;
                     Prims.MakeShared(PrimitiveType.Cylinder, "Base", t, new Vector3(0f, 0.2f, 0f), new Vector3(r * 2f, 0.2f, r * 2f), new Color(0.55f, 0.55f, 0.58f));
                     Prims.MakeShared(PrimitiveType.Cube, "Pilar1", t, new Vector3(-r * 0.4f, 1.8f, 0f), new Vector3(r * 0.5f, 3.4f, r * 0.5f), new Color(0.65f, 0.65f, 0.68f));
                     Prims.MakeShared(PrimitiveType.Cube, "Pilar2", t, new Vector3(r * 0.4f, 1.1f, r * 0.2f), new Vector3(r * 0.5f, 2.0f, r * 0.5f), new Color(0.62f, 0.62f, 0.65f));

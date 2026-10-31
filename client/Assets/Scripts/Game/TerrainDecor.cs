@@ -49,6 +49,7 @@ namespace Mmorpg.Game
             Camp(t, spawn);
             foreach (SpawnZoneDef z in region.SpawnZones)
                 if (z.Id != null && z.Id.StartsWith("arena")) { Arena(t, new Vector3((float)z.CenterX, 0f, (float)z.CenterZ)); break; }
+            MobileProfile.BatchStatic(holder);
         }
 
         // ------------------------------------------------------------------ chão
@@ -126,6 +127,8 @@ namespace Mmorpg.Game
         // ------------------------------------------------------------------ árvores e pedras
         public static void Tree(Transform parent, Vector3 pos, float size, int variant)
         {
+            // modelo pronto (Resources/Models/Props/tree_0..2); sem ele, as árvores de primitivas abaixo
+            if (ModelBuilder.TryInstantiate(ModelBuilder.PropsFolder + "tree_" + (variant % 3), parent, pos, variant * 97f, 1f) != null) return;
             Color bark = new Color(0.4f, 0.28f, 0.16f);
             if (variant % 3 == 2)
             {
@@ -148,6 +151,7 @@ namespace Mmorpg.Game
 
         public static void Rock(Transform parent, Vector3 pos, float r)
         {
+            if (ModelBuilder.TryInstantiate(ModelBuilder.PropsFolder + "rock", parent, pos, pos.x * 53f, Mathf.Max(0.3f, r)) != null) return;
             Color g = new Color(0.5f, 0.5f, 0.52f);
             Prims.MakeShared(PrimitiveType.Sphere, "Pedra", parent, pos + new Vector3(0f, r * 0.45f, 0f), new Vector3(r * 2f, r * 1.1f, r * 1.8f), g);
             Prims.MakeShared(PrimitiveType.Sphere, "Pedra", parent, pos + new Vector3(r * 0.9f, r * 0.25f, r * 0.3f), new Vector3(r * 1.1f, r * 0.7f, r * 1.0f), Dk(g, 0.88f));
@@ -173,6 +177,7 @@ namespace Mmorpg.Game
         // ------------------------------------------------------------------ pontos de interesse
         private static void Camp(Transform t, Vector3 spawn)
         {
+            if (ModelBuilder.TryInstantiate(ModelBuilder.BuildingsFolder + "camp", t, spawn, 0f, 1f) != null) return;
             Color stone = new Color(0.58f, 0.58f, 0.6f);
             for (int i = 0; i < 8; i++)
             {
@@ -189,6 +194,7 @@ namespace Mmorpg.Game
 
         private static void Arena(Transform t, Vector3 c)
         {
+            if (ModelBuilder.TryInstantiate(ModelBuilder.BuildingsFolder + "arena", t, c, 0f, 1f) != null) return;
             Color stone = new Color(0.32f, 0.3f, 0.34f);
             Color glow = new Color(0.85f, 0.2f, 0.15f);
             for (int i = 0; i < 8; i++)

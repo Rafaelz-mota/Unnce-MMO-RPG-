@@ -72,6 +72,17 @@ namespace Mmorpg.Game
             Color glow = string.IsNullOrEmpty(look.Glow) ? c : Conv.Hex(look.Glow, c);
             bool hasGlow = !string.IsNullOrEmpty(look.Glow);
 
+            // modelo pronto por id do item (Resources/Models/Items/<id>): arma na mão, elmo na cabeça, peitoral no peito
+            if (string.IsNullOrEmpty(look.Prefab) && (def.Slot == "weapon" || def.Slot == "head" || def.Slot == "chest"))
+            {
+                Transform sock = SocketFor(def, look);
+                if (sock != null)
+                {
+                    GameObject auto = ModelBuilder.TryInstantiate(ModelBuilder.ItemsFolder + def.Id, sock, Vector3.zero, 0f, 1f);
+                    if (auto != null) { _spawned.Add(auto); return; }
+                }
+            }
+
             if (!string.IsNullOrEmpty(look.Prefab))
             {
                 GameObject asset = Resources.Load<GameObject>(look.Prefab);

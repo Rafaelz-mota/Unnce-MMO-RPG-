@@ -1,0 +1,1 @@
+Construcoes: ruin.prefab (obstaculo "ruin"), camp.prefab (acampamento do nascimento), arena.prefab (arena do chefe).

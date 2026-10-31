@@ -1,0 +1,1 @@
+Equipamentos: <id do item>.prefab (ex.: loja_sword_t3.prefab). Armas, elmos e peitorais.

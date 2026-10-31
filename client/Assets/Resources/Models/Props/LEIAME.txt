@@ -1,0 +1,1 @@
+Vegetacao e pedras: tree_0.prefab, tree_1.prefab, tree_2.prefab, rock.prefab (veja docs/MODELOS.md).

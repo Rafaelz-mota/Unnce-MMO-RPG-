@@ -66,6 +66,26 @@ namespace Mmorpg.Game
         public const string ClassesFolder = "Models/Classes/";
         public const string MonstersFolder = "Models/Monsters/";
         public const string NpcsFolder = "Models/Npcs/";
+        /// <summary>Vegetação e pedras: tree_0, tree_1, tree_2, rock. Construções: ruin, camp, arena. Equipamentos: &lt;id do item&gt;.</summary>
+        public const string PropsFolder = "Models/Props/";
+        public const string BuildingsFolder = "Models/Buildings/";
+        public const string ItemsFolder = "Models/Items/";
+
+        private static readonly Dictionary<string, GameObject> AssetCache = new Dictionary<string, GameObject>();
+
+        /// <summary>Procura um prefab em Resources (com cache, inclusive de "não existe") e o instancia como filho de 'parent'. Null se não houver.</summary>
+        public static GameObject TryInstantiate(string resourcePath, Transform parent, Vector3 localPos, float yawDegrees, float scale)
+        {
+            GameObject asset;
+            if (!AssetCache.TryGetValue(resourcePath, out asset)) { asset = Resources.Load<GameObject>(resourcePath); AssetCache[resourcePath] = asset; }
+            if (asset == null) return null;
+            GameObject inst = UnityEngine.Object.Instantiate(asset);
+            inst.transform.SetParent(parent, false);
+            inst.transform.localPosition = localPos;
+            inst.transform.localRotation = Quaternion.Euler(0f, yawDegrees, 0f);
+            inst.transform.localScale = new Vector3(scale, scale, scale);
+            return inst;
+        }
 
         public static ModelParts BuildPlayer(ClassLookDef look, Transform parent)
         {

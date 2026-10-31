@@ -74,6 +74,7 @@ namespace Mmorpg.Game
         private void Start()
         {
             Application.targetFrameRate = 60;
+            MobileProfile.Apply();
             Initialize();
         }
 

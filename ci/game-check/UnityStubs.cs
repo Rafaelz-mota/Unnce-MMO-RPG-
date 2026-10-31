@@ -180,6 +180,14 @@ namespace UnityEngine
 
     public static class Time { public static float deltaTime; public static float unscaledTime; public static float time; }
     public static class Screen { public static int width; public static int height; }
+    public static class QualitySettings
+    {
+        public static float shadowDistance, lodBias;
+        public static int pixelLightCount, vSyncCount;
+    }
+
+    public static class StaticBatchingUtility { public static void Combine(GameObject staticBatchRoot) { } }
+
     public static class Application
     {
         public static bool isMobilePlatform;
