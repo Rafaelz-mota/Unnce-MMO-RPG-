@@ -15,6 +15,7 @@
 | Silhueta por classe (build, ombros, capa, cabeça, costas, mão secundária) | sim | sim | não |
 | Equipamento visível (arma e armadura mudam ao equipar/desequipar) | sim | sim | não |
 | Caminho para modelo real: prefab achado sozinho por id em `Resources/Models/Classes|Monsters|Npcs` (veja `docs/MODELOS.md`), com Animator opcional | sim | sim | **não** (nunca testado com um modelo real) |
+| Entradas para vegetação, construções e equipamento prontos (`Models/Props|Buildings|Items`), perfil leve para Android (`MobileProfile`), validador de modelos no Editor | sim | sim (o validador é código de Editor e **não** é compilado no CI) | não |
 | Boneco de código mais detalhado (pernas com joelho e bota, mãos, rosto, manto aberto na frente) | sim | sim | não |
 | Animação: andar, golpe, piscar ao dano, morte (procedural) | sim | sim | o dono relatou que abriu sem erro; qualidade não avaliada |
 | Efeitos de habilidade por elemento (primitivas) | sim | sim | não |

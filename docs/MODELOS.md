@@ -17,6 +17,30 @@ Os ids estão em `classes.json`, `monsters.json` e nas regiões (`regions.json`,
 Alternativa para classes: no `presentation.json`, o campo `prefab` da classe aceita outro caminho dentro de `Resources`
 (sem extensão); ele tem prioridade sobre a pasta.
 
+| Vegetação / pedras | `Models/Props/` | `tree_0.prefab`, `tree_1.prefab`, `tree_2.prefab`, `rock.prefab` |
+| Construções | `Models/Buildings/` | `ruin.prefab` (obstáculo "ruin"), `camp.prefab` (nascimento), `arena.prefab` (arena do chefe) |
+| Equipamento | `Models/Items/` | `<id do item>.prefab` (ex.: `loja_sword_t3.prefab`); vale para armas, elmos e peitorais |
+
+Chefes usam a pasta de monstros: o prefab do Colosso da Raiz é `Models/Monsters/colosso_da_raiz.prefab`.
+Árvores e pedras reais entram no lugar de **todas** as árvores/pedras do mapa que usam aquela variante; a colisão
+continua sendo o círculo (`radius`) do obstáculo em `regions.json`, então modele a base do tronco com esse raio.
+Pernas e botas equipadas só aparecem em modelos rigados (a armadura "calça/bota" do boneco de código não tem
+equivalente por prefab ainda).
+
+## Orçamento para Android (usado pelo validador)
+| Pasta | Triângulos (máx.) | Altura esperada |
+|---|---|---|
+| Classes / Npcs | 15 000 | 1,5 a 2,6 m (classes) |
+| Monsters | 20 000 | 0,3 a 12 m |
+| Props | 6 000 | 0,2 a 30 m |
+| Buildings | 30 000 | 1 a 60 m |
+| Items | 3 000 | 0,05 a 3 m |
+
+- Malha acima de 5 000 triângulos deve ter **LODGroup** (LOD0 / LOD1 a ~50% / LOD2 a ~25%).
+- **Materiais PBR:** URP/Lit (ou Standard no Built-in), 1 a 3 por modelo, com atlas. Mapas: Base (albedo), Normal,
+  Metallic/Smoothness juntos. Texturas até 2048 px (1024 para props e itens), compressão **ASTC** no Android.
+- Para conferir tudo isso no Editor: menu **Mmorpg > Validar modelos (Resources/Models)**. Ele só lê e imprime avisos no Console.
+
 ## Regras do modelo
 - **Escala:** 1 unidade = 1 metro. Humanoide com cerca de **1,8 a 2,2 m**, pés em `y = 0`, olhando para `+Z`.
   Para ajustar o tamanho por classe use `height` no `presentation.json`; por monstro, `scale` em `monsters.json`.
