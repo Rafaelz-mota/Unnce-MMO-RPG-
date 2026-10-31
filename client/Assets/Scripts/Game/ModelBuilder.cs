@@ -137,8 +137,9 @@ namespace Mmorpg.Game
             P(r, PrimitiveType.Cube, "Cinto", 0f, 0.92f, 0f, tw + 0.04f, 0.1f, td + 0.04f, accent);
             if (look.Robe)
             {
-                P(r, PrimitiveType.Cylinder, "Tunica", 0f, 0.5f, 0f, tw * 1.35f, 0.5f, td * 2.6f, cloth);
-                P(r, PrimitiveType.Cube, "BarraDaTunica", 0f, 0.04f, 0f, tw * 1.45f, 0.06f, td * 2.7f, accent);
+                // túnica na altura do joelho: as pernas e botas aparecem por baixo (antes a túnica ia até o chão e escondia tudo)
+                P(r, PrimitiveType.Cylinder, "Tunica", 0f, 0.70f, 0f, tw * 1.3f, 0.28f, td * 2.5f, cloth);
+                P(r, PrimitiveType.Cube, "BarraDaTunica", 0f, 0.43f, 0f, tw * 1.38f, 0.05f, td * 2.6f, accent);
             }
             if (look.Cape) P(r, PrimitiveType.Cube, "Capa", 0f, 1.12f, -td * 0.5f - 0.07f, tw * 0.85f, 0.95f, 0.05f, Dk(accent, 0.8f));
 
