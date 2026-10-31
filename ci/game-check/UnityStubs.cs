@@ -59,6 +59,7 @@ namespace UnityEngine
         public T AddComponent<T>() where T : Component { return null; }
         public T GetComponent<T>() where T : Component { return null; }
         public T[] GetComponentsInChildren<T>() where T : Component { return null; }
+        public T GetComponentInChildren<T>() where T : Component { return null; }
         public static GameObject CreatePrimitive(PrimitiveType type) { return null; }
     }
 
