@@ -388,9 +388,9 @@ def main():
             err(w, "tabela de loot inexistente " + m["lootTableId"])
         if m["leashRange"] < m["aggroRange"]:
             err(w, "leashRange menor que aggroRange")
-        if m["moveSpeed"] <= 0:
+        if m["moveSpeed"] <= 0 and not m.get("immortal"):
             err(w, "moveSpeed deve ser > 0")
-        if not m["skillIds"]:
+        if not m["skillIds"] and not m.get("immortal"):
             err(w, "monstro sem habilidades")
         for sid in m["skillIds"] + [x for p in m["phases"] for x in p["skillIds"]]:
             sk = skills.get(sid)

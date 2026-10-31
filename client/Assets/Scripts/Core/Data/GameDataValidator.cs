@@ -384,8 +384,8 @@ namespace Mmorpg.Core.Data
                 if (m.Level < 1 || m.Level > d.Rules.MaxLevel) r.Error(w, "nível inválido");
                 if (!d.LootTables.ContainsKey(m.LootTableId ?? "")) r.Error(w, "tabela de loot inexistente " + m.LootTableId);
                 if (m.LeashRange < m.AggroRange) r.Error(w, "leashRange menor que aggroRange");
-                if (m.MoveSpeed <= 0) r.Error(w, "moveSpeed deve ser > 0");
-                if (m.SkillIds.Count == 0) r.Error(w, "monstro sem habilidades");
+                if (m.MoveSpeed <= 0 && !m.Immortal) r.Error(w, "moveSpeed deve ser > 0");
+                if (m.SkillIds.Count == 0 && !m.Immortal) r.Error(w, "monstro sem habilidades");
                 foreach (var sid in m.SkillIds.Concat(m.Phases.SelectMany(p => p.SkillIds)))
                 {
                     SkillDef s;

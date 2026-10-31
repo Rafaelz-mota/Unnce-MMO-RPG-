@@ -101,6 +101,14 @@ namespace Mmorpg.Core.Combat
 
         public double MaxHp { get { return Stats.Get("maxHp"); } }
 
+        // --- bonecos de treino (MonsterDef.Immortal): medição de dano
+        public double TrainingDamage;
+        public double TrainingStart = -1;
+        public double TrainingLast = -1;
+
+        /// <summary>Dano por segundo medido desde o primeiro golpe da sequência atual (0 se não há medição).</summary>
+        public double TrainingDps { get { return TrainingStart >= 0 && TrainingLast > TrainingStart ? TrainingDamage / (TrainingLast - TrainingStart) : 0.0; } }
+
         public double HpPercent { get { double m = MaxHp; return m <= 0 ? 0 : Hp / m * 100.0; } }
 
         public bool HasControl(string key)

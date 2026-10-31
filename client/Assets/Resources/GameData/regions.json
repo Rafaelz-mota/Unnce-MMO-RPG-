@@ -83,6 +83,24 @@
           "radius": 1,
           "count": 1,
           "respawnSeconds": 3600
+        },
+        {
+          "id": "treino_boneco",
+          "monsterId": "boneco_de_treino",
+          "centerX": -14,
+          "centerZ": -60,
+          "radius": 1,
+          "count": 1,
+          "respawnSeconds": 30
+        },
+        {
+          "id": "treino_agressor",
+          "monsterId": "boneco_agressor",
+          "centerX": -34,
+          "centerZ": -60,
+          "radius": 1,
+          "count": 1,
+          "respawnSeconds": 30
         }
       ],
       "obstacles": [

@@ -104,6 +104,16 @@ namespace Mmorpg.Core.Combat
                 }
             }
 
+            if (target.IsMonster && target.MonsterDef != null && target.MonsterDef.Immortal)
+            {
+                // boneco de treino: mede o dano (zera após 5s sem golpes) e nunca morre
+                if (target.TrainingStart < 0 || Time - target.TrainingLast > 5.0) { target.TrainingStart = Time; target.TrainingDamage = 0; }
+                target.TrainingDamage += amount;
+                target.TrainingLast = Time;
+                if (target.Hp < target.MaxHp * 0.1) target.Hp = target.MaxHp;
+                return amount;
+            }
+
             if (target.Hp <= 0) Kill(target, sourceId);
             return amount;
         }

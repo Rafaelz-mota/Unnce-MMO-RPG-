@@ -260,6 +260,46 @@
       "lootTableId": "loot_colosso_da_raiz",
       "scale": 3.2,
       "description": "Guardião corrompido do Vale do Despertar, prisioneiro da própria raiz."
+    },
+    {
+      "id": "boneco_de_treino",
+      "name": "Boneco de Treino",
+      "categoryId": "common",
+      "level": 10,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 0,
+      "leashRange": 10,
+      "moveSpeed": 0,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_broto_ancestral",
+      "immortal": true,
+      "scale": 1.3,
+      "description": "Boneco imortal e parado: use para testar o dano das habilidades. Mostra o dano total e o DPS."
+    },
+    {
+      "id": "boneco_agressor",
+      "name": "Boneco Agressor",
+      "categoryId": "common",
+      "level": 10,
+      "regionId": "vale_do_despertar",
+      "aggroRange": 14,
+      "leashRange": 30,
+      "moveSpeed": 0,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "skillIds": [
+        "boneco_pancada"
+      ],
+      "phases": [],
+      "ccResist": {},
+      "lootTableId": "loot_broto_ancestral",
+      "immortal": true,
+      "scale": 1.3,
+      "description": "Boneco imortal que ataca de longe a cada 2s: use para testar defesa, escudos, curas e provocação."
     }
   ]
 }

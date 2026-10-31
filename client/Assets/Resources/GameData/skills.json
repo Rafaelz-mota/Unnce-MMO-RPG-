@@ -10087,6 +10087,40 @@
       "animation": "anim_alquimista_grande_obra",
       "vfx": "vfx_alquimista_grande_obra",
       "sfx": "sfx_alquimista_grande_obra"
+    },
+    {
+      "id": "boneco_pancada",
+      "name": "Pancada de Treino",
+      "ownerType": "monster",
+      "ownerId": "boneco_agressor",
+      "slot": 0,
+      "goldCost": 0,
+      "requiresLevel": 1,
+      "type": "damage",
+      "targeting": "enemy",
+      "range": 14,
+      "radius": 0,
+      "maxTargets": 1,
+      "cooldown": 2.0,
+      "castTime": 0,
+      "resourceCost": 0,
+      "usesGlobalCooldown": true,
+      "silenceable": false,
+      "pvpMultiplier": 1.0,
+      "effects": [
+        {
+          "kind": "damage",
+          "damageType": "physical",
+          "base": 10,
+          "scaling": {
+            "physAttack": 1.0
+          }
+        }
+      ],
+      "description": "Golpe de treino com dano constante.",
+      "animation": "anim_boneco_pancada",
+      "vfx": "vfx_boneco_pancada",
+      "sfx": "sfx_boneco_pancada"
     }
   ]
 }

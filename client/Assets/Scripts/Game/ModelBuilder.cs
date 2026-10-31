@@ -271,10 +271,30 @@ namespace Mmorpg.Game
                 case "lobo_lunar_palido": return Wolf(parent, new Color(0.88f, 0.9f, 1f), new Color(0.5f, 0.8f, 1f), true);
                 case "javali_do_vale": return Boar(parent, new Color(0.42f, 0.28f, 0.2f));
                 case "broto_ancestral": return Sprout(parent);
+                case "boneco_de_treino": return Dummy(parent, new Color(0.78f, 0.66f, 0.42f), new Color(0.3f, 0.6f, 0.95f));
+                case "boneco_agressor": return Dummy(parent, new Color(0.7f, 0.5f, 0.4f), new Color(0.9f, 0.2f, 0.15f));
                 case "sentinela_de_pedra_rachada": return StoneGolem(parent);
                 case "colosso_da_raiz": return RootColossus(parent);
                 default: return Blob(parent, categoryColor);
             }
+        }
+
+        /// <summary>Boneco de treino: estaca, corpo de palha com alvo pintado e braços de madeira.</summary>
+        private static ModelParts Dummy(Transform parent, Color straw, Color mark)
+        {
+            ModelParts m = NewParts(parent);
+            Transform r = m.Root;
+            Color wood = new Color(0.4f, 0.27f, 0.15f);
+            P(r, PrimitiveType.Cylinder, "Base", 0f, 0.08f, 0f, 1.1f, 0.08f, 1.1f, wood);
+            P(r, PrimitiveType.Cylinder, "Estaca", 0f, 0.9f, 0f, 0.16f, 0.9f, 0.16f, wood);
+            P(r, PrimitiveType.Cube, "Bracos", 0f, 1.5f, 0f, 1.5f, 0.14f, 0.14f, wood);
+            P(r, PrimitiveType.Capsule, "Corpo", 0f, 1.25f, 0f, 0.7f, 0.55f, 0.55f, straw);
+            P(r, PrimitiveType.Cylinder, "AlvoA", 0f, 1.28f, 0.28f, 0.55f, 0.02f, 0.55f, mark);
+            P(r, PrimitiveType.Cylinder, "AlvoB", 0f, 1.28f, 0.29f, 0.3f, 0.02f, 0.3f, Color.white);
+            P(r, PrimitiveType.Sphere, "Cabeca", 0f, 1.95f, 0f, 0.5f, 0.5f, 0.5f, straw);
+            Prims.Hitbox(r, 2.3f, 1.2f);
+            m.Height = 2.5f;
+            return m;
         }
 
         private static ModelParts Blob(Transform parent, Color c)

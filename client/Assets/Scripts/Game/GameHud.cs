@@ -282,6 +282,9 @@ namespace Mmorpg.Game
             string tag = t.Category != null && !string.IsNullOrEmpty(t.Category.Tag) ? " " + t.Category.Tag : "";
             Text(new Rect(x, y, width, 22f * k), t.Name + "  -  Nv " + t.Level + tag, Conv.Hex(t.Category != null ? t.Category.ColorHex : null, Color.white), TextAnchor.MiddleCenter);
             Bar(new Rect(x, y + 24f * k, width, h), (float)(t.Hp / Math.Max(1.0, t.MaxHp)), new Color(0.85f, 0.3f, 0.2f), ((long)Math.Ceiling(t.Hp)) + " / " + ((long)t.MaxHp));
+            if (t.MonsterDef != null && t.MonsterDef.Immortal)
+                Text(new Rect(x, y + 24f * k + h + 34f * k, width, 22f * k),
+                    "TREINO  Dano: " + (long)t.TrainingDamage + "   DPS: " + t.TrainingDps.ToString("0.0"), new Color(1f, 0.9f, 0.4f), TextAnchor.MiddleCenter);
 
             // botão de travar/destravar a mira (funciona por toque, mouse ou tecla T)
             bool locked = _session.TargetLocked;

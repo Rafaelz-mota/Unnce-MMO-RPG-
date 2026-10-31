@@ -492,6 +492,8 @@ namespace Mmorpg.Core.Data
         /// <summary>Multiplicador da duração por tipo de controle (stun/root/silence/slow/taunt); 0 = imune.</summary>
         public Dictionary<string, double> CcResist { get; set; } = new Dictionary<string, double>();
         public string LootTableId { get; set; }
+        /// <summary>Boneco de treino: nunca morre (a vida volta ao máximo ao cair abaixo de 10%), não dá XP nem loot e mede o dano recebido.</summary>
+        public bool Immortal { get; set; }
         /// <summary>Escala visual (apenas apresentação).</summary>
         public double Scale { get; set; } = 1.0;
         public string Description { get; set; }

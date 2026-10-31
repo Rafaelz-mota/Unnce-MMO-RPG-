@@ -168,5 +168,41 @@ namespace Mmorpg.Core.Tests
                 .Select(s => Mmorpg.Core.Presentation.SkillVfxStyle.For(s, t.Data).Signature()).ToList();
             Assert.GreaterOrEqual(all.Distinct().Count(), 205, "visuais repetidos demais entre as 216 habilidades");
         }
+
+        [Test]
+        public void TrainingDummy_NeverDies_AndMeasuresDamage()
+        {
+            var t = new TestWorld();
+            Combatant a = t.Player("arqueiro", 1, 0, 0);
+            MonsterDef def = t.Data.Monsters["boneco_de_treino"];
+            Combatant dummy = t.World.AddMonster(def, new Mmorpg.Core.Common.Vec2(8, 0), null);
+            Assert.IsTrue(def.Immortal);
+            for (int i = 0; i < 60; i++)
+            {
+                t.Use(a, "arqueiro_tiro_preciso", dummy);
+                a.Resource = 100;
+                t.Step(1.5);
+            }
+            dummy.Hp = dummy.MaxHp * 0.01;
+            t.Use(a, "arqueiro_tiro_preciso", dummy);
+            t.Step(0.5);
+            Assert.IsFalse(dummy.Dead);
+            Assert.Greater(dummy.Hp, dummy.MaxHp * 0.5, "a vida volta ao máximo");
+            Assert.Greater(dummy.TrainingDamage, 0);
+            Assert.AreEqual(0, t.Count(GameEventType.Died));
+        }
+
+        [Test]
+        public void AggressiveDummy_HitsThePlayerFromAfar_AndStillNeverDies()
+        {
+            var t = new TestWorld();
+            Combatant p = t.Player("guerreiro", 1, 0, 0);
+            MonsterDef def = t.Data.Monsters["boneco_agressor"];
+            Combatant dummy = t.World.AddMonster(def, new Mmorpg.Core.Common.Vec2(10, 0), null);
+            double before = p.Hp;
+            t.Step(6.0);
+            Assert.Less(p.Hp, before, "o boneco agressor ataca");
+            Assert.IsFalse(dummy.Dead);
+        }
     }
 }
