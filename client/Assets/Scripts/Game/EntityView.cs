@@ -72,6 +72,7 @@ namespace Mmorpg.Game
             _anim.Legs = parts.Legs;
             _anim.Arms = parts.Arms;
             _anim.Spinners = parts.Spinners;
+            _anim.Rig = parts.Rig;
             _anim.StrideSpeed = parts.StrideSpeed;
             _anim.LegSwing = parts.LegSwing;
             _anim.ArmSwing = parts.ArmSwing;
@@ -95,7 +96,7 @@ namespace Mmorpg.Game
         }
 
         /// <summary>Ao receber dano: o corpo pisca em branco por um instante.</summary>
-        public void Flash() { _flash = 0.12f; }
+        public void Flash() { _flash = 0.12f; if (_anim != null) _anim.Hit(); }
 
         private void SetColors(float whiteMix, float darken)
         {
@@ -140,14 +141,19 @@ namespace Mmorpg.Game
             {
                 _deadApplied = true;
                 _anim.Active = false;
-                _body.localRotation = Quaternion.Euler(90f, 0f, 0f);
-                _body.localPosition = new Vector3(0f, 0.3f, 0f);
-                SetColors(0f, 0.35f);
+                if (_anim.RigHandlesDeath) _anim.SetDead(true); // modelo real: a animação de morte cuida da pose
+                else
+                {
+                    _body.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                    _body.localPosition = new Vector3(0f, 0.3f, 0f);
+                    SetColors(0f, 0.35f);
+                }
             }
             else if (!Combatant.Dead && _deadApplied)
             {
                 _deadApplied = false; // renasceu
                 _anim.Active = true;
+                _anim.SetDead(false);
                 _body.localRotation = Quaternion.identity;
                 _body.localPosition = Vector3.zero;
                 SetColors(0f, 1f);

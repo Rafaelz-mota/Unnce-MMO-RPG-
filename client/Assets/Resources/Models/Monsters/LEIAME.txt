@@ -1,0 +1,2 @@
+Coloque aqui os prefabs prontos (veja docs/MODELOS.md).
+O nome do arquivo e o id: ex. Classes/guerreiro.prefab, Monsters/lobo_selvagem.prefab, Npcs/mercador_orvalho.prefab.

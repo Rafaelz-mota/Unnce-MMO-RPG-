@@ -23,6 +23,17 @@ namespace UnityEngine
         public T GetComponent<T>() where T : Component { return null; }
         public T GetComponentInParent<T>() where T : Component { return null; }
         public T[] GetComponentsInChildren<T>() where T : Component { return null; }
+        public T GetComponentInChildren<T>() where T : Component { return null; }
+    }
+
+    public enum AnimatorControllerParameterType { Float, Int, Bool, Trigger }
+    public class AnimatorControllerParameter { public string name; public AnimatorControllerParameterType type; }
+    public class Animator : Behaviour
+    {
+        public AnimatorControllerParameter[] parameters;
+        public void SetFloat(string name, float value) { }
+        public void SetBool(string name, bool value) { }
+        public void SetTrigger(string name) { }
     }
 
     public class Behaviour : Component { }

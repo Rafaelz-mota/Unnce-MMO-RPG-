@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mmorpg.Game
@@ -16,6 +17,30 @@ namespace Mmorpg.Game
         public float LegSwing = 38f;
         public float ArmSwing = 30f;
         public bool Active = true;
+        /// <summary>Animator de um modelo real: quando existe, ele anima no lugar do balanço por código.</summary>
+        public Animator Rig;
+        private HashSet<string> _rigParams;
+        public bool HasRig { get { return Rig != null; } }
+
+        /// <summary>True se o Animator tem o parâmetro (o controlador pode ter só alguns dos opcionais).</summary>
+        private bool Has(string name)
+        {
+            if (Rig == null) return false;
+            if (_rigParams == null)
+            {
+                _rigParams = new HashSet<string>();
+                AnimatorControllerParameter[] ps = Rig.parameters;
+                if (ps != null) for (int i = 0; i < ps.Length; i++) _rigParams.Add(ps[i].name);
+            }
+            return _rigParams.Contains(name);
+        }
+
+        public void Hit() { if (Has("Hit")) Rig.SetTrigger("Hit"); }
+
+        public void SetDead(bool dead) { if (Has("Dead")) Rig.SetBool("Dead", dead); }
+
+        /// <summary>True se o controlador do modelo tem a animação de morte (então não se deita o corpo por código).</summary>
+        public bool RigHandlesDeath { get { return Has("Dead"); } }
 
         private Vector3 _last;
         private bool _hasLast;
@@ -23,7 +48,7 @@ namespace Mmorpg.Game
         private float _attack;
         private float _speed;
 
-        public void Lunge() { _attack = 0.25f; }
+        public void Lunge() { _attack = 0.25f; if (Has("Attack")) Rig.SetTrigger("Attack"); }
 
         private void Update()
         {
@@ -39,6 +64,12 @@ namespace Mmorpg.Game
             }
             _last = pos;
             _hasLast = true;
+
+            if (Rig != null)
+            {
+                if (Has("Speed")) Rig.SetFloat("Speed", _speed);
+                return; // o Animator do modelo real cuida do resto
+            }
 
             if (!Active) return;
 

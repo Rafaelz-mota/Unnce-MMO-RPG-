@@ -25,6 +25,8 @@ namespace Mmorpg.Game
         public Dictionary<string, Transform> Sockets = new Dictionary<string, Transform>();
         /// <summary>Adorno da classe na cabeça; fica oculto quando há item de cabeça equipado.</summary>
         public Transform ClassHeadgear;
+        /// <summary>Animator do modelo real (se houver). Parâmetros opcionais: Speed (float), Attack e Hit (trigger), Dead (bool).</summary>
+        public Animator Rig;
         public float StrideSpeed = 7f;
         public float LegSwing = 38f;
         public float ArmSwing = 30f;
@@ -60,36 +62,51 @@ namespace Mmorpg.Game
         /// Resources, ele é usado; senão monta o visual provisório de primitivas (marcado em IsPlaceholder).
         /// Arma e armadura NÃO vêm daqui: são colocadas por EquipmentVisuals nos encaixes (Sockets).
         /// </summary>
+        /// <summary>Pastas onde um modelo pronto é encontrado sozinho, pelo id (veja docs/MODELOS.md): Resources/Models/Classes|Monsters|Npcs/&lt;id&gt;.</summary>
+        public const string ClassesFolder = "Models/Classes/";
+        public const string MonstersFolder = "Models/Monsters/";
+        public const string NpcsFolder = "Models/Npcs/";
+
         public static ModelParts BuildPlayer(ClassLookDef look, Transform parent)
         {
             if (look == null) look = new ClassLookDef { Id = "?", Cloth = "#4080F0", Accent = "#F2CC4D" };
-            ModelParts prefab = TryPrefab(look, parent);
+            // 1) caminho explícito em presentation.json; 2) arquivo com o id da classe em Resources/Models/Classes
+            ModelParts prefab = TryPrefab(look.Prefab, parent, true, (float)look.Height, look.Id);
+            if (prefab == null) prefab = TryPrefab(ClassesFolder + look.Id, parent, false, (float)look.Height, look.Id);
             if (prefab != null) return prefab;
             return Humanoid(parent, look);
         }
 
-        private static ModelParts TryPrefab(ClassLookDef look, Transform parent)
+        /// <summary>Carrega e instancia um prefab de Resources; null se não existir (sem erro, a menos que o caminho tenha sido pedido).</summary>
+        public static GameObject LoadModelInstance(string resourcePath, bool warnIfMissing, string who)
         {
-            if (string.IsNullOrEmpty(look.Prefab)) return null;
-            GameObject asset = Resources.Load<GameObject>(look.Prefab);
+            if (string.IsNullOrEmpty(resourcePath)) return null;
+            GameObject asset = Resources.Load<GameObject>(resourcePath);
             if (asset == null)
             {
-                Debug.LogWarning("Prefab da classe " + look.Id + " não encontrado em Resources/" + look.Prefab + "; usando o visual provisório.");
+                if (warnIfMissing) Debug.LogWarning("Modelo de " + who + " não encontrado em Resources/" + resourcePath + "; usando o visual provisório.");
                 return null;
             }
-            GameObject inst = UnityEngine.Object.Instantiate(asset);
+            return UnityEngine.Object.Instantiate(asset);
+        }
+
+        private static ModelParts TryPrefab(string path, Transform parent, bool warn, float heightScale, string who)
+        {
+            GameObject inst = LoadModelInstance(path, warn, who);
+            if (inst == null) return null;
             ModelParts m = NewParts(parent);
             inst.transform.SetParent(m.Root, false);
             m.IsPlaceholder = false;
-            m.HeightScale = (float)look.Height;
+            m.HeightScale = heightScale;
             m.Height = 2.2f;
-            // Encaixes: objetos filhos do prefab com estes nomes (veja docs/VISUAL.md). Sem rig/Animator configurado, fica em pose estática.
+            // Encaixes: objetos filhos do prefab com estes nomes (veja docs/MODELOS.md).
             string[] names = { "hand_r", "hand_l", "head", "chest" };
             for (int i = 0; i < names.Length; i++)
             {
                 Transform f = FindDeep(inst.transform, names[i]);
                 if (f != null) m.Sockets[names[i]] = f;
             }
+            m.Rig = inst.GetComponentInChildren<Animator>();
             Prims.Hitbox(m.Root, 2.2f, 0.9f);
             return m;
         }
@@ -126,26 +143,52 @@ namespace Mmorpg.Game
             Transform r = m.Root;
             float armX = tw * 0.5f + 0.11f * limb;
 
+            // pernas: coxa + joelho + canela + bota com sola e ponta (o pivô fica no quadril para balançar ao andar)
             Transform legL = Prims.Pivot(r, "PernaE", new Vector3(-0.17f * limb, 0.9f, 0f));
             Transform legR = Prims.Pivot(r, "PernaD", new Vector3(0.17f * limb, 0.9f, 0f));
-            P(legL, PrimitiveType.Cylinder, "Perna", 0f, -0.42f, 0f, 0.22f * limb, 0.42f, 0.22f * limb, Dk(cloth, 0.65f));
-            P(legR, PrimitiveType.Cylinder, "Perna", 0f, -0.42f, 0f, 0.22f * limb, 0.42f, 0.22f * limb, Dk(cloth, 0.65f));
-            P(legL, PrimitiveType.Cube, "Bota", 0f, -0.86f, 0.05f, 0.24f * limb, 0.12f, 0.34f, Dk(accent, 0.5f));
-            P(legR, PrimitiveType.Cube, "Bota", 0f, -0.86f, 0.05f, 0.24f * limb, 0.12f, 0.34f, Dk(accent, 0.5f));
+            Transform[] legs = { legL, legR };
+            for (int i = 0; i < 2; i++)
+            {
+                Transform lg = legs[i];
+                Color pants = Dk(cloth, 0.65f);
+                P(lg, PrimitiveType.Cylinder, "Coxa", 0f, -0.22f, 0f, 0.25f * limb, 0.24f, 0.25f * limb, pants);
+                P(lg, PrimitiveType.Sphere, "Joelho", 0f, -0.45f, 0.01f, 0.21f * limb, 0.19f * limb, 0.21f * limb, Dk(pants, 0.9f));
+                P(lg, PrimitiveType.Cylinder, "Canela", 0f, -0.62f, 0f, 0.2f * limb, 0.19f, 0.2f * limb, pants);
+                P(lg, PrimitiveType.Cube, "Bota", 0f, -0.84f, 0.04f, 0.25f * limb, 0.16f, 0.36f, Dk(accent, 0.5f));
+                P(lg, PrimitiveType.Cube, "Sola", 0f, -0.93f, 0.05f, 0.26f * limb, 0.04f, 0.4f, new Color(0.12f, 0.1f, 0.09f));
+                P(lg, PrimitiveType.Cube, "CanoDaBota", 0f, -0.74f, 0f, 0.27f * limb, 0.1f, 0.27f * limb, Dk(accent, 0.6f));
+            }
 
-            P(r, PrimitiveType.Cube, "Tronco", 0f, 1.25f, 0f, tw, 0.78f, td, cloth);
-            P(r, PrimitiveType.Cube, "Cinto", 0f, 0.92f, 0f, tw + 0.04f, 0.1f, td + 0.04f, accent);
+            // tronco afunilado: peito largo, cintura estreita, quadril
+            P(r, PrimitiveType.Cube, "Peito", 0f, 1.37f, 0f, tw, 0.5f, td, cloth);
+            P(r, PrimitiveType.Cube, "Cintura", 0f, 1.04f, 0f, tw * 0.82f, 0.3f, td * 0.9f, Dk(cloth, 0.92f));
+            P(r, PrimitiveType.Cube, "Cinto", 0f, 0.92f, 0f, tw * 0.9f, 0.1f, td + 0.04f, accent);
+            P(r, PrimitiveType.Cube, "Fivela", 0f, 0.92f, td * 0.5f + 0.03f, 0.1f, 0.08f, 0.04f, Lt(accent, 0.4f));
+            P(r, PrimitiveType.Cube, "Quadril", 0f, 0.82f, 0f, tw * 0.95f, 0.16f, td * 0.95f, Dk(cloth, 0.7f));
+            P(r, PrimitiveType.Cylinder, "Pescoco", 0f, 1.68f, 0f, 0.16f, 0.07f, 0.16f, skin);
             if (look.Robe)
             {
-                // túnica na altura do joelho: as pernas e botas aparecem por baixo (antes a túnica ia até o chão e escondia tudo)
-                P(r, PrimitiveType.Cylinder, "Tunica", 0f, 0.70f, 0f, tw * 1.3f, 0.28f, td * 2.5f, cloth);
-                P(r, PrimitiveType.Cube, "BarraDaTunica", 0f, 0.43f, 0f, tw * 1.38f, 0.05f, td * 2.6f, accent);
+                // manto na altura do joelho, aberto na frente: costas e laterais + avental central; as pernas aparecem
+                Color robe = cloth;
+                P(r, PrimitiveType.Cube, "ManFundo", 0f, 0.68f, -td * 0.55f, tw * 1.3f, 0.52f, 0.07f, robe).transform.localRotation = Quaternion.Euler(-6f, 0f, 0f);
+                P(r, PrimitiveType.Cube, "ManLadoE", -tw * 0.62f, 0.68f, 0f, 0.07f, 0.52f, td * 1.4f, robe).transform.localRotation = Quaternion.Euler(0f, 0f, 7f);
+                P(r, PrimitiveType.Cube, "ManLadoD", tw * 0.62f, 0.68f, 0f, 0.07f, 0.52f, td * 1.4f, robe).transform.localRotation = Quaternion.Euler(0f, 0f, -7f);
+                P(r, PrimitiveType.Cube, "Avental", 0f, 0.66f, td * 0.55f, tw * 0.36f, 0.5f, 0.05f, Dk(robe, 0.8f));
+                P(r, PrimitiveType.Cube, "BarraDoAvental", 0f, 0.42f, td * 0.55f, tw * 0.4f, 0.04f, 0.06f, accent);
+                P(r, PrimitiveType.Cube, "BarraFundo", 0f, 0.43f, -td * 0.55f, tw * 1.34f, 0.04f, 0.09f, accent);
             }
             if (look.Cape) P(r, PrimitiveType.Cube, "Capa", 0f, 1.12f, -td * 0.5f - 0.07f, tw * 0.85f, 0.95f, 0.05f, Dk(accent, 0.8f));
 
             P(r, PrimitiveType.Sphere, "Cabeca", 0f, 1.85f, 0f, 0.42f, 0.44f, 0.42f, skin);
-            P(r, PrimitiveType.Sphere, "OlhoE", -0.09f, 1.88f, 0.17f, 0.07f, 0.07f, 0.05f, Color.white);
-            P(r, PrimitiveType.Sphere, "OlhoD", 0.09f, 1.88f, 0.17f, 0.07f, 0.07f, 0.05f, Color.white);
+            P(r, PrimitiveType.Sphere, "OlhoE", -0.09f, 1.88f, 0.17f, 0.075f, 0.075f, 0.05f, Color.white);
+            P(r, PrimitiveType.Sphere, "OlhoD", 0.09f, 1.88f, 0.17f, 0.075f, 0.075f, 0.05f, Color.white);
+            P(r, PrimitiveType.Sphere, "PupilaE", -0.09f, 1.88f, 0.2f, 0.035f, 0.035f, 0.03f, new Color(0.08f, 0.08f, 0.1f));
+            P(r, PrimitiveType.Sphere, "PupilaD", 0.09f, 1.88f, 0.2f, 0.035f, 0.035f, 0.03f, new Color(0.08f, 0.08f, 0.1f));
+            P(r, PrimitiveType.Cube, "SobrancelhaE", -0.09f, 1.95f, 0.18f, 0.1f, 0.02f, 0.03f, Dk(skin, 0.35f));
+            P(r, PrimitiveType.Cube, "SobrancelhaD", 0.09f, 1.95f, 0.18f, 0.1f, 0.02f, 0.03f, Dk(skin, 0.35f));
+            P(r, PrimitiveType.Sphere, "Nariz", 0f, 1.83f, 0.2f, 0.06f, 0.06f, 0.06f, Dk(skin, 0.92f));
+            P(r, PrimitiveType.Cube, "Boca", 0f, 1.76f, 0.19f, 0.09f, 0.015f, 0.03f, Dk(skin, 0.55f));
+            P(r, PrimitiveType.Sphere, "Cabelo", 0f, 1.93f, -0.05f, 0.45f, 0.34f, 0.44f, Dk(accent, 0.35f));
             Transform gear = Prims.Pivot(r, "AdornoDaClasse", new Vector3(0f, 0f, 0f));
             Headgear(gear, look.Headgear, cloth, accent);
             m.ClassHeadgear = gear;
@@ -154,8 +197,16 @@ namespace Mmorpg.Game
             Transform armL = Prims.Pivot(r, "BracoE", new Vector3(-armX, 1.6f, 0f));
             P(armR, PrimitiveType.Cylinder, "Braco", 0f, -0.32f, 0f, 0.16f * limb, 0.34f, 0.16f * limb, cloth);
             P(armL, PrimitiveType.Cylinder, "Braco", 0f, -0.32f, 0f, 0.16f * limb, 0.34f, 0.16f * limb, cloth);
-            P(armR, PrimitiveType.Sphere, "Mao", 0f, -0.68f, 0f, 0.14f, 0.14f, 0.14f, skin);
-            P(armL, PrimitiveType.Sphere, "Mao", 0f, -0.68f, 0f, 0.14f, 0.14f, 0.14f, skin);
+            Transform[] armsPair = { armR, armL };
+            for (int i = 0; i < 2; i++)
+            {
+                Transform ar = armsPair[i];
+                P(ar, PrimitiveType.Sphere, "Cotovelo", 0f, -0.34f, 0f, 0.15f * limb, 0.14f * limb, 0.15f * limb, Dk(cloth, 0.9f));
+                P(ar, PrimitiveType.Cylinder, "Punho", 0f, -0.6f, 0f, 0.15f * limb, 0.05f, 0.15f * limb, accent);
+                P(ar, PrimitiveType.Cube, "Mao", 0f, -0.7f, 0.01f, 0.13f, 0.14f, 0.07f, skin);
+                P(ar, PrimitiveType.Cube, "Dedos", 0f, -0.79f, 0.015f, 0.12f, 0.06f, 0.06f, Dk(skin, 0.95f));
+                P(ar, PrimitiveType.Cube, "Polegar", (i == 0 ? -1f : 1f) * 0.08f, -0.7f, 0.03f, 0.04f, 0.09f, 0.05f, skin);
+            }
             Shoulders(armR, armL, look.Shoulders, accent, limb);
 
             if (look.OffHand == "shield")
@@ -265,6 +316,8 @@ namespace Mmorpg.Game
         // ------------------------------------------------------------------ monstros
         public static ModelParts BuildMonster(MonsterDef def, Color categoryColor, Transform parent)
         {
+            ModelParts real = TryPrefab(MonstersFolder + def.Id, parent, false, 1f, def.Id);
+            if (real != null) { real.Height = 2.0f; return real; }
             switch (def.Id)
             {
                 case "lobo_selvagem": return Wolf(parent, new Color(0.45f, 0.4f, 0.34f), new Color(1f, 0.85f, 0.2f), false);

@@ -174,6 +174,9 @@ namespace Mmorpg.Game
         {
             Transform root = Prims.Pivot(_root.transform, "NPC - " + n.Name, new Vector3((float)n.X, 0f, (float)n.Z));
             root.localRotation = Quaternion.Euler(0f, 200f, 0f);
+            // modelo pronto: Resources/Models/Npcs/<id do npc> (veja docs/MODELOS.md); sem ele, o mercador de primitivas abaixo
+            GameObject real = ModelBuilder.LoadModelInstance(ModelBuilder.NpcsFolder + n.Id, false, n.Id);
+            if (real != null) { real.transform.SetParent(root, false); return; }
             Color robe = new Color(0.55f, 0.18f, 0.2f), skin = new Color(0.88f, 0.7f, 0.55f), wood = new Color(0.45f, 0.3f, 0.17f);
             Prims.Make(PrimitiveType.Capsule, "Corpo", root, new Vector3(0f, 1.0f, 0f), new Vector3(0.9f, 1.0f, 0.9f), robe, false);
             Prims.Make(PrimitiveType.Sphere, "Cabeca", root, new Vector3(0f, 2.2f, 0f), new Vector3(0.6f, 0.6f, 0.6f), skin, false);
