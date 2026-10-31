@@ -1,0 +1,9 @@
+  Determining projects to restore...
+  Restored /home/runner/work/Unnce-MMO-RPG-/Unnce-MMO-RPG-/ci/core/Mmorpg.Core.csproj (in 485 ms).
+  Mmorpg.Core -> /home/runner/work/Unnce-MMO-RPG-/Unnce-MMO-RPG-/ci/core/bin/Release/netstandard2.1/Mmorpg.Core.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:04.72
