@@ -1,0 +1,21 @@
+newmtl casca
+Ka 0.361 0.251 0.188
+Kd 0.361 0.251 0.188
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pinheiro
+Ka 0.122 0.353 0.220
+Kd 0.122 0.353 0.220
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pinheiro_escuro
+Ka 0.086 0.275 0.188
+Kd 0.086 0.275 0.188
+Ks 0 0 0
+d 1
+illum 1
+

@@ -1,0 +1,28 @@
+newmtl casca_escura
+Ka 0.247 0.173 0.125
+Kd 0.247 0.173 0.125
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl folha
+Ka 0.184 0.420 0.180
+Kd 0.184 0.420 0.180
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl folha_clara
+Ka 0.298 0.561 0.220
+Kd 0.298 0.561 0.220
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl folha_escura
+Ka 0.133 0.322 0.122
+Kd 0.133 0.322 0.122
+Ks 0 0 0
+d 1
+illum 1
+

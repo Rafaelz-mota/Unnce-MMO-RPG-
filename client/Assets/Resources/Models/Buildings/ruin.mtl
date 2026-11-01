@@ -1,0 +1,28 @@
+newmtl musgo
+Ka 0.322 0.498 0.235
+Kd 0.322 0.498 0.235
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pedra
+Ka 0.541 0.541 0.565
+Kd 0.541 0.541 0.565
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pedra_clara
+Ka 0.651 0.651 0.675
+Kd 0.651 0.651 0.675
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pedra_escura
+Ka 0.369 0.369 0.400
+Kd 0.369 0.369 0.400
+Ks 0 0 0
+d 1
+illum 1
+

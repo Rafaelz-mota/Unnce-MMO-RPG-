@@ -1,0 +1,56 @@
+newmtl janela
+Ka 0.173 0.227 0.333
+Kd 0.173 0.227 0.333
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl madeira
+Ka 0.478 0.322 0.188
+Kd 0.478 0.322 0.188
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl madeira_escura
+Ka 0.290 0.188 0.125
+Kd 0.290 0.188 0.125
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pedra
+Ka 0.541 0.541 0.565
+Kd 0.541 0.541 0.565
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pedra_clara
+Ka 0.651 0.651 0.675
+Kd 0.651 0.651 0.675
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl reboco
+Ka 0.847 0.796 0.690
+Kd 0.847 0.796 0.690
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl telhado
+Ka 0.557 0.231 0.173
+Kd 0.557 0.231 0.173
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl telhado_escuro
+Ka 0.431 0.169 0.125
+Kd 0.431 0.169 0.125
+Ks 0 0 0
+d 1
+illum 1
+

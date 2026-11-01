@@ -1,0 +1,21 @@
+newmtl pedra
+Ka 0.541 0.541 0.565
+Kd 0.541 0.541 0.565
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl pedra_escura
+Ka 0.369 0.369 0.400
+Kd 0.369 0.369 0.400
+Ks 0 0 0
+d 1
+illum 1
+
+newmtl runa
+Ka 0.851 0.227 0.157
+Kd 0.851 0.227 0.157
+Ks 0 0 0
+d 1
+illum 1
+

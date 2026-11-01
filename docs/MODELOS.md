@@ -85,3 +85,10 @@ Se o controlador **não** tiver `Dead`, o jogo deita o corpo por código ao morr
 - Humanoides compatíveis com o rig do Mixamo/Unity Humanoid funcionam melhor; o jogo não faz retarget de animações.
 - Efeitos das habilidades continuam sendo formas de código; só o corpo é trocado.
 - Um prefab de monstro não tem encaixes; a barra de vida e o nome ficam a ~2 m de altura, ajustável por `scale`.
+
+## Modelos gerados por código (já incluídos)
+`python3 tools/generate_models.py` recria, em OBJ + MTL (cores por material, sem textura), as árvores `tree_0..2`, `rock`,
+`ruin`, `camp`, `arena` e a aldeia (`house`, `tower`, `well`). Unidades em metros, base em y=0. O Unity importa sozinho
+(gera os `.meta`); `Resources.Load` acha o arquivo pelo nome. A aldeia aparece por obstáculos `house`/`well`/`tower` em `regions.json`.
+Para trocar por um modelo seu, apague o `.obj`/`.mtl` correspondente e coloque o seu com o mesmo nome. Modelos feitos aqui são
+estáticos: **não têm esqueleto** (rig precisa de FBX/GLB).
